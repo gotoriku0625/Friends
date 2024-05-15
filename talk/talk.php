@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>トーク</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../css/talk.css">
     <link rel="stylesheet" href="css/fontawesome-free-5.15.3-web/css/all.min.css">
     <script src=""></script>
 </head>
@@ -35,7 +35,7 @@ $userId=$pdo->prepare();// ユーザID
 $userName=$pdo->prepare();// ユーザネーム
 if(isset($_POST['submit']&&$_POST['submit']==="送信")){
     $talk=[];
-    $talk["person"]="";
+    $talk["person"]="person1";
     $talk["imgPath"]="#";
     $talk["text"]=htmlspecialchars($_POST['text'],ENT_QUOTES);
 
