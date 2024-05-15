@@ -16,7 +16,7 @@
             </div>
         <form class="send-box flex-box" action="talk.php#talk-area" method="post">
             <textarea id="textarea" type="text" name="text" rows="1" required placeholder="message"></textarea>
-            <input type="submit" name="submit" value="送信" id="send">
+            <input type="submit" name="submit" value="送信" id="serch">
             <label for="send"><i class="fa-regular fa-paper-plane"></i></label>
         </form>
         </div>
@@ -57,7 +57,7 @@ if(isset($_POST['submit'])&&$_POST['submit']==="送信"){
     header('Location:./talk.php');
     exit;
 }
-if($file==file_get_contents($J_file)){// ログがあるかの判定
+if($file=file_get_contents($J_file)){// ログがあるかの判定
     $file=json_decode($file);
     $array=$file->talklog;
     foreach($array as $object){

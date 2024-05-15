@@ -269,7 +269,7 @@ form {
         border-left: none;
         border-right: none;
     }
-    .chat-area {
+    .talk-area {
         height: 100vh;
         padding: 0px 15px;
     }
@@ -279,14 +279,14 @@ form {
     .send-box label {
         margin: 0;
     }
-    .chat-system .send-box.flex-box {
+    .talk-system .send-box.flex-box {
         width: 100%;
         padding: 10px 0px 30px;
         flex-direction: row;
         align-items: center;
         gap: 0 !important;
     }
-    .chat-box #textarea {
+    .talk-box #textarea {
         width: 70%;
         margin: 0;
         font-size: 1.3rem;
@@ -301,41 +301,41 @@ form {
         line-height: 30px;
         font-size: 1.6rem;
     }
-    .chat-area .chat {
+    .talk-area .talk {
         margin: 10px 15px;
         padding: 10px;
         max-width: 200px;
         word-wrap: break-word;
         font-size: 1.3rem;
     }
-    .chat-area img {
+    .talk-area img {
         width: 30px;
         height: 30px;
         margin: 10px 0;
         border-width: 2px;
     }
-    .chat-area .chat::after {
+    .talk-area .talk::after {
         bottom: 10px;
     }
-    .second .chat-area .person2 .chat::after {
+    .second .talk-area .person2 .talk::after {
         bottom: 10px;
     }
-    .chat-area .person2 .chat {
+    .talk-area .person2 .talk {
         margin-left: 45px;
     }
-    .second .chat-area .chat {
+    .second .talk-area .talk {
         margin-left: 45px;
     }
-    .chat-area .chat-time {
+    .talk-area .talk-time {
         left: -45px;
     }
-    .chat-area .person2 .chat-time {
+    .talk-area .person2 .talk-time {
         right: -45px;
     }
-    .second .chat-area .chat-time {
+    .second .talk-area .talk-time {
         right: -45px;
     }
-    .second .chat-area .person2 .chat-time {
+    .second .talk-area .person2 .talk-time {
         left: -45px;
     }
 }
