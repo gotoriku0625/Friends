@@ -33,7 +33,7 @@ $imagePath=$pdo->prepare('select icon_image from');
 // 画像パスをとってくる（talk,user,profileテーブルを結合してprofileテーブルからicon_imageを取得）
 $userId=$pdo->prepare();// ユーザID
 $userName=$pdo->prepare();// ユーザネーム
-if(isset($_POST['submit']&&$_POST['submit']==="送信")){
+if(isset($_POST['submit'])&&$_POST['submit']==="送信")){
     $talk=[];
     $talk["person"]="person1";
     $talk["imgPath"]="#";
