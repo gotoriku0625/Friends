@@ -57,7 +57,7 @@ if(isset($_POST['submit'])&&$_POST['submit']==="送信"){
     header('Location:./talk.php');
     exit;
 }
-if($file=file_get_contents($J_file)){// ログがあるかの判定
+if($file==file_get_contents($J_file)){// ログがあるかの判定
     $file=json_decode($file);
     $array=$file->talklog;
     foreach($array as $object){
