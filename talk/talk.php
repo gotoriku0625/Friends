@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>トーク</title>
     <link rel="stylesheet" href="../css/talk.css">
-    <link rel="stylesheet" href="css/fontawesome-free-5.15.3-web/css/all.min.css">
+    <script src="https://kit.fontawesome.com/75b2488170.js" crossorigin="anonymous"></script>
     <script src=""></script>
 </head>
 <body>
