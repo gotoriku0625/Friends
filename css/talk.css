@@ -84,7 +84,7 @@ body {
     margin: 30px 0;
 }
 
-.send-box .far.fa-paper-plane::before {
+.send-box .fa-regular.fa-paper-plane::before {
     font-size: 3.5rem;
     line-height: 44px;
     cursor: pointer;
@@ -98,13 +98,13 @@ body {
     transition: all 0.3s;
 }
 
-.far.fa-paper-plane:hover::before {
+.fa-regular.fa-paper-plane:hover::before {
     background-color: rgb(58, 157, 124);
     transition: all 0.3s;
     color: #fff;
 }
 
-.second .far.fa-paper-plane:hover::before {
+.second .fa-regular.fa-paper-plane:hover::before {
     background-color: rgb(194, 97, 97);
 }
 
@@ -294,7 +294,7 @@ form {
         min-height: 18px;
         padding: 4px;
     }
-    .send-box .far.fa-paper-plane::before {
+    .send-box .fa-regular.fa-paper-plane::before {
         width: 60px;
         height: 30px;
         margin: 0;

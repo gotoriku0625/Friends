@@ -17,7 +17,7 @@
         <form class="send-box flex-box" action="talk.php#talk-area" method="post">
             <textarea id="textarea" type="text" name="text" rows="1" required placeholder="message"></textarea>
             <input type="submit" name="submit" value="送信" id="serch">
-            <label for="send"><i class="fa-regular fa-paper-plane"></i></label>
+            <label for="serch"><i class="fa-regular fa-paper-plane"></i></label>
         </form>
         </div>
     </div>
