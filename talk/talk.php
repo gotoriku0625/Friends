@@ -63,10 +63,10 @@ if($file=file_get_contents($J_file)){// ログがあるかの判定
     foreach($array as $object){
         if(isset($result)){
             // 二回目以降
-            $result=$result.'<div class=">'.$object->person.'"><p class="talk">'.str_replace("\r\n","<br>",$object->text).'<span class="talk-time">'.$object->time.'</span></p><img src="'.$object->imgPath.'"></div>';
+            $result=$result.'<div class=">'.$object->person.'"><p class="talk">'.str_replace("\r\n","<br>",$object->text).'</p><img src="'.$object->imgPath.'"></div>';
         }else{
             // 一回目
-            $result='<div class="'.$object->person.'"><p class="talk">'.str_replace("\r\n","<br>",$object->text).'<span class="talk-time">'.$object->time.'</span></p><img src="'.$object->imgPath.'"></div>';
+            $result='<div class="'.$object->person.'"><p class="talk">'.str_replace("\r\n","<br>",$object->text).'</p><img src="'.$object->imgPath.'"></div>';
         }
     }
 }
