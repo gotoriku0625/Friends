@@ -13,6 +13,7 @@
         <div class="talk-box">
             <div class="talk-area" id="talk-area">
                 <?php echo $result; ?>
+                <?php echo var_dump($result); ?>
             </div>
         <form class="send-box flex-box" action="talk.php#talk-area" method="post">
             <textarea id="textarea" type="text" name="text" rows="1" required placeholder="message"></textarea>
