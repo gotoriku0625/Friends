@@ -20,6 +20,6 @@ ID/メールアドレス<br>
 <br>
 パスワード<br>
 <input type="text" name="pass">
-    <button type="submit">次へ</button>
+<button type="submit">次へ</button>
 </body>
 </html>
