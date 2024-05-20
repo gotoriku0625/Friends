@@ -15,7 +15,7 @@ body{
 }
 .logo{
     position: relative;
-    padding: auto;
+    padding: 50px;
     width: 200px;
     height: 100px;
 }
