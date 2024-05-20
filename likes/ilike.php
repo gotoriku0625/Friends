@@ -33,7 +33,7 @@ $result_liked = $stmt_liked->get_result();
   <title>いいね一覧</title>
 </head>
 <body>
-  <h1>いいねした人</h1>
+<h1>いいねした人</h1>
   <ul>
     <?php while ($row = $result_liked->fetch_assoc()) { ?>
       <li><?php echo htmlspecialchars($row['name']) . " (" . htmlspecialchars($row['age']) . ") - " . htmlspecialchars($row['bio']); ?></li>
