@@ -18,7 +18,7 @@ $sql=$pdo->prepare($imagePath);
             $sql->bindParam(':user_id',$current_user,PDO::PARAM_STR);
                 echo<<<EOF
                 <div class="mycomment right">
-                    <p>$message['text']</p><img src="../user_image/main/$sql->execute()" class="message_user_img">
+                    <p>$message['text']</p><img src="../user_image/main/$sql->execute();" class="message_user_img">
                 </div>
                 EOF;
             }else{
