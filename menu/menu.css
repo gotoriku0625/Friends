@@ -7,7 +7,7 @@ body{
     top: 0px;
     left: 0px;
     width: 300px;
-    height: max-content;
+    height: auto;
     background-color: aquamarine;
 }
 .main{
