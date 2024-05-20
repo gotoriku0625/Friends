@@ -1,0 +1,23 @@
+
+body{
+    position: relative;
+}
+.menu{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    height: 1000px;
+    background-color: aquamarine;
+}
+.main{
+    position: relative;
+}
+.logo{
+    position: relative;
+    top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 200px;
+    height: 100px;
+}
