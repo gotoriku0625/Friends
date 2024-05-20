@@ -1,5 +1,5 @@
 <?php require '../db-connect.php';?>
-
+<?php require 'function.php';?>
 <?php
 $current_user = get_user($_SESSION['user_id']);
 $destination_user = get_user($_GET['user_id']);

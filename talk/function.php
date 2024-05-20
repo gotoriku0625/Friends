@@ -19,7 +19,11 @@ function get_talks($sender_id,$reciver_id){
                where (sender_id = :id and reciver_id = :reciver_id) or (sender_id = :reciver_id and reciver_id = :id)
                ORDER BY created_at ASC';
         $sql=$pdo->prepare($talk);
-        $sql->execute(array(':id'=>$sender_id))
+        $sql->execute(array(':id'=>$sender_id,':reciver_id'=>$reciver));
+        return $sql->fetchAll();
+    }catch(\Exception $e){
+        error_log('エラー発生：'.$e->getMessage());
+        set_flash('error',ERR_MSG1);
     }
 }
 ?>
