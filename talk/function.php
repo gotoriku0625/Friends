@@ -1,3 +1,4 @@
+<?php require '../db-connect.php';?>
 <?php
 $pdo=new PDO($connect,USER,PASS);
 function get_user($user_id){
