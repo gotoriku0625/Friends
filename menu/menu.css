@@ -25,6 +25,12 @@ body{
     position: relative;
     padding-bottom: 30px;
 }
+.icon{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    color: #b8b8b8;
+}
 li{
     list-style:none;
     text-align: center;
