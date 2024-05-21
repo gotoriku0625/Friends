@@ -9,6 +9,7 @@ body{
     width: 300px;
     height: 1000px;
     background-color: aquamarine;
+    z-index: 10;
 }
 .main{
     position: relative;
@@ -30,6 +31,7 @@ body{
     height: 200px;
     border-radius: 50%;
     color: #b8b8b8;
+    z-index: 1;
 }
 li{
     list-style:none;
