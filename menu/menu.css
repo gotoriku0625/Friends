@@ -39,4 +39,5 @@ body{
 li{
     list-style:none;
     text-align: center;
+    text-decoration: none;
 }
