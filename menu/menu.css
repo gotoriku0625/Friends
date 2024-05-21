@@ -30,7 +30,7 @@ body{
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    color: #b8b8b8;
+    background-color: rgb(161, 161, 161);
     z-index: 1;
 }
 li{
