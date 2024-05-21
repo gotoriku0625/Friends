@@ -21,6 +21,9 @@ body{
     width: 200px;
     height: 100px;
 }
+.logo-space{
+    position: relative;
+}
 li{
     list-style:none;
     text-align: center;
