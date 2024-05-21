@@ -38,6 +38,10 @@ body{
     background-color: rgb(207, 207, 207);
     z-index: 1;
 }
+.name{
+    text-align: center;
+    padding: 20px 30px;
+}
 p{
     display: flex;
     list-style:none;
