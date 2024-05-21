@@ -27,10 +27,13 @@ body{
     padding-bottom: 30px;
 }
 .icon{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    color: #b8b8b8;
+    margin-top: 30px;
+    margin-left: 75px;
+    margin-bottom: 30px;
+    background-color: rgb(161, 161, 161);
     z-index: 1;
 }
 li{
