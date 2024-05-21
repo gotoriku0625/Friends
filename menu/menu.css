@@ -40,7 +40,8 @@ body{
 }
 .name{
     text-align: center;
-    padding: 30px;
+    padding: 28px;
+    font-size: 20px;
 }
 p{
     display: flex;
