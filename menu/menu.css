@@ -45,6 +45,7 @@ p{
     font-size: 25px;
 }
 a{
+    display: block;
     text-decoration: none;
     color: black;
     width: 200px;
