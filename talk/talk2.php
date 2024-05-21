@@ -16,9 +16,8 @@ $sql=$pdo->prepare($imagePath);
             echo '<div class="my_message">';
             if($message['user_id']==$current_user['id']){
             $sql->bindParam(':user_id',$current_user,PDO::PARAM_STR);
-                echo<<<EOF
-                <div class="mycomment right">
-                    <p>$message['text']</p><img src="../user_image/main/$sql->execute()" class="message_user_img">
+                echo'<div class="mycomment right">';
+                    <p>.$message['text'].</p><img src="../user_image/main/.$sql->execute()." class="message_user_img">
                 </div>
                 EOF;
             }else{
