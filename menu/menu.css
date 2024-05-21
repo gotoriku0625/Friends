@@ -16,8 +16,6 @@ body{
 }
 .logo{
     position: relative;
-    padding-top: 30px;
-    padding-bottom: 30px;
     padding-left: 50px;
     padding-right: 50px;
     width: 200px;
@@ -25,6 +23,7 @@ body{
 }
 .logo-space{
     position: relative;
+    padding-top: 30px;
     padding-bottom: 30px;
 }
 .icon{
