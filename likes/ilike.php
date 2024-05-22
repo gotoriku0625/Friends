@@ -8,6 +8,7 @@ $conn = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
 
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
+}
 ?>
 <!DOCTYPE html>
 <html>
