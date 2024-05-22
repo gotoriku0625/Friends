@@ -1,4 +1,3 @@
-<?php require '../db-connect.php';?>
 <?php require 'function.php';?>
 <?php
 $current_user = get_user($_SESSION['user_id']);// 現在ログインしているユーザー情報
@@ -35,5 +34,4 @@ $messages = get_messages($current_user['id'],$reciver['id']);// やり取りさ�
         </div>
     </div>   
 </body>
-</html>
 
