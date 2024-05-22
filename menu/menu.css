@@ -1,19 +1,19 @@
 
 body{
     position: relative;
+    display: flex;
 }
 .menu{
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 300px;
-    height: 1000px;
+    width: 32%;
+    height: 100%;
     background-color: aquamarine;
     z-index: 10;
 }
 .main{
     position: relative;
-    left: 300px;
 }
 .logo{
     position: relative;
