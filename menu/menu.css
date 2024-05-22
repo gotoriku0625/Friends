@@ -27,6 +27,8 @@ body{
 }
 .logo-space{
     position: relative;
+    display: flex;
+    justify-content: center;
     /* display: block;
     margin: 0 auto; */
     /* padding-top: 30px;
