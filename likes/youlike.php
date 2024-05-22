@@ -1,47 +1,61 @@
 <?php
-// $servername = 'mysql301.phy.lolipop.lan';
-// $username = 'LAA1517801';
-// $password = 'pass0625';
-// $dbname = 'LAA1517793-friends';
-
-// データベース接続の作成
-// $conn = new mysqli($servername, $username, $password, $dbname);
-
-// 接続をチェック
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }
+    const SERVER = 'mysql301.phy.lolipop.lan';
+    const DBNAME = 'LAA1517801-friends';
+    const USER = 'LAA1517801';
+    const PASS = 'pass0625';
+ 
+    $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
+    if ($connect->connect_error) {
+      die("Connection failed: " . $connect->connect_error);
+    }
 ?>
 <?php
-// session_start();
-// $current_user_id = $_SESSION['user_id'];  // ログインユーザーのID
+session_start();
+$current_user_id = $_SESSION['user_id'];  // ログインユーザーのID
 
-// いいねした人を取得
-// $sql_liked = "SELECT u.id, u.name, u.age, u.bio
-//               FROM likes l
-//               JOIN users u ON l.liked_user_id = u.id
-//               WHERE l.user_id = ?";
-// $stmt_liked = $conn->prepare($sql_liked);
-// $stmt_liked->bind_param("i", $current_user_id);
-// $stmt_liked->execute();
-// $result_liked = $stmt_liked->get_result();
+// いいねされた人を取得
+$sql_liked_by = "SELECT u.id, u.name, u.age, u.bio
+                 FROM likes l
+                 JOIN users u ON l.user_id = u.id
+                 WHERE l.liked_user_id = ?";
+$stmt_liked_by = $conn->prepare($sql_liked_by);
+stmt_liked_by->bind_param("i", $current_user_id);
+stmt_liked_by->execute();
+$result_liked_by = $stmt_liked_by->get_result();
 ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>いいね一覧</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu.css">
+    <title>menu</title>
 </head>
+
 <body>
-<button onclick="location.href='./ilike.php'">いいねした人</button>あなたへいいね
+    <div class="menu">
+        <div class="logo-space">
+            <a href="../top/top.html"><img src="../image/logo.png" class="logo"></a>
+        </div>
+        <div class="icon"></div>
+        <!-- バックエンドの方、ユーザーネームの出力お願いします -->
+        <div class="name">ユーザー名</div>
+        <div class="link-space">
+            <p><img src="../menu-image/parson-free-icon.png" class="parson-free-icon"><a href="../profile/profile.html">プロフィール</a></p>
+            <p><img src="../menu-image/seach-free-icon.png" class="seach-free-icon"><a href="../profile/search.php">さがす</a></p>
+            <p><img src="../menu-image/like-free-icon.png" class="like-free-icon"><a href="../profile/ilike.php">いいね</a></p>
+            <p><img src="../menu-image/community-free-icon.png" class="community-free-icon"><a href="../profile/community.php">コミュニティ</a></p>
+            <p><img src="../menu-image/talk-free-icon.png" class="talk-free-icon"><a href="../profile/talk.php">トーク</a></p>
+        </div>
+    </div>
+
+    <div class="main">
+    <button onclick="location.href='./ilike.php'">いいねした人</button>あなたへいいね
   <ul>
     <?php while ($row = $result_liked_by->fetch_assoc()) { ?>
       <li><?php echo htmlspecialchars($row['name']) . " (" . htmlspecialchars($row['age']) . ") - " . htmlspecialchars($row['bio']); ?></li>
     <?php } ?>
   </ul>
+    </div>
 </body>
 </html>
-
-<?php
-$conn->close();
-?>
