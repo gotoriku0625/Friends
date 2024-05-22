@@ -13,6 +13,7 @@ body{
 }
 .main{
     position: relative;
+    left: 300px;
 }
 .logo{
     position: relative;
@@ -31,25 +32,54 @@ body{
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-left: 75px;
     margin-right: 75px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     background-color: rgb(207, 207, 207);
     z-index: 1;
 }
-p{
-    list-style:none;
+.name{
     text-align: center;
+    padding: 28px;
+    font-size: 20px;
+}
+p{
+    display: flex;
+    list-style:none;
     margin-top: 0px;
+    padding: 0px 30px;
     font-size: 25px;
 }
 a{
+    display: block;
     text-decoration: none;
     color: black;
+    width: 200px;
+    text-align: center;
     /* font-weight: bold; */
 }
 .link-space{
     position: relative;
     padding-top: 30px;
+}
+.parson-free-icon{
+    width: 40px;
+    height: 40px;
+}
+.seach-free-icon{
+    width: 40px;
+    height: 40px;
+}
+.like-free-icon{
+    width: 40px;
+    height: 40px;
+}
+.community-free-icon{
+    width: 40px;
+    height: 40px;
+}
+.talk-free-icon{
+    width: 40px;
+    height: 40px;
 }
