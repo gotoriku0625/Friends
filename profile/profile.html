@@ -3,51 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../menu/menu.css">
+    <title>profile</title>
 </head>
 <body>
-    <p>プロフィール</p>
-    <p>サブ写真</p>
-    <image>
-    <p>ユーザー名</p>
-    <p>自己紹介</p>
-    <input type="text"size="100"style="line-height: 4;">
-    <p>趣味/特技</p>
-    <input type="text"size="100"style="line-height: 4;">
-    <p>性別</p>
-            <select id="sex" name="sex">
-                <option value="man">男</option>
-                <option value="woman">女</option>
-                <option value="another">その他</option>
-            </select>
-    <p>年齢</p>
-    <input type="text">
-    <p>血液型</p>
-            <select id="blood" name="blood">
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="o">O</option>
-                <option value="ab">AB</option>
-            </select>
-    <p>学校</p>
-    <input type="text" name="name">
-    <p>出身地</p>
-    <input type="text">
-    <p>居住地</p>
-    <input type="text">
-    <p>休日の過ごし方</p>
-    <input type="text"size="100"style="line-height: 4;">
-    <form>
-        <label for="option1">
-            <input type="checkbox" id="option1" name="options" value="Option 1">
-            飲酒
-        </label>
-        <label for="option2">
-            <input type="checkbox" id="option2" name="options" value="Option 2">
-            喫煙
-        </label>
-        <br>
-        <input type="submit" value="保存">
-    </form>
+    <div class="menu">
+        <div class="logo-space">
+            <a href="../top/top.html"><img src="../image/logo.png" class="logo"></a>
+        </div>
+        <div class="icon"></div>
+        <!-- バックエンドの方、ユーザーネームの出力お願いします -->
+        <div class="name">ユーザー名</div>
+        <div class="link-space">
+            <p><img src="../menu-image/parson-free-icon.png" class="parson-free-icon"><a href="../profile/profile.html">プロフィール</a></p>
+            <p><img src="../menu-image/seach-free-icon.png" class="seach-free-icon"><a href="../profile/search.php">さがす</a></p>
+            <p><img src="../menu-image/like-free-icon.png" class="like-free-icon"><a href="../profile/ilike.php">いいね</a></p>
+            <p><img src="../menu-image/community-free-icon.png" class="community-free-icon"><a href="../profile/community.php">コミュニティ</a></p>
+            <p><img src="../menu-image/talk-free-icon.png" class="talk-free-icon"><a href="../profile/talk.php">トーク</a></p>
+        </div>
+    </div>
+    
+    <div class="main">
+        <p>プロフィール</p>
+        <p>サブ写真</p>
+            <image>
+        <p>ユーザー名</p>
+        <p>自己紹介</p>
+            <input type="text"size="100"style="line-height: 4;">
+        <p>趣味/特技</p>
+            <input type="text"size="100"style="line-height: 4;">
+        <p>性別</p>
+                <select id="sex" name="sex">
+                    <option value="man">男</option>
+                    <option value="woman">女</option>
+                    <option value="another">その他</option>
+                </select>
+        <p>年齢</p>
+            <input type="text">
+        <p>血液型</p>
+                <select id="blood" name="blood">
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="o">O</option>
+                    <option value="ab">AB</option>
+                </select>
+        <p>学校</p>
+            <input type="text" name="name">
+        <p>出身地</p>
+            <input type="text">
+        <p>居住地</p>
+            <input type="text">
+        <p>休日の過ごし方</p>
+            <input type="text"size="100"style="line-height: 4;">
+        <form>
+            <label for="option1">
+                <input type="checkbox" id="option1" name="options" value="Option 1">
+                飲酒
+            </label>
+            <label for="option2">
+                <input type="checkbox" id="option2" name="options" value="Option 2">
+                喫煙
+            </label>
+            <br>
+            <input type="submit" value="保存">
+        </form>
+    </div>
 </body>
 </html>
