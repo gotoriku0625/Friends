@@ -1,32 +1,14 @@
 <?php
-// $servername = 'mysql301.phy.lolipop.lan';
-// $username = 'LAA1517801';
-// $password = 'pass0625';
-// $dbname = 'LAA1517793-friends';
+const SERVER = 'mysql301.phy.lolipop.lan';
+const DBNAME = 'LAA1517801-friends';
+const USER = 'LAA1517801';
+const PASS = 'pass0625';
 
-// データベース接続の作成
-// $conn = new mysqli($servername, $username, $password, $dbname);
+$conn = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
 
-// 接続をチェック
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 ?>
-<?php
-// session_start();
-// $current_user_id = $_SESSION['user_id'];  // ログインユーザーのID
-
-// いいねした人を取得
-// $sql_liked = "SELECT u.id, u.name, u.age, u.bio
-//               FROM likes l
-//               JOIN users u ON l.liked_user_id = u.id
-//               WHERE l.user_id = ?";
-// $stmt_liked = $conn->prepare($sql_liked);
-// $stmt_liked->bind_param("i", $current_user_id);
-// $stmt_liked->execute();
-// $result_liked = $stmt_liked->get_result();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +23,4 @@
   </ul>
 </body>
 </html>
-
-<?php
-$conn->close();
 ?>
