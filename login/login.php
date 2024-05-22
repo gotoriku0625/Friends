@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php require '../db-connect.php';?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -14,35 +15,34 @@
     <p>ID</p>
         <input type="text" name="id">
     <p>pass</p>
-        <input type="password" name="name">
-    <button type="submit">ログイン</button>
+        <input type="password" name="password">
+    <button type="submit" name="送信">ログイン</button>
 </form>
-<form action="../profile/profile-user.html">
-    <button type="submit">新規登録</button>
-</form>
+    <a href="../kaiin/kaiin1.html">新規会員登録</a>
 </body>
 </html>
 
 <?php
     $pdo=new PDO($connect,USER,PASS);
-    $login=
-    foreach($sql as $row){
-        if(password_verify($_POST['password'],$row['pass']) == true){//ハッシュ化したパスワードと一致しているか
-            $_SESSION['customer']=[
-                'id'=>$row['user_id'],'kanji'=>$row['user_name_kanji'],'kana'=>$row['user_name_kana'],'login_mail'=>$row['login_id_mail'],
-                'postcode'=>$row['postcode'],'address'=>$row['address'],'phone'=>$row['phone_number'],'password'=>$_POST['password'],'sports'=>$row['sports_id']
-            ];
+    $sql=$pdo->prepare('select user_id from user where mail=?');
+    if(isset($_POST['submit']) && $_POST['submit'] === "送信"){
+        $sql->execute([$_POST['id']]);
+        foreach($sql as $row){
+            if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
+                $_SESSION['user_id']=$row['user_id'];
+            }
         }
-    }
-    if(isset($_SESSION['customer'])){
-        echo <<<EOS
-        <script>
-        location.href='https://aso2201147.tonkotsu.jp/Friends/top/Top.php';
-        </script> 
-        \n
-        EOS;
-    }else{
-        echo '<br><h2>ログイン名またはパスワードが違います。</h2><br>';
-        echo '<br><br><a href="../login/login-input.php" class="btn-square-emboss3">ログインへ</a><br><br>';
+        if(isset($_SESSION['user_id'])){
+            echo <<<EOS
+            <script>
+            location.href='https://aso2201147.tonkotsu.jp/Friends/top/top.php';
+            </script> 
+            \n
+            EOS;
+        }else{
+            echo '<p>ログイン名またはパスワードが違います。</p>';
+        }
+        header('Location:./login.php');
+        exit;
     }
 ?>
