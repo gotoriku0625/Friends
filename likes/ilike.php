@@ -27,6 +27,7 @@
 
     <div class="main">
     いいねした人<button onclick="location.href='./youlike.php'">あなたへいいね</button>
+    <hr></hr>
   <ul>
     <?php while ($row = $result_liked->fetch_assoc()) { ?>
       <li><?php echo htmlspecialchars($row['name']) . " (" . htmlspecialchars($row['age']) . ") - " . htmlspecialchars($row['bio']); ?></li>
