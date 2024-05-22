@@ -19,7 +19,7 @@ body{
 .logo{
     position: relative;
     display: block;
-    margin: 0 auto;
+    margin:  auto 0;
     /* padding-left: 50px;
     padding-right: 50px; */
     width: 200px;
