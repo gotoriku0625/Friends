@@ -18,7 +18,7 @@ body{
 }
 .logo{
     position: relative;
-    display: block;
+    /* display: block; */
     margin: 0 auto;
     /* padding-left: 50px;
     padding-right: 50px; */
