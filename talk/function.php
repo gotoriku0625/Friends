@@ -34,7 +34,10 @@ function get_talks($sender_id,$reciver_id){// やり取りされるメッセー�
 function check_relation_talk($user_id,$reciver_id){// talk_memberテーブルに自分のIDと送信先ユーザーのIDがあるかどうか確認
     try{
         $relation='select sender_id,reciver_id
-                   from '
+                   from ';
+    }catch(\Exception $e){
+        error_log('エラー発生：'.$e->getMessage());
+        set_flash('error',ERR_MSG1);
     }
 }
 ?>
