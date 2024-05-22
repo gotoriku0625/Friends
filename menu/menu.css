@@ -13,6 +13,7 @@ body{
 }
 .main{
     position: relative;
+    left: 300px;
 }
 .logo{
     position: relative;
