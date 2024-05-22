@@ -18,14 +18,15 @@ body{
 }
 .logo{
     position: relative;
-    padding-left: 50px;
-    padding-right: 50px;
+    margin: 0 auto;
+    /* padding-left: 50px;
+    padding-right: 50px; */
     width: 200px;
     height: 100px;
 }
 .logo-space{
     position: relative;
-    display: block;
+    /* display: block; */
     margin: 0 auto;
     /* padding-top: 30px;
     padding-bottom: 30px; */
