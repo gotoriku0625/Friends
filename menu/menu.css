@@ -19,7 +19,7 @@ body{
 .logo{
     position: relative;
     /* display: block; */
-    margin: 0 auto;
+    /* margin: 0 auto; */
     /* padding-left: 50px;
     padding-right: 50px; */
     width: 200px;
@@ -27,7 +27,7 @@ body{
 }
 .logo-space{
     position: relative;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     /* display: block;
     margin: 0 auto; */
