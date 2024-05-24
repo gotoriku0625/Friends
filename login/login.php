@@ -16,7 +16,7 @@
         <input type="text" name="id">
     <p>pass</p>
         <input type="password" name="password">
-    <button type="submit" name="送信">ログイン</button>
+    <button type="submit" name="login" value="ログイン">ログイン</button>
 </form>
     <a href="../kaiin/kaiin1.html">新規会員登録</a>
 </body>
@@ -25,7 +25,7 @@
 <?php
     $pdo=new PDO($connect,USER,PASS);
     $sql=$pdo->prepare('select user_id from user where mail=?');
-    if(isset($_POST['submit']) && $_POST['submit'] === "送信"){
+    if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
         $sql->execute([$_POST['id']]);
         foreach($sql as $row){
             if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
