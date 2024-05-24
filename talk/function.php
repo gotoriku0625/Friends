@@ -34,7 +34,14 @@ function get_talks($sender_id,$reciver_id){// やり取りされるメッセー�
 function check_relation_talk($user_id,$reciver_id){// talk_memberテーブルに自分のIDと送信先ユーザーのIDがあるかどうか確認
     try{
         $relation='select sender_id,reciver_id
-                   from ';
+                   from talk_member
+                   where (sender_id=:sender_id and reciver_id=:reciver_id)
+                   or (sender_id=:reciver_id and reciver_id=:sender_id)';
+        
+        $sql=$pdo->prepare($relation);
+        $sql->execute(array(':sender_id'=>$user_id,
+                            ':reciver_id'=>$reciver_id));
+        return $sql->fetch();
     }catch(\Exception $e){
         error_log('エラー発生：'.$e->getMessage());
         set_flash('error',ERR_MSG1);
