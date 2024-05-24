@@ -1,7 +1,7 @@
 <?php require '../db-connect.php';?>
 <?php
-$pdo=new PDO($connect,USER,PASS);
 function get_user($user_id){// 現在ログインしているユーザー情報
+    $pdo=new PDO($connect,USER,PASS);
     try{
         // ユーザ情報取得
         $user='select user_id,user_name,nick_name,icon_image,gender 
@@ -17,6 +17,7 @@ function get_user($user_id){// 現在ログインしているユーザー情報
 }
 
 function get_talks($sender_id,$reciver_id){// やり取りされるメッセージ情報
+    $pdo=new PDO($connect,USER,PASS);
     try{
         // トークのユーザー同士の情報を取得する
         $talk='select * from talk 
@@ -32,6 +33,7 @@ function get_talks($sender_id,$reciver_id){// やり取りされるメッセー�
 }
 
 function check_relation_talk($user_id,$reciver_id){// talk_memberテーブルに自分のIDと送信先ユーザーのIDがあるかどうか確認
+    $pdo=new PDO($connect,USER,PASS);
     try{
         $relation='select sender_id,reciver_id
                    from talk_member
