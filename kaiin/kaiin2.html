@@ -1,18 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="javascript/kaiin2.js"></script>
+    <!-- <script src="javascript/kaiin2.js"></script> -->
     <title>新規会員登録２</title>
 </head>
     <body>
         <p>新規会員登録</p>
         <hr>
         <!-- 画像表示 -->
-        <input type="file" id="fileInput" accept="image/*">
-        <img id="imageDisplay" src="" alt="選択された画像" style="display: none; max-width: 100%; height: auto;">
-         <p>アイコンの画像を入れたら次へを押す</p>
+        <input type="file" id="Myimg" name="image">
+        <img id="icon" class="icon" alt="選択された画像">
+         <p>アイコンの画像を選択したら次へを押す</p>
         <button type="submit">次へ</button>
     </body>
-</html>
+
+<script type="text/javascript">//選択した画像を表示する
+    const Myimg = document.getElementById("Myimg");
+    Myimg.addEventListener("change", function (e) {
+    const file = e.target.files[0];//複数ファイルはfiles配列をループで回す
+    const reader = new FileReader();
+    const display = document.getElementById("icon");
+    reader.addEventListener("load", function () {
+        display.src = reader.result;
+    }, false);
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+})
