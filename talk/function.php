@@ -12,7 +12,6 @@ function get_user($user_id){// 現在ログインしているユーザー情報
         return $sql->fetch();
     }catch(\Exception $e){
         error_log('エラー発生：'.$e->getMessage());
-        set_flash('error',ERR_MSG1);
     }
 }
 
@@ -28,7 +27,6 @@ function get_talks($sender_id,$reciver_id){// やり取りされるメッセー�
         return $sql->fetchAll();
     }catch(\Exception $e){
         error_log('エラー発生：'.$e->getMessage());
-        set_flash('error',ERR_MSG1);
     }
 }
 
@@ -46,7 +44,6 @@ function check_relation_talk($user_id,$reciver_id){// talk_memberテーブルに
         return $sql->fetch();
     }catch(\Exception $e){
         error_log('エラー発生：'.$e->getMessage());
-        set_flash('error',ERR_MSG1);
     }
 }
 ?>
