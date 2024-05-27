@@ -38,19 +38,21 @@ body{
 }
 .icon{
     position: relative;
-    width: 170px;
-    height: 170px;
+    width: 35%;
+    height: 35%;
     border-radius: 50%;
-    margin-top: 10%;
-    margin-left: 100%;
+    /* margin-top: 10%;
+    margin-left: 100%; */
     /* margin-right: 100%; */
-    margin-bottom: 10%;
+    /* margin-bottom: 10%; */
     background-color: rgb(207, 207, 207);
     z-index: 1;
 }
 .icon-space{
     position: relative;
-    width: 21%;
+    display: flex;
+    justify-content: center;
+    /* width: 21%; */
     /* height: 100%; */
 }
 .name{
