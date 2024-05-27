@@ -45,6 +45,7 @@ body{
     /* margin-left: 20%;
     margin-right: 20%; */
     margin-bottom: 10%;
+    display: flex;
     justify-content: center;
     background-color: rgb(207, 207, 207);
     z-index: 1;
