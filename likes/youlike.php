@@ -35,11 +35,33 @@
     <div class="main">
     <button onclick="location.href='./ilike.php'">いいねした人</button>あなたへいいね
     <hr></hr>
-  <ul>
-    <?php while ($row = $result_liked_by->fetch_assoc()) { ?>
-      <li><?php echo htmlspecialchars($row['name']) . " (" . htmlspecialchars($row['age']) . ") - " . htmlspecialchars($row['bio']); ?></li>
-    <?php } ?>
-  </ul>
+    <div id="liked_user_id">
+    <script>
+        const userId = 1; // 表示したいユーザーのID
+
+        function fetchLikes(type, containerId) {
+            fetch(`/${type}.php?user_id=${userId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById(containerId);
+                    if (data.message) {
+                        container.innerHTML = `<p>${data.message}</p>`;
+                    } else {
+                        const list = document.createElement('ul');
+                        data.forEach(like => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = like.username;
+                            list.appendChild(listItem);
+                        });
+                        container.appendChild(list);
+                    }
+                })
+                .catch(error => console.error('Error fetching likes:', error));
+        }
+
+        fetchLikes('likes_given', 'likes-given');
+        fetchLikes('likes_received', 'likes-received');
+    </script>
     </div>
 </body>
 </html>
