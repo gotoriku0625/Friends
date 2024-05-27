@@ -26,13 +26,35 @@
     </div>
 
     <div class="main">
-    いいねした人<button onclick="location.href='./youlike.php'">あなたへいいね</button>
+    いいねした人<img src="../menu-image/like-free-icon.png" class="like-free-icon"><button onclick="location.href='./youlike.php'">あなたへいいね</button>
     <hr></hr>
-  <ul>
-    <?php while ($row = $result_liked->fetch_assoc()) { ?>
-      <li><?php echo htmlspecialchars($row['name']) . " (" . htmlspecialchars($row['age']) . ") - " . htmlspecialchars($row['bio']); ?></li>
-    <?php } ?>
-  </ul>
+    <div id="likes_user_id">
+    <script>
+        const userId = 1; // 表示したいユーザーのID
+
+        function fetchLikes(type, containerId) {
+            fetch(`/${type}.php?user_id=${userId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById(containerId);
+                    if (data.message) {
+                        container.innerHTML = `<p>${data.message}</p>`;
+                    } else {
+                        const list = document.createElement('ul');
+                        data.forEach(like => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = like.username;
+                            list.appendChild(listItem);
+                        });
+                        container.appendChild(list);
+                    }
+                })
+                .catch(error => console.error('Error fetching likes:', error));
+        }
+
+        fetchLikes('likes_given', 'likes-given');
+        fetchLikes('likes_received', 'likes-received');
+    </script>
     </div>
 </body>
 </html>
