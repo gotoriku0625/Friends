@@ -38,20 +38,30 @@ body{
 }
 .icon{
     position: relative;
-    width: 170px;
-    height: 170px;
+    width: 35%;
+    height: 35%;
     border-radius: 50%;
-    margin-top: 10%;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-bottom: 10%;
+    /* margin-top: 10%;
+    margin-left: 100%; */
+    /* margin-right: 100%; */
+    /* margin-bottom: 10%; */
+    display: flex;
+    justify-content: center;
     background-color: rgb(207, 207, 207);
-    z-index: 1;
+    z-index: 8;
+}
+.icon-space{
+    position: relative;
+    width: 21%;
+    z-index: 9;
+    z-index: 9;
+    /* height: 100%; */
 }
 .name{
     text-align: center;
     padding: ;
     font-size: 20px;
+    z-index: 1;
 }
 p{
     display: flex;
@@ -59,6 +69,7 @@ p{
     margin-top: 0px;
     padding: ;
     font-size: 25px;
+    z-index: 1;
 }
 a{
     display: block;
@@ -66,29 +77,36 @@ a{
     color: black;
     width: ;
     text-align: center;
+    z-index: 1;
     /* font-weight: bold; */
 }
 .link-space{
     position: relative;
     padding-top: ;
+    z-index: 5;
 }
 .parson-free-icon{
-    width: ;
-    height: ;
+    width: 20%;
+    height: 8%;
+    z-index: 1;
 }
 .seach-free-icon{
-    width: ;
-    height: ;
+    width: 20%;
+    height: 8%;
+    z-index: 1;
 }
 .like-free-icon{
-    width: ;
-    height: ;
+    width: 20%;
+    height: 8%;
+    z-index: 1;
 }
 .community-free-icon{
-    width: ;
-    height: ;
+    width: 20%;
+    height: 8%;
+    z-index: 1;
 }
 .talk-free-icon{
-    width: ;
-    height:;
+    width: 20%;
+    height: 8%;
+    z-index: 1;
 }
