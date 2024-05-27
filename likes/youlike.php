@@ -5,30 +5,13 @@
     const PASS = 'pass0625';
  
     $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
-    if ($connect->connect_error) {
-      die("Connection failed: " . $connect->connect_error);
-    }
-?>
-<?php
-session_start();
-$current_user_id = $_SESSION['user_id'];  // ログインユーザーのID
-
-// いいねされた人を取得
-$sql_liked_by = "SELECT u.id, u.name, u.age, u.bio
-                 FROM likes l
-                 JOIN users u ON l.user_id = u.id
-                 WHERE l.liked_user_id = ?";
-$stmt_liked_by = $conn->prepare($sql_liked_by);
-stmt_liked_by->bind_param("i", $current_user_id);
-stmt_liked_by->execute();
-$result_liked_by = $stmt_liked_by->get_result();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="../menu/menu.css">
     <title>menu</title>
 </head>
 
@@ -42,15 +25,16 @@ $result_liked_by = $stmt_liked_by->get_result();
         <div class="name">ユーザー名</div>
         <div class="link-space">
             <p><img src="../menu-image/parson-free-icon.png" class="parson-free-icon"><a href="../profile/profile.html">プロフィール</a></p>
-            <p><img src="../menu-image/seach-free-icon.png" class="seach-free-icon"><a href="../profile/search.php">さがす</a></p>
-            <p><img src="../menu-image/like-free-icon.png" class="like-free-icon"><a href="../profile/ilike.php">いいね</a></p>
-            <p><img src="../menu-image/community-free-icon.png" class="community-free-icon"><a href="../profile/community.php">コミュニティ</a></p>
-            <p><img src="../menu-image/talk-free-icon.png" class="talk-free-icon"><a href="../profile/talk.php">トーク</a></p>
+            <p><img src="../menu-image/seach-free-icon.png" class="seach-free-icon"><a href="../search/search.php">さがす</a></p>
+            <p><img src="../menu-image/like-free-icon.png" class="like-free-icon"><a href="../likes/ilike.php">いいね</a></p>
+            <p><img src="../menu-image/community-free-icon.png" class="community-free-icon"><a href="../community/community.php">コミュニティ</a></p>
+            <p><img src="../menu-image/talk-free-icon.png" class="talk-free-icon"><a href="../talk/talk.php">トーク</a></p>
         </div>
     </div>
 
     <div class="main">
     <button onclick="location.href='./ilike.php'">いいねした人</button>あなたへいいね
+    <hr></hr>
   <ul>
     <?php while ($row = $result_liked_by->fetch_assoc()) { ?>
       <li><?php echo htmlspecialchars($row['name']) . " (" . htmlspecialchars($row['age']) . ") - " . htmlspecialchars($row['bio']); ?></li>
