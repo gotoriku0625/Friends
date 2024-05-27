@@ -5,8 +5,8 @@ body{
 }
 .menu{
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0%;
+    left: 0%;
     width: 21%;
     height: 100%;
     background-color: aquamarine;
@@ -24,8 +24,8 @@ body{
     padding-right: 50px; */
     margin-top: 15%;
     margin-bottom: 15%;
-    width: 200px;
-    height: 100px;
+    width: 20%;
+    height: 10%;
 }
 .logo-space{
     position: relative;
@@ -50,45 +50,45 @@ body{
 }
 .name{
     text-align: center;
-    padding: 28px;
+    padding: ;
     font-size: 20px;
 }
 p{
     display: flex;
     list-style:none;
     margin-top: 0px;
-    padding: 0px 30px;
+    padding: ;
     font-size: 25px;
 }
 a{
     display: block;
     text-decoration: none;
     color: black;
-    width: 200px;
+    width: ;
     text-align: center;
     /* font-weight: bold; */
 }
 .link-space{
     position: relative;
-    padding-top: 30px;
+    padding-top: ;
 }
 .parson-free-icon{
-    width: 40px;
-    height: 40px;
+    width: ;
+    height: ;
 }
 .seach-free-icon{
-    width: 40px;
-    height: 40px;
+    width: ;
+    height: ;
 }
 .like-free-icon{
-    width: 40px;
-    height: 40px;
+    width: ;
+    height: ;
 }
 .community-free-icon{
-    width: 40px;
-    height: 40px;
+    width: ;
+    height: ;
 }
 .talk-free-icon{
-    width: 40px;
-    height: 40px;
+    width: ;
+    height:;
 }
