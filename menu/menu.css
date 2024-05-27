@@ -51,8 +51,8 @@ body{
 .icon-space{
     position: relative;
     display: flex;
-    justify-content: center;
-    /* width: 21%; */
+    /* justify-content: center; */
+    width: 21%;
     /* height: 100%; */
 }
 .name{
