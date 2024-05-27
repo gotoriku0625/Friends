@@ -22,7 +22,8 @@ body{
     /* margin: 0 auto; */
     /* padding-left: 50px;
     padding-right: 50px; */
-    top: 15%;
+    margin-top: 15%;
+    margin-bottom: 15%;
     width: 200px;
     height: 100px;
 }
