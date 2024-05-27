@@ -83,30 +83,30 @@ a{
 .link-space{
     position: relative;
     padding-top: ;
-    z-index: 1;
+    z-index: 5;
 }
 .parson-free-icon{
-    width: ;
-    height: ;
+    width: 30%;
+    height: 10%;
     z-index: 1;
 }
 .seach-free-icon{
-    width: ;
-    height: ;
+    width: 30%;
+    height: 10%;
     z-index: 1;
 }
 .like-free-icon{
-    width: ;
-    height: ;
+    width: 30%;
+    height: 10%;
     z-index: 1;
 }
 .community-free-icon{
-    width: ;
-    height: ;
+    width: 30%;
+    height: 10%;
     z-index: 1;
 }
 .talk-free-icon{
-    width: ;
-    height:;
+    width: 30%;
+    height: 10%;
     z-index: 1;
 }
