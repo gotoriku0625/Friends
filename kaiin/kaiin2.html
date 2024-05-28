@@ -7,10 +7,12 @@
         <p>新規会員登録</p>
         <hr>
         <!-- 画像表示 -->
-        <input type="file" id="Myimg" name="image">
-        <img id="icon" class="icon" alt="選択された画像">
-         <p>アイコンの画像を選択したら次へを押す</p>
-        <button type="submit">次へ</button>
+        <form action="kaiin4.php" method="post">
+            <input type="file" id="Myimg" name="image">
+                <img id="icon" class="icon" alt="選択された画像">
+                <p>アイコンの画像を選択したら次へを押す</p>
+            <button type="submit">次へ</button>
+        </form>
     </body>
 
 <script type="text/javascript">//選択した画像を表示する
