@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && (isset($_GET['age']) || isset($_GET['
             <option value="">選択してください</option>
             <option value="男性" <?php echo (isset($_GET['gender']) && $_GET['gender'] == '男性') ? 'selected' : ''; ?>>男性</option>
             <option value="女性" <?php echo (isset($_GET['gender']) && $_GET['gender'] == '女性') ? 'selected' : ''; ?>>女性</option>
-            <option value="その他" <?php echo (isset($_GET['gender']) && $_GET['gender'] == '女性') ? 'selected' : ''; ?>>その他</option>
+            <option value="その他" <?php echo (isset($_GET['gender']) && $_GET['gender'] == 'その他') ? 'selected' : ''; ?>>その他</option>
         </select><br>
         <label for="preset-queries-residence">現住居:</label>
         <select id="preset-queries-residence" onchange="setResidenceInput()">
@@ -173,17 +173,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && (isset($_GET['age']) || isset($_GET['
 </select><br>
         <input type="submit" value="検索">
     </form>
-    <h1>検索結果</h1>
-    <?php if (!empty($results)): ?>
-        <ul>
-            <?php foreach ($results as $user): ?>
-                <li><?php echo htmlspecialchars($user['name']); ?> - <?php echo htmlspecialchars($user['age']); ?> - <?php echo htmlspecialchars($user['residence']); ?></li>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <?php if ($_SERVER['REQUEST_METHOD'] == 'GET'): // フォームが送信されたが結果がない場合のみメッセージを表示 ?>
-            <p>検索結果がありません。</p>
-        <?php endif; ?>
-    <?php endif; ?>
+    
 </body>
 </html>
