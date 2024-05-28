@@ -35,10 +35,19 @@
                             order by user.user_id
                             limit 10');
         $sql->execute($_SESSION['user_id']);
-
-        
-
-
+        foreach($sql as $row){
+            // アイコンとユーザー名、年齢を表示
+            $row['icon_image'];// アイコン
+            $row['nick_name'];// ユーザー名
+            $row['age'];// 年齢
+            if($row['gender']==='男性'){
+                // アイコンの枠の色を青色に
+            }else if($row['gender']==='女性'){
+                // アイコンの枠の色を赤色に
+            }else{
+                // アイコンの枠の色を灰色に
+            }
+        }
         ?>
         
     </div>
