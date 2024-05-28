@@ -1,11 +1,23 @@
+<<<<<<< Updated upstream
 <head>
     <meta charset="UTF-8">
     <!-- <script src="javascript/kaiin2.js"></script> -->
+=======
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="javascript/kaiin2.js" defer></script>
+>>>>>>> Stashed changes
     <title>新規会員登録２</title>
+    <link rel="stylesheet" href="css/kaiin2.css">
 </head>
-    <body>
-        <p>新規会員登録</p>
+<body>
+    <div id="center">
+        <p class="title">新規会員登録</p>
         <hr>
+<<<<<<< Updated upstream
         <!-- 画像表示 -->
         <input type="file" id="Myimg" name="image">
         <img id="icon" class="icon" alt="選択された画像">
@@ -27,3 +39,22 @@
         reader.readAsDataURL(file);
     }
 })
+=======
+        <form action="kaiin3.html" method="post">
+            <div id="space">
+                <!-- 画像表示 -->
+                <input type="file" id="fileInput" accept="image/*">
+                <div class="image-container">
+                    <img id="imageDisplay" src="" >
+                    <span class="image-text"></span>
+                </div>
+                <p>アイコンの画像を入れたら次へを押す</p>
+                <button type="button" class="submit-btn" onclick="history.back()">戻る</button>
+                <button type="submit" class="submit-btn">次へ</button>
+            </div>   
+        </form>
+    </div>
+</body>
+</html>
+
+>>>>>>> Stashed changes
