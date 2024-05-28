@@ -25,8 +25,10 @@
     </div>
 
     <div class="main">
-        <!-- フロント担当の方が変更するファイル -->
-
+        <?php
+        $pdo=new PDO($connect,USER,PASS);
+        ?>
+        
     </div>
 </body>
 </html>
