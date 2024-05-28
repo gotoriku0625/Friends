@@ -33,7 +33,7 @@
     </div>
 
     <div class="main">
-    <button onclick="location.href='./ilike.php'">いいねした人</button>あなたへいいね
+    <button onclick="location.href='./ilike.php'">いいねした人</button><img src="../menu-image/like-free-icon.png" class="">あなたへいいね
     <hr></hr>
     <div id="liked_user_id">
     <script>
