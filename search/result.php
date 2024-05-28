@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && (isset($_GET['age']) || isset($_GET['
     <?php if (!empty($results)): ?>
         <ul>
             <?php foreach ($results as $profile): ?>
-                <li><?php echo htmlspecialchars($profile['name']); ?> - <?php echo htmlspecialchars($profile['age']); ?> - <?php echo htmlspecialchars($profile['residence']); ?> - <?php echo htmlspecialchars($profile['school']); ?> - <?php echo htmlspecialchars($profile['hobby_id']); ?></li>
+                <li><?php echo htmlspecialchars($profile['nick_name']); ?> - <?php echo htmlspecialchars($profile['age']); ?></li>
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
