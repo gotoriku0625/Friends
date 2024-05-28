@@ -6,15 +6,17 @@ body {
     align-items: center; /* 縦方向に中央揃え */
     height: 100vh; /* ビューポートの高さに合わせる */
     margin: 0; /* 余白をゼロに */
-    background-color: #f0f0f0; /* 背景色を薄いグレーに */
+    background-color: #ffffff; /* 背景色を白に */
 }
 
 /* コンテナ全体のスタイルを設定 */
 .container {
-    text-align: center; /* テキストを中央揃え */
-    background-color: #fff; /* 背景色を白に */
-    padding: 20px; /* 内側の余白を設定 */
-    border-radius: 10px; /* 角を丸める */
+    width: 500px; /* 要素の幅 */
+    padding: 20px; /* 内側の余白 */
+    border: 1px solid #cccccc; /* 枠線の設定 */
+    border-radius: 10px; /* 角丸 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
+    text-align: center; /* テキストの中央揃え */
 }
 /* ヘッダー部分のスタイルを設定 */
 .header {
@@ -23,7 +25,7 @@ body {
 
 /* ロゴ画像のスタイルを設定 */
 .logo {
-    width: 150px; /* 幅を150pxに設定 */
+    width: 150px; /* 幅を0pxに設定 */
     height: auto; /* 高さを自動調整 */
 }
 
