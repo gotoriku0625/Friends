@@ -1,0 +1,36 @@
+#center {
+    width: 400px; /* 要素の幅 */
+    padding: 30px; /* 内側の余白 */
+    border: 3px solid #cccccc; /* 枠線の設定 */
+    border-radius: 10px; /* 角丸 */
+    text-align: center; /* テキストの中央揃え */
+}
+
+body {
+    /* Flexboxを使用して、子要素を中央に配置 */
+    display: flex;
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+    height: 100vh; /* ビューポートの高さいっぱいに表示 */
+    margin: 0; /* ページの余白をなくす */
+    font-family: Arial, sans-serif; /* フォントファミリーの指定 */
+    background-color: #ffffff; /* 背景色の設定 */
+}
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #00ff84;
+}
+
+.submit-btn {
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+}
