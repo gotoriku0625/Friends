@@ -24,7 +24,7 @@ function get_talks($sender_id,$reciver_id){// やり取りされるメッセー�
                where (sender_id = :sender_id and reciver_id = :reciver_id) 
                or (sender_id = :reciver_id and reciver_id = :senderid)';
         $sql=$pdo->prepare($talk);
-        $sql->execute(array(':sender_id'=>$user_id,':reciver_id'=>$reciver));
+        $sql->execute(array(':sender_id'=>$sender_id,':reciver_id'=>$reciver_id));
         return $sql->fetchAll();
     }catch(\Exception $e){
         echo 'エラー発生:' . $e->getMessage();
