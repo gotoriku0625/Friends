@@ -1,3 +1,4 @@
+
 <?php
 require '../db-connect.php';
 $pdo = new PDO($connect, USER, PASS);
@@ -6,12 +7,13 @@ $pdo = new PDO($connect, USER, PASS);
 $results = [];
 
 // フォームが送信された場合の処理
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && (isset($_GET['age']) || isset($_GET['residence']) || isset($_GET['gender']) || isset($_GET['school']) || isset($_GET['selected_data']))) {
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    // 選択された条件を取得
     $age = isset($_GET['age']) ? (int)$_GET['age'] : null;
     $residence = isset($_GET['residence']) ? $_GET['residence'] : null;
     $gender = isset($_GET['gender']) ? $_GET['gender'] : null;
     $school = isset($_GET['school']) ? $_GET['school'] : null;
-    $hobby = isset($_GET['selected_data']) ? $_GET['selected_data'] : null;
+    $hobby = isset($_GET['selected_hobby_id']) ? $_GET['selected_hobby_id'] : null;
 
     // SQLクエリの構築
     $sql = "SELECT * FROM profile WHERE 1=1";
@@ -38,9 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && (isset($_GET['age']) || isset($_GET['
         $params[':hobby'] = $hobby;
     }
 
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute($params);
-    $results = $stmt->fetchAll();
+    // 条件が空でない場合のみSQLを実行
+    if (!empty($params)) {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        $results = $stmt->fetchAll();
+    }
 }
 ?>
 
@@ -59,9 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && (isset($_GET['age']) || isset($_GET['
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
-        <?php if ($_SERVER['REQUEST_METHOD'] == 'GET'): // フォームが送信されたが結果がない場合のみメッセージを表示 ?>
-            <p>検索結果がありません。</p>
-        <?php endif; ?>
+        <p>検索結果がありません。</p>
     <?php endif; ?>
     <a href="search.php">検索フォームに戻る</a>
 </body>
