@@ -3,7 +3,7 @@ require '../db-connect.php';
 $pdo = new PDO($connect, USER, PASS);
 
 // データベースからデータを取得
-$sql = "SELECT hobby_name FROM hobby"; 
+$sql = "SELECT hobby_id, hobby_name FROM hobby";
 $stmt = $pdo->query($sql);
 $data = $stmt->fetchAll();
 
@@ -11,12 +11,21 @@ $data = $stmt->fetchAll();
 $results = [];
 
 // フォームが送信された場合の処理
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && (isset($_GET['age']) || isset($_GET['residence']) || isset($_GET['gender']) || isset($_GET['school']))) {
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    // 年齢の選択肢から選択された値を取得
     $age = isset($_GET['age']) ? (int)$_GET['age'] : null;
-    $residence = isset($_GET['residence']) ? $_GET['residence'] : null;
+
+    // 性別の選択肢から選択された値を取得
     $gender = isset($_GET['gender']) ? $_GET['gender'] : null;
+
+    // 現住居の選択肢から選択された値を取得
+    $residence = isset($_GET['residence']) ? $_GET['residence'] : null;
+
+    // 学校の選択肢から選択された値を取得
     $school = isset($_GET['school']) ? $_GET['school'] : null;
 
+    // 趣味の選択肢から選択された値を取得
+    $hobby = isset($_GET['selected_data']) ? $_GET['selected_data'] : null;
 
     // SQLクエリの構築
     $sql = "SELECT * FROM profile WHERE 1=1";
@@ -38,7 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && (isset($_GET['age']) || isset($_GET['
         $sql .= " AND school = :school";
         $params[':school'] = $school;
     }
-
+    if ($hobby) {
+        $sql .= " AND hobby_id = :hobby";
+        $params[':hobby'] = $hobby;
+    }
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
     $results = $stmt->fetchAll();
@@ -162,17 +174,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && (isset($_GET['age']) || isset($_GET['
             <option value="ASO高等部" <?php echo (isset($_GET['school']) && $_GET['school'] == 'ASO高等部') ? 'selected' : ''; ?>>ASO高等部</option>
 
         </select><br>
-        <label for="dropdown">趣味</label>
-<select name="selected_data" id="dropdown">
-    <option value="">選択してください</option> <!-- 条件を選ばない選択肢を追加 -->
-    <?php foreach ($data as $row): ?>
-        <option value="<?php echo htmlspecialchars($row['hobby_name']); ?>">
-            <?php echo htmlspecialchars($row['hobby_name']); ?>
-        </option>
-    <?php endforeach; ?>
-</select><br>
+        <label for="dropdown">趣味:</label>
+        <select name="selected_hobby_id" id="dropdown">
+            <option value="">選択してください</option>
+            <?php foreach ($data as $row): ?>
+                <option value="<?php echo htmlspecialchars($row['hobby_id']); ?>">
+                    <?php echo htmlspecialchars($row['hobby_name']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select><br>
         <input type="submit" value="検索">
     </form>
-    
 </body>
 </html>

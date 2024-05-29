@@ -1,8 +1,11 @@
 <?php require './function.php';?>
 <?php
-// $current_user = get_user($_SESSION['user_id']);// 現在ログインしているユーザー情報
+$_SESSION['user_id']=1;
+$_SESSION['user_id']=2;
+$current_user = get_user($_SESSION['user_id']);// 現在ログインしているユーザー情報
 // $reciver = get_user($_GET['user_id']);// トーク相手のユーザー情報
-// $messages = get_messages($current_user['id'],$reciver['id']);// やり取りされるメッセージ情報
+$reciver = get_user($_SESSION['user_id']);
+$messages = get_messages($current_user['id'],$reciver['id']);// やり取りされるメッセージ情報
 ?>
 
 <body>
