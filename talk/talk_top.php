@@ -1,5 +1,6 @@
 <?php
-$current_user = get_user(/*$_SESSION['user_id']*/);
+$_SESSION['user_id']=1;
+$current_user = get_user($_SESSION['user_id']);
 $talk_relations = get_talk_relation($current_user['id']);
 foreach($talk_relations as $talk_relation){
     if($talk_relation['reciver_id']==$current_user['id']){
