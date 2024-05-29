@@ -18,7 +18,7 @@ if(empty($result)){
     $sql->execute([
         $_POST['name'],$_POST['mail'],$pass
     ]);
-    echo '<button type="submit">プロフィール設定へ</button>';
+    echo '<a href="../profile/profile.html"><button type="submit">プロフィール設定へ</button></a>';
 }else{
     echo '<p>メールアドレスが既に使用されています。</p>';
     echo '<a href="../kaiin/kaiin1.html">新規会員登録へ</a>';
