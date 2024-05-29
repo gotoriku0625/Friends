@@ -1,8 +1,9 @@
-<?php require '../db-connect.php';?>
+<?php//require '../db-connect.php';?>
 <?php
-function get_user($user_id){// 現在ログインしているユーザー情報 
-    $pdo=new PDO($connect,USER,PASS);
+require '../db-connect.php';
+function get_user($user_id){// 現在ログインしているユーザー情報
     try{
+        $pdo=new PDO($connect,USER,PASS);
         // ユーザ情報取得
         $user='select user_id,user_name,nick_name,icon_image,gender 
               from user u,profile p 
@@ -37,7 +38,6 @@ function check_relation_talk($user_id,$reciver_id){// talk_memberテーブルに
                    from talk_member
                    where (sender_id=:sender_id and reciver_id=:reciver_id)
                    or (sender_id=:reciver_id and reciver_id=:sender_id)';
-        
         $sql=$pdo->prepare($relation);
         $sql->execute(array(':sender_id'=>$user_id,
                             ':reciver_id'=>$reciver_id));
@@ -46,4 +46,23 @@ function check_relation_talk($user_id,$reciver_id){// talk_memberテーブルに
         error_log('エラー発生：'.$e->getMessage());
     }
 }
+
+function get_message_relations($user_id){
+    try {
+      $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+      $user='root';
+      $password='';
+      $dbh=new PDO($dsn,$user,$password);
+      $sql = "SELECT *
+              FROM message_relation
+              WHERE user_id = :user_id";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(':user_id' => $user_id));
+      return $stmt->fetchAll();
+    } catch (\Exception $e) {
+      error_log('エラー発生:' . $e->getMessage());
+      set_flash('error',ERR_MSG1);
+    }
+  }
+  
 ?>

@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+<?php require './function.php';?>
 <?php
 $_SESSION['user_id']=1;
 $current_user = get_user($_SESSION['user_id']);
