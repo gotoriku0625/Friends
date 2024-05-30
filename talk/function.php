@@ -6,10 +6,11 @@ function get_user($user_id){// 現在ログインしているユーザー情報
         // ユーザ情報取得
         $user='select u.user_id,user_name,nick_name,icon_image,gender 
               from user u,profile p 
-              where u.user_id=p.user_id and u.user_id=:user_id';
+              where u.user_id=p.user_id and p.user_id=:user_id';
         $sql=$pdo->prepare($user);
-        $sql->execute(array(':user_id' => $user_id));
-        return $sql->fetch();
+        $result=$sql->bindparam(':user_id',$user_id);
+        $result->execute();
+        return $result->fetch();
     }catch(\Exception $e){
         echo 'エラー発生：'.$e->getMessage();
     }
@@ -20,9 +21,10 @@ function get_talks($sender_id,$reciver_id){// やり取りされるメッセー�
     try{
         $pdo=new PDO($connect,$USER,$PASS);
         // トークのユーザー同士の情報を取得する
-        $talk='select * from talk 
+        $talk='select * from talk
                where (sender_id = :sender_id and reciver_id = :reciver_id) 
-               or (sender_id = :reciver_id and reciver_id = :senderid)';
+               or (sender_id = :reciver_id and reciver_id = :senderid)
+               order by talk_id asc';
         $sql=$pdo->prepare($talk);
         $sql->execute(array(':sender_id'=>$sender_id,':reciver_id'=>$reciver_id));
         return $sql->fetchAll();
