@@ -52,7 +52,7 @@ body{
     margin:  0 auto;  */
     /* 要素のたかさをなくす */
     position: absolute;
-    
+    margin:  0 auto;
     /* 正方形の幅-文字の高さ/2 で上下真ん中に要素がくる */
     top: calc((100% - 1em)/2);
     
