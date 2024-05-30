@@ -42,7 +42,7 @@ body{
     height: 140px;
     border-radius: 50%; */
     /* margin-top: 10%; */
-    margin-left: 100%;
+    /* margin-left: 100%; */
     /* margin-right: 100%; */
     /* margin-bottom: 10%; */
     /* display: flex;
@@ -51,11 +51,10 @@ body{
     z-index: 8;
     margin:  0 auto;  */
     /* 要素のたかさをなくす */
-    position: absolute;
+    position: relative;
     
     /* 正方形の幅-文字の高さ/2 で上下真ん中に要素がくる */
     top: calc((100% - 1em)/2);
-    right: calc((100% - 1em)/2);
     
     /* 要素伸ばす */
     left: 0;
@@ -70,7 +69,7 @@ body{
 }
 .circle_width {
     /* 表示したい横幅を決める */
-    width: 25%;
+    width: 30%;
      
     /* 線をつける */
     border: 3px solid #333;
