@@ -1,10 +1,11 @@
 <?php session_start(); ?>
 <?php require './function.php';?>
 <body>
+
 <?php
-$_SESSION['user1_id']=2;
-$_SESSION['user2_id']=1;
-$current_user = get_user($_SESSION['user_id']);
+$_SESSION['user1_id']=1;
+$_SESSION['user2_id']=2;
+$current_user = get_user($_SESSION['user1_id']);
 $reciver = get_user($_SESSION['user2_id']);//本当はGET
 $talk_relations = get_talk_relations($current_user['user_id']);
 foreach($talk_relations as $talk_relation){
