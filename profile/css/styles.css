@@ -1,0 +1,16 @@
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+hr {
+    border: none; /* 枠線のない設定 */
+    border-top: 1px solid #00ff84; /* 上側のボーダー */
+    margin-bottom: 20px; /* 下部のマージン */
+}
