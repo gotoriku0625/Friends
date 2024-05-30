@@ -75,7 +75,7 @@ button {
     border: none; /* 枠線を無しに */
     border-radius: 5px; /* 角を丸める */
     background-color: aquamarine; /* 背景色を緑に */
-    color: #fff; /* 文字色を白に */
+    color: #201f1f; /* 文字色を黒に */
     font-size: 16px; /* フォントサイズを設定 */
     cursor: pointer; /* マウスポインターをポインターに */
 }
