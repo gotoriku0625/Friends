@@ -1,0 +1,52 @@
+body {
+    /* Flexboxを使用して、子要素を中央に配置 */
+    display: flex;
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+    height: 100vh; /* ビューポートの高さいっぱいに表示 */
+    margin: 0; /* ページの余白をなくす */
+    font-family: Arial, sans-serif; /* フォントファミリーの指定 */
+    background-color: #ffffff; /* 背景色の設定 */
+}
+
+#center {
+    width: 400px; /* 要素の幅 */
+    padding: 15px; /* 内側の余白 */
+    border: 1px solid #cccccc; /* 枠線の設定 */
+    border-radius: 10px; /* 角丸 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
+    text-align: center; /* テキストの中央揃え */
+    padding-bottom:40px;
+}
+
+.title {
+    font-size: 24px; /* タイトルのフォントサイズ */
+    margin-bottom: 20px; /* 下部のマージン */
+}
+
+hr {
+    border: none; /* 枠線のない設定 */
+    border-top: 1px solid #00ff84; /* 上側のボーダー */
+    margin-bottom: 20px; /* 下部のマージン */
+}
+.message{
+    margin-top: 40px;
+    font-size: 24px;
+    margin-bottom: 40px;
+
+}
+.btn {
+    width: 100%; /* 幅100% */
+    padding: 20px; /* 内側の余白 */
+    border: none; /* 枠線のない設定 */
+    border-radius: 5px; /* 角丸 */
+    background-color: aquamarine;
+    color: rgb(4, 4, 4); /* テキスト色 */
+    font-size: 16px; /* フォントサイズ */
+    cursor: pointer; /* マウスカーソルの形状 */
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #31b0d5; /* ホバー時の背景色 */
+}
