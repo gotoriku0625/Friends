@@ -4,7 +4,7 @@ function get_user($user_id){// 現在ログインしているユーザー情報
         require './db-connect.php';
         $pdo=new PDO($connect,$USER,$PASS);
         // ユーザ情報取得
-        $user='select u.user_id,user_name,nick_name,icon_image,gender 
+        $user='select p.user_id,user_name,nick_name,icon_image,gender 
               from user u,profile p 
               where u.user_id=p.user_id and p.user_id=:user_id';
         $sql=$pdo->prepare($user);
