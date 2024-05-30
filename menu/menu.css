@@ -69,7 +69,7 @@ body{
 }
 .circle_width {
     /* 表示したい横幅を決める */
-    width: 30%;
+    width: 45%;
      
     /* 線をつける */
     border: 3px solid #333;
