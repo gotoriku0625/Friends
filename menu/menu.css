@@ -91,6 +91,10 @@ body{
     /* 要素自体の高さがあるとずれるので高さを０にする */
     height: 0;
     }
+.icon-space{
+    display: flex;
+    justify-content: center;
+}
     
 .name{
     text-align: center;
