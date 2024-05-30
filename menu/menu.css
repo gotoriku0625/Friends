@@ -7,14 +7,14 @@ body{
     position: fixed;
     top: 0%;
     left: 0%;
-    width: 21%;
+    width: 20%;
     height: 100%;
     background-color: rgb(151, 255, 220);
     z-index: 10;
 }
 .main{
     position: relative;
-    left: 23%;
+    left: 21%;
 }
 .logo{
     position: relative;
@@ -24,8 +24,8 @@ body{
     padding-right: 50px; */
     margin-top: 10%;
     margin-bottom: 10%;
-    width: 70%;
-    height: 50%;
+    width: 80%;
+    height: 60%;
 }
 .logo-space{
     position: relative;
