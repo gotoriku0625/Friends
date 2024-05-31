@@ -82,7 +82,7 @@ button {
 
 /* ボタンにホバーしたときのスタイルを設定 */
 button:hover {
-    background-color: aquamarine; /* ホバー時の背景色を濃い緑に */
+    background-color: rgb(168, 255, 226);  /* ホバー時の背景色を濃い緑に */
 }
 
 /* フッター部分のスタイルを設定 */
