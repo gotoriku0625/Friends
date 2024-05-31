@@ -1,21 +1,19 @@
 <?php
 function get_user($user_id){// 現在ログインしているユーザー情報
-    $user = 'LAA1517801';
-    $pass = 'pass0625';
-    $pdo=new PDO('mysql:host=mysql301.phy.lolipop.lan;dbname=LAA1517801-friends;charset=utf8',$user,$pass);
     try{
-        // require './db-connect.php';
-        $server = 'mysql301.phy.lolipop.lan';
-        $dbname = 'LAA1517801-friends';
-        $connect = 'mysql:host='. $server . ';dbname='. $dbname . ';charset=utf8';
-    
-        
+        require './db-connect.php';
+        // $server = 'mysql301.phy.lolipop.lan';
+        // $dbname = 'LAA1517801-friends';
+        // $user = 'LAA1517801';
+        // $pass = 'pass0625';
+        // $connect = 'mysql:host='. $server . ';dbname='. $dbname . ';charset=utf8';
+        $pdo=new PDO($connect,$user,$pass);
+        echo var_dump($pdo);
         // ユーザ情報取得
         $user='select profile.user_id,user_name,nick_name,gender,icon_image
                from user,profile 
                where user.user_id=profile.user_id
                and profile.user_id=:user_id';
-        echo var_dump($pdo);
         $sql=$pdo->prepare($user);
         $result=$sql->bindparam(':user_id',$user_id);
         $result->execute();
