@@ -10,7 +10,7 @@
     <div id="center">
         <p class="title">新規会員登録</p>
         <hr>
-        <form action="kaiin4.html" method="post">
+        <form action="kaiin4.php" method="post">
             <div class="input-group">
                 <label for="username">ユーザー名:</label>
                 <input type="text" id="username" name="name">
