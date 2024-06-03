@@ -1,9 +1,10 @@
 <?php require 'function.php';?>
+<?php require '../db-connect.php';?>
 <?php
 $pdo=new PDO($connect,USER,PASS);
 try{
     $talk_text=$_POST['text'];
-    $user_id=$_SESSION['user_id'];
+    $user_id=$_SESSION['user1_id'];
     $reciver_id=$_POST['reciver_id'];
 
     if($talk_text==''){

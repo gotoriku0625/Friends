@@ -1,9 +1,10 @@
 <?php session_start(); ?>
 <?php require './function.php';?>
 <?php
-$_SESSION['user1_id']=1;
-$_SESSION['user2_id']=1;
-$current_user = get_user(1);// 現在ログインしているユーザー情報
+header("Refresh:1");
+$_SESSION['user1_id']=2;
+$_SESSION['user2_id']=3;
+$current_user = get_user($_SESSION['user1_id']);// 現在ログインしているユーザー情報
 // $reciver = get_user($_GET['user_id']);// トーク相手のユーザー情報
 $reciver = get_user($_SESSION['user2_id']);
 $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取りされるメッセージ情報

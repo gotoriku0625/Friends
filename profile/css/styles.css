@@ -1,3 +1,11 @@
+
+.main {
+    width: 70%; /* 要素の幅 */
+    padding: 20px; /* 内側の余白 */
+    border-radius: 10px; /* 角丸 */
+    text-align: left; 
+}
+
 .title {
     display: flex;
     justify-content: space-between;
@@ -5,8 +13,13 @@
 }
 
 .title p {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
+    text-align: right;
+}
+
+.title a{
+    text-align: right;   
 }
 
 hr {
@@ -14,3 +27,65 @@ hr {
     border-top: 1px solid #00ff84; /* 上側のボーダー */
     margin-bottom: 20px; /* 下部のマージン */
 }
+
+select {
+    width: 50%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.age {
+    width: 20%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-sizing: border-box;  
+}
+
+.introduction,
+.Hobby,
+.off {
+    width: 80%; /* 幅を80%に設定 */
+    padding: 20px; /* 内側の余白を設定 */
+    margin: 10px 0; /* 上下のマージンを設定 */
+    border: 1px solid #000000; /* 枠線の設定 */
+    border-radius: 5px; /* 角丸 */
+    box-sizing: border-box; /* 幅や高さにpaddingやborderを含めるようにボックスモデルを設定 */
+    display: block; /* ブロック要素として表示 */
+    overflow: auto; /* テキストが枠外に流れた場合にスクロールバーを表示 */
+}
+
+
+input[type="checkbox"] {
+    transform: scale(2); /* チェックボックスの大きさを変更 */
+    margin-right: 15px; /* チェックボックスとラベルの間に余白を追加 */
+    margin-bottom: 15px
+}
+label {
+    display: inline-block; /* ラベルをインラインブロック要素にすることで横に配置 */
+    font-size: 18px; /* 文字を大きくする */
+    margin-right: 50px; /* ラベル間の適切な間隔を追加 */
+}
+
+.btn-container {
+    display: flex; /* ボタンを横並びに配置 */
+    text-align: center;
+}
+
+ .btn {
+        padding: 10px 10px; /* ボタンのパディングを変更 */
+        margin: 20px 20px;
+        background-color: aquamarine;
+        color: #000000;
+        text-decoration: none;
+        border-radius: 5px;
+        border: 1px solid #000;
+        font-size: 14px; /* ボタンのフォントサイズを変更 */
+}
+
+
+
