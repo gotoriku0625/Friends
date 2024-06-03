@@ -1,14 +1,9 @@
-body {
-    background-color: #f5f5f5;
-}
 
 .main {
     width: 70%; /* 要素の幅 */
     padding: 20px; /* 内側の余白 */
-    border: 1px solid #cccccc; /* 枠線の設定 */
     border-radius: 10px; /* 角丸 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
-    text-align: center; /* テキストの中央揃え */
+    text-align: left; 
 }
 
 .title {
@@ -18,8 +13,13 @@ body {
 }
 
 .title p {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
+    text-align: right;
+}
+
+.title a{
+    text-align: right;   
 }
 
 hr {
@@ -28,26 +28,8 @@ hr {
     margin-bottom: 20px; /* 下部のマージン */
 }
 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px 5px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-}
-
-input[type="checkbox"] {
-    transform: scale(2); /* チェックボックスの大きさを変更 */
-    /* チェックボックスとラベルの間に余白を追加 */
-    display: block; /* チェックボックスをブロック要素にして改行 */
-    margin-top: 30px; /* 各チェックボックスの下に余白を追加 */
-}
-
 select {
-    width: 80%;
+    width: 50%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #000000;
@@ -63,15 +45,47 @@ select {
     border-radius: 5px;
     box-sizing: border-box;  
 }
-/*自己紹介、趣味特技、休日の過ごし方のCSS*/
+
 .introduction,
 .Hobby,
 .off {
-    width: 80%;
-    padding: 30px;
-    margin: 10px 0;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    box-sizing: border-box;
+    width: 80%; /* 幅を80%に設定 */
+    padding: 20px; /* 内側の余白を設定 */
+    margin: 10px 0; /* 上下のマージンを設定 */
+    border: 1px solid #000000; /* 枠線の設定 */
+    border-radius: 5px; /* 角丸 */
+    box-sizing: border-box; /* 幅や高さにpaddingやborderを含めるようにボックスモデルを設定 */
+    display: block; /* ブロック要素として表示 */
+    overflow: auto; /* テキストが枠外に流れた場合にスクロールバーを表示 */
 }
+
+
+input[type="checkbox"] {
+    transform: scale(2); /* チェックボックスの大きさを変更 */
+    margin-right: 15px; /* チェックボックスとラベルの間に余白を追加 */
+    margin-bottom: 15px
+}
+label {
+    display: inline-block; /* ラベルをインラインブロック要素にすることで横に配置 */
+    font-size: 18px; /* 文字を大きくする */
+    margin-right: 50px; /* ラベル間の適切な間隔を追加 */
+}
+
+.btn-container {
+    display: flex; /* ボタンを横並びに配置 */
+    text-align: center;
+}
+
+ .btn {
+        padding: 10px 10px; /* ボタンのパディングを変更 */
+        margin: 20px 20px;
+        background-color: aquamarine;
+        color: #000000;
+        text-decoration: none;
+        border-radius: 5px;
+        border: 1px solid #000;
+        font-size: 14px; /* ボタンのフォントサイズを変更 */
+}
+
+
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../menu/menu.css">
-    <title>プロフィール</title>
     <link rel="stylesheet" href="css/styles.css">
+    <title>プロフィール</title>
 </head>
 <body>
     <div class="menu">
@@ -32,11 +32,11 @@
         <p>サブ写真</p>
         <image>
         <p>ユーザー名</p>
-        <!--ユーザー名の出力-->
+        <!--ユーザー名の出力PHP-->
         <p>自己紹介</p>
-        <input type="text" class="introduction">
+        <textarea id="message" name="message" rows="4" cols="500" class="introduction"></textarea>
         <p>趣味/特技</p>
-        <input type="text" class="Hobby">
+        <textarea id="message" name="message" rows="4" cols="500" class="Hobby"></textarea>
         <p>性別</p>
         <select id="sex" name="sex">
             <option value="man">男</option>
@@ -46,7 +46,7 @@
         <p>年齢</p>
         <input type="text" class="age">
         <p>血液型</p>
-        <select id="blood" name="blood">
+        <select id="blood" name="blood" class="blood-type">
             <option value="a">A</option>
             <option value="b">B</option>
             <option value="o">O</option>
@@ -119,19 +119,18 @@
             <option value="宮崎県">宮崎県</option>
             <option value="その他">その他</option>
         </select>
+
         <p>休日の過ごし方</p>
-        <input type="text" class="off">
-        <label for="option1">
-            <input type="checkbox" id="option1" name="options" value="Option 1">
-            飲酒
-        </label>
-        <label for="option2">
-            <input type="checkbox" id="option2" name="options" value="Option 2">
-            喫煙
-        </label>
+        <textarea id="message" name="message" rows="4" cols="500" class="off"></textarea>
+   
+        <label for="option1"><input type="checkbox" id="option1" name="options" value="Option 1">飲酒</label>
+        <label for="option2"><input type="checkbox" id="option2" name="options" value="Option 2">喫煙</label>        
         <br>
-        <a href="../top/top.html" class="btn">保存</a>
-        <a href="../login/login.html" class="btn">キャンセル</a>
+        <div class="btn-container">
+            <a href="../login/login.html" class="btn">キャンセル</a>
+            <a href="../top/top.html" class="btn">保存</a>
+            
+        </div>
     </div>
 </body>
 </html>
