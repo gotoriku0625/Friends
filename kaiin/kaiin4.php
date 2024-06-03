@@ -8,7 +8,6 @@
     <hr>
 <?php
 $pdo=new PDO($connect,USER,PASS);
-echo var_dump($pdo);
 $sql=$pdo->prepare('select * from user where mail=?');
 $sql->execute([$_POST['mail']]);
 $result=$sql->fetchAll();
