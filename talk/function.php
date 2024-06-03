@@ -1,20 +1,16 @@
 <?php
 function get_user($user_id){// 現在ログインしているユーザー情報
+    require './db-connect.php';
     try{
-        require './db-connect.php';
-        // $server = 'mysql301.phy.lolipop.lan';
-        // $dbname = 'LAA1517801-friends';
-        // $user = 'LAA1517801';
-        // $pass = 'pass0625';
-        // $connect = 'mysql:host='. $server . ';dbname='. $dbname . ';charset=utf8';
-        $pdo=new PDO($connect,$user,$pass);
         echo var_dump($pdo);
+        $pdo = new PDO($connect,$user,$pass);
         // ユーザ情報取得
-        $user='select profile.user_id,user_name,nick_name,gender,icon_image
+        $user_set='select profile.user_id,user_name,nick_name,gender,icon_image
                from user,profile 
                where user.user_id=profile.user_id
                and profile.user_id=:user_id';
-        $sql=$pdo->prepare($user);
+        
+        $sql=$pdo->prepare($user_set);
         $result=$sql->bindparam(':user_id',$user_id);
         $result->execute();
         return $result->fetch();
@@ -26,7 +22,7 @@ function get_user($user_id){// 現在ログインしているユーザー情報
 function get_talks($sender_id,$reciver_id){// やり取りされるメッセージ情報
     require './db-connect.php';
     try{
-        $pdo=new PDO($connect,$USER,$PASS);
+        $pdo=new PDO($connect,$user,$pass);
         // トークのユーザー同士の情報を取得する
         $talk='select * from talk
                where (sender_id = :sender_id and reciver_id = :reciver_id) 
