@@ -1,14 +1,11 @@
-
 <?php
 require '../db-connect.php';
 $pdo = new PDO($connect, USER, PASS);
 
-// 検索結果を格納する変数を初期化
-$results = [];
-
 // フォームが送信された場合の処理
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // 選択された条件を取得
+    $nick_name = isset($_GET['nick_name']) ? $_GET['nick_name'] : null;
     $age = isset($_GET['age']) ? (int)$_GET['age'] : null;
     $residence = isset($_GET['residence']) ? $_GET['residence'] : null;
     $gender = isset($_GET['gender']) ? $_GET['gender'] : null;
@@ -19,6 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $sql = "SELECT * FROM profile WHERE 1=1";
     $params = [];
 
+    if ($nick_name) {
+        $sql .= " AND nick_name LIKE :nick_name";
+        $params[':nick_name'] = '%' . $nick_name . '%';
+    }
     if ($age) {
         $sql .= " AND age = :age";
         $params[':age'] = $age;
@@ -40,12 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $params[':hobby'] = $hobby;
     }
 
-    // 条件が空でない場合のみSQLを実行
-    if (!empty($params)) {
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute($params);
-        $results = $stmt->fetchAll();
-    }
+    // SQLを実行
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
+    $results = $stmt->fetchAll();
 }
 ?>
 

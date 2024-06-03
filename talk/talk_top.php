@@ -3,8 +3,8 @@
 <body>
 
 <?php
-$_SESSION['user1_id']=1;
-$_SESSION['user2_id']=2;
+$_SESSION['user1_id']=12;
+$_SESSION['user2_id']=13;
 $current_user = get_user($_SESSION['user1_id']);
 $reciver = get_user($_SESSION['user2_id']);//本当はGET
 $talk_relations = get_talk_relations($current_user['user_id']);

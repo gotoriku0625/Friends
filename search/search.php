@@ -6,55 +6,6 @@ $pdo = new PDO($connect, USER, PASS);
 $sql = "SELECT hobby_id, hobby_name FROM hobby";
 $stmt = $pdo->query($sql);
 $data = $stmt->fetchAll();
-
-// 検索結果を格納する変数を初期化
-$results = [];
-
-// フォームが送信された場合の処理
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    // 年齢の選択肢から選択された値を取得
-    $age = isset($_GET['age']) ? (int)$_GET['age'] : null;
-
-    // 性別の選択肢から選択された値を取得
-    $gender = isset($_GET['gender']) ? $_GET['gender'] : null;
-
-    // 現住居の選択肢から選択された値を取得
-    $residence = isset($_GET['residence']) ? $_GET['residence'] : null;
-
-    // 学校の選択肢から選択された値を取得
-    $school = isset($_GET['school']) ? $_GET['school'] : null;
-
-    // 趣味の選択肢から選択された値を取得
-    $hobby = isset($_GET['selected_data']) ? $_GET['selected_data'] : null;
-
-    // SQLクエリの構築
-    $sql = "SELECT * FROM profile WHERE 1=1";
-    $params = [];
-
-    if ($age) {
-        $sql .= " AND age = :age";
-        $params[':age'] = $age;
-    }
-    if ($gender) {
-        $sql .= " AND gender = :gender";
-        $params[':gender'] = $gender;
-    }
-    if ($residence) {
-        $sql .= " AND residence = :residence";
-        $params[':residence'] = $residence;
-    }
-    if ($school) {
-        $sql .= " AND school = :school";
-        $params[':school'] = $school;
-    }
-    if ($hobby) {
-        $sql .= " AND hobby_id = :hobby";
-        $params[':hobby'] = $hobby;
-    }
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute($params);
-    $results = $stmt->fetchAll();
-}
 ?>
 
 <!DOCTYPE html>
@@ -62,53 +13,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 <head>
     <meta charset="UTF-8">
     <title>ユーザー検索</title>
-    <script>
-        function setAgeInput() {
-            const selectBox = document.getElementById('preset-queries-age');
-            const ageInput = document.getElementById('age');
-            ageInput.value = selectBox.value;
-        }
-
-        function setGenderInput() {
-            const selectBox = document.getElementById('preset-queries-gender');
-            const genderInput = document.getElementById('gender');
-            genderInput.value = selectBox.value;
-        }
-
-        function setResidenceInput() {
-            const selectBox = document.getElementById('preset-queries-residence');
-            const residenceInput = document.getElementById('residence');
-            residenceInput.value = selectBox.value;
-        }
-
-        function setSchoolInput() {
-            const selectBox = document.getElementById('preset-queries-school');
-            const schoolInput = document.getElementById('school');
-            schoolInput.value = selectBox.value;
-        }
-    </script>
 </head>
 <body>
     <h1>ユーザー検索</h1>
     <form action="result.php" method="GET">
+    <label for="nick_name">ユーザー名:</label>
+        <input type="text" id="nick_name" name="nick_name" required><br>
         <label for="preset-queries-age">年齢:</label>
-        <select id="preset-queries-age" onchange="setAgeInput()">
+        <select id="preset-queries-age" name="age">
             <option value="">選択してください</option>
             <?php for ($i = 18; $i <= 100; $i++): ?>
-                <option value="<?php echo $i; ?>" <?php echo (isset($_GET['age']) && $_GET['age'] == $i) ? 'selected' : ''; ?>><?php echo $i; ?></option>
+                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
             <?php endfor; ?>
         </select><br>
+
         <label for="gender">性別:</label>
         <select name="gender" id="gender">
             <option value="">選択してください</option>
-            <option value="男性" <?php echo (isset($_GET['gender']) && $_GET['gender'] == '男性') ? 'selected' : ''; ?>>男性</option>
-            <option value="女性" <?php echo (isset($_GET['gender']) && $_GET['gender'] == '女性') ? 'selected' : ''; ?>>女性</option>
-            <option value="その他" <?php echo (isset($_GET['gender']) && $_GET['gender'] == 'その他') ? 'selected' : ''; ?>>その他</option>
+            <option value="男性">男性</option>
+            <option value="女性">女性</option>
+            <option value="その他">その他</option>
         </select><br>
+
         <label for="preset-queries-residence">現住居:</label>
-        <select id="preset-queries-residence" onchange="setResidenceInput()">
-    <option value="">選択してください</option>
-    <option value="北海道" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '北海道') ? 'selected' : ''; ?>>北海道</option>
+        <select id="preset-queries-residence" name="residence">
+            <option value="">選択してください</option>
+            <option value="北海道" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '北海道') ? 'selected' : ''; ?>>北海道</option>
     <option value="青森県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '青森県') ? 'selected' : ''; ?>>青森県</option>
     <option value="岩手県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '岩手県') ? 'selected' : ''; ?>>岩手県</option>
     <option value="宮城県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '宮城県') ? 'selected' : ''; ?>>宮城県</option>
@@ -156,11 +86,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <option value="鹿児島県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '鹿児島県') ? 'selected' : ''; ?>>鹿児島県</option>
     <option value="沖縄県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '沖縄県') ? 'selected' : ''; ?>>沖縄県</option>
         </select><br>
-        <label for="preset-queries-residence">学校名:</label>
-        <select id="preset-queries-school" onchange="setschoolInput()">
+
+        <label for="preset-queries-school">学校名:</label>
+        <select id="preset-queries-school" name="school">
             <option value="">選択してください</option>
-            <option value="麻生情報ビジネス専門学校 福岡校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生情報ビジネス専門学校 福岡校') ? 'selected' : ''; ?>>麻生情報ビジネス専門学校 福岡校</option>
-            <option value="麻生外語観光＆ブライダル専門学校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生外語観光＆ブライダル専門学校') ? 'selected' : ''; ?>>麻生外語観光＆ブライダル専門学校</option>
+            <option value="麻生情報ビジネス専門学校 福岡校">麻生情報ビジネス専門学校 福岡校</option>
+            <option value="麻生外語観光＆ブライダル専門学校">麻生外語観光＆ブライダル専門学校</option>
             <option value="麻生医療福祉＆保育専門学校 福岡校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生医療福祉＆保育専門学校 福岡校') ? 'selected' : ''; ?>>麻生医療福祉＆保育専門学校 福岡校</option>
             <option value="麻生建築＆デザイン専門学校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生建築＆デザイン専門学校') ? 'selected' : ''; ?>>麻生建築＆デザイン専門学校</option>
             <option value="麻生公務員専門学校 福岡校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生公務員専門学校 福岡校') ? 'selected' : ''; ?>>麻生公務員専門学校 福岡校</option>
@@ -172,8 +103,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <option value="麻生公務員専門学校 北九州校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生公務員専門学校 北九州校') ? 'selected' : ''; ?>>麻生公務員専門学校 北九州校</option>
             <option value="専門学校 麻生看護大学校" <?php echo (isset($_GET['school']) && $_GET['school'] == '専門学校 麻生看護大学校') ? 'selected' : ''; ?>>専門学校 麻生看護大学校</option>
             <option value="ASO高等部" <?php echo (isset($_GET['school']) && $_GET['school'] == 'ASO高等部') ? 'selected' : ''; ?>>ASO高等部</option>
-
         </select><br>
+
         <label for="dropdown">趣味:</label>
         <select name="selected_hobby_id" id="dropdown">
             <option value="">選択してください</option>
@@ -183,6 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 </option>
             <?php endforeach; ?>
         </select><br>
+
         <input type="submit" value="検索">
     </form>
 </body>
