@@ -20,7 +20,7 @@
                 $sql->execute([
                     $_POST['name'],$_POST['mail'],$pass
                 ]);
-                echo '<a href="../profile/profile.php"><button type="submit">プロフィール設定へ</button></a>';
+                echo '<a href="../profile/profile.php"><button type="submit" class="btn">プロフィール設定へ</button></a>';
             }else{
                 echo '<p>メールアドレスが既に使用されています</p>';
                 echo '<a href="../kaiin/kaiin1.html" class="btn">新規会員登録へ</a>';
