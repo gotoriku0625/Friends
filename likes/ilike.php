@@ -1,11 +1,44 @@
 <?php
-    const SERVER = 'mysql301.phy.lolipop.lan';
-    const DBNAME = 'LAA1517801-friends';
-    const USER = 'LAA1517801';
-    const PASS = 'pass0625';
- 
-    $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
+require '../db-connect.php';
+$pdo = new PDO($connect, USER, PASS);
+
+function calculateAge($birthdate) {
+    $dob = new DateTime($birthdate);
+    $now = new DateTime();
+    $difference = $now->diff($dob);
+    return $difference->y;
+}
+
+function getLikesGiven($userId) {
+    global $conn;
+    $sql = "SELECT users.user_id, users.username, users.profile_image, users.birthdate FROM likes
+            JOIN users ON likes.liked_id = users.user_id
+            WHERE likes.liker_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $likes = $result->fetch_all(MYSQLI_ASSOC);
+
+    foreach ($likes as &$like) {
+        $like['age'] = calculateAge($like['birthdate']);
+    }
+
+    if (empty($likes)) {
+        return ["message" => "誰もいません"];
+    } else {
+        return $likes;
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['user_id'])) {
+    $userId = intval($_GET['user_id']);
+    $likesGiven = getLikesGiven($userId);
+    header('Content-Type: application/json');
+    echo json_encode($likesGiven);
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
