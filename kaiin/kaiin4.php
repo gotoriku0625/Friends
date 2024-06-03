@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>新規会員登録</title>
+    <link rel="stylesheet" href="css/kaiin4.css">
 </head>
     <body>
         <div id="center">
