@@ -3,10 +3,11 @@
 <body>
 
 <?php
-$_SESSION['user1_id']=12;
-$_SESSION['user2_id']=13;
-$current_user = get_user($_SESSION['user1_id']);
+$_SESSION['user1_id']=2;
+$_SESSION['user2_id']=3;
+$current_user = get_user(2);
 $reciver = get_user($_SESSION['user2_id']);//本当はGET
+echo var_dump($reciver);
 $talk_relations = get_talk_relations($current_user['user_id']);
 foreach($talk_relations as $talk_relation){
     if($talk_relation['reciver_id']==$current_user['user_id']){

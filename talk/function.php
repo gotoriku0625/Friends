@@ -2,18 +2,17 @@
 function get_user($user_id){// 現在ログインしているユーザー情報
     require './db-connect.php';
     try{
-        echo var_dump($pdo);
         $pdo = new PDO($connect,$user,$pass);
         // ユーザ情報取得
         $user_set='select profile.user_id,user_name,nick_name,gender,icon_image
                from user,profile 
                where user.user_id=profile.user_id
                and profile.user_id=:user_id';
-        
         $sql=$pdo->prepare($user_set);
-        $result=$sql->bindparam(':user_id',$user_id);
-        $result->execute();
-        return $result->fetch();
+        echo var_dump($sql);
+        $sql->bindparam(':user_id',$user_id,PDO::PARAM_STR);
+        $sql->execute();
+        return $sql->fetch();
     }catch(\Exception $e){
         echo 'エラー発生：'.$e->getMessage();
     }
@@ -56,7 +55,7 @@ function check_relation_talk($user_id,$reciver_id){// talk_memberテーブルに
 function get_talk_relations($user_id){
     require './db-connect.php';
     try {
-      $pdo=new PDO($connect,$USER,$PASS);
+      $pdo=new PDO($connect,$user,$pass);
       $sql = "select *
               FROM talk_member
               WHERE sender_id = :sender_id";
