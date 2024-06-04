@@ -1,5 +1,8 @@
 <?php require '../db-connect.php';?>
 <?php require '../menu/menu.html';?>
+<head>
+    <link rel="stylesheet" href="../menu/menu.css">
+</head>
 <body>
         <div class="main">
             <div class="pro-log">
