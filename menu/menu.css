@@ -117,14 +117,14 @@ a{
     text-decoration: none;
     color: black;
     width: 70%;
-    padding-top: 5%;
+    padding-top: 3%;
     text-align: center;
     z-index: 1;
     /* font-weight: bold; */
 }
 .link-space{
     position: relative;
-    padding-top: 3%;
+    padding-top: 5%;
     z-index: 5;
 }
 .parson-free-icon{
