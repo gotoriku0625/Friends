@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <div class="main">
     <button onclick="location.href='./ilike.php'">いいねした人</button><img src="../menu-image/like-free-icon.png" class="">あなたへいいね<img src="../image/unlike.svg" class="">
     <hr></hr>
     <div id="liked_user_id">
@@ -41,5 +42,6 @@
         fetchLikes('likes_given', 'likes-given');
         fetchLikes('likes_received', 'likes-received');
     </script>
+    </div>
 </body>
 </html>
