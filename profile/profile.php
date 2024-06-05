@@ -1,3 +1,5 @@
+</html>
+    <body>
 <?php require '../db-connect.php';?>
 <?php require '../menu/menu.html';?>
 <head>
