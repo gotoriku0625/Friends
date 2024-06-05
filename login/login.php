@@ -43,6 +43,7 @@
                 $_SESSION['user_id']=$row['user_id'];
             }
         }
+        echo var_dump($_SESSION);
         if(isset($_SESSION['user_id'])){
             echo <<<EOS
             <script>
