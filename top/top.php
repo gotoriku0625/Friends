@@ -56,6 +56,12 @@
         //         $row['icon_image'];// アイコン
         //     }
         // }
+        
+
+        if (!isset($_SESSION['user_id'])) {
+            die("ユーザーIDが設定されていません。ログインしてください。");
+        }
+        
         try {
             $pdo = new PDO($connect, USER, PASS);
         
@@ -68,18 +74,19 @@
                                   ORDER BY user.user_id
                                   LIMIT 10');
             $sql->execute([$_SESSION['user_id']]);
-            foreach ($sql as $row) {
+            $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($results as $row) {
                 // アイコンとユーザー名、年齢を表示
                 echo $row['nick_name'] . " " . $row['age'] . "<br>";
                 if ($row['gender'] === '男性') {
                     // アイコンの枠の色を青色に
-                    echo '<div style="border: 2px solid blue;">' . $row['icon_image'] . '</div>';
+                    echo '<div style="border: 2px solid blue;">' . htmlspecialchars($row['icon_image']) . '</div>';
                 } elseif ($row['gender'] === '女性') {
                     // アイコンの枠の色を赤色に
-                    echo '<div style="border: 2px solid red;">' . $row['icon_image'] . '</div>';
+                    echo '<div style="border: 2px solid red;">' . htmlspecialchars($row['icon_image']) . '</div>';
                 } else {
                     // アイコンの枠の色を灰色に
-                    echo '<div style="border: 2px solid gray;">' . $row['icon_image'] . '</div>';
+                    echo '<div style="border: 2px solid gray;">' . htmlspecialchars($row['icon_image']) . '</div>';
                 }
             }
         
@@ -90,24 +97,24 @@
                                   ORDER BY RAND()
                                   LIMIT 30');
             $sql->execute();
-            foreach ($sql as $row) {
+            $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($results as $row) {
                 // アイコンとユーザー名、年齢を表示
                 echo $row['nick_name'] . " " . $row['age'] . "<br>";
                 if ($row['gender'] === '男性') {
                     // アイコンの枠の色を青色に
-                    echo '<div style="border: 2px solid blue;">' . $row['icon_image'] . '</div>';
+                    echo '<div style="border: 2px solid blue;">' . htmlspecialchars($row['icon_image']) . '</div>';
                 } elseif ($row['gender'] === '女性') {
                     // アイコンの枠の色を赤色に
-                    echo '<div style="border: 2px solid red;">' . $row['icon_image'] . '</div>';
+                    echo '<div style="border: 2px solid red;">' . htmlspecialchars($row['icon_image']) . '</div>';
                 } else {
                     // アイコンの枠の色を灰色に
-                    echo '<div style="border: 2px solid gray;">' . $row['icon_image'] . '</div>';
+                    echo '<div style="border: 2px solid gray;">' . htmlspecialchars($row['icon_image']) . '</div>';
                 }
             }
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }
-        ?>
         ?>
         
     </div>
