@@ -1,121 +1,184 @@
-<?php
-require '../db-connect.php';
-$pdo = new PDO($connect, USER, PASS);
+<?php require '../db-connect.php';?>
+<?php require '../menu/menu.html';?>
+<head>
+    <link rel="stylesheet" href="../menu/menu.css">
+</head>
 
-// データベースからデータを取得
+<?php $pdo = new PDO($connect, USER, PASS);
+
+// データベースから趣味データを取得
 $sql = "SELECT hobby_id, hobby_name FROM hobby";
 $stmt = $pdo->query($sql);
 $data = $stmt->fetchAll();
-?>
 
+// 学校名と都道府県のリスト
+$schools = [
+    "麻生情報ビジネス専門学校 福岡校",
+    "麻生外語観光＆ブライダル専門学校",
+    "麻生医療福祉＆保育専門学校 福岡校",
+    "麻生建築＆デザイン専門学校",
+    "麻生公務員専門学校 福岡校",
+    "ASOポップカルチャー専門学校",
+    "麻生美容専門学校 福岡校",
+    "専門学校 麻生リハビリテーション大学",
+    "専門学校 麻生工科自動車大学校",
+    "麻生情報ビジネス専門学校 北九州校",
+    "麻生公務員専門学校 北九州校",
+    "専門学校 麻生看護大学校",
+    "ASO高等部"
+];
+
+$prefectures = [
+    "北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県", "茨城県", "栃木県", "群馬県", "埼玉県", 
+    "千葉県", "東京都", "神奈川県", "新潟県", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県", "静岡県", 
+    "愛知県", "三重県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県", "鳥取県", "島根県", "岡山県", 
+    "広島県", "山口県", "徳島県", "香川県", "愛媛県", "高知県", "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", 
+    "宮崎県", "鹿児島県", "沖縄県"
+];
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>ユーザー検索</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .tab {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .tab-item {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .tab-item.is-active {
+            background-color: #d0d0d0;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .tab-content.is-active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <h1>ユーザー検索</h1>
-    <form action="result.php" method="GET">
-    <label for="nick_name">ユーザー名:</label>
-        <input type="text" id="nick_name" name="nick_name" required><br>
-        <label for="preset-queries-age">年齢:</label>
-        <select id="preset-queries-age" name="age">
-            <option value="">選択してください</option>
-            <?php for ($i = 18; $i <= 100; $i++): ?>
-                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-            <?php endfor; ?>
-        </select><br>
+    <div class="container">
+        <h1>ユーザー検索</h1>
 
-        <label for="gender">性別:</label>
-        <select name="gender" id="gender">
-            <option value="">選択してください</option>
-            <option value="男性">男性</option>
-            <option value="女性">女性</option>
-            <option value="その他">その他</option>
-        </select><br>
+        <form action="result.php" method="GET">
+            <!-- ユーザー名検索フォーム -->
+            <div>
+                <label for="nickname">ユーザー名:</label><br>
+                <input type="text" id="nickname" name="nickname"> <input type="submit" value="検索">
+            </div>
 
-        <label for="preset-queries-residence">現住居:</label>
-        <select id="preset-queries-residence" name="residence">
-            <option value="">選択してください</option>
-            <option value="北海道" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '北海道') ? 'selected' : ''; ?>>北海道</option>
-    <option value="青森県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '青森県') ? 'selected' : ''; ?>>青森県</option>
-    <option value="岩手県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '岩手県') ? 'selected' : ''; ?>>岩手県</option>
-    <option value="宮城県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '宮城県') ? 'selected' : ''; ?>>宮城県</option>
-    <option value="秋田県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '秋田県') ? 'selected' : ''; ?>>秋田県</option>
-    <option value="山形県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '山形県') ? 'selected' : ''; ?>>山形県</option>
-    <option value="福島県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '福島県') ? 'selected' : ''; ?>>福島県</option>
-    <option value="茨城県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '茨城県') ? 'selected' : ''; ?>>茨城県</option>
-    <option value="栃木県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '栃木県') ? 'selected' : ''; ?>>栃木県</option>
-    <option value="群馬県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '群馬県') ? 'selected' : ''; ?>>群馬県</option>
-    <option value="埼玉県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '埼玉県') ? 'selected' : ''; ?>>埼玉県</option>
-    <option value="千葉県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '千葉県') ? 'selected' : ''; ?>>千葉県</option>
-    <option value="東京都" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '東京都') ? 'selected' : ''; ?>>東京都</option>
-    <option value="神奈川県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '神奈川県') ? 'selected' : ''; ?>>神奈川県</option>
-    <option value="新潟県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '新潟県') ? 'selected' : ''; ?>>新潟県</option>
-    <option value="富山県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '富山県') ? 'selected' : ''; ?>>富山県</option>
-    <option value="石川県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '石川県') ? 'selected' : ''; ?>>石川県</option>
-    <option value="福井県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '福井県') ? 'selected' : ''; ?>>福井県</option>
-    <option value="山梨県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '山梨県') ? 'selected' : ''; ?>>山梨県</option>
-    <option value="長野県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '長野県') ? 'selected' : ''; ?>>長野県</option>
-    <option value="岐阜県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '岐阜県') ? 'selected' : ''; ?>>岐阜県</option>
-    <option value="静岡県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '静岡県') ? 'selected' : ''; ?>>静岡県</option>
-    <option value="愛知県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '愛知県') ? 'selected' : ''; ?>>愛知県</option>
-    <option value="三重県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '三重県') ? 'selected' : ''; ?>>三重県</option>
-    <option value="滋賀県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '滋賀県') ? 'selected' : ''; ?>>滋賀県</option>
-    <option value="京都府" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '京都府') ? 'selected' : ''; ?>>京都府</option>
-    <option value="大阪府" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '大阪府') ? 'selected' : ''; ?>>大阪府</option>
-    <option value="兵庫県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '兵庫県') ? 'selected' : ''; ?>>兵庫県</option>
-    <option value="奈良県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '奈良県') ?'selected' : ''; ?>>奈良県</option>
-    <option value="和歌山県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '和歌山県') ? 'selected' : ''; ?>>和歌山県</option>
-    <option value="鳥取県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '鳥取県') ? 'selected' : ''; ?>>鳥取県</option>
-    <option value="島根県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '島根県') ? 'selected' : ''; ?>>島根県</option>
-    <option value="岡山県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '岡山県') ? 'selected' : ''; ?>>岡山県</option>
-    <option value="広島県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '広島県') ? 'selected' : ''; ?>>広島県</option>
-    <option value="山口県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '山口県') ? 'selected' : ''; ?>>山口県</option>
-    <option value="徳島県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '徳島県') ? 'selected' : ''; ?>>徳島県</option>
-    <option value="香川県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '香川県') ? 'selected' : ''; ?>>香川県</option>
-    <option value="愛媛県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '愛媛県') ? 'selected' : ''; ?>>愛媛県</option>
-    <option value="高知県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '高知県') ? 'selected' : ''; ?>>高知県</option>
-    <option value="福岡県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '福岡県') ? 'selected' : ''; ?>>福岡県</option>
-    <option value="佐賀県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '佐賀県') ? 'selected' : ''; ?>>佐賀県</option>
-    <option value="長崎県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '長崎県') ? 'selected' : ''; ?>>長崎県</option>
-    <option value="熊本県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '熊本県') ? 'selected' : ''; ?>>熊本県</option>
-    <option value="大分県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '大分県') ? 'selected' : ''; ?>>大分県</option>
-    <option value="宮崎県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '宮崎県') ? 'selected' : ''; ?>>宮崎県</option>
-    <option value="鹿児島県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '鹿児島県') ? 'selected' : ''; ?>>鹿児島県</option>
-    <option value="沖縄県" <?php echo (isset($_GET['residence']) && $_GET['residence'] == '沖縄県') ? 'selected' : ''; ?>>沖縄県</option>
-        </select><br>
+            <div class="tab">
+                <div class="tab-item" data-tab="age">年齢</div>
+                <div class="tab-item" data-tab="gender">性別</div>
+                <div class="tab-item" data-tab="residence">現住居</div>
+                <div class="tab-item" data-tab="school">学校名</div>
+                <div class="tab-item" data-tab="hobby">趣味</div>
+            </div>
 
-        <label for="preset-queries-school">学校名:</label>
-        <select id="preset-queries-school" name="school">
-            <option value="">選択してください</option>
-            <option value="麻生情報ビジネス専門学校 福岡校">麻生情報ビジネス専門学校 福岡校</option>
-            <option value="麻生外語観光＆ブライダル専門学校">麻生外語観光＆ブライダル専門学校</option>
-            <option value="麻生医療福祉＆保育専門学校 福岡校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生医療福祉＆保育専門学校 福岡校') ? 'selected' : ''; ?>>麻生医療福祉＆保育専門学校 福岡校</option>
-            <option value="麻生建築＆デザイン専門学校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生建築＆デザイン専門学校') ? 'selected' : ''; ?>>麻生建築＆デザイン専門学校</option>
-            <option value="麻生公務員専門学校 福岡校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生公務員専門学校 福岡校') ? 'selected' : ''; ?>>麻生公務員専門学校 福岡校</option>
-            <option value="ASOポップカルチャー専門学校" <?php echo (isset($_GET['school']) && $_GET['school'] == 'ASOポップカルチャー専門学校') ? 'selected' : ''; ?>>ASOポップカルチャー専門学校</option>
-            <option value="麻生美容専門学校 福岡校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生美容専門学校 福岡校') ? 'selected' : ''; ?>>麻生美容専門学校 福岡校</option>
-            <option value="専門学校 麻生リハビリテーション大学" <?php echo (isset($_GET['school']) && $_GET['school'] == '専門学校 麻生リハビリテーション大学') ? 'selected' : ''; ?>>専門学校 麻生リハビリテーション大学</option>
-            <option value="専門学校 麻生工科自動車大学校" <?php echo (isset($_GET['school']) && $_GET['school'] == '専門学校 麻生工科自動車大学校') ? 'selected' : ''; ?>>専門学校 麻生工科自動車大学校</option>
-            <option value="麻生情報ビジネス専門学校 北九州校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生情報ビジネス専門学校 北九州校') ? 'selected' : ''; ?>>麻生情報ビジネス専門学校 北九州校</option>
-            <option value="麻生公務員専門学校 北九州校" <?php echo (isset($_GET['school']) && $_GET['school'] == '麻生公務員専門学校 北九州校') ? 'selected' : ''; ?>>麻生公務員専門学校 北九州校</option>
-            <option value="専門学校 麻生看護大学校" <?php echo (isset($_GET['school']) && $_GET['school'] == '専門学校 麻生看護大学校') ? 'selected' : ''; ?>>専門学校 麻生看護大学校</option>
-            <option value="ASO高等部" <?php echo (isset($_GET['school']) && $_GET['school'] == 'ASO高等部') ? 'selected' : ''; ?>>ASO高等部</option>
-        </select><br>
+            <!-- 各タブの内容 -->
+            <div id="age" class="tab-content">
+                <label for="age">年齢:</label><br>
+                <?php for ($i = 18; $i <= 100; $i++): ?>
+                    <input type="checkbox" id="age_<?php echo $i; ?>" name="age[]" value="<?php echo $i; ?>">
+                    <label for="age_<?php echo $i; ?>"><?php echo $i; ?></label><br>
+                <?php endfor; ?>
+            </div>
 
-        <label for="dropdown">趣味:</label>
-        <select name="selected_hobby_id" id="dropdown">
-            <option value="">選択してください</option>
-            <?php foreach ($data as $row): ?>
-                <option value="<?php echo htmlspecialchars($row['hobby_id']); ?>">
-                    <?php echo htmlspecialchars($row['hobby_name']); ?>
-                </option>
-            <?php endforeach; ?>
-        </select><br>
+            <div id="gender" class="tab-content">
+                <label for="gender">性別:</label><br>
+                <input type="checkbox" id="male" name="gender[]" value="男性">
+                <label for="male">男性</label><br>
+                <input type="checkbox" id="female" name="gender[]" value="女性">
+                <label for="female">女性</label><br>
+                <input type="checkbox" id="other" name="gender[]" value="その他">
+                <label for="other">その他</label><br>
+            </div>
 
-        <input type="submit" value="検索">
-    </form>
+            <div id="residence" class="tab-content">
+                <label for="residence">現住居:</label><br>
+                <?php foreach ($prefectures as $prefecture): ?>
+                    <input type="checkbox" id="residence_<?php echo $prefecture; ?>" name="residence[]" value="<?php echo $prefecture; ?>">
+                    <label for="residence_<?php echo $prefecture; ?>"><?php echo $prefecture; ?></label><br>
+                <?php endforeach; ?>
+            </div>
+
+            <div id="school" class="tab-content">
+                <label for="school">学校名:</label><br>
+                <?php foreach ($schools as $school): ?>
+                    <input type="checkbox" id="school_<?php echo htmlspecialchars($school); ?>" name="school[]" value="<?php echo htmlspecialchars($school); ?>">
+                    <label for="school_<?php echo htmlspecialchars($school); ?>"><?php echo htmlspecialchars($school); ?></label><br>
+                <?php endforeach; ?>
+            </div>
+
+            <div id="hobby" class="tab-content">
+                <label for="dropdown">趣味:</label><br>
+                <?php foreach ($data as $row): ?>
+                    <input type="checkbox" id="hobby_<?php echo $row['hobby_id']; ?>" name="selected_hobby_id[]" value="<?php echo htmlspecialchars($row['hobby_id']); ?>">
+                    <label for="hobby_<?php echo $row['hobby_id']; ?>"><?php echo htmlspecialchars($row['hobby_name']); ?></label><br>
+                <?php endforeach; ?>
+            </div>
+
+           
+        </form>
+    </div>
+
+    <script>
+        let lastActiveTab = null; // 最後にアクティブだったタブを保持する変数
+
+        document.querySelectorAll('.tab-item').forEach(item => {
+            item.addEventListener('click', event => {
+                // クリックされたタブがアクティブであれば非アクティブにする
+                if (item.classList.contains('is-active')) {
+                    item.classList.remove('is-active');
+                    document.getElementById(item.getAttribute('data-tab')).classList.remove('is-active');
+                    lastActiveTab = null; // 最後のアクティブタブをリセット
+                } else {
+                    // 最後にアクティブだったタブがあれば、それを非アクティブにする
+                    if (lastActiveTab) {
+                        lastActiveTab.classList.remove('is-active');
+                        document.getElementById(lastActiveTab.getAttribute('data-tab')).classList.remove('is-active');
+                    }
+                    
+                    // クリックされたタブをアクティブにする
+                    item.classList.add('is-active');
+                    
+                    const tabName = event.target.getAttribute('data-tab');
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('is-active');
+                    });
+                    document.getElementById(tabName).classList.add('is-active');
+
+                    // 最後にアクティブだったタブを更新
+                    lastActiveTab = item;
+                }
+            });
+        });
+    </script>
 </body>
 </html>

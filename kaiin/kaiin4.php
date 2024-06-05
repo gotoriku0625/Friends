@@ -21,6 +21,8 @@
                     $_POST['name'],$_POST['mail'],$pass
                 ]);
                 echo '<a href="../profile/profile.php"><button type="submit" class="btn">プロフィール設定へ</button></a>';
+                $sql=$pdo->prepare('select user_id from user where mail=?');
+                $_SESSION['user_id']=$sql->execute([$_POST['mail']]);
             }else{
                 echo '<p>メールアドレスが既に使用されています</p>';
                 echo '<a href="../kaiin/kaiin1.html" class="btn">新規会員登録へ</a>';

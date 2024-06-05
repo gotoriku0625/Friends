@@ -28,31 +28,28 @@
         <img src="../image/person2.png" alt="human2" class="side-image">
     </div>
     <div class="footer">
-        <a href="../kaiin/kaiin1.html">新規登録</a>
     </div>
 </div>
 </body>
 </html>
 <?php
     $pdo=new PDO($connect,USER,PASS);
-    $sql=$pdo->prepare('select * from user where mail=?');
+    $sql=$pdo->prepare('select user_id from user where mail=?');
     if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
         $sql->execute([$_POST['id']]);
         foreach($sql as $row){
-            if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
+            if(password_verify($_POST['password'],$row['pass']) == true){//ハッシュ化したパスワードと一致しているか
                 $_SESSION['user_id']=$row['user_id'];
             }
         }
-        echo var_dump($_SESSION);
         if(isset($_SESSION['user_id'])){
             echo <<<EOS
-            <script>
-            location.href='https://aso2201147.tonkotsu.jp/Friends/top/top.php';
-            </script> 
             \n
             EOS;
         }else{
             echo '<p>ログイン名またはパスワードが違います。</p>';
         }
+        header('Location:./login.php');
+        exit;
     }
 ?>
