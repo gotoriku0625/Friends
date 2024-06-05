@@ -1,4 +1,3 @@
-
 .main {
     width: 70%; /* 要素の幅 */
     padding: 20px; /* 内側の余白 */
@@ -18,7 +17,7 @@
     text-align: right;
 }
 
-.title a{
+.title a {
     text-align: right;   
 }
 
@@ -59,16 +58,14 @@ select {
     overflow: auto; /* テキストが枠外に流れた場合にスクロールバーを表示 */
 }
 
-
 input[type="checkbox"] {
     transform: scale(2); /* チェックボックスの大きさを変更 */
     margin-right: 15px; /* チェックボックスとラベルの間に余白を追加 */
-    margin-bottom: 15px
+    margin-bottom: 15px;
 }
+
 label {
-    display: inline-block; /* ラベルをインラインブロック要素にすることで横に配置 */
-    font-size: 18px; /* 文字を大きくする */
-    margin-right: 50px; /* ラベル間の適切な間隔を追加 */
+
 }
 
 .btn-container {
@@ -76,16 +73,79 @@ label {
     text-align: center;
 }
 
- .btn {
-        padding: 10px 10px; /* ボタンのパディングを変更 */
-        margin: 20px 20px;
-        background-color: aquamarine;
-        color: #000000;
-        text-decoration: none;
-        border-radius: 5px;
-        border: 1px solid #000;
-        font-size: 14px; /* ボタンのフォントサイズを変更 */
+.btn {
+    padding: 10px 10px; /* ボタンのパディングを変更 */
+    margin: 20px 20px;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #000;
+    font-size: 14px; /* ボタンのフォントサイズを変更 */
+}
+
+.container {
+    right: 0;
+    text-align: right; /* 内部要素を右寄せ */
+    position: relative; /* 相対位置を追加 */
+    margin-top: 20px; /* 上部のマージンを追加 */
+    width: 100%;
+    height: 300px;
+}
+
+.circle-wrapper {
+    position: relative; /* 新しく追加した親要素に相対位置を設定 */
+    display: flex; /* フレックスボックスに変更 */
+    justify-content: center; /* 中央寄せ */
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #ccc; /* 枠線の太さ */
+    display: flex;
+    flex-direction: column-reverse; /* この行を追加 */
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+#imageInput {
+    position: absolute; /* 絶対位置に変更 */
+    right: 10px; /* 右端に配置 */
+    bottom: 10px; /* 下端に配置 */
+    display: inline-block; /* インラインブロックに変更 */
+    margin: 0; /* マージンをリセット */
 }
 
 
+/* プラス動かしたい時はmargin-rightとかtop変えて */
+#imagePut{
+    font-size: 30px; /* 文字を大きくする */
+    position: absolute; /* 絶対位置に変更 */
+    margin-right: 0px;
+    bottom: 0px; /* 下端に配置 */
+    right: 250px;
+    top:180px;
+    width: 50px;
+    height: auto;
+}
 
+.btn {
+    width: 100%; /* 幅100% */
+    padding: 10px; /* 内側の余白 */
+    border: none; /* 枠線のない設定 */
+    border-radius: 5px; /* 角丸 */
+    background-color: aquamarine;
+    color: #000000; /* テキスト色 */
+    font-size: 16px; /* フォントサイズ */
+    cursor: pointer; /* マウスカーソルの形状 */
+}

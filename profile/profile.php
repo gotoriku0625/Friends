@@ -1,4 +1,5 @@
-<body>
+</html>
+    <body>
         <div class="main">
             <div class="pro-log">
                 <p>プロフィール</p>

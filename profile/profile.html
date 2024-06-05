@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,14 +23,23 @@
             <p><img src="../menu-image/talk-free-icon.png" class="talk-free-icon"><a href="../talk/talk2.php">トーク</a></p>
         </div>
     </div>
+    <!-- ここからプロフィールのプログラム -->
     <div class="main">
         <div class="title">
             <p class="title">プロフィール</p> 
             <a href="/logout.html">ログアウト</a>
         </div>
         <hr>
-        <p>サブ写真</p>
-        <image>
+        <div class="container">
+            <div class="circle-wrapper">
+                <div class="circle" id="imageContainer">
+                    <img id="selectedImage" alt="選択された画像">
+                </div>
+                <label for="imageInput" id="imagePut">+</label> <!-- ファイル選択の代わりに「＋」を表示 -->
+                <input type="file" id="imageInput" accept="image/*" style="display: none;"> <!-- ファイル選択ボタンは非表示にする -->
+            </div>
+        </div>
+
         <p>ユーザー名</p>
         <!--ユーザー名の出力PHP-->
         <p>自己紹介</p>
@@ -119,18 +128,16 @@
             <option value="宮崎県">宮崎県</option>
             <option value="その他">その他</option>
         </select>
-
         <p>休日の過ごし方</p>
         <textarea id="message" name="message" rows="4" cols="500" class="off"></textarea>
-   
         <label for="option1"><input type="checkbox" id="option1" name="options" value="Option 1">飲酒</label>
         <label for="option2"><input type="checkbox" id="option2" name="options" value="Option 2">喫煙</label>        
         <br>
         <div class="btn-container">
             <a href="../login/login.html" class="btn">キャンセル</a>
             <a href="../top/top.html" class="btn">保存</a>
-            
         </div>
     </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
