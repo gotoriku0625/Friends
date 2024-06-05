@@ -14,14 +14,11 @@ if ($conn->connect_error) {
 session_start();
 require '../db-connect.php';
 
-// 仮にログインユーザーIDをセッションから取得
-// $logged_in_user_id = $_SESSION['user_id'];
-
 // いいねした人の一覧を取得
-$sql = "SELECT users.user_id, users.user_name 
+$sql = "SELECT user.user_id, user.user_name 
         FROM likes 
-        JOIN users ON likes.liked_id = users.user_id 
-        WHERE likes.liker_id = ?";
+        JOIN user ON likes.likes_id = user.user_id 
+        WHERE likes.likes_user_id = ?";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $logged_in_user_id);
