@@ -41,7 +41,7 @@
         foreach($sql as $row){
             if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
                 $_SESSION['user_id']=$row['user_id'];
-                echo var_dump($_SESSION);
+                 var_dump($_SESSION);
             }
         }
         
