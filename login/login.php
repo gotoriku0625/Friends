@@ -53,7 +53,5 @@
         }else{
             echo '<p>ログイン名またはパスワードが違います。</p>';
         }
-        header('Location:./login.php');
-        exit;
     }
 ?>
