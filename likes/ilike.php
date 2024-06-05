@@ -1,46 +1,43 @@
 <?php
+$servername = "mysql301.phy.lolipop.lan";
+$username = "LAA1517801";
+$password = "pass0625";
+$dbname = "LAA1517801-friends";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+<?php
+session_start();
 require '../db-connect.php';
-$pdo = new PDO($connect, USER, PASS);
 
-function calculateAge($birthdate) {
-    $dob = new DateTime($birthdate);
-    $now = new DateTime();
-    $difference = $now->diff($dob);
-    return $difference->y;
+// 仮にログインユーザーIDをセッションから取得
+// $logged_in_user_id = $_SESSION['user_id'];
+
+// いいねした人の一覧を取得
+$sql = "SELECT users.user_id, users.user_name 
+        FROM likes 
+        JOIN users ON likes.liked_id = users.user_id 
+        WHERE likes.liker_id = ?";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $logged_in_user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$liked_users = [];
+while ($row = $result->fetch_assoc()) {
+    $liked_users[] = $row;
 }
 
-function getLikesGiven($userId) {
-    global $conn;
-    $sql = "SELECT users.user_id, users.username, users.profile_image, users.birthdate FROM likes
-            JOIN users ON likes.liked_id = users.user_id
-            WHERE likes.liker_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $userId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $likes = $result->fetch_all(MYSQLI_ASSOC);
-
-    foreach ($likes as &$like) {
-        $like['age'] = calculateAge($like['birthdate']);
-    }
-
-    if (empty($likes)) {
-        return ["message" => "誰もいません"];
-    } else {
-        return $likes;
-    }
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['user_id'])) {
-    $userId = intval($_GET['user_id']);
-    $likesGiven = getLikesGiven($userId);
-    header('Content-Type: application/json');
-    echo json_encode($likesGiven);
-}
+$stmt->close();
+$conn->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,33 +66,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['user_id'])) {
     <div class="main">
     いいねした人<img src="../menu-image/like-free-icon.png" class=""><button onclick="location.href='./youlike.php'">あなたへいいね</button><img src="../image/unlike.svg" class="">
     <hr></hr>
-    <div id="likes_user_id">
-    <script>
-        const userId = 1; // 表示したいユーザーのID
-
-        function fetchLikes(type, containerId) {
-            fetch(`/${type}.php?user_id=${userId}`)
-                .then(response => response.json())
-                .then(data => {
-                    const container = document.getElementById(containerId);
-                    if (data.message) {
-                        container.innerHTML = `<p>${data.message}</p>`;
-                    } else {
-                        const list = document.createElement('ul');
-                        data.forEach(like => {
-                            const listItem = document.createElement('li');
-                            listItem.textContent = like.username;
-                            list.appendChild(listItem);
-                        });
-                        container.appendChild(list);
-                    }
-                })
-                .catch(error => console.error('Error fetching likes:', error));
+    <style>
+        .user-list {
+            list-style-type: none;
+            padding: 0;
         }
-
-        fetchLikes('likes_given', 'likes-given');
-        fetchLikes('likes_received', 'likes-received');
-    </script>
-    </div>
+        .user-list li {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>いいねした人の一覧</h1>
+    <?php if (!empty($liked_users)): ?>
+        <ul class="user-list">
+            <?php foreach ($liked_users as $user): ?>
+                <li><?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>いいねした人はいません。</p>
+    <?php endif; ?>
 </body>
 </html>

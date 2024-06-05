@@ -53,7 +53,7 @@ hr {
     border: none; /* 枠線のない設定 */
     border-radius: 5px; /* 角丸 */
     background-color: aquamarine;
-    color: rgb(4, 4, 4); /* テキスト色 */
+    color: #000000; /* テキスト色 */
     font-size: 16px; /* フォントサイズ */
     cursor: pointer; /* マウスカーソルの形状 */
 }
