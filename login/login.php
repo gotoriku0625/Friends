@@ -38,11 +38,11 @@
     $sql=$pdo->prepare('select * from user where mail=?');
     if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
         $sql->execute([$_POST['id']]);
+        
         foreach($sql as $row){
-            if(password_verify($_POST['password'],$row['password'])){//ハッシュ化したパスワードと一致しているか
+            var_dump($row);
+            if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
                 $_SESSION['user_id']=$row['user_id'];
-                echo var_dump($_SESSION);
-
             }
         }
         
@@ -57,4 +57,5 @@
             echo '<p class="error">ログイン名またはパスワードが違います。</p>';
         }
     }
+
 ?>
