@@ -37,8 +37,9 @@
     $pdo=new PDO($connect,USER,PASS);
     $sql=$pdo->prepare('select * from user where mail=?');
     if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
-        var_dump($_POST);
         $sql->execute([$_POST['id']]);
+        $rows = $sql->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($rows);
         foreach($sql as $row){
             if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
                 $_SESSION['user_id']=$row['user_id'];
