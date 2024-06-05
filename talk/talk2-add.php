@@ -31,7 +31,7 @@
         $sql=$pdo->prepare($member_add);
         $sql->execute($user_id,$reciver_id);
     }
-    header('Location:./talk.php?user_id='.$reciver_id.'');
+    header('Location:https://aso2201147.tonkotsu.jp/Friends/talk/talk2.php?user_id='.$reciver_id.'');
 // }catch(Exception $e){
     // echo 'ただいま障害により大変ご迷惑をおかけしております。';
     // exit();

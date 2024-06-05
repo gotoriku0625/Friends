@@ -1,4 +1,16 @@
 <?php
+$servername = "mysql301.phy.lolipop.lan";
+$username = "LAA1517801";
+$password = "pass0625";
+$dbname = "LAA1517801-friends";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+<?php
 session_start();
 require '../db-connect.php';
 
@@ -22,7 +34,7 @@ $stmt_liked->close();
 $sql_liked_by = "SELECT user.user_id, user.user_name 
                  FROM likes 
                  JOIN user ON likes.liked_user_id = user.user_id 
-                 WHERE likes.liked_id = ?";
+                 WHERE likes.liked_user_id = ?";
 $stmt_liked_by = $conn->prepare($sql_liked_by);
 $stmt_liked_by->bind_param("i", $logged_in_user_id);
 $stmt_liked_by->execute();
