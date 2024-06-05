@@ -34,60 +34,28 @@
 </body>
 </html>
 <?php
-    // $pdo=new PDO($connect,USER,PASS);
-    // $sql=$pdo->prepare('select * from user where mail=?');
-    // if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
-    //     $sql->execute([$_POST['id']]);
+    $pdo=new PDO($connect,USER,PASS);
+    $sql=$pdo->prepare('select * from user where mail=?');
+    if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
+        $sql->execute([$_POST['id']]);
         
-    //     foreach($sql as $row){
-    //         var_dump($row);
-    //         if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
-    //             $_SESSION['user_id']=$row['user_id'];
-    //         }
-    //     }
-        
-    //     if(isset($_SESSION['user_id'])){
-    //         echo <<<EOS
-    //         <script>
-    //         location.href='https://aso2201147.tonkotsu.jp/Friends/top/top.php';
-    //         </script> 
-    //         \n
-    //         EOS;
-    //     }else{
-    //         echo '<p class="error">ログイン名またはパスワードが違います。</p>';
-    //     }
-    // }
-    try {
-        $pdo = new PDO($connect, USER, PASS);
-        $sql = $pdo->prepare('SELECT * FROM user WHERE mail = ?');
-    
-        if (isset($_POST['login']) && $_POST['login'] === "ログイン") {
-            var_dump($_POST); // デバッグ: POSTデータの表示
-            $sql->execute([$_POST['id']]);
-            $rows = $sql->fetchAll(PDO::FETCH_ASSOC);
-            var_dump($rows); // デバッグ: クエリ結果の表示
-    
-            foreach ($rows as $row) {
-                var_dump($row['password']); // デバッグ: ハッシュ化されたパスワードの表示
-                if (password_verify($_POST['password'], $row['password'])) {
-                    $_SESSION['user_id'] = $row['user_id'];
-                    echo var_dump($_SESSION); // デバッグ: セッションの表示
-                    break; // パスワードが一致したらループを抜ける
-                }
-            }
-    
-            if (isset($_SESSION['user_id'])) {
-                echo <<<EOS
-                <script>
-                location.href='https://aso2201147.tonkotsu.jp/Friends/top/top.php';
-                </script> 
-                \n
-                EOS;
-            } else {
-                echo '<p class="error">ログイン名またはパスワードが違います。</p>';
+        foreach($sql as $row){
+            var_dump($row);
+            if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
+                $_SESSION['user_id']=$row['user_id'];
             }
         }
-    } catch (PDOException $e) {
-        echo 'Connection failed: ' . $e->getMessage();
+        
+        if(isset($_SESSION['user_id'])){
+            echo <<<EOS
+            <script>
+            location.href='https://aso2201147.tonkotsu.jp/Friends/top/top.php';
+            </script> 
+            \n
+            EOS;
+        }else{
+            echo '<p class="error">ログイン名またはパスワードが違います。</p>';
+        }
     }
+
 ?>
