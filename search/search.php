@@ -2,6 +2,7 @@
 <?php require '../menu/menu.html';?>
 <head>
     <link rel="stylesheet" href="../menu/menu.css">
+    <link rel="stylesheet" href="search.css">
 </head>
 
 <?php $pdo = new PDO($connect, USER, PASS);
@@ -41,46 +42,7 @@ $prefectures = [
 <head>
     <meta charset="UTF-8">
     <title>ユーザー検索</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .tab {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        .tab-item {
-            cursor: pointer;
-            padding: 10px 20px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .tab-item.is-active {
-            background-color: #d0d0d0;
-        }
-        .tab-content {
-            display: none;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .tab-content.is-active {
-            display: block;
-        }
-    </style>
+    
 </head>
 <body>
     <div class="container">
@@ -90,7 +52,7 @@ $prefectures = [
             <!-- ユーザー名検索フォーム -->
             <div>
                 <label for="nickname">ユーザー名:</label><br>
-                <input type="text" id="nickname" name="nickname"> <input type="submit" value="検索">
+                <input type="text" id="nickname" name="nickname"><input type="submit" class="search-button" value="">
             </div>
 
             <div class="tab">
