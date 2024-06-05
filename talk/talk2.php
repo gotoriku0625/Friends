@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php require './function.php';?>
 <?php
-header("Refresh:1");
+// header("Refresh:1");
 $_SESSION['user1_id']=2;
 $_SESSION['user2_id']=3;
 $current_user = get_user($_SESSION['user1_id']);// 現在ログインしているユーザー情報
@@ -12,8 +12,7 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
 
 <body>
     <div class="message"> 
-        <!-- <h2 class="center">$reciver['user_name']</h2> -->
-        <h2 class="center">太郎</h2>
+        <h2 class="center"><?=$reciver['user_name']?></h2>
         <?php 
         if($messages!=null){
             foreach ($messages as $message){
