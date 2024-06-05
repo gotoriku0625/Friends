@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通報一覧</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed; /* セルの幅を固定 */
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        thead {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            display: table; /* 表全体をテーブルとして扱う */
+            width: 100%;
+            table-layout: fixed; /* セルの幅を固定 */
+        }
+        tbody {
+            display: block;
+            max-height: 200px; /* スクロール領域の高さを指定 */
+            overflow-y: auto;
+            width: 100%;
+        }
+        tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed; /* セルの幅を固定 */
+        }
+    </style>
+</head>
+<body>
+    <h1>通報一覧</h1>
+    <p>通報数：6</p>
+    <table>
+        <thead>
+            <tr>
+                <th>通報者</th><th>相手</th><th>通報内容</th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ゴトリク</td><td>総司</td><td>暴言吐かれました</td><td><a href="#">トークへ</a></td>
+            </tr>
+            <tr>
+                <td>総司</td><td>ながみね</td><td>年齢詐欺られてた</td><td><a href="#">トークへ</a></td>
+            </tr>
+            <tr>
+                <td>ながみね</td><td>みっきー</td><td>セクハラ発言してきます</td><td><a href="#">トークへ</a></td>
+            </tr>
+            <tr>
+                <td>みっきー</td><td>ここ</td><td>奢ってとしつこく言ってきます</td><td><a href="#">トークへ</a></td>
+            </tr>
+            <tr>
+                <td>ここ</td><td>み</td><td>アイコン詐欺してます</td><td><a href="#">トークへ</a></td>
+            </tr>
+            <tr>
+                <td>み</td><td>ゴトリク</td><td>連絡先しつこく聞かれました</td><td><a href="#">トークへ</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
