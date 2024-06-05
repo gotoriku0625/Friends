@@ -8,9 +8,6 @@
 <body>
     <div class="main">
         <?php
-        if (!isset($_SESSION['user_id'])) {
-            die("ユーザーIDが設定されていません。ログインしてください。");
-        }
         $pdo=new PDO($connect,USER,PASS);
         // おすすめ
         $sql=$pdo->prepare('select user.user_id,icon_image,nick_name,gender,age from user,profile,hobby
