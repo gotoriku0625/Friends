@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー一覧</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed; /* セルの幅を固定 */
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        thead {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            display: table; /* 表全体をテーブルとして扱う */
+            width: 100%;
+            table-layout: fixed; /* セルの幅を固定 */
+        }
+        tbody {
+            display: block;
+            max-height: 200px; /* スクロール領域の高さを指定 */
+            overflow-y: auto;
+            width: 100%;
+        }
+        tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed; /* セルの幅を固定 */
+        }
+    </style>
+</head>
+<body>
+    <h1>ユーザー一覧</h1>
+    <p>ユーザー数：6</p>
+    <table>
+        <thead>
+            <tr>
+                <th>名</th><th>email</th><th>性別</th><th>年齢</th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ゴトリク</td><td>goto@riku.com</td><td>その他</td><td>35歳</td><td><a href="#">プロフィールへ</a></td>
+            </tr>
+            <tr>
+                <td>ゴトリク</td><td>goto@riku.com</td><td>その他</td><td>35歳</td><td><a href="#">プロフィールへ</a></td>
+            </tr>
+            <tr>
+                <td>ゴトリク</td><td>goto@riku.com</td><td>その他</td><td>35歳</td><td><a href="#">プロフィールへ</a></td>
+            </tr>
+            <tr>
+                <td>ゴトリク</td><td>goto@riku.com</td><td>その他</td><td>35歳</td><td><a href="#">プロフィールへ</a></td>
+            </tr>
+            <tr>
+                <td>ゴトリク</td><td>goto@riku.com</td><td>その他</td><td>35歳</td><td><a href="#">プロフィールへ</a></td>
+            </tr>
+            <tr>
+                <td>ゴトリク</td><td>goto@riku.com</td><td>その他</td><td>35歳</td><td><a href="#">プロフィールへ</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
