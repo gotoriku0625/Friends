@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理スタッフ設定</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        thead {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        tbody {
+            display: block;
+            max-height: 200px; /* スクロール領域の高さを指定 */
+            overflow-y: auto;
+        }
+        tbody tr {
+            display: table;
+            table-layout: fixed; /* セルの幅を固定 */
+            width: 100%;
+        }
+        thead, tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed; /* セルの幅を固定 */
+        }
+    </style>
+</head>
+<body>
+    <h1>管理スタッフ設定</h1>
+    管理者数：5
+    <button>スタッフ追加</button>
+    <button>スタッフ削除</button>
+    <table>
+        <thead>
+            <tr>
+                <th>管理者名</th><th>管理者番号</th><th>email</th><th>追加日</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>後藤陸</td><td>0625</td><td>goto@riku.com</td><td>2030/06/25</td>
+            </tr>
+            <tr>
+                <td>山口総司</td><td>0909</td><td>yama@soshi.com</td><td>2003/09/09</td>
+            </tr>
+            <tr>
+                <td>長嶺修悟</td><td>0611</td><td>mine@syu.com</td><td>2040/06/11</td>
+            </tr>
+            <tr>
+                <td>原田実季</td><td>1127</td><td>hara@da.com</td><td>1998/11/27</td>
+            </tr>
+            <tr>
+                <td>堤田小想</td><td>0630</td><td>tutu@koko.com</td><td>2010/06/30</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
