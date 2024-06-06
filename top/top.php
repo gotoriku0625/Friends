@@ -37,7 +37,7 @@
                 echo '<a href="../profile/profile.php"><img src="',$row['icon_image'],'"</a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<p>',$row['nick_name'];// ユーザー名
+            echo '<p class="nick_name1">',$row['nick_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
         }
         echo '</div>';
@@ -53,16 +53,16 @@
         foreach($sql as $row){
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
-                echo $row['icon_image'];// アイコン
+                echo '<a href="../profile/profile.php"><img src="',$row['icon_image'],'"</a>';// アイコン
             }else if($row['gender']==='女性'){
                 // アイコンの枠の色を赤色に
-                echo $row['icon_image'];// アイコン
+                echo '<a href="../profile/profile.php"><img src="',$row['icon_image'],'"</a>';// アイコン
             }else{
                 // アイコンの枠の色を灰色に
-                echo $row['icon_image'];// アイコン
+                echo '<a href="../profile/profile.php"><img src="',$row['icon_image'],'"</a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<p>',$row['nick_name'];// ユーザー名
+            echo '<p class="nick_name2">',$row['nick_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
         }
         

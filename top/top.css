@@ -1,3 +1,11 @@
 .recommendation{
     display: flex;
 }
+
+.nick_name1{
+    font-size: 15px;
+}
+
+.nick_name2{
+    font-size: 20px;
+}
