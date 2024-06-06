@@ -43,6 +43,7 @@
                             where user_id=?
                             order by user.user_id
                             limit 30');
+        $sql->execute();
         foreach($sql as $row){
             // アイコンとユーザー名、年齢を表示
             $row['nick_name'];// ユーザー名
