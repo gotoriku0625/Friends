@@ -24,7 +24,7 @@
         $sql->execute(array($_SESSION['user_id']));
         foreach($sql as $row){
             // アイコンとユーザー名、年齢を表示
-            $row['nick_name'];// ユーザー名
+            echo '<p>',$row['nick_name'],'</p>';// ユーザー名
             $row['age'];// 年齢
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
