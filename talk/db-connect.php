@@ -5,4 +5,4 @@
     $pass = 'pass0625';
  
     $connect = 'mysql:host='. $server . ';dbname='. $dbname . ';charset=utf8';
-?> 
+?>
