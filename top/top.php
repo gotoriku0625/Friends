@@ -25,7 +25,7 @@
         foreach($sql as $row){
             // アイコンとユーザー名、年齢を表示
             echo '<p>',$row['nick_name'],'</p>';// ユーザー名
-            $row['age'];// 年齢
+            echo '<p>',$row['age'],'</p>';// 年齢
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
                 $row['icon_image'];// アイコン
