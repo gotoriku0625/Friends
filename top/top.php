@@ -16,7 +16,7 @@
                             and user.user_id<>?
                             order by user.user_id
                             limit 10');
-        $sql->execute($_SESSION['user_id']);
+        $sql->execute(array($_SESSION['user_id']));
         foreach($sql as $row){
             // アイコンとユーザー名、年齢を表示
             $row['nick_name'];// ユーザー名
