@@ -3,6 +3,7 @@
 <?php require '../menu/menu.html';?>
 <head>
     <link rel="stylesheet" href="../menu/menu.css">
+    <link rel="stylesheet" href="top.css">
 </head>
 
 <body>
