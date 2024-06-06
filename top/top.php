@@ -22,9 +22,9 @@
         //                     order by user.user_id
         //                     limit 10');
         $sql->execute(array($_SESSION['user_id']));
+        echo '<h2>おすすめ</h2>';
         foreach($sql as $row){
             // アイコンとユーザー名、年齢を表示
-            echo '<h2>おすすめ</h2>';
             echo '<p>',$row['nick_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
             if($row['gender']==='男性'){
@@ -46,8 +46,8 @@
                             order by RAND()
                             limit 30');
         $sql->execute();
+        echo '<hr>';
         foreach($sql as $row){
-            echo '<hr>';
             // アイコンとユーザー名、年齢を表示
             echo '<p>',$row['nick_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
