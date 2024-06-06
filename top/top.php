@@ -24,19 +24,19 @@
         $sql->execute(array($_SESSION['user_id']));
         echo '<h2>おすすめ</h2>';
         foreach($sql as $row){
+            if($row['gender']==='男性'){
+                // アイコンの枠の色を青色に
+                echo $row['icon_image'];// アイコン
+            }else if($row['gender']==='女性'){
+                // アイコンの枠の色を赤色に
+                echo $row['icon_image'];// アイコン
+            }else{
+                // アイコンの枠の色を灰色に
+                echo $row['icon_image'];// アイコン
+            }
             // アイコンとユーザー名、年齢を表示
             echo '<p>',$row['nick_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
-            if($row['gender']==='男性'){
-                // アイコンの枠の色を青色に
-                $row['icon_image'];// アイコン
-            }else if($row['gender']==='女性'){
-                // アイコンの枠の色を赤色に
-                $row['icon_image'];// アイコン
-            }else{
-                // アイコンの枠の色を灰色に
-                $row['icon_image'];// アイコン
-            }
         }
 
         // ランダムに30人を表示する
@@ -48,19 +48,19 @@
         $sql->execute();
         echo '<hr>';
         foreach($sql as $row){
+            if($row['gender']==='男性'){
+                // アイコンの枠の色を青色に
+                echo $row['icon_image'];// アイコン
+            }else if($row['gender']==='女性'){
+                // アイコンの枠の色を赤色に
+                echo $row['icon_image'];// アイコン
+            }else{
+                // アイコンの枠の色を灰色に
+                echo $row['icon_image'];// アイコン
+            }
             // アイコンとユーザー名、年齢を表示
             echo '<p>',$row['nick_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
-            if($row['gender']==='男性'){
-                // アイコンの枠の色を青色に
-                $row['icon_image'];// アイコン
-            }else if($row['gender']==='女性'){
-                // アイコンの枠の色を赤色に
-                $row['icon_image'];// アイコン
-            }else{
-                // アイコンの枠の色を灰色に
-                $row['icon_image'];// アイコン
-            }
         }
         
         ?>
