@@ -24,6 +24,7 @@
         $sql->execute(array($_SESSION['user_id']));
         foreach($sql as $row){
             // アイコンとユーザー名、年齢を表示
+            echo '<h2>おすすめ</h2>';
             echo '<p>',$row['nick_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
             if($row['gender']==='男性'){
@@ -46,9 +47,10 @@
                             limit 30');
         $sql->execute();
         foreach($sql as $row){
+            echo '<hr>';
             // アイコンとユーザー名、年齢を表示
-            $row['nick_name'];// ユーザー名
-            $row['age'];// 年齢
+            echo '<p>',$row['nick_name'];// ユーザー名
+            echo '(',$row['age'],')</p>';// 年齢
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
                 $row['icon_image'];// アイコン
