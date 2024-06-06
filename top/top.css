@@ -4,8 +4,10 @@
 
 .nick_name1{
     font-size: 18px;
+    width: fit-content;
 }
 
 .nick_name2{
     font-size: 22px;
+    width: fit-content;
 }
