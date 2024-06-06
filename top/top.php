@@ -12,10 +12,15 @@
         // おすすめ
         $sql=$pdo->prepare('select user.user_id,icon_image,nick_name,gender,age from user,profile,hobby
                             where profile.hobby_id=hobby.hobby_id
-                            and profile.hobby_id=profile.hobby_id
                             and user.user_id<>?
                             order by user.user_id
                             limit 10');
+        // $sql=$pdo->prepare('select user.user_id,icon_image,nick_name,gender,age from user,profile,hobby
+        //                     where profile.hobby_id=hobby.hobby_id
+        //                     and profile.hobby_id=profile.hobby_id
+        //                     and user.user_id<>?
+        //                     order by user.user_id
+        //                     limit 10');
         $sql->execute(array($_SESSION['user_id']));
         foreach($sql as $row){
             // アイコンとユーザー名、年齢を表示
