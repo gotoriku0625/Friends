@@ -39,9 +39,10 @@
         }
 
         // ランダムに30人を表示する
-        $sql=$pdo->prepare('select user.user_id,icon_image,nick_name,gender,age from user,profile
-                            where user_id=?
-                            order by user.user_id
+        $sql=$pdo->prepare('select user.user_id, icon_image, nick_name, gender, age 
+                            from user
+                            join profile ON user.user_id = profile.user_id
+                            order by RAND()
                             limit 30');
         $sql->execute();
         foreach($sql as $row){
