@@ -26,7 +26,7 @@
         <!-- バックエンドの方、ユーザーネームの出力お願いします -->
 
         <?php
-            $username = $_SESSION['user_name'];
+            $username = $_SESSION['nick_name'];
             echo '<div class="name">',$username,'</div>';
         ?>
 
