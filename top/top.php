@@ -23,6 +23,7 @@
         //                     limit 10');
         $sql->execute(array($_SESSION['user_id']));
         echo '<h2>おすすめ</h2>';
+        echo '<div class="recommendation">';
         foreach($sql as $row){
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
@@ -38,6 +39,7 @@
             echo '<p>',$row['nick_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
         }
+        echo '</div>';
 
         // ランダムに30人を表示する
         $sql=$pdo->prepare('select user.user_id, icon_image, nick_name, gender, age 
