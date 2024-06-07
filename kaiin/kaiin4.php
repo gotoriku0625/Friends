@@ -1,8 +1,6 @@
-<?php require '../db-connect.php';?>
-<head>
-    <meta charset="UTF-8">
-    <title>新規会員登録</title>
+<?php require '../header.php';?>
     <link rel="stylesheet" href="css/kaiin4.css">
+    <title>新規会員登録</title>
 </head>
     <body>
         <div id="center">
@@ -22,8 +20,13 @@
                         $_POST['name'],$_POST['mail'],$pass
                     ]);
                     echo '<a href="../profile/profile.php"><button type="submit" class="btn">プロフィール設定へ</button></a>';
-                    $sql=$pdo->prepare('select user_id from user where mail=?');
-                    $_SESSION['user_id']=$sql->execute([$_POST['mail']]);
+                    $sql=$pdo->prepare('select * from user where mail=?');
+                    $sql->execute([$_POST['mail']]);
+                    foreach($sql as $row){
+                        $_SESSION['user']=[
+                            'id'=>$row['user_id'],'name'=>$row['user_name'],'icon'=>$row['icon_image']
+                        ];
+                    }
                 }else{
                     echo '<p>メールアドレスが既に使用されています</p>';
                     echo '<a href="../kaiin/kaiin1.html" class="btn">新規会員登録へ</a>';
