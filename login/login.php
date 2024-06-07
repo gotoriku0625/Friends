@@ -37,13 +37,15 @@
     $pdo=new PDO($connect,USER,PASS);
     $sql=$pdo->prepare('select * from user where mail=?');
     if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
-        if(!isset($_SESSION['user'])){
+        if(isset($_POST['id'])&&isset($_POST['password'])){
             $sql->execute([$_POST['id']]);
             
             foreach($sql as $row){
                 var_dump($row);
                 if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
-                    $_SESSION['user']=['id'=>$row['user_id'],'name'=>$row['user_name']];
+                    $_SESSION['user']=[
+                        'id'=>$row['user_id'],'name'=>$row['user_name']
+                    ];
                 }
             }
             
