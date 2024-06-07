@@ -23,10 +23,8 @@
                 </div>
             </div>
         </div>
-        <!-- バックエンドの方、ユーザーネームの出力お願いします -->
 
         <?php
-        var_dump($_SESSION['user']);
             $username = $_SESSION['user']['name'];
             echo '<div class="name">',$username,'</div>';
         ?>
