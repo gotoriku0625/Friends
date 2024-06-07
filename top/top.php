@@ -37,7 +37,7 @@
                 echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"</a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<p class="nick_name1">',$row['nick_name'];// ユーザー名
+            echo '<p class="nick_name1">',$row['user_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
         }
         echo '</div>';
@@ -62,7 +62,7 @@
                 echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"</a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<p class="nick_name2">',$row['nick_name'];// ユーザー名
+            echo '<p class="nick_name2">',$row['username'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
         }
         
