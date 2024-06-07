@@ -1,0 +1,22 @@
+.recommendation{
+    display: flex;
+}
+
+.nick_name1{
+    font-size: 18px;
+    width: fit-content;
+}
+
+.nick_name2{
+    font-size: 22px;
+    width: fit-content;
+}
+
+h2{
+    margin-top: 5%;
+    margin-left: 3%;
+}
+
+hr{
+    color: rgb(151, 255, 220);
+}
