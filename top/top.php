@@ -1,10 +1,11 @@
-<?php require '../menu/menu.php';?>
-<head>
-    <link rel="stylesheet" href="../menu/menu.css">
-    <link rel="stylesheet" href="top.css">
+<?php require '../header.php';?>
+    <!-- ↓ここにＣＳＳを追加↓ -->
+    <link rel="stylesheet" href="./top.css">
+    <title>Friends Top</title>
 </head>
 
 <body>
+<?php require '../menu/menu.php';?>
     <div class="main">
         <?php
         $pdo=new PDO($connect,USER,PASS);

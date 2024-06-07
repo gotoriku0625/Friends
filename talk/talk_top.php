@@ -1,7 +1,10 @@
-<?php require '../menu/menu.php';?>
+<?php require '../header.php';?>
+    <link rel="stylesheet" href="./talk.css">
+    <title>Talk Top</title>
+</head>
 <?php require './function.php';?>
 <body>
-
+<?php require '../menu/menu.php';?>
 <?php
 $_SESSION['user1_id']=3;
 $_SESSION['user2_id']=2;
