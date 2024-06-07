@@ -10,23 +10,29 @@
                 <hr>
         <?php
             $pdo=new PDO($connect,USER,PASS);
-            $sql=$pdo->prepare('select * from user where mail=?');
-            $sql->execute([$_POST['mail']]);
-            $result=$sql->fetchAll();
-            if(empty($result)){
-                echo '<p class="message">登録完了</p>';
-                $pass = password_hash($_POST['pass'],PASSWORD_DEFAULT);//ここでパスワードをハッシュ化
-                $sql=$pdo->prepare('insert into user values (null,?,?,?)');
-                $sql->execute([
-                    $_POST['name'],$_POST['mail'],$pass
-                ]);
-                echo '<a href="../profile/profile.php"><button type="submit" class="btn">プロフィール設定へ</button></a>';
-                $sql=$pdo->prepare('select user_id from user where mail=?');
-                $_SESSION['user_id']=$sql->execute([$_POST['mail']]);
+            
+            if(isset($_POST['name'])&&isset($_POST['mail'])&&isset($_POST['pass'])){
+                $sql=$pdo->prepare('select * from user where mail=?');
+                $sql->execute([$_POST['mail']]);
+                $result=$sql->fetchAll();
+                if(empty($result)){
+                    echo '<p class="message">登録完了</p>';
+                    $pass = password_hash($_POST['pass'],PASSWORD_DEFAULT);//ここでパスワードをハッシュ化
+                    $sql=$pdo->prepare('insert into user values (null,?,?,?)');
+                    $sql->execute([
+                        $_POST['name'],$_POST['mail'],$pass
+                    ]);
+                    echo '<a href="../profile/profile.php"><button type="submit" class="btn">プロフィール設定へ</button></a>';
+                    $sql=$pdo->prepare('select user_id from user where mail=?');
+                    $_SESSION['user_id']=$sql->execute([$_POST['mail']]);
+                }else{
+                    echo '<p>メールアドレスが既に使用されています</p>';
+                    echo '<a href="../kaiin/kaiin1.html" class="btn">新規会員登録へ</a>';
+                }
             }else{
-                echo '<p>メールアドレスが既に使用されています</p>';
-                echo '<a href="../kaiin/kaiin1.html" class="btn">新規会員登録へ</a>';
+                echo '<p>全て入力されていません</p>';
             }
+            
         ?>
         </div>
 </body>
