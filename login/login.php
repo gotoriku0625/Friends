@@ -36,7 +36,7 @@
 <?php
     $pdo=new PDO($connect,USER,PASS);
     $sql=$pdo->prepare('select * from user where mail=?');
-    if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
+    if((isset($_POST['id'])&&isset($_POST['password']))&&isset($_POST['login']) && $_POST['login'] === "ログイン"){
         $sql->execute([$_POST['id']]);
         
         foreach($sql as $row){
@@ -54,8 +54,10 @@
             \n
             EOS;
         }else{
-            echo '<p class="error">ログイン名またはパスワードが違います。</p>';
+            echo '<p class="error">E-mailまたはパスワードが違います。</p>';
         }
+    }else{
+        echo '<p class="error">E-mail、パスワード入力されていません。</p>';
     }
 
 ?>
