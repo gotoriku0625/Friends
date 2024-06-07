@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-<?php require '../db-connect.php';?>
 <?php require '../menu/menu.php';?>
 <head>
     <link rel="stylesheet" href="../menu/menu.css">
