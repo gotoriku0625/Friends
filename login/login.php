@@ -36,28 +36,30 @@
 <?php
     $pdo=new PDO($connect,USER,PASS);
     $sql=$pdo->prepare('select * from user where mail=?');
-    if((isset($_POST['id'])&&isset($_POST['password']))&&isset($_POST['login']) && $_POST['login'] === "ログイン"){
-        $sql->execute([$_POST['id']]);
-        
-        foreach($sql as $row){
-            var_dump($row);
-            if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
-                $_SESSION['user_id']=$row['user_id'];
+    if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
+        if(!isset($_SESSION['user'])){
+            $sql->execute([$_POST['id']]);
+            
+            foreach($sql as $row){
+                var_dump($row);
+                if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
+                    $_SESSION['user']=["id"=>$row['user_id'],"name"=>$row['user_name']];
+                }
             }
-        }
-        
-        if(isset($_SESSION['user_id'])){
-            echo <<<EOS
-            <script>
-            location.href='https://aso2201147.tonkotsu.jp/Friends/top/top.php';
-            </script> 
-            \n
-            EOS;
+            
+            if(isset($_SESSION['user_id'])){
+                echo <<<EOS
+                <script>
+                location.href='https://aso2201147.tonkotsu.jp/Friends/top/top.php';
+                </script> 
+                \n
+                EOS;
+            }else{
+                echo '<p class="error">E-mailまたはパスワードが違います。</p>';
+            }
         }else{
-            echo '<p class="error">E-mailまたはパスワードが違います。</p>';
+            echo '<p class="error">E-mail、パスワード入力されていません。</p>';
         }
-    }else{
-        echo '<p class="error">E-mail、パスワード入力されていません。</p>';
+    
     }
-
 ?>
