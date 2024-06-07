@@ -16,17 +16,23 @@
         <div class="logo-space">
             <a href="../top/top.php"><img src="../image/logo.png" class="logo"></a>
         </div>
-        <div class="icon-space">
+        <!-- <div class="icon-space">
             <div class="circle_width">
                 <div class="circle_height">
                     <div class="icon"></div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <?php
-            $username = $_SESSION['user']['name'];
-            echo '<div class="name">',$username,'</div>';
+            echo '<div class="icon-space">
+            <div class="circle_width">
+                <div class="circle_height">
+                    <div class="icon">';
+                $icon = $_SESSION['user']['icon'];
+                echo '</div></div>';
+                $username = $_SESSION['user']['name'];
+                echo '<div class="name">',$username,'</div>';
         ?>
 
         <!-- <div class="name">ユーザー名</div> -->
