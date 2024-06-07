@@ -10,8 +10,7 @@
                 <hr>
         <?php
             $pdo=new PDO($connect,USER,PASS);
-            
-            if(isset($_POST['name'])&&isset($_POST['mail'])&&isset($_POST['pass'])){
+            if($_POST['name']&&$_POST['mail']&&$_POST['pass']){
                 $sql=$pdo->prepare('select * from user where mail=?');
                 $sql->execute([$_POST['mail']]);
                 $result=$sql->fetchAll();
@@ -31,6 +30,7 @@
                 }
             }else{
                 echo '<p>全て入力されていません</p>';
+                echo '<a href="../kaiin/kaiin1.html" class="btn">新規会員登録へ</a>';
             }
             
         ?>
