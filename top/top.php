@@ -20,7 +20,7 @@
         //                     and user.user_id<>?
         //                     order by user.user_id
         //                     limit 10');
-        $sql->execute(array($_SESSION['user_id']));
+        $sql->execute(array($_SESSION['user']['id']));
         echo '<h2>おすすめ</h2>';
         echo '<div class="recommendation">';
         foreach($sql as $row){
