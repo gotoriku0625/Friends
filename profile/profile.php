@@ -1,5 +1,4 @@
-</html>
-    <body>
+
 <?php require '../db-connect.php';?>
 <?php require '../menu/menu.html';?>
 <head>
@@ -160,3 +159,8 @@
         </div>
     </body>
 </html>
+<?php
+$pdo=new PDO($connect,USER,PASS);
+$profile='insert into profile(user_id,)';
+
+?>
