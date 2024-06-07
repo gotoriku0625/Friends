@@ -150,6 +150,12 @@
                     <input type="checkbox" id="option2" name="options" value="Option 2">
                     喫煙
                 </label>
+            <br>
+            <form action="../top/top.html">
+                <input type="submit" value="保存">
+            </form>
+            <form action="../login/login.html">
+                <input type="submit" value="キャンセル">
             </form>
         </div>
     </body>
