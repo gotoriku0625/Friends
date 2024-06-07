@@ -1,6 +1,5 @@
-<?php session_start(); ?>
+<?php require '../menu/menu.php';?>
 <?php require './function.php';?>
-<?php require '../db-connect.php';?>
 <?php
 $_SESSION['user1_id']=3;
 $_SESSION['user2_id']=2;
