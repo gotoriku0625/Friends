@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <!-- <?php require '../db-connect.php';?>
+=======
+
+<?php require '../db-connect.php';?>
+>>>>>>> b34f65fbd9da159a46775adb359618c601e9fe90
 <?php require '../menu/menu.html';?>
 <head>
     <link rel="stylesheet" href="../menu/menu.css">
@@ -337,3 +342,9 @@
     <script src="js/script.js"></script>
 </body>
 </html>
+<?php
+// insert文作成中
+$pdo=new PDO($connect,USER,PASS);
+$profile='insert into profile(user_id,)';
+
+?>
