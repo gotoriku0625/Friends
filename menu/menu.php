@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+<?php require '../db-connect.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +24,19 @@
             </div>
         </div>
         <!-- バックエンドの方、ユーザーネームの出力お願いします -->
-        <div class="name">ユーザー名</div>
+
+        <?php
+            $username = $_SESSION['nick_name'];
+            echo '<div class="name">',$username,'</div>';
+        ?>
+
+        <!-- <div class="name">ユーザー名</div> -->
         <div class="link-space">
             <p class="textlink textlink04"><img src="../menu-image/parson-free-icon.png" class="parson-free-icon"><a href="../profile/profile.html">プロフィール</a></p>
-            <p class="textlink textlink04"><img src="../menu-image/seach-free-icon.png" class="seach-free-icon"><a href="../search/search.php">さがす</a></p>
-            <p class="textlink textlink04"> <img src="../menu-image/like-free-icon.png" class="like-free-icon"><a href="../likes/ilike.php">いいね</a></p>
-            <p class="textlink textlink04"><img src="../menu-image/talk-free-icon.png" class="talk-free-icon"><a href="../talk/talk2.php">トーク</a></p>
-            <p class="textlink textlink04"><img src="../menu-image/community-free-icon.png" class="community-free-icon"><a href="../community/community.php">コミュニティ</a></p>
+            <p class="textlink textlink04"><img src="../menu-image/seach-free-icon.png" class="seach-free-icon"><a href="../profile/search.php">さがす</a></p>
+            <p class="textlink textlink04"> <img src="../menu-image/like-free-icon.png" class="like-free-icon"><a href="../profile/ilike.php">いいね</a></p>
+            <p class="textlink textlink04"><img src="../menu-image/talk-free-icon.png" class="talk-free-icon"><a href="../profile/talk.php">トーク</a></p>
+            <p class="textlink textlink04"><img src="../menu-image/community-free-icon.png" class="community-free-icon"><a href="../profile/community.php">コミュニティ</a></p>
             
         </div>
     </div>
