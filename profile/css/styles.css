@@ -1,5 +1,5 @@
 .main {
-    width: 70%;
+
     padding: 20px;
     border-radius: 10px;
     text-align: left;
@@ -23,7 +23,7 @@
 
 hr {
     border: none;
-    border-top: 1px solid #00ff84;
+    border-top: 2px solid #00ff84;
     margin-bottom: 20px;
 }
 
@@ -170,6 +170,7 @@ hr {
     height: auto;
 }
 
+/*↓*/
 input[type="checkbox"] {
     transform: scale(2);
     margin-right: 15px;
