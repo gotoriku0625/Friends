@@ -11,7 +11,7 @@
         <?php
         $pdo=new PDO($connect,USER,PASS);
         // おすすめ
-        $sql=$pdo->prepare('select user.user_id,icon_image,nick_name,gender,age from user,profile,hobby
+        $sql=$pdo->prepare('select user.user_id,icon_image,user_name,gender,age from user,profile,hobby
                             where profile.hobby_id=hobby.hobby_id
                             and user.user_id<>?
                             order by user.user_id
@@ -37,13 +37,13 @@
                 echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"</a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<p class="nick_name1">',$row['nick_name'];// ユーザー名
+            echo '<p class="nick_name1">',$row['user_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
         }
         echo '</div>';
 
         // ランダムに30人を表示する
-        $sql=$pdo->prepare('select user.user_id, icon_image, nick_name, gender, age 
+        $sql=$pdo->prepare('select user.user_id, icon_image, user_name, gender, age 
                             from user
                             join profile ON user.user_id = profile.user_id
                             order by RAND()
@@ -62,7 +62,7 @@
                 echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"</a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<p class="nick_name2">',$row['nick_name'];// ユーザー名
+            echo '<p class="nick_name2">',$row['user_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
         }
         
