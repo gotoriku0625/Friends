@@ -160,6 +160,7 @@
     </body>
 </html>
 <?php
+// insert文作成中
 $pdo=new PDO($connect,USER,PASS);
 $profile='insert into profile(user_id,)';
 
