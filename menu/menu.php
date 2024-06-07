@@ -1,5 +1,14 @@
-<?php require '../header.php';?>
-<body>
+<!-- <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     reset.css destyle -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
+    <link rel="stylesheet" href="menu/menu.css">
+    <title></title>
+</head>
+<body> --> 
     <div class="menu">
         <div class="logo-space">
             <a href="../top/top.php"><img src="../image/logo.png" class="logo"></a>
@@ -18,7 +27,7 @@
                 <div class="circle_height">
                     <div class="icon">';
                 $icon = $_SESSION['user']['icon'];
-                echo '</div></div>';
+                echo '</div></div></div></div>';
                 $username = $_SESSION['user']['name'];
                 echo '<div class="name">',$username,'</div>';
         ?>
@@ -36,5 +45,4 @@
 
     <div class="main">
     </div>
-</body>
-</html>
+<!-- </body> -->
