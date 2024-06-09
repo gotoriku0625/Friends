@@ -1,5 +1,6 @@
 <?php require '../header.php';?>
-    <link rel="stylesheet" href="css/style.css">
+<head>
+<link rel="stylesheet" href="css/style.css">
     <title>Profile</title>
 </head>
 <body>
