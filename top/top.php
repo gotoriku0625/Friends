@@ -1,12 +1,11 @@
-<?php session_start(); ?>
-<?php require '../db-connect.php';?>
-<?php require '../menu/menu.html';?>
-<head>
-    <link rel="stylesheet" href="../menu/menu.css">
-    <link rel="stylesheet" href="top.css">
+<?php require '../header.php';?>
+    <!-- ↓ここにＣＳＳを追加↓ -->
+    <link rel="stylesheet" href="./top.css">
+    <title>Friends Top</title>
 </head>
 
 <body>
+<?php require '../menu/menu.php';?>
     <div class="main">
         <?php
         $pdo=new PDO($connect,USER,PASS);
@@ -22,7 +21,7 @@
         //                     and user.user_id<>?
         //                     order by user.user_id
         //                     limit 10');
-        $sql->execute(array($_SESSION['user_id']));
+        $sql->execute(array($_SESSION['user']['id']));
         echo '<h2>おすすめ</h2>';
         echo '<div class="recommendation">';
         foreach($sql as $row){

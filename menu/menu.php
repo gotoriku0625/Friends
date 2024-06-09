@@ -1,33 +1,35 @@
-<?php session_start(); ?>
-<?php require '../db-connect.php';?>
-<!DOCTYPE html>
-<html lang="en">
+<!-- <!DOCTYPE html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- reset.css destyle -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
-    <link rel="stylesheet" href="menu.css">
-    <title>menu</title>
+     reset.css destyle -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
+    <link rel="stylesheet" href="menu/menu.css">
+    <title></title>
 </head>
-
-<body>
+<body> --> 
     <div class="menu">
         <div class="logo-space">
             <a href="../top/top.php"><img src="../image/logo.png" class="logo"></a>
         </div>
-        <div class="icon-space">
+        <!-- <div class="icon-space">
             <div class="circle_width">
                 <div class="circle_height">
                     <div class="icon"></div>
                 </div>
             </div>
-        </div>
-        <!-- バックエンドの方、ユーザーネームの出力お願いします -->
+        </div> -->
 
         <?php
-            $username = $_SESSION['user_name'];
-            echo '<div class="name">',$username,'</div>';
+            echo '<div class="icon-space">
+            <div class="circle_width">
+                <div class="circle_height">
+                    <div class="icon">';
+                $icon = $_SESSION['user']['icon'];
+                echo '</div></div></div></div>';
+                $username = $_SESSION['user']['name'];
+                echo '<div class="name">',$username,'</div>';
         ?>
 
         <!-- <div class="name">ユーザー名</div> -->
@@ -43,5 +45,4 @@
 
     <div class="main">
     </div>
-</body>
-</html>
+<!-- </body> -->

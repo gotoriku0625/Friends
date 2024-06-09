@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <link rel="stylesheet" href="css/kanrisutaffu_settei.css">
+    <link rel="stylesheet" href="css/kanrisutaffu_sakujyo.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理スタッフ設定</title>
@@ -41,12 +41,19 @@
 <body>
     <h1>管理スタッフ設定</h1>
     管理者数：5
-    <form action="kanrisutaffu_tuika.html">
-    <button type="submit">スタッフ追加</button>
-    </form>
-    <form action="kanrisutaffu_sakujyo.html">
     <button type="submit">スタッフ削除</button>
-    </form>
+
+    <p>管理者名<br>
+        <input type="text" name="kanri_name" size="30">
+    <p>管理者番号<br>
+        <input type="text" name="kanri_number" size="30">
+    <p>email<br>
+        <input type="text" name="email" size="30">
+    <p>追加日<br>
+        <input type="text" name="tuikabi" size="30"><br>
+
+    <button type="submit">追加</button>
+
     <table>
         <thead>
             <tr>

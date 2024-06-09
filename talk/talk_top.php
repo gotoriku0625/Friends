@@ -1,7 +1,10 @@
-<?php session_start(); ?>
+<?php require '../header.php';?>
+    <link rel="stylesheet" href="./talk.css">
+    <title>Talk Top</title>
+</head>
 <?php require './function.php';?>
 <body>
-
+<?php require '../menu/menu.php';?>
 <?php
 $_SESSION['user1_id']=3;
 $_SESSION['user2_id']=2;
@@ -26,7 +29,8 @@ echo '<div class="row">';
             echo '<img src="../user_image/main/'.$reciver['icon_image'].'" class="talk_user_img">';
                 echo '<div class="reciver_info">';
                 echo '<input type="hidden" name="reciver_id" value="'.$reciver['user_id'].'">';
-                    echo '<div class="reciver_name">'.$reciver['nick_name'].'</div>';
+                    echo '<div class="reciver_name">'.$reciver['user_name'].'</div>';
+                    echo '<div class="reciver_age">'.$reciver['age'].'</div>';
                     echo '<span class="reciver_text">'.$bottom_talk['content'].'</span>';
                 echo<<<EOF
                       </div>

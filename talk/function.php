@@ -4,7 +4,7 @@ function get_user($user_id){// 現在ログインしているユーザー情報
     try{
         $pdo = new PDO($connect,$user,$pass);
         // ユーザ情報取得
-        $user_set='select user.user_id,user_name,nick_name,gender,icon_image
+        $user_set='select user.user_id,user_name,gender,icon_image,age
                from user,profile 
                where user.user_id=profile.user_id
                and user.user_id=:user_id';
@@ -54,21 +54,21 @@ function check_relation_talk($user_id,$reciver_id){// talk_memberテーブルに
 function get_talk_relations($user_id){
     require './db-connect.php';
     try {
-      $pdo=new PDO($connect,$user,$pass);
-      $get = "select *
-              from talk_member
-              where sender_id = :sender_id";
-      $sql = $pdo->prepare($get);
-      $sql->execute(array(':sender_id' => $user_id));
-      return $sql->fetchAll();
+        $pdo=new PDO($connect,$user,$pass);
+        $get = "select *
+                from talk_member
+                where sender_id = :sender_id";
+        $sql = $pdo->prepare($get);
+        $sql->execute(array(':sender_id' => $user_id));
+        return $sql->fetchAll();
     } catch (\Exception $e) {
-      echo 'エラー発生:' . $e->getMessage();
+        echo 'エラー発生:' . $e->getMessage();
     }
 }
   
 function get_bottom_talk($user_id,$reciver_id){
+    require './db-connect.php';
     try{
-        require './db-connect.php';
         $pdo=new PDO($connect,$user,$pass);
         $get_talk='select * from talk
                    where (sender_id=:sender_id and reciver_id=:reciver_id)

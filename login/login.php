@@ -37,17 +37,18 @@
     $pdo=new PDO($connect,USER,PASS);
     $sql=$pdo->prepare('select * from user where mail=?');
     if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
-        if(!isset($_SESSION['user'])){
+        if($_POST['id']&&$_POST['password']){
             $sql->execute([$_POST['id']]);
             
             foreach($sql as $row){
-                var_dump($row);
                 if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
-                    $_SESSION['user']=["id"=>$row['user_id'],"name"=>$row['user_name']];
+                    $_SESSION['user']=[
+                        'id'=>$row['user_id'],'name'=>$row['user_name'],'icon'=>$row['icon_image']
+                    ];
                 }
             }
             
-            if(isset($_SESSION['user_id'])){
+            if(isset($_SESSION['user'])){
                 echo <<<EOS
                 <script>
                 location.href='https://aso2201147.tonkotsu.jp/Friends/top/top.php';
