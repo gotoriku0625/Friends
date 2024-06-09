@@ -38,7 +38,7 @@ hr {
     text-align: right;
     position: relative;
     margin-top: 20px;
-    width: auto;
+    width: 100%;
     height: 300px;
 }
 
@@ -52,7 +52,7 @@ hr {
 
 .square,
 .sub-square {
-    width: 150px;
+    width: 200px;
     height: 200px;
     overflow: hidden;
     border: 5px solid #a8a8a8;
@@ -64,7 +64,7 @@ hr {
 
 .square img,
 .sub-square img {
-    width: auto;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     display: none;
@@ -96,7 +96,7 @@ hr {
 .off {
     width: 80%;
     padding: 20px;
-    margin: 6px 0;
+    margin: 10px 0;
     border: 1px solid #000000;
     border-radius: 5px;
     box-sizing: border-box;
@@ -107,7 +107,7 @@ hr {
  .blood-type, #sex, #school, #hometown, #residence {
     width: 40%;
     padding: 10px;
-    margin: 6px 0;
+    margin: 10px 0;
     border: 1px solid #000000;
     border-radius: 5px;
     box-sizing: border-box;
@@ -115,7 +115,7 @@ hr {
 .age{
     width: 10%;
     padding: 10px;
-    margin: 6px 0;
+    margin: 10px 0;
     border: 1px solid #000000;
     border-radius: 5px;
     box-sizing: border-box;
@@ -136,7 +136,7 @@ hr {
 }
 
 .circle {
-    width: 180px;
+    width: 200px;
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
