@@ -1,7 +1,9 @@
 
+
 body{
     position: relative;
     display: flex;
+    overflow-x: hidden;
 }
 .menu{
     position: fixed;
