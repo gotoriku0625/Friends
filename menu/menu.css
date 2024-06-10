@@ -5,6 +5,7 @@ body{
     display: flex;
     overflow-x: hidden;
 }
+
 .menu{
     position: fixed;
     top: 0%;
@@ -14,10 +15,12 @@ body{
     background-color: rgb(151, 255, 220);
     z-index: 10;
 }
+
 .main{
     position: relative;
     left: 21%;
 }
+
 .logo{
     position: relative;
     /* display: block; */
@@ -69,6 +72,9 @@ body{
     text-align: center;
 
 }
+
+/* 上に原因 */
+
 .circle_width {
     /* 表示したい横幅を決める */
     width: 45%;

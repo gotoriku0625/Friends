@@ -26,9 +26,13 @@
             <div class="circle_width">
                 <div class="circle_height">
                     <div class="icon">';
-                $icon = $_SESSION['user']['icon'];
+                // 出力UI確認用に一時置き返してます（後で戻す予定）
+                // $icon = $_SESSION['user']['icon'];
+                $icon = "logo.png";
                 echo '</div></div></div></div>';
-                $username = $_SESSION['user']['name'];
+                // 出力UI確認用に一時置き返してます（後で戻す予定）
+                // $username = $_SESSION['user']['name'];
+                $username = "sample";
                 echo '<div class="name">',$username,'</div>';
         ?>
 
