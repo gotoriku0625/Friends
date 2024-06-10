@@ -106,7 +106,7 @@ $conn->close();
     </div>
     <p><?php echo htmlspecialchars($matched_user['user_name']); ?>さんとマッチしました！</p>
     <div class="buttons">
-        <button onclick="location.href='../talk.php'">はい</button>
+        <button onclick="location.href='../talk_top.php'">はい</button>
         <button onclick="location.href='../top.php'">いいえ</button>
     </div>
 </body>
