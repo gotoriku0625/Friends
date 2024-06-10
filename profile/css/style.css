@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 2vw;
+    text-align: left;
+    background-color: #000000;
+    
+}
+.container {
+    width: calc(80% - 200px); /* コンテナの幅を計算して設定 */
+    margin: 0 auto;           /* 自動で中央寄せ */
+    margin-left: 20%;         /* 左に20%の余白を作る */
+    overflow-x: hidden;       /* 横スクロールを無効化 */
+}
+
+p {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+hr {
+    border: none;
+    border-top: 2px solid #00ff84;
+    margin-bottom: 20px;
+}
+/*iconのｃｓｓ*/
+.icon-section, .sub-photo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icon-container, .sub-photo-container {
+    position: relative;
+    margin: 20px 0;
+    width: 150px;
+    height: 150px;
+    background-color: #ddd; /* 灰色の背景 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* 丸い形状 */
+}
+.icon-container img, .sub-photo-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: none; /* 初期状態では非表示 */
+}
+.icon-container .plus, .sub-photo-container .plus {
+    position: absolute;
+    bottom: 0;
+    right: -10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.sub-photo-section {
+    width: 100%;
+}
+.sub-photo-section span {
+    align-self: flex-start;
+    margin-left: 20px;
+}
+.sub-photos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+.sub-photo-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    background-color: #ddd; /* 灰色の背景 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sub-photo-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    display: none; /* 初期状態では非表示 */
+}
+.plus {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+/*アイコンのｃｓｓ終了*/
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.form-group label {
+    margin-bottom: 5px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc; /* 枠を見えるように設定 */
+    border-radius: 4px; /* 枠を少し丸くする */
+    box-sizing: border-box; /* パディングとボーダーのサイズを含める */
+}
+.checkbox-group {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+input[type="checkbox"] {
+    transform: scale(2);
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.btn {
+    width: 48%;
+    padding: 9px;
+    border: none;
+    border-radius: 20px;
+    background-color: aquamarine;
+    color: #000000;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
