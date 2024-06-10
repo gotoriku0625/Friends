@@ -49,17 +49,59 @@ body{
 
 /* 上に原因 */
 
-.circle_width {
+.circle_width_man {
     /* 表示したい横幅を決める */
     width: 45%;
     /* 線をつける */
-    border: 3px solid #333;
+    border: 3px solid #603dff;
     /* 要素の角をなくす
     50%でまんまるになる */
     border-radius: 50%;
     }
      
-    .circle_height {
+    .circle_height_man {
+    /* 内包する要素の基準にする */
+    position: relative;
+    /* paddingの％指定は親要素の横幅に依存する */
+    /* padding-top: 100%にすることで親要素の横幅と同じ長さになる */
+    /* 親要素が正方形になる */
+    padding-top: 100%;
+    /* 要素自体の高さがあるとずれるので高さを０にする */
+    height: 0;
+    }
+
+.circle_width_woman {
+    /* 表示したい横幅を決める */
+    width: 45%;
+    /* 線をつける */
+    border: 3px solid #ff5691;
+    /* 要素の角をなくす
+    50%でまんまるになる */
+    border-radius: 50%;
+    }
+        
+    .circle_height_woman {
+    /* 内包する要素の基準にする */
+    position: relative;
+    /* paddingの％指定は親要素の横幅に依存する */
+    /* padding-top: 100%にすることで親要素の横幅と同じ長さになる */
+    /* 親要素が正方形になる */
+    padding-top: 100%;
+    /* 要素自体の高さがあるとずれるので高さを０にする */
+    height: 0;
+    }
+
+.circle_width_others {
+    /* 表示したい横幅を決める */
+    width: 45%;
+    /* 線をつける */
+    border: 3px solid #626262;
+    /* 要素の角をなくす
+    50%でまんまるになる */
+    border-radius: 50%;
+    }
+        
+    .circle_height_others {
     /* 内包する要素の基準にする */
     position: relative;
     /* paddingの％指定は親要素の横幅に依存する */
