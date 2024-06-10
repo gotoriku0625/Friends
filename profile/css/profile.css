@@ -180,7 +180,7 @@ hr {
 }
 
 /*↓*/
-input[type="checkbox"] {
+.checkbox-group{
     transform: scale(2);
     margin-right: 15px;
     margin-bottom: 15px;

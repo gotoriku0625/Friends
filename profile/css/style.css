@@ -5,10 +5,10 @@ body {
     
 }
 .container {
-    width: calc(100% - 200px); /* コンテナの幅を計算して設定 */
-    margin: 0 auto;            /* 自動で中央寄せ */
-    margin-left: 20%;        /* 左に200pxの余白を作る */
-    overflow-x: hidden;        /* 横スクロールを無効化 */
+    width: calc(80% - 200px); /* コンテナの幅を計算して設定 */
+    margin: 0 auto;           /* 自動で中央寄せ */
+    margin-left: 20%;         /* 左に20%の余白を作る */
+    overflow-x: hidden;       /* 横スクロールを無効化 */
 }
 
 p {
@@ -17,8 +17,11 @@ p {
     font-weight: bold;
 }
 hr {
-    margin: 20px 0;
+    border: none;
+    border-top: 2px solid #00ff84;
+    margin-bottom: 20px;
 }
+/*iconのｃｓｓ*/
 .icon-section, .sub-photo-section {
     display: flex;
     flex-direction: column;
@@ -81,6 +84,7 @@ hr {
     cursor: pointer;
     margin-left: 10px;
 }
+/*アイコンのｃｓｓ終了*/
 .form-group {
     display: flex;
     flex-direction: column;
@@ -103,16 +107,28 @@ hr {
     justify-content: center;
     margin: 20px 0;
 }
-.checkbox-group label {
-    margin: 0 20px;
-}
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
+input[type="checkbox"] {
+    transform: scale(2);
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-top: 25px;
 }
 
-#submit_button{
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.btn {
+    width: 48%;
+    padding: 9px;
+    border: none;
+    border-radius: 20px;
+    background-color: aquamarine;
+    color: #000000;
+    font-size: 15px;
     text-align: center;
+    cursor: pointer;
+    text-decoration: none;
 }
