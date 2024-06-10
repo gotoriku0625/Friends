@@ -22,7 +22,7 @@
         // フォームが送信された場合の処理
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             // 選択された条件を取得
-            $nick_name = isset($_GET['nickname']) ? $_GET['nickname'] : null;
+            $user_name = isset($_GET['nickname']) ? $_GET['nickname'] : null;
             $age = isset($_GET['age']) ? $_GET['age'] : null;
             $residence = isset($_GET['residence']) ? $_GET['residence'] : null;
             $gender = isset($_GET['gender']) ? $_GET['gender'] : null;
@@ -30,12 +30,14 @@
             $hobby = isset($_GET['selected_hobby_id']) ? $_GET['selected_hobby_id'] : null;
 
             // SQLクエリの構築
-            $sql = "SELECT * FROM profile WHERE 1=1";
+            $sql = "SELECT profile.*, user.user_name FROM profile
+                    JOIN user ON profile.user_id = user.user_id
+                    WHERE 1=1";
             $params = [];
 
-            if ($nick_name) {
-                $sql .= " AND nick_name LIKE :nick_name";
-                $params[':nick_name'] = '%' . $nick_name . '%';
+            if ($user_name) {
+                $sql .= " AND user.user_name LIKE :user_name";
+                $params[':user_name'] = '%' . $user_name . '%';
             }
             if ($age) {
                 $sql .= " AND age IN (" . implode(',', array_map('intval', $age)) . ")";
@@ -63,7 +65,7 @@
         <?php if (!empty($results)): ?>
             <ul>
                 <?php foreach ($results as $profile): ?>
-                    <li><?php echo htmlspecialchars($profile['icon_image']); ?><?php echo htmlspecialchars($profile['nick_name']); ?><?php  echo"("; echo htmlspecialchars($profile['age']);echo")"; ?></li>
+                    <li><?php echo htmlspecialchars($profile['icon_image']); ?><?php echo htmlspecialchars($profile['user_name']); ?><?php  echo"("; echo htmlspecialchars($profile['age']);echo")"; ?></li>
                 <?php endforeach; ?>
             </ul>
         <?php else: ?>
