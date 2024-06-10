@@ -6,14 +6,15 @@
         <?php
 
             $icon = $_SESSION['user']['icon'];
-                if($_SESSION['gender']==='男性'){
+            $gender = $_SESSION['user']['gender'];
+                if($gender==='男性'){
                     // アイコンの枠の色を青色に
                     echo '<div class="icon-space">
                         <div class="circle_width_man">
                         <div class="circle_height_man">';
                     echo '<img src="',$icon,'" class="icon">';// アイコン
                     echo '</div></div></div>';
-                }else if($_SESSION['gender']==='女性'){
+                }else if($gender==='女性'){
                     // アイコンの枠の色を赤色に
                     echo '<div class="icon-space">
                         <div class="circle_width_woman">
