@@ -5,20 +5,19 @@
         </div>
         <?php
 
+            $icon = $_SESSION['user']['icon'];
                 if($_SESSION['gender']==='男性'){
                     // アイコンの枠の色を青色に
                     echo '<div class="icon-space">
-                        <div class="circle_width">
-                        <div class="circle_height">';
-                    $icon = $_SESSION['user']['icon'];
+                        <div class="circle_width_man">
+                        <div class="circle_height_man">';
                     echo '<img src="',$icon,'" class="icon">';// アイコン
                     echo '</div></div></div>';
                 }else if($_SESSION['gender']==='女性'){
                     // アイコンの枠の色を赤色に
                     echo '<div class="icon-space">
-                        <div class="circle_width">
-                        <div class="circle_height">';
-                    $icon = $_SESSION['user']['icon'];
+                        <div class="circle_width_woman">
+                        <div class="circle_height_woman">';
                     echo '<img src="',$icon,'" class="icon">';// アイコン
                     echo '</div></div></div>';
                 }else{
@@ -26,16 +25,15 @@
                     echo '<div class="icon-space">
                         <div class="circle_width">
                         <div class="circle_height">';
-                    $icon = $_SESSION['user']['icon'];
                     echo '<img src="',$icon,'" class="icon">';// アイコン
                     echo '</div></div></div>';
                 }
 
                 // 出力UI確認用に一時置き返してます（後で戻す予定）
-                $icon = "logo.png";
+                // $icon = "logo.png";
                 // 出力UI確認用に一時置き返してます（後で戻す予定）
-                // $username = $_SESSION['user']['name'];
-                $username = "sample";
+                $username = $_SESSION['user']['name'];
+                // $username = "sample";
                 echo '<div class="name">',$username,'</div>';
         ?>
 
