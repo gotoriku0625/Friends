@@ -15,8 +15,10 @@
     bms_messages_containerの方で、縦横いっぱいに広がってくれるので、
     ここで充てた高さと横幅がそのままスタイルになる仕組み */
 
-    height:600px;/*ここはご自由に*/
-    width: 50%;/*ここはご自由に*/
+    height:100%;/*ここはご自由に*/
+    width: 81%;/*ここはご自由に*/
+    position: relative;
+    left: 20%;
 }
 /* チャットの外側部分① */
 #bms_messages_container{
@@ -27,7 +29,7 @@
 
 /* ヘッダー部分② */
 #bms_chat_header {
-    padding: 6px;/*隙間調整*/
+    /* padding: 6px;隙間調整 */
     font-size: 16px;
     height: 34px;
     background: #ddd;
@@ -52,7 +54,7 @@
 /* タイムライン部分③ */
 #my_talk {
   overflow: auto;/*スクロールを効かせつつ、メッセージがタイムラインの外に出ないようにする*/
-  height:100%;/*テキストエリアが下に張り付く様にする*/
+  height:84%;/*テキストエリアが下に張り付く様にする*/
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
   background-color: #eee;
@@ -77,7 +79,7 @@
   /* メッセージ１（左側） */
 .left {
     float: left;/*吹き出しをbms_messagesに対して左寄せ*/
-    line-height: 1.3em;
+    line-height: 1em;
 }
 .left .talking {
   color: #333;/*テキストを黒にする*/
@@ -89,7 +91,7 @@
   /* メッセージ２（右側） */
 .right {
     float: right;/*吹き出しをbms_messagesに対して右寄せ*/
-    line-height: 1.3em;
+    line-height: 1em;
 }
 .right .talking {
     color: #fff;/*テキストを白にする*/
@@ -106,14 +108,17 @@
 
 /* テキストエリア、送信ボタン④ */
 #talk_process {
-  background-color:#eee;/*タイムラインの色と同じにする*/
-  border-right: 1px solid #ddd;
-  border-left: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  height: 48px;
-  padding: 4px;
+    background-color:#eee;/*タイムラインの色と同じにする*/
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    height: 9%;
+    width: 78%;
+    padding: 4px;
+    position: fixed;
+	bottom: 0;
 }
-#text{
+.text{
     width: calc(100% - 75px);/*常に送信ボタンの横幅を引いたサイズに動的に計算*/
     line-height: 16px;
     height: 48px;
@@ -124,35 +129,35 @@
     box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;/*内側に影を入れてテキストエリアらしくした*/
     box-sizing: border-box;/*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
 }
-#talk_btn {
-      width: 72px;
-      height: 48px;
-      font-size: 16px;
-      line-height: 3em;
-      float: right;/*bms_sendに対して右寄せ*/
-      color: #fff;
-      font-weight: bold;
-      background: #bcbcbc;
-      text-align: center;/*文字をボタン中央に表示*/
-      border: 1px solid #bbb;
-      border-radius: 4px;/*角丸*/
-      box-sizing: border-box;/*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
-  }
-  #talk_btn:hover {
-      background: #13178E; /*マウスポインタを当てた時にアクティブな色になる*/
-      cursor: pointer;/*マウスポインタを当てた時に、カーソルが指の形になる*/
-  }
+.talk_btn {
+    width: 72px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 3em;
+    float: right;/*bms_sendに対して右寄せ*/
+    color: #fff;
+    font-weight: bold;
+    background: #bcbcbc;
+    text-align: center;/*文字をボタン中央に表示*/
+    border: 1px solid #bbb;
+    border-radius: 4px;/*角丸*/
+    box-sizing: border-box;/*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
+}
+.talk_btn:hover {
+    background: #13178E; /*マウスポインタを当てた時にアクティブな色になる*/
+    cursor: pointer;/*マウスポインタを当てた時に、カーソルが指の形になる*/
+}
   /* アイコンの作成 */
-  .comment figure img {
-  border-radius: 0; /* 画像を丸くしたいときに利用 */
-  margin: 0;
-  }
+.comment figure img {
+    border-radius: 0; /* 画像を丸くしたいときに利用 */
+    margin: 0;
+}
   /* アイコンの大きさ */
-  .message_user_img {
-  width: 100px;
-  height: 100px;
-  }
-  .text-color {
-  color: #fff; /* テキストのカラー変更はこちら*/
-  font-size: 16px; /*テキストサイズの変更はこちら（なければデフォルトのサイズになります）*/
-  }
+.message_user_img {
+    width: 100px;
+    height: 100px;
+}
+.text-color {
+    color: #fff; /* テキストのカラー変更はこちら*/
+    font-size: 16px; /*テキストサイズの変更はこちら（なければデフォルトのサイズになります）*/
+}
