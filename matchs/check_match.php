@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../db_connect.php'; // パスを確認
+require '../db-connect.php'; // パスを確認
 
 // セッションに`user_id`が設定されているか確認
 if (!isset($_SESSION['user_id'])) {
