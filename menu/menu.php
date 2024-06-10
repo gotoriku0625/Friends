@@ -23,8 +23,8 @@
                 }else{
                     // アイコンの枠の色を灰色に
                     echo '<div class="icon-space">
-                        <div class="circle_width">
-                        <div class="circle_height">';
+                        <div class="circle_width_others">
+                        <div class="circle_height_others">';
                     echo '<img src="',$icon,'" class="icon">';// アイコン
                     echo '</div></div></div>';
                 }
