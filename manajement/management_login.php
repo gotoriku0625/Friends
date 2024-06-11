@@ -38,7 +38,7 @@
     if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
         $sql->execute([$_POST['id']]);
         foreach($sql as $row){
-            if(password_verify($_POST['m_password'],$row['pass']) == true){//ハッシュ化したパスワードと一致しているか
+            if(password_verify($_POST['m_password'],$row['m_pass']) == true){//ハッシュ化したパスワードと一致しているか
                 $_SESSION['m_user_id']=$row['m_user_id'];
             }
         }
