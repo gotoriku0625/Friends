@@ -34,15 +34,15 @@
 </html>
 <?php
     $pdo=new PDO($connect,USER,PASS);
-    $sql=$pdo->prepare('select user_id from user where mail=?');
+    $sql=$pdo->prepare('select m_user_id from management_user where mail=?');
     if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
         $sql->execute([$_POST['id']]);
         foreach($sql as $row){
-            if(password_verify($_POST['password'],$row['pass']) == true){//ハッシュ化したパスワードと一致しているか
-                $_SESSION['user_id']=$row['user_id'];
+            if(password_verify($_POST['m_password'],$row['pass']) == true){//ハッシュ化したパスワードと一致しているか
+                $_SESSION['m_user_id']=$row['m_user_id'];
             }
         }
-        if(isset($_SESSION['user_id'])){
+        if(isset($_SESSION['m_user_id'])){
             echo <<<EOS
             \n
             EOS;
