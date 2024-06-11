@@ -4,21 +4,23 @@ $username = "LAA1517801";
 $password = "pass0625";
 $dbname = "LAA1517801-friends";
 
+// データベース接続
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-?>
-<?php
+
 session_start();
 require '../db-connect.php';
 
+$logged_in_user_id = $_SESSION['user_id']; // ログインユーザーIDをセッションから取得
 
 // いいねした人の一覧を取得
-$sql_liked = "SELECT user.user_id, user.user_name 
+$sql_liked = "SELECT user.user_id, user.user_name, profile.icon_image 
               FROM likes 
-              JOIN user ON likes.likes_id = user.user_id 
+              JOIN user ON likes.liked_user_id = user.user_id 
+              JOIN profile ON user.user_id = profile.user_id 
               WHERE likes.likes_user_id = ?";
 $stmt_liked = $conn->prepare($sql_liked);
 $stmt_liked->bind_param("i", $logged_in_user_id);
@@ -31,9 +33,10 @@ while ($row = $result_liked->fetch_assoc()) {
 $stmt_liked->close();
 
 // いいねされた人の一覧を取得
-$sql_liked_by = "SELECT user.user_id, user.user_name 
+$sql_liked_by = "SELECT user.user_id, user.user_name, profile.icon_image 
                  FROM likes 
-                 JOIN user ON likes.liked_user_id = user.user_id 
+                 JOIN user ON likes.likes_user_id = user.user_id 
+                 JOIN profile ON user.user_id = profile.user_id 
                  WHERE likes.liked_user_id = ?";
 $stmt_liked_by = $conn->prepare($sql_liked_by);
 $stmt_liked_by->bind_param("i", $logged_in_user_id);
@@ -54,39 +57,9 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../menu/menu.css">
+    <link rel="stylesheet" href="../likes/likes.css">
     <title>menu</title>
-    <style>
-        .tabs {
-            display: flex;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-        .tab {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
-        }
-        .tab.active {
-            background-color: #ddd;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .user-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .user-list li {
-            margin: 5px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-    </style>
+   
 </head>
 <body>
     <div class="main">
@@ -98,7 +71,14 @@ $conn->close();
             <?php if (!empty($liked_users)): ?>
                 <ul class="user-list">
                     <?php foreach ($liked_users as $user): ?>
-                        <li><?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?></li>
+                        <li>
+                            <img src="../user/image/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
+                            <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?>
+                            <div class="actions">
+                                <button onclick="likeUser(<?php echo $user['user_id']; ?>)">いいね</button>
+                                <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
+                            </div>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
             <?php else: ?>
@@ -109,7 +89,14 @@ $conn->close();
             <?php if (!empty($liked_by_users)): ?>
                 <ul class="user-list">
                     <?php foreach ($liked_by_users as $user): ?>
-                        <li><?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?></li>
+                        <li>
+                            <img src="../user/image/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
+                            <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?>
+                            <div class="actions">
+                                <button onclick="likeUser(<?php echo $user['user_id']; ?>)">いいね</button>
+                                <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
+                            </div>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
             <?php else: ?>
@@ -120,19 +107,27 @@ $conn->close();
 
     <script>
         function showTab(tabId) {
-            // タブの切り替え
             const tabs = document.querySelectorAll('.tab');
             tabs.forEach(tab => {
                 tab.classList.remove('active');
             });
             document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
 
-            // コンテンツの切り替え
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => {
                 content.classList.remove('active');
             });
             document.getElementById(tabId).classList.add('active');
+        }
+
+        function likeUser(userId) {
+            // いいねを送る処理をここに追加
+            console.log("いいね:", userId);
+        }
+
+        function unlikeUser(userId) {
+            // いいねを削除する処理をここに追加
+            console.log("削除:", userId);
         }
     </script>
 </body>
