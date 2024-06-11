@@ -2,16 +2,18 @@ body {
     font-family: Arial, sans-serif;
     font-size: 2vw;
     text-align: left;
-    background-color: #000000;
     
 }
 .container {
-    width: calc(80% - 200px); /* コンテナの幅を計算して設定 */
+    width: calc(100% - 200px); /* コンテナの幅を計算して設定 */
     margin: 0 auto;           /* 自動で中央寄せ */
     margin-left: 20%;         /* 左に20%の余白を作る */
     overflow-x: hidden;       /* 横スクロールを無効化 */
 }
 
+.logout{
+    text-align:left;
+}
 p {
     text-align: center;
     font-size: 24px;
