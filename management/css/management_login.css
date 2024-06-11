@@ -1,0 +1,102 @@
+/* body全体のスタイルを設定 */
+body {
+    font-family: Arial, sans-serif; /* フォントをArialに設定 */
+    display: flex; /* フレックスボックスレイアウトを使用 */
+    justify-content: center; /* 横方向に中央揃え */
+    align-items: center; /* 縦方向に中央揃え */
+    height: 100vh; /* ビューポートの高さに合わせる */
+    margin: 0; /* 余白をゼロに */
+    background-color: #ffffff; /* 背景色を白に */
+}
+
+/* コンテナ全体のスタイルを設定 */
+.container {
+    width: 500px; /* 要素の幅 */
+    padding: 20px; /* 内側の余白 */
+    border: 1px solid #cccccc; /* 枠線の設定 */
+    border-radius: 10px; /* 角丸 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
+    text-align: center; /* テキストの中央揃え */
+}
+/* ヘッダー部分のスタイルを設定 */
+.header {
+    margin-bottom: 20px; /* 下に余白を設定 */
+}
+
+/* ロゴ画像のスタイルを設定 */
+.logo {
+    width: 150px; /* 幅を0pxに設定 */
+    height: auto; /* 高さを自動調整 */
+}
+
+/* コンテンツ部分のスタイルを設定 */
+.content {
+    display: flex; /* フレックスボックスレイアウトを使用 */
+    align-items: center; /* 縦方向に中央揃え */
+    justify-content: center; /* 横方向に中央揃え */
+}
+
+/* サイド画像のスタイルを設定 */
+.side-image {
+    width: 150px; /* 幅を150pxに設定 */
+    height: auto; /* 高さを自動調整 */
+    margin: 0 20px; /* 左右に20pxの余白を設定 */
+}
+
+/* ログインフォームのスタイルを設定 */
+.login-form {
+    display: flex; /* フレックスボックスレイアウトを使用 */
+    flex-direction: column; /* 子要素を縦に並べる */
+    align-items: center; /* 子要素を中央揃え */
+}
+
+/* フォームグループのスタイルを設定 */
+.form-group {
+    margin-bottom: 15px; /* 下に余白を設定 */
+}
+
+/* ラベルのスタイルを設定 */
+.form-group label {
+    display: block; /* ブロック要素に設定 */
+    margin-bottom: 5px; /* 下に余白を設定 */
+}
+
+/* 入力フィールドのスタイルを設定 */
+.form-group input {
+    width: 200px; /* 幅を200pxに設定 */
+    padding: 10px; /* 内側の余白を設定 */
+    border: 1px solid #ccc; /* 枠線の色を設定 */
+    border-radius: 5px; /* 角を丸める */
+}
+
+/* ボタンのスタイルを設定 */
+button {
+    padding: 10px 20px; /* 内側の余白を設定 */
+    border: none; /* 枠線を無しに */
+    border-radius: 5px; /* 角を丸める */
+    background-color: aquamarine; /* 背景色を緑に */
+    color: #201f1f; /* 文字色を黒に */
+    font-size: 16px; /* フォントサイズを設定 */
+    cursor: pointer; /* マウスポインターをポインターに */
+}
+
+/* ボタンにホバーしたときのスタイルを設定 */
+button:hover {
+    background-color: rgb(168, 255, 226);  /* ホバー時の背景色を濃い緑に */
+}
+
+/* フッター部分のスタイルを設定 */
+.footer {
+    margin-top: 20px; /* 上に余白を設定 */
+}
+
+/* フッターのリンクのスタイルを設定 */
+.footer a {
+    color: #007bff; /* 文字色を青に */
+    text-decoration: none; /* 下線を無しに */
+}
+
+/* フッターのリンクにホバーしたときのスタイルを設定 */
+.footer a:hover {
+    text-decoration: underline; /* 下線を追加 */
+}
