@@ -11,6 +11,9 @@ body {
     overflow-x: hidden;       /* 横スクロールを無効化 */
 }
 
+.logout{
+    text-align:left;
+}
 p {
     text-align: center;
     font-size: 24px;

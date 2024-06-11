@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <p>プロフィール</p>
-        <a href="/logout.html"class="logout">ログアウト</a>
+        <a href="../logout/logout.php"class="logout">ログアウト</a>
         <hr>
         <div class="icon-section">
             <span>アイコンの変更</span>
