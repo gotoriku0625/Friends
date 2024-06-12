@@ -1,6 +1,7 @@
 <?php
+require '../db-connect.php';
 $pdo = new PDO($connect,USER,PASS);
-$logged_in_user_id = $_SESSION['user_id']; // ログインユーザーIDをセッションから取得
+$logged_in_user_id = $_SESSION['user']['id']; // ログインユーザーIDをセッションから取得
 
 // いいねした人の一覧を取得
 $sql_liked = "SELECT user.user_id, user.user_name, profile.icon_image 
@@ -9,7 +10,7 @@ $sql_liked = "SELECT user.user_id, user.user_name, profile.icon_image
               JOIN profile ON user.user_id = profile.user_id 
               WHERE likes.likes_user_id = ?";
 $stmt_liked = $pdo->prepare($sql_liked);
-$stmt_liked->bind_param("i", $logged_in_user_id);
+$stmt_liked->bindValue("i", $logged_in_user_id);
 $stmt_liked->execute();
 $result_liked = $stmt_liked->get_result();
 $liked_users = [];
@@ -25,7 +26,7 @@ $sql_liked_by = "SELECT user.user_id, user.user_name, profile.icon_image
                  JOIN profile ON user.user_id = profile.user_id 
                  WHERE likes.liked_user_id = ?";
 $stmt_liked_by = $pdo->prepare($sql_liked_by);
-$stmt_liked_by->bind_param("i", $logged_in_user_id);
+$stmt_liked_by->bindValue("i", $logged_in_user_id);
 $stmt_liked_by->execute();
 $result_liked_by = $stmt_liked_by->get_result();
 $liked_by_users = [];
@@ -37,14 +38,11 @@ $stmt_liked_by->close();
 $pdo->close();
 ?>
 <?php require '../header.php';?>
-    <!-- ↓ここにＣＳＳを追加↓ -->
     <link rel="stylesheet" href="../likes/likes.css">
     <link rel="stylesheet" href="./top.css">
     <title>likes</title>
 </head>
-
 <body>
-<?php require '../menu/menu.php';?>
     <div class="main">
         <div class="tabs">
             <div class="tab active" onclick="showTab('liked')">いいねした人</div>
