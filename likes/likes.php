@@ -1,19 +1,5 @@
 <?php
-$servername = "mysql301.phy.lolipop.lan";
-$username = "LAA1517801";
-$password = "pass0625";
-$dbname = "LAA1517801-friends";
-
-// データベース接続
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-session_start();
-require '../db-connect.php';
-
+$pdo = new PDO($connect,USER,PASS);
 $logged_in_user_id = $_SESSION['user_id']; // ログインユーザーIDをセッションから取得
 
 // いいねした人の一覧を取得
@@ -22,7 +8,7 @@ $sql_liked = "SELECT user.user_id, user.user_name, profile.icon_image
               JOIN user ON likes.liked_user_id = user.user_id 
               JOIN profile ON user.user_id = profile.user_id 
               WHERE likes.likes_user_id = ?";
-$stmt_liked = $conn->prepare($sql_liked);
+$stmt_liked = $pdo->prepare($sql_liked);
 $stmt_liked->bind_param("i", $logged_in_user_id);
 $stmt_liked->execute();
 $result_liked = $stmt_liked->get_result();
@@ -38,7 +24,7 @@ $sql_liked_by = "SELECT user.user_id, user.user_name, profile.icon_image
                  JOIN user ON likes.likes_user_id = user.user_id 
                  JOIN profile ON user.user_id = profile.user_id 
                  WHERE likes.liked_user_id = ?";
-$stmt_liked_by = $conn->prepare($sql_liked_by);
+$stmt_liked_by = $pdo->prepare($sql_liked_by);
 $stmt_liked_by->bind_param("i", $logged_in_user_id);
 $stmt_liked_by->execute();
 $result_liked_by = $stmt_liked_by->get_result();
@@ -48,20 +34,17 @@ while ($row = $result_liked_by->fetch_assoc()) {
 }
 $stmt_liked_by->close();
 
-$conn->close();
+$pdo->close();
 ?>
-<?php require '../menu/menu.html';?>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../menu/menu.css">
+<?php require '../header.php';?>
+    <!-- ↓ここにＣＳＳを追加↓ -->
     <link rel="stylesheet" href="../likes/likes.css">
-    <title>menu</title>
-   
+    <link rel="stylesheet" href="./top.css">
+    <title>likes</title>
 </head>
+
 <body>
+<?php require '../menu/menu.php';?>
     <div class="main">
         <div class="tabs">
             <div class="tab active" onclick="showTab('liked')">いいねした人</div>
