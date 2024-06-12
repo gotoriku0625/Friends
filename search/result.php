@@ -55,6 +55,8 @@
                 $sql .= " AND hobby_id IN (" . implode(',', array_map('intval', $hobby)) . ")";
             }
 
+            $sql .= " ORDER BY age ASC";
+
             // SQLを実行
             $stmt = $pdo->prepare($sql);
             $stmt->execute($params);
