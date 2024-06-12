@@ -35,7 +35,7 @@
 </html>
 <?php
     $pdo=new PDO($connect,USER,PASS);
-    $sql=$pdo->prepare('select * from user where mail=?');
+    $sql=$pdo->prepare('select * from user,profile where user.user_id=profile.user_id and mail=?');
     if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
         if($_POST['id']&&$_POST['password']){
             $sql->execute([$_POST['id']]);
