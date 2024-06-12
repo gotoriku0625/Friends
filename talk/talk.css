@@ -65,6 +65,7 @@
     margin: 0px;
     padding: 0 14px;/*吹き出しがタイムラインの側面にひっつかない様に隙間を開ける*/
     font-size: 16px;
+    width: 50%;
     word-wrap: break-word;/* 吹き出し内で自動で改行 */
     white-space: normal;/*指定widthに合わせて、文字を自動的に改行*/
 }
