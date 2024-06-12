@@ -1,9 +1,10 @@
 <?php require '../header.php';?>
-    <link rel="stylesheet" href="./talk.css">
+    <link rel="stylesheet" href="../talk_top.css">
     <title>Talk Top</title>
 </head>
 <?php require './function.php';?>
 <body>
+    <div class="main">
 <?php require '../menu/menu.php';?>
 <?php
 $_SESSION['user1_id']=3;
@@ -41,4 +42,5 @@ echo '<div class="row">';
     </div>
     EOF;
 }?>
+    </div>
 </body>
