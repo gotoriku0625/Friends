@@ -1,4 +1,5 @@
 window.onload = function() {
+    var my_talk = document.getElementById('my_talk');
     var form = document.getElementById('form');
     var container = document.getElementById('container');
         
