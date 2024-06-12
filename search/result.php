@@ -66,8 +66,10 @@
             <ul>
                 <?php foreach ($results as $profile): ?>
                     <li>
-                        <img src="<?php echo htmlspecialchars($profile['icon_image']); ?>" alt="icon" class="icon <?php echo htmlspecialchars($profile['gender']); ?>">
-                        <?php echo htmlspecialchars($profile['user_name']); ?><?php echo " (" . htmlspecialchars($profile['age']) . ")"; ?>
+                        <a href="../profile/profile-user.html">
+                            <img src="<?php echo htmlspecialchars($profile['icon_image']); ?>" alt="icon" class="icon <?php echo htmlspecialchars($profile['gender']); ?>">
+                            <?php echo htmlspecialchars($profile['user_name']); ?><?php echo " (" . htmlspecialchars($profile['age']) . ")"; ?>
+                        </a>
                     </li>
                 <?php endforeach; ?>
             </ul>

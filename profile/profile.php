@@ -12,7 +12,10 @@
 <body>
     <div class="container">
         <p>プロフィール</p>
-        <a href="Friends/logout/logout.php" class="logout">ログアウト</a>
+<!-- ログアウトボタン-->
+        <form action="../logout/logout.php" method="post">
+        <button type="submit">ログアウト</button>
+        </form>
         <hr>
         <div class="icon-section">
             <span>アイコンの変更</span>
