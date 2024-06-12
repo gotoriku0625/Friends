@@ -14,7 +14,7 @@ body {
 .logout{
     text-align:left;
 }
-p {
+.title {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
@@ -99,11 +99,20 @@ hr {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 8px;
-    font-size: 16px;
+    padding: 6px;
+    font-size: 10px;
     border: 1px solid #ccc; /* 枠を見えるように設定 */
     border-radius: 4px; /* 枠を少し丸くする */
     box-sizing: border-box; /* パディングとボーダーのサイズを含める */
+}
+
+.form-group text{
+    width: 40%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 .checkbox-group {
     display: flex;

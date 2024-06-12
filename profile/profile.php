@@ -1,18 +1,15 @@
 <?php require '../header.php';?>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <?php require '../menu/menu.php';?><!--menuはbodyタグの中に絶対に入れるように -->
-    <title>プロフィール</title>
+<?php require '../menu/menu.php';?><!--menuはbodyタグの中に絶対に入れるように -->
+<title>プロフィール</title>
    
 </head>
 <body>
     <div class="container">
-        <p>プロフィール</p>
-        <a href="Friends/logout/logout.php" class="logout">ログアウト</a>
+        <p class="title">プロフィール</p>
+<!-- ログアウトボタン-->
+        <form action="../logout/logout.php" method="post">
+        <button type="submit">ログアウト</button>
+        </form>
         <hr>
         <div class="icon-section">
             <span>アイコンの変更</span>
@@ -173,5 +170,6 @@
             </div>
         </form>
     </div>
+    <script src="js/style.js"></script>
 </body>
 </html>
