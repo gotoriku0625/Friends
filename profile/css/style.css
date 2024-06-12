@@ -14,7 +14,7 @@ body {
 .logout{
     text-align:left;
 }
-p {
+.title {
     text-align: center;
     font-size: 24px;
     font-weight: bold;

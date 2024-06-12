@@ -5,7 +5,7 @@
 </head>
 <body>
     <div class="container">
-        <p>プロフィール</p>
+        <p class="title">プロフィール</p>
 <!-- ログアウトボタン-->
         <form action="../logout/logout.php" method="post">
         <button type="submit">ログアウト</button>
