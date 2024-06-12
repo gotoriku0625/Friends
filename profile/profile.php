@@ -176,5 +176,6 @@
             </div>
         </form>
     </div>
+    <script src="js/style.js"></script>
 </body>
 </html>
