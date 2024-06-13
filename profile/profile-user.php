@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="jp">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php require '../header.php';?>
+<?php require '../menu/menu.php';?><!--menuはbodyタグの中に絶対に入れるように -->
     <link rel="stylesheet" href="css/profile.css">
-    <?php require '../menu/menu.php';?><!--menuはbodyタグの中に絶対に入れるように -->
-    <title>プロフィール</title>
+<title>プロフィール</title>
 </head>
 <body>
     <div class="menu">

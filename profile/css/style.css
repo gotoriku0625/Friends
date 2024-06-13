@@ -1,37 +1,46 @@
+/* 全体のフォント設定 */
 body {
     font-family: Arial, sans-serif;
-    font-size: 2vw;
+    font-size: 20px;
     text-align: left;
-    
 }
+
+/* コンテナの幅と中央寄せ */
 .container {
     width: calc(100% - 200px); /* コンテナの幅を計算して設定 */
     margin: 0 auto;           /* 自動で中央寄せ */
-    margin-left: 20%;         /* 左に20%の余白を作る */
+    margin-left: 21%;         /* 左に20%の余白を作る */
     overflow-x: hidden;       /* 横スクロールを無効化 */
 }
 
-.logout{
-    text-align:left;
+/* ログアウトボタンの位置 */
+.logout {
+    text-align: right;
 }
+
+/* タイトルの設定 */
 .title {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
 }
+
+/* 水平線のスタイル */
 hr {
     border: none;
     border-top: 2px solid #00ff84;
     margin-bottom: 20px;
 }
-/*iconのｃｓｓ*/
+
+/* アイコンとサブ写真のセクション */
 .icon-section, .sub-photo-section {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .icon-container, .sub-photo-container {
-    position: relative;
+   
     margin: 20px 0;
     width: 150px;
     height: 150px;
@@ -41,12 +50,14 @@ hr {
     justify-content: center;
     border-radius: 50%; /* 丸い形状 */
 }
+
 .icon-container img, .sub-photo-container img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
     display: none; /* 初期状態では非表示 */
 }
+
 .icon-container .plus, .sub-photo-container .plus {
     position: absolute;
     bottom: 0;
@@ -54,19 +65,23 @@ hr {
     font-size: 24px;
     cursor: pointer;
 }
+
 .sub-photo-section {
     width: 100%;
 }
+
 .sub-photo-section span {
     align-self: flex-start;
     margin-left: 20px;
 }
+
 .sub-photos {
     display: flex;
     justify-content: center;
     gap: 10px;
     align-items: center;
 }
+
 .sub-photo-container {
     width: 100px;
     height: 100px;
@@ -76,71 +91,198 @@ hr {
     align-items: center;
     justify-content: center;
 }
+
 .sub-photo-container img {
     width: 100%;
     height: 100%;
     border-radius: 8px;
     display: none; /* 初期状態では非表示 */
 }
+
 .plus {
     font-size: 24px;
     cursor: pointer;
     margin-left: 10px;
 }
-/*アイコンのｃｓｓ終了*/
+
+/* フォームグループの設定 */
 .form-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
 }
+
 .form-group label {
     margin-bottom: 5px;
 }
-.form-group input,
+
+/* 修正箇所：入力要素の幅を40%に固定 */
+.form-group input[type="text"],
+.form-group input[type="number"],
 .form-group select,
 .form-group textarea {
+    width: 80%;
     padding: 6px;
-    font-size: 10px;
-    border: 1px solid #ccc; /* 枠を見えるように設定 */
-    border-radius: 4px; /* 枠を少し丸くする */
-    box-sizing: border-box; /* パディングとボーダーのサイズを含める */
-}
-
-.form-group text{
-    width: 40%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #000000;
-    border-radius: 5px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     box-sizing: border-box;
 }
+
+
+/* フォームグループの設定 */
+.select-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.select-group label {
+    margin-bottom: 5px;
+}
+
+/* 修正箇所：入力要素の幅を40%に固定 */
+.select-group input[type="text"],
+.select-group input[type="number"],
+.select-group select,
+.select-group textarea {
+    width: 30%;
+    padding: 6px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* チェックボックスグループ */
 .checkbox-group {
     display: flex;
-    justify-content: center;
     margin: 20px 0;
 }
+
 input[type="checkbox"] {
-    transform: scale(2);
-    margin-right: 15px;
-    margin-bottom: 15px;
-    margin-top: 25px;
+    transform: scale(2); /* チェックボックスの表示を2倍に拡大 */
+    margin-right: 15px; /* 右側の余白を15pxに設定 */
+    margin-bottom: 15px; /* 下側の余白を15pxに設定 */
+    margin-top: 15px; /* 上側の余白を25pxに設定 */
+    margin-left: 15px;
 }
 
+
+/* 修正箇所：ボタンコンテナを中央揃えに設定 */
 .btn-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 25px;
 }
 
+/* 修正箇所：ボタンのスタイル */
 .btn {
-    width: 48%;
-    padding: 9px;
-    border: none;
-    border-radius: 20px;
-    background-color: aquamarine;
-    color: #000000;
-    font-size: 15px;
-    text-align: center;
+    width: 48%; /* ボタンの幅を親要素の幅の48%に設定 */
+    padding: 9px; /* 内側の余白を設定 */
+    border: none; /* ボーダーをなしに設定 */
+    border-radius: 20px; /* 角丸を20pxに設定 */
+    background-color: aquamarine; /* 背景色をアクアマリンに設定 */
+    color: #000000; /* テキスト色を黒色に設定 */
+    font-size: 15px; /* フォントサイズを15pxに設定 */
+    text-align: center; /* テキストを中央揃えに設定 */
+    cursor: pointer; /* マウスを重ねたときのカーソルをポインターに設定 */
+    text-decoration: none; /* テキスト装飾をなしに設定 */
+    margin: 0 1%; /* 左右の外側の余白を1%に設定 */
+}
+
+
+form[action="../logout/logout.php"] {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/*サブウィンドウcss*/
+/* サブウィンドウを開くボタンの親要素のスタイル */
+.open_sub_window_wrapper {
+    text-align: right;
+}
+
+/* サブウィンドウを開くボタンのスタイル */
+.open_sub_window {
+    display: inline-block;
     cursor: pointer;
-    text-decoration: none;
+}
+
+/* サブウィンドウを開くボタンのホバー時のスタイル */
+.open_sub_window:hover {
+    opacity: 0.8;
+}
+
+/* サブウィンドウの背景のスタイル（初期状態は非表示） */
+.bg_sub_window {
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+/* サブウィンドウのスタイル */
+.sub_window {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 30px;
+    max-height: 90%;
+    background-color: #fff;
+    overflow-y: auto;
+    width: 90%;
+    max-width: 900px;
+}
+
+/* サブウィンドウのコンテンツを中央に配置するスタイル */
+.sub_window_content {
+    display: table;
+    margin: 20px auto;
+}
+
+/* ログアウトボタンのスタイル */
+.btn-logout {
+    display: block;
+    padding: 10px 20px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4444;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* ログアウトボタンのホバー時のスタイル */
+.btn-logout:hover {
+    background-color: #dd3333;
+}
+
+/* キャンセルボタンのスタイル */
+.btn-cancel {
+    display: block;
+    padding: 10px 20px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 5px;
+    background-color: #aaa;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* キャンセルボタンのホバー時のスタイル */
+.btn-cancel:hover {
+    background-color: #888;
 }
