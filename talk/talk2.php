@@ -16,10 +16,6 @@ $current_user = get_user($_SESSION['user1_id']);// 現在ログインしてい�
 // $reciver = get_user($_POST['user_id']);// トーク相手のユーザー情報
 $reciver = get_user($_SESSION['user2_id']);
 $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取りされるメッセージ情報
-if(!isset($_POST['post'])&&$_POST['post']!=='submit'){
-    header("Location: " . $_SERVER['PHP_SELF']);
-    exit;
-}
 ?>
 <body>
 <?php require '../menu/menu.php';?>
@@ -28,7 +24,7 @@ if(!isset($_POST['post'])&&$_POST['post']!=='submit'){
             <div id="bms_chat_header">
                 <button type=”button” onclick="location.href='./talk_top.php'">戻る</button>
                 <div id="bms_chat_user_status">
-                    <div id="bms_status_icon"><img src="../user_image/main/<?=$reciver['icon_image']?></div>
+                    <div id="bms_status_icon"><img src="../user_image/main/<?=$reciver['icon_image']?>"></div>
                     <div id="bms_chat_user_name"><?=$reciver['user_name']?></div>
                 </div>
             </div>
@@ -49,7 +45,7 @@ if(!isset($_POST['post'])&&$_POST['post']!=='submit'){
                         echo '</div><div class="bms_clear"></div>';
                     }
                 }
-                echo '<div id="container" class="container"></div>';
+                // echo '<div id="container" class="container"></div>';
                 echo '</div>';
             }
             ?>
@@ -60,6 +56,7 @@ if(!isset($_POST['post'])&&$_POST['post']!=='submit'){
                     <input type="hidden" name="reciver_id" value="<?= $reciver['user_id']; ?>">
                     <button class="talk_btn" type="submit" name="post" value="submit" id="post">送信</button>
                 </form>
+                <div id="container" class="container"></div>
             </div>
         </div>
     </div>   
