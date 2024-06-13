@@ -40,7 +40,7 @@ hr {
 }
 
 .icon-container, .sub-photo-container {
-   
+    position: relative;
     margin: 20px 0;
     width: 150px;
     height: 150px;
@@ -231,16 +231,17 @@ form[action="../logout/logout.php"] {
 
 /* サブウィンドウのスタイル */
 .sub_window {
-    position: absolute;
-    top: 50%;
+    position: fixed; /* スクロールに影響されないようにfixedに設定 */
+    top: 60%;
     left: 60%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%);
     padding: 30px;
     max-height: 90%;
     background-color: #fff;
     overflow-y: auto;
     width: 90%;
     max-width: 900px;
+    z-index: 9999; /* 他の要素よりも手前に表示するためのz-index */
 }
 
 /* サブウィンドウのコンテンツを中央に配置するスタイル */
