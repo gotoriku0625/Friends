@@ -1,5 +1,5 @@
 
-    <div class="menu">
+<div class="menu">
         <div class="logo-space">
             <a href="../top/top.php"><img src="../image/logo.png" class="logo"></a>
         </div>
