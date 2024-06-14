@@ -12,21 +12,21 @@
                     echo '<div class="icon-space">
                         <div class="circle_width_man">
                         <div class="circle_height_man">';
-                    echo '<img src="',$icon,'" class="icon">';// アイコン
+                    echo '<img src="../user_image/',$icon,'" class="icon">';// アイコン
                     echo '</div></div></div>';
                 }else if($gender==='女性'){
                     // アイコンの枠の色を赤色に
                     echo '<div class="icon-space">
                         <div class="circle_width_woman">
                         <div class="circle_height_woman">';
-                    echo '<img src="',$icon,'" class="icon">';// アイコン
+                    echo '<img src="../user_image/',$icon,'" class="icon">';// アイコン
                     echo '</div></div></div>';
                 }else{
                     // アイコンの枠の色を灰色に
                     echo '<div class="icon-space">
                         <div class="circle_width_others">
                         <div class="circle_height_others">';
-                    echo '<img src="',$icon,'" class="icon">';// アイコン
+                    echo '<img src="../user_image/',$icon,'" class="icon">';// アイコン
                     echo '</div></div></div>';
                 }
 
