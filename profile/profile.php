@@ -1,15 +1,30 @@
 <?php require '../header.php';?>
 <?php require '../menu/menu.php';?><!--menuはbodyタグの中に絶対に入れるように -->
 <title>プロフィール</title>
-   
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
         <p class="title">プロフィール</p>
-<!-- ログアウトボタン-->
-        <form action="../logout/logout.php" method="post">
-        <button type="submit">ログアウト</button>
-        </form>
+    <!-- ログアウトボタン-->
+    <!-- サブウィンドウを開くボタンの親要素 -->
+        <div class="open_sub_window_wrapper">
+            <form action="../logout/logout.php" method="post">
+                <button type="button" class="open_sub_window" onclick="openSubWindow()">ログアウト</button>
+            </form>
+        </div>
+        <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
+        <div class="bg_sub_window" onclick="closeSubWindow()">
+            <!-- サブウィンドウの内容 -->
+            <div class="sub_window" onclick="event.stopPropagation()">
+                <div class="sub_window_content">
+                    <form action="../logout/logout.php" method="post">
+                        <button type="submit" class="btn-logout">ログアウト</button>
+                    </form>
+                    <button class="btn-cancel" onclick="closeSubWindow()">キャンセル</button>
+                </div>
+            </div>
+        </div>
         <hr>
         <div class="icon-section">
             <span>アイコンの変更</span>
@@ -43,23 +58,25 @@
             </div>
             <div class="form-group">
                 <label for="selfIntro">自己紹介</label>
-                <textarea id="selfIntro" name="selfIntro" rows="5" maxlength="500"></textarea>
+                <textarea id="selfIntro" name="selfIntro" rows="5" maxlength="500" required></textarea>
             </div>
             <div class="form-group">
                 <label for="hobbies">趣味/特技</label>
-                <input type="text" id="hobbies" name="hobbies">
+                <input type="text" id="hobbies" name="hobbies" required>
             </div>
-            <div class="form-group">
+            <div class="select-group">
                 <label for="gender">性別</label>
-                <select id="gender" name="gender">
+                <select id="gender" name="gender"required>
+                <option value="man">男</option>
                 <option value="woman">女</option>
+                <option value="another">その他</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="select-group">
                 <label for="age">年齢</label>
-                <input type="number" id="age" name="age" min="0">
+                <input type="number" id="age" name="age" min="0" required>
             </div>
-            <div class="form-group">
+            <div class="select-group">
                 <label for="bloodType">血液型</label>
                 <select id="bloodType" name="bloodType">
                     <option value="A">A型</option>
@@ -68,7 +85,8 @@
                     <option value="AB">AB型</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="select-group">
+            <label for="school">学校</label>
             <select id="school" name="school">
                 <option value="麻生情報ビジネス専門学校 福岡校">麻生情報ビジネス専門学校 福岡校</option>
                 <option value="麻生外語観光＆ブライダル専門学校">麻生外語観光＆ブライダル専門学校</option>
@@ -86,7 +104,7 @@
                 <option value="ASO高等部">ASO高等部</option>            
             </select>
             </div>
-            <div class="form-group">
+            <div class="select-group">
                 <label for="hometown">出身地</label>
                 <select id="hometown" name="hometown">
                     <option value="北海道">北海道</option>
@@ -138,7 +156,7 @@
                     <option value="沖縄県">沖縄県</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="select-group">
                 <label for="residence">居住地</label>
                 <select id="residence">
                     <option value="山口県">山口県</option>
@@ -165,9 +183,12 @@
                 </label>
             </div>
             <div class="form-group" id="submit_button">
+                <div class="btn-container">
                     <a href="../login/login.html" class="btn">キャンセル</a>
                     <a href="../top/top.html" class="btn">保存</a>
+                </div>
             </div>
+
         </form>
     </div>
     <script src="js/style.js"></script>

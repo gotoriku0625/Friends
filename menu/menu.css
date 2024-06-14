@@ -53,7 +53,7 @@ body{
     /* 表示したい横幅を決める */
     width: 45%;
     /* 線をつける */
-    border: 3px solid #603dff;
+    border: 3px solid #613dffbb;
     /* 要素の角をなくす
     50%でまんまるになる */
     border-radius: 50%;
@@ -74,7 +74,7 @@ body{
     /* 表示したい横幅を決める */
     width: 45%;
     /* 線をつける */
-    border: 3px solid #ff5691;
+    border: 3px solid #ff5691be;
     /* 要素の角をなくす
     50%でまんまるになる */
     border-radius: 50%;
@@ -95,7 +95,7 @@ body{
     /* 表示したい横幅を決める */
     width: 45%;
     /* 線をつける */
-    border: 3px solid #626262;
+    border: 3px solid #626262bf;
     /* 要素の角をなくす
     50%でまんまるになる */
     border-radius: 50%;

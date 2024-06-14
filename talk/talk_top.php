@@ -1,5 +1,5 @@
 <?php require '../header.php';?>
-    <link rel="stylesheet" href="../talk_top.css">
+    <link rel="stylesheet" href="talk_top.css">
     <title>Talk Top</title>
 </head>
 <?php require './function.php';?>

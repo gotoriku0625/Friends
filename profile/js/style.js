@@ -48,3 +48,17 @@ function uploadSubPhotos() {
 function cancel() {
     // キャンセルボタンの処理
 }
+
+/*サブウィンドウｊｓ*/ 
+
+function openSubWindow() {
+    document.querySelector('.bg_sub_window').style.visibility = 'visible';
+    document.querySelector('.bg_sub_window').style.opacity = '1';
+    document.querySelector('.bg_sub_window').style.pointerEvents = 'auto';
+}
+
+function closeSubWindow() {
+    document.querySelector('.bg_sub_window').style.visibility = 'hidden';
+    document.querySelector('.bg_sub_window').style.opacity = '0';
+    document.querySelector('.bg_sub_window').style.pointerEvents = 'none';
+}

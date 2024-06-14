@@ -6,11 +6,13 @@
 
 .main {
 /* ↓これいらないと思うからコメントアウトしておくね~（永田） */
-    /* padding: 20px; */
+    width: calc(100% - 200px); /* コンテナの幅を計算して設定 */
+    margin: 0 auto;           /* 自動で中央寄せ */
+    margin-left: 20%;         /* 左に20%の余白を作る */
+    overflow-x: hidden; 
     left:0;
     border-radius: 10px;
     text-align: left;
-    width: 100%;
     height: 100%;
 }
 
