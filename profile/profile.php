@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
-    <div class="main">
     <div class="container">
         <p class="title">プロフィール</p>
     <!-- ログアウトボタン-->
