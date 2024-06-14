@@ -1,5 +1,10 @@
+<?php require '../db-connect.php';?>
+<?php require '../header.php';?>
+<link rel="stylesheet" href="../likes/likes.css">
+    <link rel="stylesheet" href="./top.css">
+    <title>likes</title>
+</head>
 <?php
-require '../db-connect.php';
 $pdo = new PDO($connect, USER, PASS);
 $logged_in_user_id = $_SESSION['user']['id']; // ログインユーザーIDをセッションから取得
 
@@ -27,11 +32,6 @@ $stmt_liked_by->execute();
 $liked_by_users = $stmt_liked_by->fetchAll(PDO::FETCH_ASSOC);
 $stmt_liked_by->closeCursor();
 ?>
-<?php require '../header.php';?>
-    <link rel="stylesheet" href="../likes/likes.css">
-    <link rel="stylesheet" href="./top.css">
-    <title>likes</title>
-</head>
 <body>
     <div class="main">
         <div class="tabs">
