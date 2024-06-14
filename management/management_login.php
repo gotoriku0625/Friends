@@ -1,5 +1,23 @@
-<?php session_start(); ?>
-<?php require '../db-connect.php'; ?>
+<?php 
+session_start(); 
+require '../db-connect.php'; 
+
+$pdo = new PDO($connect, USER, PASS);
+$sql = $pdo->prepare('SELECT m_user_id, m_pass FROM management_user WHERE mail = ?');
+
+if (isset($_POST['login']) && $_POST['login'] === "ログイン") {
+    $sql->execute([$_POST['id']]);
+    $user = $sql->fetch(PDO::FETCH_ASSOC);
+    
+    if ($user && password_verify($_POST['password'], $user['m_pass'])) {
+        $_SESSION['m_user_id'] = $user['m_user_id'];
+        header('Location: ./dashboard.php'); // ログイン成功後にダッシュボードにリダイレクト
+        exit;
+    } else {
+        $error_message = 'ログイン名またはパスワードが違います。';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -14,6 +32,9 @@
     </div>
     <div class="content">
         <img src="../image/person1.png" alt="human1" class="side-image">
+        <?php if (isset($error_message)): ?>
+            <p><?= htmlspecialchars($error_message) ?></p>
+        <?php endif; ?>
         <form action="login.php" method="post" class="login-form">
             <div class="form-group">
                 <label for="id">E-mail</label>
@@ -32,24 +53,3 @@
 </div>
 </body>
 </html>
-<?php
-    $pdo=new PDO($connect,USER,PASS);
-    $sql=$pdo->prepare('select m_user_id from management_user where mail=?');
-    if(isset($_POST['login']) && $_POST['login'] === "ログイン"){
-        $sql->execute([$_POST['id']]);
-        foreach($sql as $row){
-            if(password_verify($_POST['m_password'],$row['m_pass']) == true){//ハッシュ化したパスワードと一致しているか
-                $_SESSION['m_user_id']=$row['m_user_id'];
-            }
-        }
-        if(isset($_SESSION['m_user_id'])){
-            echo <<<EOS
-            \n
-            EOS;
-        }else{
-            echo '<p>ログイン名またはパスワードが違います。</p>';
-        }
-        header('Location:./login.php');
-        exit;
-    }
-?>
