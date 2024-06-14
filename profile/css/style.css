@@ -49,6 +49,7 @@ hr {
     align-items: center;
     justify-content: center;
     border-radius: 50%; /* 丸い形状 */
+    z-index: 2;
 }
 
 .icon-container img, .sub-photo-container img {
@@ -241,7 +242,7 @@ form[action="../logout/logout.php"] {
     overflow-y: auto;
     width: 90%;
     max-width: 900px;
-    z-index: 9999; /* 他の要素よりも手前に表示するためのz-index */
+    z-index: 1; /* 他の要素よりも手前に表示するためのz-index */
 }
 
 /* サブウィンドウのコンテンツを中央に配置するスタイル */
