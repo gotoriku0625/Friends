@@ -7,7 +7,6 @@
     <div class="main">
     <div class="container">
         <p class="title">プロフィール</p>
-            <a href="/logout.html">ログアウト</a>
     <!-- ログアウトボタン-->
     <!-- サブウィンドウを開くボタンの親要素 -->
         <div class="open_sub_window_wrapper">
