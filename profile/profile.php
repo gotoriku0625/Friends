@@ -30,7 +30,7 @@
         <div class="icon-section">
             <span>アイコンの変更</span>
             <div class="icon-container">
-                <img id="profileIcon" src="placeholder.png" alt="プロフィールアイコン" name="profileIcon" value="main" required>
+                <img id="profileIcon" src="placeholder.png" alt="プロフィールアイコン" name="profileIcon" value="main">
                 <span class="plus" onclick="uploadIcon()">＋</span>
             </div>
         </div>
@@ -193,6 +193,5 @@
         </form>
     </div>
     <script src="js/style.js"></script>
-    </div>
 </body>
 </html>
