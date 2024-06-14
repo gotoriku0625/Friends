@@ -1,0 +1,206 @@
+
+
+body{
+    position: relative;
+    display: flex;
+    overflow-x: hidden;
+}
+
+.menu{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 20%;
+    height: 100%;
+    background-color: rgb(151, 255, 220);
+    z-index: 10;
+}
+
+.main{
+    position: relative;
+    left: 21%;
+}
+
+.logo{
+    position: relative;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 100%;
+    height: 60%;
+}
+.logo-space{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.icon{
+    /* 要素のたかさをなくす */
+    position: relative;
+    /* 正方形の幅-文字の高さ/2 で上下真ん中に要素がくる */
+    top: calc((100% - 1em)/2);
+    /* 要素伸ばす */
+    left: 0;
+    right: 0;
+    /* pタグ初期値のmarginを無効に */
+    margin: 0;
+    /* 文字中央寄せ */
+    text-align: center;
+    border-radius: 50%;
+}
+
+/* 上に原因 */
+
+.circle_width_man {
+    /* 表示したい横幅を決める */
+    width: 45%;
+    /* 線をつける */
+    border: 3px solid #613dffbb;
+    /* 要素の角をなくす
+    50%でまんまるになる */
+    border-radius: 50%;
+    }
+     
+    .circle_height_man {
+    /* 内包する要素の基準にする */
+    position: relative;
+    /* paddingの％指定は親要素の横幅に依存する */
+    /* padding-top: 100%にすることで親要素の横幅と同じ長さになる */
+    /* 親要素が正方形になる */
+    padding-top: 100%;
+    /* 要素自体の高さがあるとずれるので高さを０にする */
+    height: 0;
+    }
+
+.circle_width_woman {
+    /* 表示したい横幅を決める */
+    width: 45%;
+    /* 線をつける */
+    border: 3px solid #ff5691be;
+    /* 要素の角をなくす
+    50%でまんまるになる */
+    border-radius: 50%;
+    }
+        
+    .circle_height_woman {
+    /* 内包する要素の基準にする */
+    position: relative;
+    /* paddingの％指定は親要素の横幅に依存する */
+    /* padding-top: 100%にすることで親要素の横幅と同じ長さになる */
+    /* 親要素が正方形になる */
+    padding-top: 100%;
+    /* 要素自体の高さがあるとずれるので高さを０にする */
+    height: 0;
+    }
+
+.circle_width_others {
+    /* 表示したい横幅を決める */
+    width: 45%;
+    /* 線をつける */
+    border: 3px solid #626262bf;
+    /* 要素の角をなくす
+    50%でまんまるになる */
+    border-radius: 50%;
+    }
+        
+    .circle_height_others {
+    /* 内包する要素の基準にする */
+    position: relative;
+    /* paddingの％指定は親要素の横幅に依存する */
+    /* padding-top: 100%にすることで親要素の横幅と同じ長さになる */
+    /* 親要素が正方形になる */
+    padding-top: 100%;
+    /* 要素自体の高さがあるとずれるので高さを０にする */
+    height: 0;
+    }
+.icon-space{
+    display: flex;
+    justify-content: center;
+}
+    
+.name{
+    text-align: center;
+    padding: 3%;
+    font-size: 20px;
+    z-index: 1;
+}
+p{
+    display: flex;
+    list-style:none;
+    margin-top: 0px;
+    /* padding: 3%; */
+    font-size: 23px;
+    z-index: 1;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    width: 70%;
+    padding-top: 3%;
+    text-align: center;
+    z-index: 1;
+    /* font-weight: bold; */
+}
+.link-space{
+    position: relative;
+    padding-top: 5%;
+    padding-left: 10%;
+    z-index: 5;
+}
+.parson-free-icon{
+    width: 16%;
+    height: 7%;
+    z-index: 1;
+}
+.seach-free-icon{
+    width: 16%;
+    height: 7%;
+    z-index: 1;
+}
+.like-free-icon{
+    width: 16%;
+    height: 7%;
+    z-index: 1;
+}
+.community-free-icon{
+    width: 16%;
+    height: 7%;
+    z-index: 1;
+}
+.talk-free-icon{
+    width: 16%;
+    height: 7%;
+    z-index: 1;
+}
+
+/* リンクのアニメーション */
+
+.textlink a {
+	position: relative;
+	color: #333;
+	text-decoration: none;
+}
+.textlink a:hover {
+	color: #ffffff;
+}
+
+.textlink04 a::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 0;
+	height: 0;
+	background-color: rgba(255, 255, 255, 0.463);
+	border-radius: 50%;
+	transition: 0.3s;
+}
+
+.textlink04 a:hover::after {
+	width: 40px;
+	height: 40px;
+}
+
