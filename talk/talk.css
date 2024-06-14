@@ -50,11 +50,17 @@
     line-height: 2em;/*高さ調整*/
     padding-left: 8px;
 }
+/* アイコン */
+.talk_user_img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
 
 /* タイムライン部分③ */
 #my_talk {
   overflow: auto;/*スクロールを効かせつつ、メッセージがタイムラインの外に出ないようにする*/
-  height:84%;/*テキストエリアが下に張り付く様にする*/
+  height:100%;/*テキストエリアが下に張り付く様にする*/
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
   background-color: #eee;

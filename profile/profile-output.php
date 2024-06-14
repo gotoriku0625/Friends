@@ -13,13 +13,16 @@
             $smoking='no';
         }
 
-        if($_POST['profileIcon']==='main'){
             $main = 'user_image/main/';//保存するフォルダの名前
-            $fileName = basename($_FILES['profileIcon']['name']);//登録したいファイルの名前
-            $path = $main . $fileName;//二つをドッキング
+            $fileName_main = basename($_FILES['profileIcon']['name']);//登録したいファイルの名前
+            $sub = 'user_image/sub/';
+            $fileName_sub1 = basename($_FILES['subPhoto1']['name']);
+            $fileName_sub2 = basename($_FILES['subPhoto2']['name']);
+            $fileName_sub3 = basename($_FILES['subPhoto3']['name']);
+            $path = $main . $fileName_main;//二つをドッキング
             $fileType = pathinfo($path,PATHINFO_EXTENSION);
             
-            if(!empty($_FILES['profileIcon']['name'])){
+            if(!empty($_FILES['subPhoto1']['name'])){
                 $allowTypes = array('jpg','png','jpeg','gif');
                 if(in_array($fileType,$allowTypes)){
                     if(move_uploaded_file($_FILES['image']['tmp_name'],"../". $path)){
@@ -29,10 +32,12 @@
                     }
                 }
             }
-        }
 
-       switch(){
-        
+       if($_POST['subPhoto1']&&$_POST['subPhoto2']&&$_POST['subPhoto3']){
+
+       }else if($_POST['subPhoto1']){
+
+            
        }
         $select='select user_id from user mail=?';
         $insert='insert into profile values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';

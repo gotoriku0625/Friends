@@ -24,7 +24,7 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
             <div id="bms_chat_header">
                 <button type=”button” onclick="location.href='./talk_top.php'">戻る</button>
                 <div id="bms_chat_user_status">
-                    <div id="bms_status_icon"><img src="../user_image/main/<?=$reciver['icon_image']?>"></div>
+                    <div id="bms_status_icon"><img src="../user_image/main/<?=$reciver['icon_image']?>" class="talk_user_img"></div>
                     <div id="bms_chat_user_name"><?=$reciver['user_name']?></div>
                 </div>
             </div>
@@ -45,7 +45,7 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                         echo '</div><div class="bms_clear"></div>';
                     }
                 }
-                // echo '<div id="container" class="container"></div>';
+                echo '<div id="container" class="container"></div>';
                 echo '</div>';
             }
             ?>
@@ -56,7 +56,6 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                     <input type="hidden" name="reciver_id" value="<?= $reciver['user_id']; ?>">
                     <button class="talk_btn" type="submit" name="post" value="submit" id="post">送信</button>
                 </form>
-                <div id="container" class="container"></div>
             </div>
         </div>
     </div>   
