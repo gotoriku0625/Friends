@@ -7,7 +7,7 @@ $pdo = new PDO($connect, USER, PASS);
 $logged_in_user_id = $_SESSION['user']['id']; // ログインユーザーIDをセッションから取得
 
 // いいねした人の一覧を取得
-$sql_liked = "SELECT user.user_id, user.user_name, profile.icon_image 
+$sql_liked = "SELECT user.user_id, user.user_name, profile.icon_image,profile.age  
               FROM likes 
               JOIN user ON likes.liked_user_id = user.user_id 
               JOIN profile ON user.user_id = profile.user_id 
@@ -19,7 +19,7 @@ $liked_users = $stmt_liked->fetchAll(PDO::FETCH_ASSOC);
 $stmt_liked->closeCursor();
 
 // いいねされた人の一覧を取得
-$sql_liked_by = "SELECT user.user_id, user.user_name, profile.icon_image 
+$sql_liked_by = "SELECT user.user_id, user.user_name, profile.icon_image,profile.age 
                  FROM likes 
                  JOIN user ON likes.likes_user_id = user.user_id 
                  JOIN profile ON user.user_id = profile.user_id 
