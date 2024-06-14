@@ -1,7 +1,5 @@
-<?php require '../db-connect.php';?>
 <?php require '../header.php';?>
 <link rel="stylesheet" href="../likes/likes.css">
-    <link rel="stylesheet" href="./top.css">
     <title>likes</title>
 </head>
 <?php
@@ -33,6 +31,7 @@ $liked_by_users = $stmt_liked_by->fetchAll(PDO::FETCH_ASSOC);
 $stmt_liked_by->closeCursor();
 ?>
 <body>
+<?php require '../menu/menu.php';?>
     <div class="main">
         <div class="tabs">
             <div class="tab active" onclick="showTab('liked')">いいねした人</div>
