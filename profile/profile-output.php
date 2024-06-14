@@ -16,9 +16,9 @@
             $main = 'user_image/main/';//保存するフォルダの名前
             $fileName_main = basename($_FILES['profileIcon']['name']);//登録したいファイルの名前
             $sub = 'user_image/sub/';
-            $fileName_sub1 = basename($_FILES['subPhoto1']['name']);
-            $fileName_sub2 = basename($_FILES['subPhoto2']['name']);
-            $fileName_sub3 = basename($_FILES['subPhoto3']['name']);
+            // $fileName_sub1 = basename($_FILES['subPhoto1']['name']);
+            // $fileName_sub2 = basename($_FILES['subPhoto2']['name']);
+            // $fileName_sub3 = basename($_FILES['subPhoto3']['name']);
             $path = $main . $fileName_main;//二つをドッキング
             $fileType = pathinfo($path,PATHINFO_EXTENSION);
             
