@@ -51,9 +51,10 @@ try {
     <p>男性：<?php echo $gender_counts['男性']; ?></p>
     <p>女性：<?php echo $gender_counts['女性']; ?></p>
     <p>その他：<?php echo $gender_counts['その他']; ?></p>
-    <a href="階層/ドメイン名/フォルダ名/ファイル名">ユーザー一覧へ</a>
+    <a href="user_ichiran.php">ユーザー一覧へ</a>
     
     <p>通報数：<?php echo $report_count; ?></p>
+    <a href="tuuhou_ichiran.php">通報一覧へ</a>
     <p>ブロック数：<?php echo $block_count; ?></p>
 </body>
 </html>
