@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
+    <div class="main">
     <div class="container">
         <p class="title">プロフィール</p>
     <!-- ログアウトボタン-->
@@ -192,5 +193,6 @@
         </form>
     </div>
     <script src="js/style.js"></script>
+    </div>
 </body>
 </html>

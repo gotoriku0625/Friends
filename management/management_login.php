@@ -35,7 +35,7 @@ if (isset($_POST['login']) && $_POST['login'] === "ログイン") {
         <?php if (isset($error_message)): ?>
             <p><?= htmlspecialchars($error_message) ?></p>
         <?php endif; ?>
-        <form action="login.php" method="post" class="login-form">
+        <form action="Dashboard.php" method="post" class="login-form">
             <div class="form-group">
                 <label for="id">E-mail</label>
                 <input type="text" id="id" name="id">
