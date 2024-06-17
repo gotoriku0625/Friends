@@ -5,7 +5,7 @@
 
 <body>
 <?php require '../menu/menu.php';?>
-    <div class="main"></div>
+    <div class="main">
 
 <?php $pdo = new PDO($connect, USER, PASS);
 
@@ -136,5 +136,6 @@ $prefectures = [
             });
         });
     </script>
+    </div>
 </body>
 </html>
