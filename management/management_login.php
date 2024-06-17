@@ -12,20 +12,16 @@ try {
         $management_user = $sql->fetch(PDO::FETCH_ASSOC);
 
         // パスワードの確認
-        if ($management_user) {
-            if (password_verify($_POST['password'], $management_user['m_pass'])) {
-                $_SESSION['m_user_id'] = $management_user['m_user_id'];
-                header('Location: ./dashboard.php'); // ログイン成功後にダッシュボードにリダイレクト
-                exit;
-            } else {
-                $error_message = 'パスワードが違います。';
-            }
+        if ($management_user && password_verify($_POST['password'], $management_user['m_pass'])) {
+            $_SESSION['m_user_id'] = $management_user['m_user_id'];
+            header('Location: ./dashboard.php'); // ログイン成功後にダッシュボードにリダイレクト
+            exit;
         } else {
-            $error_message = 'IDが存在しません。';
+            $error_message = 'IDまたはパスワードが違います。';
         }
     }
 } catch (PDOException $e) {
-    $error_message = 'データベースエラー: ' . htmlspecialchars($e->getMessage());
+    echo 'Database error: ' . $e->getMessage();
 }
 ?>
 <!DOCTYPE html>
