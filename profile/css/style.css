@@ -147,7 +147,7 @@ hr {
 .select-group input[type="number"],
 .select-group select,
 .select-group textarea {
-    width: 30%;
+    width: 35%;
     padding: 6px;
     font-size: 20px;
     border: 1px solid #ccc;
@@ -242,9 +242,8 @@ form[action="../logout/logout.php"] {
     overflow-y: auto;
     width: 90%;
     max-width: 900px;
-    z-index: 1; /* 他の要素よりも手前に表示するためのz-index */
+    z-index: 100; /* サブウィンドウを他の要素よりも手前に表示するためのz-index */
 }
-
 /* サブウィンドウのコンテンツを中央に配置するスタイル */
 .sub_window_content {
     display: table;
@@ -287,4 +286,72 @@ form[action="../logout/logout.php"] {
 /* キャンセルボタンのホバー時のスタイル */
 .btn-cancel:hover {
     background-color: #888;
+}
+
+
+/* アイコンと追加ボタンのスタイル */
+.icon-container,
+.sub-photo-container,
+.icon-container .plus,
+.sub-photo-container .plus {
+    position: relative; /* position: absolute; から戻す */
+    z-index: 101; /* サブウィンドウよりも前面に表示させるためのz-indexを設定 */
+}
+
+/* 追加ボタンの位置調整 */
+.icon-container .plus,
+.sub-photo-container .plus {
+    right: -50; /* 右端に固定 */
+    top: 50%; /* 上下中央に寄せる */
+    transform: translateY(-50%);
+}
+
+/* サブ写真コンテナの設定 */
+.sub-images {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 各サブ写真のラッパー */
+.sub-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* サブ写真のスタイル */
+.sub-square {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border: 5px solid #a8a8a8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+/* サブ写真内の画像の設定 */
+.sub-square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+/* ファイル入力ボックスを非表示にする */
+#subImageInput1,
+#subImageInput2,
+#subImageInput3 {
+    display: none;
+}
+
+/* 画像アップロードボタンのスタイル */
+.subImagePut {
+    font-size: 30px;
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    cursor: pointer;
 }

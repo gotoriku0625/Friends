@@ -36,8 +36,10 @@ body{
 .icon{
     /* 要素のたかさをなくす */
     position: relative;
+    width: 100px;
+    height: 100px;
     /* 正方形の幅-文字の高さ/2 で上下真ん中に要素がくる */
-    top: calc((100% - 1em)/2);
+    /* top: calc((100% - 1em)/2); */
     /* 要素伸ばす */
     left: 0;
     right: 0;
@@ -46,18 +48,20 @@ body{
     /* 文字中央寄せ */
     text-align: center;
     border-radius: 50%;
+    z-index: 2;
 }
 
 /* 上に原因 */
 
 .circle_width_man {
     /* 表示したい横幅を決める */
-    width: 45%;
+    width: 100px;
     /* 線をつける */
     border: 3px solid #613dffbb;
     /* 要素の角をなくす
     50%でまんまるになる */
     border-radius: 50%;
+    z-index: 1;
     }
      
     .circle_height_man {
@@ -73,7 +77,7 @@ body{
 
 .circle_width_woman {
     /* 表示したい横幅を決める */
-    width: 45%;
+    width: 100px;
     /* 線をつける */
     border: 3px solid #ff5691be;
     /* 要素の角をなくす
@@ -90,11 +94,12 @@ body{
     padding-top: 100%;
     /* 要素自体の高さがあるとずれるので高さを０にする */
     height: 0;
+    z-index: 1;
     }
 
 .circle_width_others {
     /* 表示したい横幅を決める */
-    width: 45%;
+    width: 100px;
     /* 線をつける */
     border: 3px solid #626262bf;
     /* 要素の角をなくす
@@ -111,6 +116,7 @@ body{
     padding-top: 100%;
     /* 要素自体の高さがあるとずれるので高さを０にする */
     height: 0;
+    z-index: 1;
     }
 .icon-space{
     display: flex;

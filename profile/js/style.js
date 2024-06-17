@@ -18,39 +18,27 @@ function uploadIcon() {
     input.click();
 }
 
-function uploadSubPhotos() {
-    const inputs = [];
-    for (let i = 1; i <= 3; i++) {
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'image/*';
-        inputs.push(input);
-    }
-
-    inputs.forEach((input, index) => {
-        input.onchange = e => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = event => {
-                    const subPhoto = document.getElementById(`subPhoto${index + 1}`);
-                    subPhoto.src = event.target.result;
-                    subPhoto.style.display = 'block'; // サブ写真を表示
-                    subPhoto.parentElement.style.backgroundColor = 'transparent'; // 背景を透明に
-                };
-                reader.readAsDataURL(file);
-            }
-        };
-        input.click();
+/* サブ写真アップロード機能 */
+function Change(inputId, imageId) {
+    document.getElementById(inputId).addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const image = document.getElementById(imageId);
+                image.src = e.target.result;
+                image.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
     });
 }
 
-function cancel() {
-    // キャンセルボタンの処理
-}
+Change('subImageInput1', 'subImage1');
+Change('subImageInput2', 'subImage2');
+Change('subImageInput3', 'subImage3');
 
-/*サブウィンドウｊｓ*/ 
-
+/* サブウィンドウの表示と非表示 */
 function openSubWindow() {
     document.querySelector('.bg_sub_window').style.visibility = 'visible';
     document.querySelector('.bg_sub_window').style.opacity = '1';
