@@ -38,8 +38,8 @@ onMounted(() => {
     });
   });
 
-let target = document.getElementById('scroll-inner');
-target.scrollIntoView(false);
+// let target = document.getElementById('scroll-inner');
+// target.scrollIntoView(false);
 
 // ケバブメニューのjs
 [].slice.call(document.querySelectorAll('.dropdown .nav-link')).forEach(function(el){

@@ -28,7 +28,7 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                     <div id="bms_chat_user_name"><?=$reciver['user_name']?></div>
                     <?php
                     $pdo=new PDO($connect,USER,PASS);
-                    $block='select * from block where blocker=? and blocked=?';
+                    $block='select * from block where blocker_id=? and blocked_id=?';
                     $sql=$pdo->prepare($block);
                     $sql->execute([$current_user['user_id'],$reciver['user_id']]);
                     if($sql->fetch()){
@@ -73,13 +73,13 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
             }
             ?>
             <!-- モーダルの表示(ポップアップ表示)　ブロック -->
-            <section id="info">
+            <!-- <section id="info">
                 <h2>Sale情報</h2>
                 <p>11月1日～12月31日まで年末セールを開催！</p>
-            </section>
+            </section> -->
             <?php
             $pdo=new PDO($connect,USER,PASS);
-            $block='select * from block where blocker=? and blocked=?';
+            $block='select * from block where blocker_id=? and blocked_id=?';
             $sql=$pdo->prepare($block);
             $sql->execute([$current_user['user_id'],$reciver['user_id']]);
             if(!$sql->fetch()){
@@ -87,12 +87,12 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                 <div id="talk_process">
                     <form method="post" action="./talk2-add.php">
                         <textarea class="text" type="text" name="text" required placeholder="message"></textarea>
-                        <input type="hidden" name="reciver_id" value="$reciver['user_id'];">
+                        <input type="hidden" name="reciver_id" value="{$reciver['user_id']}">
                         <button class="talk_btn" type="submit" name="post" value="submit" id="post">送信</button>
                     </form>
                 </div>
             EOF;
-            }
+            }?>
         </div>
     </div>
     
