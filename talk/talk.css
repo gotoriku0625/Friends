@@ -32,9 +32,9 @@
 #bms_chat_header {
     /* padding: 6px;隙間調整 */
     font-size: 16px;
-    height: 40px;
-    background: #ddd;
-    border: 1px solid #ccc;
+    height: 45px;
+    background: #ffffff;
+    border: 1px solid #7FFFD4;
 }
     /* ステータスマークとユーザー名 */
 #bms_chat_user_status {
@@ -43,26 +43,26 @@
     /* ステータスマーク */
 #bms_status_icon {
     float: left;/* bms_chat_user_statusに対して左寄せ */
-    line-height: 2em;/*高さ調整*/
+    line-height: 4em;/*高さ調整*/
 }
     /* ユーザー名 */
-#bms_chat_user_name {
+#bms_chat_user_name .btn{
     float: left;/* bms_chat_user_statusに対して左寄せ */
-    line-height: 2em;/*高さ調整*/
+    line-height: 4em;/*高さ調整*/
     padding-left: 8px;
 }
     /* ブロック中を表示 */
 #block {
-    float: center;/* bms_chat_user_statusに対して左寄せ */
-    line-height: 2em;/*高さ調整*/
+    float: light;/* bms_chat_user_statusに対して左寄せ */
+    line-height: 4em;/*高さ調整*/
     padding-left: 8px;
     color: red;
 }
 /* アイコン */
 .talk_user_img{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 5;
 }
 
 /* タイムライン部分③ */
@@ -205,3 +205,145 @@
   .modaal-close:hover:before{
     background:#666;
   }
+
+  /* Navigation */
+
+.nav {
+    font-size: 14px;
+}
+
+.nav-items {
+    padding: 0;
+    list-style: none;
+}
+
+.nav-item {
+    /* display: inline; */
+    float: left;
+    margin-right: 25px;
+}
+
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+.nav-link,
+.nav-link:link, 
+.nav-link:visited, 
+.nav-link:active,
+.submenu-link,
+.submenu-link:link, 
+.submenu-link:visited, 
+.submenu-link:active {
+    display: block;
+    position: relative;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+}
+
+.nav-link,
+.nav-link:link, 
+.nav-link:visited, 
+.nav-link:active {
+    color: #fff;
+    font-weight: bold;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown .nav-link {
+    padding-right: 15px;
+    height: 17px;
+    line-height: 17px;
+}
+
+.dropdown .nav-link::after {
+    content: "";
+    position:absolute;
+    top: 6px;
+    right: 0;
+    border: 5px solid transparent;
+    border-top-color: #fff;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 100;
+    width: 200px;
+    margin-left: -100px;
+    background: #fff;
+    border-radius: 3px;
+    line-height: 1.46667;
+    margin-top: -5px;
+    box-shadow: 0 0 8px rgba(0,0,0,.3);
+    opacity:0;
+    -webkit-transform: translate(0, 0) scale(.85);
+    transform: translate(0, 0)scale(.85);
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+    pointer-events: none;
+}
+
+.submenu::after, 
+.submenu::before {
+    content: ""; 
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border: 10px solid transparent;
+    height: 0;
+}
+
+.submenu::after {
+    border-bottom-color: #fff;
+}
+
+.submenu::before {
+    margin-left: -13px;
+    border: 13px solid transparent;
+    border-bottom-color: rgba(0,0,0,.1);
+    -webkit-filter:blur(1px);
+    filter:blur(1px);
+}
+
+.submenu-items {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.submenu-item {
+    display: block;
+    text-align: left;
+}
+
+.submenu-link,
+.submenu-link:link, 
+.submenu-link:visited, 
+.submenu-link:active {
+    color: #3498db;
+    padding: 10px 20px;
+}
+
+.submenu-link:hover {
+    text-decoration: underline;
+}
+
+.submenu-seperator {
+    height: 0;
+    margin: 12px 10px;
+    border-top: 1px solid #eee;
+}
+
+.show-submenu .submenu {
+    opacity: 1;
+    -webkit-transform: translate(0, 25px) scale(1);
+    transform: translate(0, 25px) scale(1);
+    pointer-events: auto;
+}
