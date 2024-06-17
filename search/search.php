@@ -1,10 +1,11 @@
 <?php require '../header.php';?>
-    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="seach.css">
     <title>検索</title>
 </head>
 
 <body>
 <?php require '../menu/menu.php';?>
+<div class="main">
 
 <?php $pdo = new PDO($connect, USER, PASS);
 

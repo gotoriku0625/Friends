@@ -27,7 +27,6 @@ body{
     margin-bottom: 10%;
     width: 100%;
     height: 60%;
-    z-index: 2;
 }
 .logo-space{
     position: relative;
@@ -40,7 +39,7 @@ body{
     width: 100px;
     height: 100px;
     /* 正方形の幅-文字の高さ/2 で上下真ん中に要素がくる */
-    top: calc((100% - 1em)/2);
+    /* top: calc((100% - 1em)/2); */
     /* 要素伸ばす */
     left: 0;
     right: 0;
@@ -49,6 +48,7 @@ body{
     /* 文字中央寄せ */
     text-align: center;
     border-radius: 50%;
+    z-index: 2;
 }
 
 /* 上に原因 */
