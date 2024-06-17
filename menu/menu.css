@@ -36,6 +36,8 @@ body{
 .icon{
     /* 要素のたかさをなくす */
     position: relative;
+    width: 100px;
+    height: 100px;
     /* 正方形の幅-文字の高さ/2 で上下真ん中に要素がくる */
     top: calc((100% - 1em)/2);
     /* 要素伸ばす */
