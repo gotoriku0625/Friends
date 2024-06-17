@@ -17,7 +17,7 @@ try {
             header('Location: ./dashboard.php'); // ログイン成功後にダッシュボードにリダイレクト
             exit;
         } else {
-            $error_message = 'ログイン名またはパスワードが違います。';
+            $error_message = 'IDまたはパスワードが違います。';
         }
     }
 } catch (PDOException $e) {
@@ -38,9 +38,6 @@ try {
     </div>
     <div class="content">
         <img src="../image/person1.png" alt="human1" class="side-image">
-        <?php if (isset($error_message)): ?>
-            <p><?= htmlspecialchars($error_message) ?></p>
-        <?php endif; ?>
         <form action="" method="post" class="login-form">
             <div class="form-group">
                 <label for="id">ID</label>
@@ -50,6 +47,9 @@ try {
                 <label for="password">Pass</label>
                 <input type="password" id="password" name="password">
             </div>
+            <?php if (isset($error_message)): ?>
+                <p><?= htmlspecialchars($error_message) ?></p>
+            <?php endif; ?>
             <button type="submit" name="login" value="ログイン">ログイン</button>
         </form>
         <img src="../image/person2.png" alt="human2" class="side-image">
