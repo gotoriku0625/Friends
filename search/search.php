@@ -1,5 +1,5 @@
 <?php require '../header.php';?>
-    <link rel="stylesheet" href="../search.css">
+    <link rel="stylesheet" href="search.css">
     <title>検索</title>
 </head>
 
