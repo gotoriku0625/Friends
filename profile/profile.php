@@ -1,7 +1,7 @@
 <?php require '../header.php';?>
 <?php require '../menu/menu.php';?><!--menuはbodyタグの中に絶対に入れるように -->
 <title>プロフィール</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
     <div class="container">
@@ -29,7 +29,7 @@
         <div class="icon-section">
             <span>アイコンの変更</span>
             <div class="icon-container">
-                <img id="profileIcon" src="placeholder.png" alt="プロフィールアイコン">
+                <img id="profileIcon" src="placeholder.png" alt="プロフィールアイコン" name="profileIcon" value="main">
                 <span class="plus" onclick="uploadIcon()">＋</span>
             </div>
         </div>
@@ -38,13 +38,13 @@
             <span>サブ写真</span>
             <div class="sub-photos">
                 <div class="sub-photo-container">
-                    <img id="subPhoto1" src="placeholder.png" alt="サブ写真1">
+                    <img id="subPhoto1" src="placeholder.png" alt="サブ写真1" name="subPhoto1" >
                 </div>
                 <div class="sub-photo-container">
-                    <img id="subPhoto2" src="placeholder.png" alt="サブ写真2">
+                    <img id="subPhoto2" src="placeholder.png" alt="サブ写真2" name="subPhoto2">
                 </div>
                 <div class="sub-photo-container">
-                    <img id="subPhoto3" src="placeholder.png" alt="サブ写真3">
+                    <img id="subPhoto3" src="placeholder.png" alt="サブ写真3" name="subPhoto3">
                 </div>
                 <span class="plus" onclick="uploadSubPhotos()">＋</span>
             </div>

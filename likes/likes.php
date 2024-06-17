@@ -1,7 +1,5 @@
-<?php require '../db-connect.php';?>
 <?php require '../header.php';?>
 <link rel="stylesheet" href="../likes/likes.css">
-    <link rel="stylesheet" href="./top.css">
     <title>likes</title>
 </head>
 <?php
@@ -9,7 +7,7 @@ $pdo = new PDO($connect, USER, PASS);
 $logged_in_user_id = $_SESSION['user']['id']; // ログインユーザーIDをセッションから取得
 
 // いいねした人の一覧を取得
-$sql_liked = "SELECT user.user_id, user.user_name, profile.icon_image 
+$sql_liked = "SELECT user.user_id, user.user_name, profile.icon_image,profile.age  
               FROM likes 
               JOIN user ON likes.liked_user_id = user.user_id 
               JOIN profile ON user.user_id = profile.user_id 
@@ -21,7 +19,7 @@ $liked_users = $stmt_liked->fetchAll(PDO::FETCH_ASSOC);
 $stmt_liked->closeCursor();
 
 // いいねされた人の一覧を取得
-$sql_liked_by = "SELECT user.user_id, user.user_name, profile.icon_image 
+$sql_liked_by = "SELECT user.user_id, user.user_name, profile.icon_image,profile.age 
                  FROM likes 
                  JOIN user ON likes.likes_user_id = user.user_id 
                  JOIN profile ON user.user_id = profile.user_id 
@@ -33,6 +31,7 @@ $liked_by_users = $stmt_liked_by->fetchAll(PDO::FETCH_ASSOC);
 $stmt_liked_by->closeCursor();
 ?>
 <body>
+<?php require '../menu/menu.php';?>
     <div class="main">
         <div class="tabs">
             <div class="tab active" onclick="showTab('liked')">いいねした人</div>

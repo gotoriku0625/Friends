@@ -1,9 +1,10 @@
-<?php require '../db-connect.php';?>
-<?php require '../menu/menu.html';?>
-<head>
-    <link rel="stylesheet" href="../menu/menu.css">
+<?php require '../header.php';?>
     <link rel="stylesheet" href="search.css">
+    <title>検索</title>
 </head>
+
+<body>
+<?php require '../menu/menu.php';?>
 
 <?php $pdo = new PDO($connect, USER, PASS);
 
@@ -37,14 +38,6 @@ $prefectures = [
     "宮崎県", "鹿児島県", "沖縄県"
 ];
 ?>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>ユーザー検索</title>
-    
-</head>
-<body>
     <div class="container">
         <h1>ユーザー検索</h1>
 
@@ -142,5 +135,6 @@ $prefectures = [
             });
         });
     </script>
+    </div>
 </body>
 </html>
