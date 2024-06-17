@@ -1,13 +1,14 @@
-.three-dot-leader {/*メニューボタン*/
-    cursor: pointer;
-    border: none;
-    background: none;
-    display: block;
-    position: relative;
-    /* ボタン要素のサイズ */
-    width: 40px;
-    height: 40px;
-  }
+.dli-more-v {
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    width: 0.25em;
+    height: 0.25em;
+    background: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 -0.375em 0 0 currentColor, 0 0.375em 0 0 currentColor;
+}
 
   /* トーク画面css */
 #main{
@@ -24,7 +25,7 @@
 #bms_messages_container{
     height: 100%;/*mainに対して100%になる */
     width: 100%;/*mainに対して100%になる */
-    background-color: #eee;
+    background-color: #ffffff;
 }
 
 /* ヘッダー部分② */
@@ -50,6 +51,13 @@
     line-height: 2em;/*高さ調整*/
     padding-left: 8px;
 }
+    /* ブロック中を表示 */
+#block {
+    float: center;/* bms_chat_user_statusに対して左寄せ */
+    line-height: 2em;/*高さ調整*/
+    padding-left: 8px;
+    color: red;
+}
 /* アイコン */
 .talk_user_img{
     width: 200px;
@@ -58,12 +66,12 @@
 }
 
 /* タイムライン部分③ */
-#my_talk {
+#my_talk .container{
   overflow: auto;/*スクロールを効かせつつ、メッセージがタイムラインの外に出ないようにする*/
   height:100%;/*テキストエリアが下に張り付く様にする*/
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
-  background-color: #eee;
+  background-color: #ffffff;
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2) inset;/*ヘッダーの下に影を入れる*/
 }
   /* メッセージ全般のスタイル */
@@ -154,15 +162,12 @@
     background: #13178E; /*マウスポインタを当てた時にアクティブな色になる*/
     cursor: pointer;/*マウスポインタを当てた時に、カーソルが指の形になる*/
 }
-  /* アイコンの作成 */
-.comment figure img {
-    border-radius: 0; /* 画像を丸くしたいときに利用 */
-    margin: 0;
-}
+
   /* アイコンの大きさ */
 .message_user_img {
     width: 100px;
     height: 100px;
+    border-radius: 0; /* 画像を丸くしたいときに利用 */
 }
 .text-color {
     color: #fff; /* テキストのカラー変更はこちら*/
@@ -175,3 +180,28 @@
     overflow: scroll;
     padding: 2px 4px;
 } */
+
+/*========= モーダル表示のためのCSS ===============*/
+
+/*infoエリアをはじめは非表示*/
+#info{
+    display: none;
+  }
+  
+  /*モーダルの横幅を変更したい場合*/
+  .modaal-container{
+      max-width: 600px;
+  }
+  
+  /*モーダルのボタンの色を変更したい場合*/
+  .modaal-close:after, 
+  .modaal-close:before{
+    background:#ccc;  
+  }
+  
+  .modaal-close:focus:after,
+  .modaal-close:focus:before,
+  .modaal-close:hover:after,
+  .modaal-close:hover:before{
+    background:#666;
+  }

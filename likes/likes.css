@@ -42,3 +42,10 @@
 .actions button {
     margin-left: 5px;
 }
+.div.likeicon{
+    text-align: center;
+}
+.div.likename{
+    text-align: center;
+    font-size: 20px;
+}
