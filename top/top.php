@@ -19,6 +19,7 @@
         echo '<h2>おすすめ</h2>';
         echo '<div class="recommendation">';
         foreach($sql as $row){
+            echo '<div>';
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="best-icon"></a>';// アイコン
@@ -32,6 +33,7 @@
             // アイコンとユーザー名、年齢を表示
             echo '<p class="nick_name1">',$row['user_name'];// ユーザー名
             echo '(',$row['age'],')</p>';// 年齢
+            echo '</div>';
         }
         echo '</div>';
 
