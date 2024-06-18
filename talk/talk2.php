@@ -40,7 +40,11 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                     <nav role="navigation" class="nav">
                         <ul class="nav-items">
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link"><span class="dli-more-v"></span></a>
+                                <button class="nav-link">
+                                    <span class="kebab-ball"></span>
+                                    <span class="kebab-ball"></span>
+                                    <span class="kebab-ball"></span>
+                                </button>
                                 <nav class="submenu">
                                     <ul class="submenu-items">
                                         <li class="submenu-item"><a href="#block" class="submenu-link">ブロック</a></li>

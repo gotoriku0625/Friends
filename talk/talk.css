@@ -1,14 +1,40 @@
-.dli-more-v {
-    display: inline-block;
-    vertical-align: middle;
-    color: #333;
-    line-height: 1;
-    width: 0.25em;
-    height: 0.25em;
-    background: currentColor;
+.kebab {
+    position: relative;
+    width: 10px;
+    height: 10px;
+  }
+  
+  .kebab-ball {
+    display: block;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    left: 50%;
+    background: #000;
     border-radius: 50%;
-    box-shadow: 0 -0.375em 0 0 currentColor, 0 0.375em 0 0 currentColor;
-}
+  }
+  
+  .kebab-ball:nth-child(1) {
+    top: 0;
+    transform: translate(-50%, 0);
+  }
+  
+  .kebab-ball:nth-child(2) {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .kebab-ball:nth-child(3) {
+    top: 100%;
+    transform: translate(-50%, -100%);
+  }
+  
+  /* リセットCSS */
+  button {
+    border-color: transparent;
+    background: transparent;
+    cursor: pointer;
+  }
 
   /* トーク画面css */
 #main{
