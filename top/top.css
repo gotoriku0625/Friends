@@ -5,11 +5,13 @@
 .nick_name1{
     font-size: 18px;
     width: fit-content;
+    text-align: center;
 }
 
 .nick_name2{
     font-size: 22px;
     width: fit-content;
+    text-align: center;
 }
 
 h2{
@@ -22,9 +24,20 @@ hr{
 }
 
 .best-icon{
+    position: relative;
     border-radius: 50%;
+    width: 70px;
+    height: 70px;
 }
 
 .standard-icon{
+    position: relative;
     border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.user-set{
+    position: relative;
+    margin: 3%;
 }

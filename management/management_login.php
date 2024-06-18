@@ -38,7 +38,7 @@ try {
     </div>
     <div class="content">
         <img src="../image/person1.png" alt="human1" class="side-image">
-        <form action="" method="post" class="login-form">
+        <form action="Dashboard.php" method="post" class="login-form">
             <div class="form-group">
                 <label for="id">ID</label>
                 <input type="text" id="id" name="id">

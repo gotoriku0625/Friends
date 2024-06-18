@@ -1,5 +1,5 @@
 <?php require '../header.php';?>
-<link rel="stylesheet" href="../likes/likes.css">
+<link rel="stylesheet" href="../likes/likes.css?v=1.0.1">
     <title>likes</title>
 </head>
 <?php
@@ -33,10 +33,12 @@ $stmt_liked_by->closeCursor();
 <body>
 <?php require '../menu/menu.php';?>
 <div class="main">
+    <div class="fiex">
     <div class="tabs">
         <div class="tab active" onclick="showTab('liked')">いいねした人<img src="../menu-image/like-free-icon.png"width="40"height="40"></div>
         <div class="tab" onclick="showTab('liked_by')">あなたにいいね</div>
     </div>
+</div>
     <div id="liked" class="tab-content active">
         <?php if (!empty($liked_users)): ?>
             <ul class="user-list">
@@ -56,7 +58,10 @@ $stmt_liked_by->closeCursor();
                 <?php endforeach; ?>
             </ul>
         <?php else: ?>
-            <p>友達になりたい人を見つけに行きましょう。<img src="../image/person1.png"></p>
+            <p>友達になりたい人を見つけに行きましょう。</p>
+            <div class="like">
+            <img src="../image/person1.png"width="300"height="300">
+        </div>
         <?php endif; ?>
     </div>
     <div id="liked_by" class="tab-content">
