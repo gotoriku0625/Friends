@@ -18,16 +18,17 @@
         $sql->execute(array($_SESSION['user']['id']));
         echo '<h2>おすすめ</h2>';
         echo '<div class="recommendation">';
+        $icon = $_SESSION['user']['icon'];
         foreach($sql as $row){
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="best-icon"></a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$icon,'"class="best-icon"></a>';// アイコン
             }else if($row['gender']==='女性'){
                 // アイコンの枠の色を赤色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="best-icon"></a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$icon,'"class="best-icon"></a>';// アイコン
             }else{
                 // アイコンの枠の色を灰色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="best-icon"></a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$icon,'"class="best-icon"></a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
             echo '<p class="nick_name1">',$row['user_name'];// ユーザー名
@@ -46,13 +47,13 @@
         foreach($sql as $row){
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$icon,'"class="standard-icon"></a>';// アイコン
             }else if($row['gender']==='女性'){
                 // アイコンの枠の色を赤色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$icon,'"class="standard-icon"></a>';// アイコン
             }else{
                 // アイコンの枠の色を灰色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$icon,'"class="standard-icon"></a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
             echo '<p class="nick_name2">',$row['user_name'];// ユーザー名
