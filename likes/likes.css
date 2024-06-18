@@ -2,6 +2,7 @@
     display: flex;
     cursor: pointer;
     margin-bottom: 10px;
+    padding-left: 50% ;
 }
 .tab {
     flex: 1;
@@ -9,6 +10,7 @@
     text-align: center;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
+    font-size: x-large ;
 }
 .tab.active {
     background-color: #ddd;
