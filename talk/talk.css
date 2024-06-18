@@ -31,31 +31,37 @@
 /* ヘッダー部分② */
 #bms_chat_header {
     /* padding: 6px;隙間調整 */
-    font-size: 16px;
+    font-size: 20px;
     height: 45px;
     background: #ffffff;
-    border: 1px solid #7FFFD4;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
 }
     /* ステータスマークとユーザー名 */
 #bms_chat_user_status {
     float: left;/* bms_chat_headerに対して左寄せ */
 }
+.btn{
+    margin: 10px;
+}
     /* ステータスマーク */
 #bms_status_icon {
-    float: left;/* bms_chat_user_statusに対して左寄せ */
+    float: left;/*bms_chat_user_statusに対して左寄せ*/
     line-height: 4em;/*高さ調整*/
+    margin-left: 20px;
 }
     /* ユーザー名 */
-#bms_chat_user_name .btn{
-    float: left;/* bms_chat_user_statusに対して左寄せ */
-    line-height: 4em;/*高さ調整*/
-    padding-left: 8px;
+#bms_chat_user_name{
+    float: left;/*bms_chat_user_statusに対して左寄せ */
+    line-height: 1em;/*高さ調整*/
+    padding: 10px;
 }
     /* ブロック中を表示 */
 #block {
-    float: light;/* bms_chat_user_statusに対して左寄せ */
+    float: light;/*bms_chat_user_statusに対して左寄せ */
     line-height: 4em;/*高さ調整*/
-    padding-left: 8px;
+    padding: 8px;
     color: red;
 }
 /* アイコン */
@@ -123,10 +129,7 @@
 
 /* テキストエリア、送信ボタン④ */
 #talk_process {
-    background-color:#eee;/*タイムラインの色と同じにする*/
-    border-right: 1px solid #ddd;
-    border-left: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    background-color:#ffffff;/*タイムラインの色と同じにする*/
     height: 9%;
     width: 78%;
     padding: 4px;
@@ -145,7 +148,7 @@
     box-sizing: border-box;/*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
 }
 .talk_btn {
-    width: 72px;
+    width: 70px;
     height: 48px;
     font-size: 16px;
     line-height: 3em;
@@ -163,12 +166,6 @@
     cursor: pointer;/*マウスポインタを当てた時に、カーソルが指の形になる*/
 }
 
-  /* アイコンの大きさ */
-.message_user_img {
-    width: 100px;
-    height: 100px;
-    border-radius: 0; /* 画像を丸くしたいときに利用 */
-}
 .text-color {
     color: #fff; /* テキストのカラー変更はこちら*/
     font-size: 16px; /*テキストサイズの変更はこちら（なければデフォルトのサイズになります）*/
@@ -209,7 +206,8 @@
   /* Navigation */
 
 .nav {
-    font-size: 14px;
+    font-size: 20px;
+    float:right;
 }
 
 .nav-items {

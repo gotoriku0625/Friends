@@ -22,8 +22,8 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
     <div id="main" class="main">
         <div id="bms_messages_container">
             <div id="bms_chat_header">
-                <button type=”button” onclick="location.href='./talk_top.php'" class="btn">戻る</button>
                 <div id="bms_chat_user_status">
+                    <button type=”button” onclick="location.href='./talk_top.php'" class="btn">戻る</button>
                     <div id="bms_status_icon"><img src="../user_image/main/<?=$reciver['icon_image']?>" class="talk_user_img"></div>
                     <div id="bms_chat_user_name"><?=$reciver['user_name']?></div>
                     <?php
@@ -34,21 +34,23 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                     if($sql->fetch()){
                         echo '<div id="block">ブロック中</div>';
                     }?>
+                    <!-- ケバブメニュー(縦に並んでいる黒丸３つのメニュー) -->
                 </div>
-                <!-- ケバブメニュー(縦に並んでいる黒丸３つのメニュー) -->
-                <nav role="navigation" class="nav">
-                    <ul class="nav-items">
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link"><span class="dli-more-v"></span></a>
-                            <nav class="submenu">
-                                <ul class="submenu-items">
-                                    <li class="submenu-item"><a href="#" class="submenu-link">ブロック</a></li>
-                                    <li class="submenu-item"><a href="#" class="submenu-link">通報</a></li>
-                                </ul>
-                            </nav>
-                        </li>  
-                    </ul>
-                </nav>
+                <!-- <div id="nav"> -->
+                    <nav role="navigation" class="nav">
+                        <ul class="nav-items">
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link"><span class="dli-more-v"></span></a>
+                                <nav class="submenu">
+                                    <ul class="submenu-items">
+                                        <li class="submenu-item"><a href="#block" class="submenu-link">ブロック</a></li>
+                                        <li class="submenu-item"><a href="#report" class="submenu-link">通報</a></li>
+                                    </ul>
+                                </nav>
+                            </li>  
+                        </ul>
+                    </nav>
+                <!-- </div> -->
             </div>
             <?php 
             if($messages!=null){
@@ -72,11 +74,7 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                 echo '</div></div>';
             }
             ?>
-            <!-- モーダルの表示(ポップアップ表示)　ブロック -->
-            <!-- <section id="info">
-                <h2>Sale情報</h2>
-                <p>11月1日～12月31日まで年末セールを開催！</p>
-            </section> -->
+            
             <?php
             $pdo=new PDO($connect,USER,PASS);
             $block='select * from block where blocker_id=? and blocked_id=?';
@@ -94,8 +92,19 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
             EOF;
             }?>
         </div>
+
     </div>
-    
+    <!-- モーダルの表示(ポップアップ表示)　ブロック -->
+            <!-- <section id="block">
+                <h3>ブロックしますか？</h2>
+                <form action="./talk2-add.php" method="post">
+                    <button type="submit" name="check" value="1">はい</button>
+                    <button type="submit" name="check" value="0">いいえ/button>
+                </form>
+            </section> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 </body>
 
 
