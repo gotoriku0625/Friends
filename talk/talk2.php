@@ -36,25 +36,24 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                     }?>
                     <!-- ケバブメニュー(縦に並んでいる黒丸３つのメニュー) -->
                 </div>
-                <!-- <div id="nav"> -->
-                    <nav role="navigation" class="nav">
-                        <ul class="nav-items">
-                            <li class="nav-item dropdown">
-                                <button class="nav-link">
-                                    <span class="kebab-ball"></span>
-                                    <span class="kebab-ball"></span>
-                                    <span class="kebab-ball"></span>
-                                </button>
-                                <nav class="submenu">
-                                    <ul class="submenu-items">
-                                        <li class="submenu-item"><a href="#block" class="submenu-link">ブロック</a></li>
-                                        <li class="submenu-item"><a href="#report" class="submenu-link">通報</a></li>
-                                    </ul>
-                                </nav>
-                            </li>  
+                <div id="menu">
+                    <nav class="nav-menu">
+                        <ul class="menu-list">
+                            <li class="menu-item drop-menu">
+                                <a href="#"><span class="dli-more-v"></span></a>
+                                <ul class="drop-menu-list">
+                                    <li class="drop-menu-item">
+                                        <a href="#block">ブロック</a>
+                                    </li>
+                                    <li class="drop-menu-item">
+                                        <a href="#report">通報</a>
+                                    </li>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
-                <!-- </div> -->
+                </div>
             </div>
             <?php 
             if($messages!=null){
