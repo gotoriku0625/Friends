@@ -11,7 +11,8 @@ h1{
     text-align: center;
 }
 hr{
+    position: relative;
     color: rgb(151, 255, 220);
     text-align: center;
-    width: max-content;
+    width: 75%;
 }
