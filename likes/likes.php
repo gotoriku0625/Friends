@@ -34,7 +34,7 @@ $stmt_liked_by->closeCursor();
 <?php require '../menu/menu.php';?>
 <div class="main">
     <div class="tabs">
-        <div class="tab active" onclick="showTab('liked')">いいねした人</div>
+        <div class="tab active" onclick="showTab('liked')">いいねした人<img src="../menu-image/like-free-icon.png"width="40"height="40"></div>
         <div class="tab" onclick="showTab('liked_by')">あなたにいいね</div>
     </div>
     <div id="liked" class="tab-content active">
