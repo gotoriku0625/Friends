@@ -21,8 +21,9 @@
                     $reciver = get_user($talk_relation['reciver_id']);
                 }
                 $bottom_talk = get_bottom_talk($current_user['user_id'],$reciver['user_id']);
+        echo '<div class="talk-head">';
         echo '<h1>トーク</h1>';
-        echo '<hr>';
+        echo '<hr></div>';
         echo '<div class="row">';
             echo '<div class="col-8 offset-2">';
             echo '<form method="post" action="talk2.php">';
