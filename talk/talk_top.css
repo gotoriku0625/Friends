@@ -3,11 +3,15 @@
     height: 100px;
     border-radius: 50%;
 }
+.talk-head{
+    position: fixed;
+}
 h1{
     font-size: 30px;
-    width: max-content;
     text-align: center;
 }
 hr{
     color: rgb(151, 255, 220);
+    text-align: center;
+    width: max-content;
 }
