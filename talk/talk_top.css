@@ -7,12 +7,18 @@
     position: fixed;
 }
 h1{
+    position: relative;
     font-size: 30px;
     text-align: center;
+    width: 100%;
 }
 hr{
     position: relative;
     color: rgb(151, 255, 220);
     text-align: center;
-    width: 75%;
+    width: 95%;
+}
+.row{
+    position: relative;
+    top: 50px;
 }
