@@ -26,6 +26,7 @@ hr{
     border-radius: 50%;
     width: 70px;
     height: 70px;
+    text-align: center;
 }
 
 .standard-icon{
@@ -33,9 +34,10 @@ hr{
     border-radius: 50%;
     width: 120px;
     height: 120px;
-
+    text-align: center;
 }
 
 .user-ser{
+    position: relative;
     margin: 10%;
 }
