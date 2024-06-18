@@ -5,6 +5,7 @@
 }
 h1{
     font-size: 30px;
+    width: max-content;
     text-align: center;
 }
 hr{
