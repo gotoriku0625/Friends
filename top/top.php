@@ -14,12 +14,12 @@
                             where profile.hobby_id=hobby.hobby_id
                             and user.user_id<>?
                             order by user.user_id
-                            limit 8');
+                            limit 10');
         $sql->execute(array($_SESSION['user']['id']));
         echo '<h2>おすすめ</h2>';
         echo '<div class="recommendation">';
         foreach($sql as $row){
-            echo '<div>';
+            echo '<div class="user-set">';
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="best-icon"></a>';// アイコン
