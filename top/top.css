@@ -20,3 +20,11 @@ h2{
 hr{
     color: rgb(151, 255, 220);
 }
+
+.best-icon{
+    border-radius: 50%;
+}
+
+.standard-icon{
+    border-radius: 50%;
+}

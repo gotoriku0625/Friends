@@ -15,25 +15,19 @@
                             and user.user_id<>?
                             order by user.user_id
                             limit 10');
-        // $sql=$pdo->prepare('select user.user_id,icon_image,nick_name,gender,age from user,profile,hobby
-        //                     where profile.hobby_id=hobby.hobby_id
-        //                     and profile.hobby_id=profile.hobby_id
-        //                     and user.user_id<>?
-        //                     order by user.user_id
-        //                     limit 10');
         $sql->execute(array($_SESSION['user']['id']));
         echo '<h2>おすすめ</h2>';
         echo '<div class="recommendation">';
         foreach($sql as $row){
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"</a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="best-icon"></a>';// アイコン
             }else if($row['gender']==='女性'){
                 // アイコンの枠の色を赤色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"</a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="best-icon"></a>';// アイコン
             }else{
                 // アイコンの枠の色を灰色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"</a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="best-icon"></a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
             echo '<p class="nick_name1">',$row['user_name'];// ユーザー名
@@ -52,13 +46,13 @@
         foreach($sql as $row){
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"</a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
             }else if($row['gender']==='女性'){
                 // アイコンの枠の色を赤色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"</a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
             }else{
                 // アイコンの枠の色を灰色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"</a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="standard-icon">/a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
             echo '<p class="nick_name2">',$row['user_name'];// ユーザー名
