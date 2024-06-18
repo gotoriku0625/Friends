@@ -52,7 +52,7 @@
                 echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
             }else{
                 // アイコンの枠の色を灰色に
-                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="standard-icon">/a>';// アイコン
+                echo '<a href="../profile/profile-user.php"><img src="',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
             echo '<p class="nick_name2">',$row['user_name'];// ユーザー名

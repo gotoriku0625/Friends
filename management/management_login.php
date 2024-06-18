@@ -26,7 +26,7 @@ try {
 ?>
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+<head> 
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="css/management_login.css">
