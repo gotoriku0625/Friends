@@ -45,8 +45,8 @@ body{
 
 
 .circle_width_man {
-    width: 106px;
-    border: 3px solid #613dffbb;
+    width: 108px;
+    border: 4px solid #613dffbb;
     border-radius: 50%;
     z-index: 1;
     }
