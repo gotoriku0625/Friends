@@ -1,4 +1,7 @@
-
+@font-face {
+    font-family: mameron;
+    src: url("../font/mamelon_hireg/Mamelon-3.5-Hi-Regular.otf") format("OpenType");
+  }
 
 body{
     position: relative;
@@ -92,6 +95,7 @@ body{
     padding: 3%;
     font-size: 20px;
     z-index: 1;
+    font-family: mameron;
 }
 p{
     display: flex;
@@ -101,6 +105,7 @@ p{
     z-index: 1;
     margin-top: 3%;
     margin-bottom: 3%;
+    font-family: mameron;
 }
 a{
     display: block;
