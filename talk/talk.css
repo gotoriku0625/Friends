@@ -1,40 +1,11 @@
-.kebab {
-    position: relative;
-    width: 10px;
-    height: 10px;
-  }
-  
-  .kebab-ball {
-    display: block;
-    width: 8px;
-    height: 8px;
-    position: absolute;
-    left: 50%;
-    background: #000;
-    border-radius: 50%;
-  }
-  
-  .kebab-ball:nth-child(1) {
-    top: 0;
-    transform: translate(-50%, 0);
-  }
-  
-  .kebab-ball:nth-child(2) {
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .kebab-ball:nth-child(3) {
-    top: 100%;
-    transform: translate(-50%, -100%);
-  }
-  
-  /* リセットCSS */
-  button {
-    border-color: transparent;
-    background: transparent;
-    cursor: pointer;
-  }
+/* リセット */
+ul{
+    list-style:none;
+}
+li{ 
+    display:list-item;
+    zoom:normal;
+}
 
   /* トーク画面css */
 #main{
@@ -89,6 +60,9 @@
     line-height: 4em;/*高さ調整*/
     padding: 8px;
     color: red;
+}
+#menu{
+    margin-right: 30px;
 }
 /* アイコン */
 .talk_user_img{
@@ -231,143 +205,60 @@
 
   /* Navigation */
 
-.nav {
-    font-size: 20px;
-    float:right;
+/* ナビゲーションメニュー */
+.dli-more-v {
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    width: 0.25em;
+    height: 0.25em;
+    background: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 -0.375em 0 0 currentColor, 0 0.375em 0 0 currentColor;
 }
-
-.nav-items {
-    padding: 0;
-    list-style: none;
-}
-
-.nav-item {
-    /* display: inline; */
-    float: left;
-    margin-right: 25px;
-}
-
-.nav-item:last-child {
-    margin-right: 0;
-}
-
-.nav-link,
-.nav-link:link, 
-.nav-link:visited, 
-.nav-link:active,
-.submenu-link,
-.submenu-link:link, 
-.submenu-link:visited, 
-.submenu-link:active {
-    display: block;
+.nav-menu {
+    color: #fff; /* メニューテキストの色 */
+  }
+  .menu-list {
+    display: flex;
+    justify-content: center; /* メニューアイテムを中央揃えに */
+  }
+  .menu-item {
+    border-left: 1px solid #fff; /* メニューアイテムの左ボーダ*/ 
     position: relative;
-    font-size: 14px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    text-decoration: none;
-    outline: none;
-}
-
-.nav-link,
-.nav-link:link, 
-.nav-link:visited, 
-.nav-link:active {
-    color: #fff;
-    font-weight: bold;
-}
-
-.dropdown {
+  }
+  .menu-item:last-child {
+    border-right: 1px solid #fff; /* 最後のメニューアイテムの右ボーダー*/ 
+  }
+  
+   メニューアイテムのホバースタイル 
+  .menu-item:hover .drop-menu-list {
+    visibility: visible; /* 下層メニューを表示 */
+  }
+  
+  .drop-menu-item a {
+    align-items: center;
+    color: #fff;  /*メニューアイテム内のリンクテキストの色*/ 
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    text-decoration: none;  /*リンクの下線を非表示 */
+    width: 120px;
+  }
+  
+  /* ドロップダウンメニュー  */
+  .drop-menu {
     position: relative;
-}
-
-.dropdown .nav-link {
-    padding-right: 15px;
-    height: 17px;
-    line-height: 17px;
-}
-
-.dropdown .nav-link::after {
-    content: "";
-    position:absolute;
-    top: 6px;
-    right: 0;
-    border: 5px solid transparent;
-    border-top-color: #fff;
-}
-
-.submenu {
+  }
+  .drop-menu-list {
+    background-color: #7FFFD4; /*ドロップダウンメニューの背景色*/ 
+    left: 0;
     position: absolute;
     top: 100%;
-    left: 50%;
-    z-index: 100;
-    width: 200px;
-    margin-left: -100px;
-    background: #fff;
-    border-radius: 3px;
-    line-height: 1.46667;
-    margin-top: -5px;
-    box-shadow: 0 0 8px rgba(0,0,0,.3);
-    opacity:0;
-    -webkit-transform: translate(0, 0) scale(.85);
-    transform: translate(0, 0)scale(.85);
-    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
-    pointer-events: none;
-}
-
-.submenu::after, 
-.submenu::before {
-    content: ""; 
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -10px;
-    border: 10px solid transparent;
-    height: 0;
-}
-
-.submenu::after {
-    border-bottom-color: #fff;
-}
-
-.submenu::before {
-    margin-left: -13px;
-    border: 13px solid transparent;
-    border-bottom-color: rgba(0,0,0,.1);
-    -webkit-filter:blur(1px);
-    filter:blur(1px);
-}
-
-.submenu-items {
-    list-style: none;
-    padding: 10px 0;
-}
-
-.submenu-item {
-    display: block;
-    text-align: left;
-}
-
-.submenu-link,
-.submenu-link:link, 
-.submenu-link:visited, 
-.submenu-link:active {
-    color: #3498db;
-    padding: 10px 20px;
-}
-
-.submenu-link:hover {
-    text-decoration: underline;
-}
-
-.submenu-seperator {
-    height: 0;
-    margin: 12px 10px;
-    border-top: 1px solid #eee;
-}
-
-.show-submenu .submenu {
-    opacity: 1;
-    -webkit-transform: translate(0, 25px) scale(1);
-    transform: translate(0, 25px) scale(1);
-    pointer-events: auto;
-}
+    visibility: hidden; /* 下層メニューを非表示*/
+    width: max-content;
+    z-index: 1;
+  }
+  
+  

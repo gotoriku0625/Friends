@@ -42,16 +42,16 @@ onMounted(() => {
 // target.scrollIntoView(false);
 
 // ケバブメニューのjs
-"use strict";
-$(function () {
-  const hamburger = $(".kebabu");
-  const nav = $(".nav");
+// "use strict";
+// $(function () {
+//   const hamburger = $(".kebabu");
+//   const nav = $(".nav");
 
-  hamburger.click(function () {
-    $(this).find(".kebab-ball").toggleClass("is_active");
-    nav.toggleClass("is_active");
-  });
-});
+//   hamburger.click(function () {
+//     $(this).find(".kebab-ball").toggleClass("is_active");
+//     nav.toggleClass("is_active");
+//   });
+// });
 
 
 //モーダル表示
