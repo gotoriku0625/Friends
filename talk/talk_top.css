@@ -6,7 +6,7 @@
 .talk-head{
     position: fixed;
 }
-span{
+.h1-talk{
     position: relative;
     font-size: 30px;
     text-align: center;
