@@ -24,6 +24,7 @@ hr{
     top: 70px;
 }
 .reciver_list{
+    position: relative;
     display: flex;
     left: 50px;
 }
