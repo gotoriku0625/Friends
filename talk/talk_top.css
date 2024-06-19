@@ -27,5 +27,9 @@ hr{
     display: flex;
 }
 .reciver_namea_age{
-    font-size: 30px;
+    font-size: 25px;
+    font-family: mameron;
+}
+.reciver_text{
+    font-family: mameron;
 }
