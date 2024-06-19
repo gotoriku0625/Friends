@@ -222,13 +222,13 @@ ul{
     display: flex;
     justify-content: center; /* メニューアイテムを中央揃えに */
   }
-  .menu-item {
-    border-left: 1px solid #fff; /* メニューアイテムの左ボーダ*/ 
+  /* .menu-item {
+    border-left: 1px solid #fff; メニューアイテムの左ボーダ 
     position: relative;
-  }
-  .menu-item:last-child {
-    border-right: 1px solid #fff; /* 最後のメニューアイテムの右ボーダー*/ 
-  }
+  } */
+  /* .menu-item:last-child {
+    border-right: 1px solid #fff; 最後のメニューアイテムの右ボーダー 
+  } */
   
    /* メニューアイテムのホバースタイル  */
   .menu-item:hover .drop-menu-list {
@@ -252,7 +252,8 @@ ul{
   .drop-menu-list {
     background-color: #93f5d4; /*ドロップダウンメニューの背景色*/ 
     left: 0;
-    position: absolute;
+    border-radius: 10%;
+    position: relative;
     top: 100%;
     visibility: hidden; /* 下層メニューを非表示*/
     width: max-content;
@@ -260,3 +261,4 @@ ul{
   }
   
   
+
