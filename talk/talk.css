@@ -252,7 +252,7 @@ ul{
   .drop-menu-list {
     background-color: #93f5d4; /*ドロップダウンメニューの背景色*/ 
     left: 0;
-    position: absolute;
+    position: relative;
     top: 100%;
     visibility: hidden; /* 下層メニューを非表示*/
     width: max-content;
@@ -260,3 +260,4 @@ ul{
   }
   
   
+
