@@ -34,11 +34,11 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                     if($sql->fetch()){
                         echo '<div id="block">ブロック中</div>';
                     }?>
-                    <!-- ケバブメニュー(縦に並んでいる黒丸３つのメニュー) -->
                 </div>
+                <!-- ケバブメニュー(縦に並んでいる黒丸３つのメニュー) -->
                 <div id="menu">
                     <nav class="nav-menu">
-                        <ul class="menu-list">
+                        <!-- <ul class="menu-list"> -->
                             <li class="menu-item drop-menu">
                                 <a href="#"><span class="dli-more-v"></span></a>
                                 <ul class="drop-menu-list">
@@ -48,10 +48,9 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                                     <li class="drop-menu-item">
                                         <a href="#report">通報</a>
                                     </li>
-                                    </li>
                                 </ul>
                             </li>
-                        </ul>
+                        <!-- </ul> -->
                     </nav>
                 </div>
             </div>
@@ -98,13 +97,13 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
 
     </div>
     <!-- モーダルの表示(ポップアップ表示)　ブロック -->
-            <!-- <section id="block">
+            <section id="block">
                 <h3>ブロックしますか？</h2>
                 <form action="./talk2-add.php" method="post">
                     <button type="submit" name="check" value="1">はい</button>
-                    <button type="submit" name="check" value="0">いいえ/button>
+                    <button type="submit" name="check" value="0">いいえ</button>
                 </form>
-            </section> -->
+            </section>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>

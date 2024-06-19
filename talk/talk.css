@@ -2,10 +2,10 @@
 ul{
     list-style:none;
 }
-li{ 
+/* li{ 
     display:list-item;
     zoom:normal;
-}
+} */
 
   /* トーク画面css */
 #main{
@@ -203,8 +203,6 @@ li{
     background:#666;
   }
 
-  /* Navigation */
-
 /* ナビゲーションメニュー */
 .dli-more-v {
     display: inline-block;
@@ -219,7 +217,7 @@ li{
 }
 .nav-menu {
     color: #fff; /* メニューテキストの色 */
-  }
+}
   .menu-list {
     display: flex;
     justify-content: center; /* メニューアイテムを中央揃えに */
@@ -232,7 +230,7 @@ li{
     border-right: 1px solid #fff; /* 最後のメニューアイテムの右ボーダー*/ 
   }
   
-   メニューアイテムのホバースタイル 
+   /* メニューアイテムのホバースタイル  */
   .menu-item:hover .drop-menu-list {
     visibility: visible; /* 下層メニューを表示 */
   }
@@ -244,7 +242,7 @@ li{
     height: 50px;
     justify-content: center;
     text-decoration: none;  /*リンクの下線を非表示 */
-    width: 120px;
+    width: 50px;
   }
   
   /* ドロップダウンメニュー  */
@@ -252,7 +250,7 @@ li{
     position: relative;
   }
   .drop-menu-list {
-    background-color: #7FFFD4; /*ドロップダウンメニューの背景色*/ 
+    background-color: #93f5d4; /*ドロップダウンメニューの背景色*/ 
     left: 0;
     position: absolute;
     top: 100%;
