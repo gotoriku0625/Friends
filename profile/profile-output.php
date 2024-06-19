@@ -99,7 +99,7 @@
                 }
             }
         }
-            
+        $update =    
         $select='select user_id from user mail=?';
         $id = $pdo->prepare($select);
         $id->execute($_SESSION['user']['id']);

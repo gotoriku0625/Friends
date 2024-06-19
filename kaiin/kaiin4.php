@@ -24,7 +24,7 @@
                     $sql->execute([$_POST['mail']]);
                     foreach($sql as $row){
                         $_SESSION['user']=[
-                            'id'=>$row['user_id'],'name'=>$row['user_name'],'icon'=>$row['icon_image']
+                            'id'=>$row['user_id'],'name'=>$row['user_name']
                         ];
                     }
                 }else{
