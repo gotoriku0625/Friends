@@ -32,7 +32,7 @@
                     echo '<img src="../user_image/main/'.$reciver['icon_image'].'" class="talk_user_img">';
                         echo '<div class="reciver_info">';
                         echo '<input type="hidden" name="reciver_id" value="'.$reciver['user_id'].'">';
-                            echo '<div class="reciver_namea_age">'.$reciver['user_name'].$reciver['age'].'</div>';
+                            echo '<div class="reciver_namea_age">'.$reciver['user_name'].'('.$reciver['age'].')</div>';
                             echo '<span class="reciver_text">'.$bottom_talk['content'].'</span>';
                         echo<<<EOF
                             </div>
