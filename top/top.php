@@ -31,7 +31,7 @@
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="best-icon"></a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<p class="nick_name1">',$row['user_name'],'(',$row['age'],')</p>';
+            echo '<div class="nick_name1">',$row['user_name'],'(',$row['age'],')</div>';
             echo '</div>';
         }
         echo '</div>';
@@ -57,7 +57,7 @@
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<p class="nick_name2">',$row['user_name'],'(',$row['age'],')</p>';
+            echo '<div class="nick_name2">',$row['user_name'],'(',$row['age'],')</div>';
             echo '</div>';
         }
         
