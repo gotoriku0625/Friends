@@ -248,7 +248,6 @@ ul{
   /* ドロップダウンメニュー  */
   .drop-menu {
     position: relative;
-    height: 50px;
   }
   .drop-menu-list {
     background-color: #93f5d4; /*ドロップダウンメニューの背景色*/ 
@@ -259,7 +258,7 @@ ul{
     height: 300px;
     top: 100%;
     visibility: hidden; /* 下層メニューを非表示*/
-    width: fit-content;
+    width: max-content;
     z-index: 1;
   }
   
