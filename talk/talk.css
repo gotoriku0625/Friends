@@ -242,7 +242,7 @@ ul{
     height: 50px;
     justify-content: center;
     text-decoration: none;  /*リンクの下線を非表示 */
-    width: 50px;
+    width: 100px;
   }
   
   /* ドロップダウンメニュー  */
