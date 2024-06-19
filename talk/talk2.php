@@ -22,15 +22,42 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
     <div id="main" class="main">
         <div id="bms_messages_container">
             <div id="bms_chat_header">
-                <button type=”button” onclick="location.href='./talk_top.php'">戻る</button>
                 <div id="bms_chat_user_status">
+                    <button type=”button” onclick="location.href='./talk_top.php'" class="btn">戻る</button>
                     <div id="bms_status_icon"><img src="../user_image/main/<?=$reciver['icon_image']?>" class="talk_user_img"></div>
                     <div id="bms_chat_user_name"><?=$reciver['user_name']?></div>
+                    <?php
+                    $pdo=new PDO($connect,USER,PASS);
+                    $block='select * from block where blocker_id=? and blocked_id=?';
+                    $sql=$pdo->prepare($block);
+                    $sql->execute([$current_user['user_id'],$reciver['user_id']]);
+                    if($sql->fetch()){
+                        echo '<div id="block">ブロック中</div>';
+                    }?>
+                </div>
+                <!-- ケバブメニュー(縦に並んでいる黒丸３つのメニュー) -->
+                <div id="menu">
+                    <nav class="nav-menu">
+                        <!-- <ul class="menu-list"> -->
+                            <div class="menu-item drop-menu">
+                                <a href="#"><span class="dli-more-v"></span></a>
+                                <div class="drop-menu-list">
+                                    <div class="drop-menu-item">
+                                        <a href="#block">ブロック</a>
+                                    </div>
+                                    <div class="drop-menu-item">
+                                        <a href="#report">通報</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- </ul> -->
+                    </nav>
                 </div>
             </div>
             <?php 
             if($messages!=null){
                 echo '<div id="my_talk">';// トーク画面全体
+                    echo '<div id="scroll-inner">';
                 foreach ($messages as $message){
                     // echo var_dump($message);
                     if($message['sender_id']==$current_user['user_id']){
@@ -45,18 +72,42 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                         echo '</div><div class="bms_clear"></div>';
                     }
                 }
-                echo '<div id="container" class="container"></div>';
-                echo '</div>';
+                // echo '<div id="container" class="container"></div>';
+                echo '</div></div>';
             }
             ?>
-
-            <div id="talk_process">
-                <form method="post" action="./talk2-add.php">
-                    <textarea class="text" type="text" name="text" required placeholder="message"></textarea>
-                    <input type="hidden" name="reciver_id" value="<?= $reciver['user_id']; ?>">
-                    <button class="talk_btn" type="submit" name="post" value="submit" id="post">送信</button>
-                </form>
-            </div>
+            
+            <?php
+            $pdo=new PDO($connect,USER,PASS);
+            $block='select * from block where blocker_id=? and blocked_id=?';
+            $sql=$pdo->prepare($block);
+            $sql->execute([$current_user['user_id'],$reciver['user_id']]);
+            if(!$sql->fetch()){
+            echo<<<EOF
+                <div id="talk_process">
+                    <form method="post" action="./talk2-add.php">
+                        <textarea class="text" type="text" name="text" required placeholder="message"></textarea>
+                        <input type="hidden" name="reciver_id" value="{$reciver['user_id']}">
+                        <button class="talk_btn" type="submit" name="post" value="submit" id="post">送信</button>
+                    </form>
+                </div>
+            EOF;
+            }?>
         </div>
-    </div>   
+
+    </div>
+    <!-- モーダルの表示(ポップアップ表示)　ブロック -->
+            <section id="block">
+                <h3>ブロックしますか？</h2>
+                <form action="./talk2-add.php" method="post">
+                    <button type="submit" name="check" value="1">はい</button>
+                    <button type="submit" name="check" value="0">いいえ</button>
+                </form>
+            </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 </body>
+
+
+

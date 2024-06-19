@@ -1,13 +1,11 @@
-.three-dot-leader {/*メニューボタン*/
-    cursor: pointer;
-    border: none;
-    background: none;
-    display: block;
-    position: relative;
-    /* ボタン要素のサイズ */
-    width: 40px;
-    height: 40px;
-  }
+/* リセット */
+ul{
+    list-style:none;
+}
+/* li{ 
+    display:list-item;
+    zoom:normal;
+} */
 
   /* トーク画面css */
 #main{
@@ -24,46 +22,62 @@
 #bms_messages_container{
     height: 100%;/*mainに対して100%になる */
     width: 100%;/*mainに対して100%になる */
-    background-color: #eee;
+    background-color: #ffffff;
 }
 
 /* ヘッダー部分② */
 #bms_chat_header {
     /* padding: 6px;隙間調整 */
-    font-size: 16px;
-    height: 40px;
-    background: #ddd;
-    border: 1px solid #ccc;
+    font-size: 20px;
+    height: 45px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
 }
     /* ステータスマークとユーザー名 */
 #bms_chat_user_status {
     float: left;/* bms_chat_headerに対して左寄せ */
 }
+.btn{
+    margin: 10px;
+}
     /* ステータスマーク */
 #bms_status_icon {
-    float: left;/* bms_chat_user_statusに対して左寄せ */
-    line-height: 2em;/*高さ調整*/
+    float: left;/*bms_chat_user_statusに対して左寄せ*/
+    line-height: 4em;/*高さ調整*/
+    margin-left: 20px;
 }
     /* ユーザー名 */
-#bms_chat_user_name {
-    float: left;/* bms_chat_user_statusに対して左寄せ */
-    line-height: 2em;/*高さ調整*/
-    padding-left: 8px;
+#bms_chat_user_name{
+    float: left;/*bms_chat_user_statusに対して左寄せ */
+    line-height: 1em;/*高さ調整*/
+    padding: 10px;
+}
+    /* ブロック中を表示 */
+#block {
+    float: light;/*bms_chat_user_statusに対して左寄せ */
+    line-height: 4em;/*高さ調整*/
+    padding: 8px;
+    color: red;
+}
+#menu{
+    margin-right: 30px;
 }
 /* アイコン */
 .talk_user_img{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 5;
 }
 
 /* タイムライン部分③ */
-#my_talk {
+#my_talk .container{
   overflow: auto;/*スクロールを効かせつつ、メッセージがタイムラインの外に出ないようにする*/
   height:100%;/*テキストエリアが下に張り付く様にする*/
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
-  background-color: #eee;
+  background-color: #ffffff;
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2) inset;/*ヘッダーの下に影を入れる*/
 }
   /* メッセージ全般のスタイル */
@@ -115,10 +129,7 @@
 
 /* テキストエリア、送信ボタン④ */
 #talk_process {
-    background-color:#eee;/*タイムラインの色と同じにする*/
-    border-right: 1px solid #ddd;
-    border-left: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    background-color:#ffffff;/*タイムラインの色と同じにする*/
     height: 9%;
     width: 78%;
     padding: 4px;
@@ -137,7 +148,7 @@
     box-sizing: border-box;/*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
 }
 .talk_btn {
-    width: 72px;
+    width: 70px;
     height: 48px;
     font-size: 16px;
     line-height: 3em;
@@ -154,16 +165,7 @@
     background: #13178E; /*マウスポインタを当てた時にアクティブな色になる*/
     cursor: pointer;/*マウスポインタを当てた時に、カーソルが指の形になる*/
 }
-  /* アイコンの作成 */
-.comment figure img {
-    border-radius: 0; /* 画像を丸くしたいときに利用 */
-    margin: 0;
-}
-  /* アイコンの大きさ */
-.message_user_img {
-    width: 100px;
-    height: 100px;
-}
+
 .text-color {
     color: #fff; /* テキストのカラー変更はこちら*/
     font-size: 16px; /*テキストサイズの変更はこちら（なければデフォルトのサイズになります）*/
@@ -175,3 +177,94 @@
     overflow: scroll;
     padding: 2px 4px;
 } */
+
+/*========= モーダル表示のためのCSS ===============*/
+
+/*infoエリアをはじめは非表示*/
+#info{
+    display: none;
+  }
+  
+  /*モーダルの横幅を変更したい場合*/
+  .modaal-container{
+      max-width: 600px;
+  }
+  
+  /*モーダルのボタンの色を変更したい場合*/
+  .modaal-close:after, 
+  .modaal-close:before{
+    background:#ccc;  
+  }
+  
+  .modaal-close:focus:after,
+  .modaal-close:focus:before,
+  .modaal-close:hover:after,
+  .modaal-close:hover:before{
+    background:#666;
+  }
+
+/* ナビゲーションメニュー */
+.dli-more-v {
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    width: 0.25em;
+    height: 0.25em;
+    background: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 -0.375em 0 0 currentColor, 0 0.375em 0 0 currentColor;
+}
+.nav-menu {
+    color: #fff; /* メニューテキストの色 */
+}
+  .menu-list {
+    display: flex;
+    justify-content: center; /* メニューアイテムを中央揃えに */
+  }
+  /* .menu-item {
+    border-left: 1px solid #fff; メニューアイテムの左ボーダ 
+    position: relative;
+  } */
+  /* .menu-item:last-child {
+    border-right: 1px solid #fff; 最後のメニューアイテムの右ボーダー 
+  } */
+  
+   /* メニューアイテムのホバースタイル  */
+  .menu-item:hover .drop-menu-list {
+    visibility: visible; /* 下層メニューを表示 */
+  }
+  
+  .drop-menu-item a {
+    align-items: center;
+    color: #fff;  /*メニューアイテム内のリンクテキストの色*/ 
+    display: flex;
+    height: 50px;
+    font-size: 20px;
+    justify-content: center;
+    text-decoration: none;  /*リンクの下線を非表示 */
+    width: 100px;
+    font-family: mameron;
+  }
+  
+  /* ドロップダウンメニュー  */
+  .drop-menu {
+    position: relative;
+    /* height: 15px; */
+  }
+  .drop-menu-list {
+    background-color: #93f5d4; /*ドロップダウンメニューの背景色*/ 
+    left: 0;
+    border-radius: 10%;
+    position: relative;
+    width: 200px;
+    height: 100px;
+    top: 100%;
+    margin-top: 15px;
+    visibility: hidden; /* 下層メニューを非表示*/
+    width: max-content;
+    z-index: 1;
+  }
+  
+  
+

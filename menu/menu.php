@@ -6,7 +6,7 @@
         <?php
 
             $icon = $_SESSION['user']['icon'];
-            var_dump($_SESSION);
+            // せしょんにジェンダーはいってたら
             $gender = $_SESSION['user']['gender'];
                 if($gender==='男性'){
                     // アイコンの枠の色を青色に
@@ -31,11 +31,7 @@
                     echo '</div></div></div>';
                 }
 
-                // 出力UI確認用に一時置き返してます（後で戻す予定）
-                // $icon = "logo.png";
-                // 出力UI確認用に一時置き返してます（後で戻す予定）
                 $username = $_SESSION['user']['name'];
-                // $username = "sample";
                 echo '<div class="name">',$username,'</div>';
         ?>
 
@@ -49,7 +45,3 @@
             
         </div>
     </div>
-
-    <div class="main">
-    </div>
-<!-- </body> -->

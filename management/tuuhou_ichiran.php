@@ -51,7 +51,7 @@ $reports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo htmlspecialchars($report['reporter_name'], ENT_QUOTES, 'UTF-8'); ?></td>
                     <td><?php echo htmlspecialchars($report['reported_name'], ENT_QUOTES, 'UTF-8'); ?></td>
                     <td><?php echo htmlspecialchars($report['content'], ENT_QUOTES, 'UTF-8'); ?></td>
-                    <td><a href="#">トークへ</a></td>
+                    <td><a href="../talk/talk_top.php">トークへ</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

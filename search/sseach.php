@@ -2,7 +2,7 @@
 <?php require '../menu/menu.html';?>
 <head>
     <link rel="stylesheet" href="../menu/menu.css">
-    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="ssearch.css">
 </head>
 
 <?php $pdo = new PDO($connect, USER, PASS);
