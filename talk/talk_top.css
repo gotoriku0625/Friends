@@ -27,7 +27,8 @@ hr{
 .reciver_list{
     position: relative;
     display: flex;
-    margin: 50px;
+    margin-left: 50px;
+    margin-top: 100px;
 }
 .reciver_namea_age{
     font-size: 25px;
