@@ -172,13 +172,13 @@
                 $_POST['subPhoto3'],$drinking,$smoking
             ]);
         }
-        
-        
+        // ｾｯｼｮﾝに性別、年齢、アイコン画像を設定
         foreach($sql as $row){
             $_SESSION['user']=[
                 'gender'=>$row['gender'],'age'=>$row['age'],'icon'=>$row['icon_image']
             ];
         }
+        // トップへ飛ぶ
         header("Location: ../top/top.php");
         exit;
     }
