@@ -258,7 +258,7 @@ ul{
     height: 300px;
     top: 100%;
     visibility: hidden; /* 下層メニューを非表示*/
-    width: max-content;
+    width: fit-content;
     z-index: 1;
   }
   
