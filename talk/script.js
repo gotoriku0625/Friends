@@ -65,3 +65,5 @@ after_close:function(){// モーダルが閉じた後に行う動作
   $('html').css('overflow-y','scroll');/*縦スクロールバーを出す*/
 }
 });
+
+// topの文字折り返し用
