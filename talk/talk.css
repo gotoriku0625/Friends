@@ -242,7 +242,7 @@ ul{
     height: 50px;
     justify-content: center;
     text-decoration: none;  /*リンクの下線を非表示 */
-    width: 50px;
+    width: 100px;
   }
   
   /* ドロップダウンメニュー  */
@@ -255,7 +255,7 @@ ul{
     border-radius: 10%;
     position: relative;
     width: 200px;
-    height: auto;
+    height: 100px;
     top: 100%;
     visibility: hidden; /* 下層メニューを非表示*/
     width: max-content;
