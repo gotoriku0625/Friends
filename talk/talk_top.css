@@ -8,7 +8,7 @@
 }
 .h1-talk{
     position: relative;
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
     width: 100%;
     font-family: mameron;
@@ -17,7 +17,7 @@ hr{
     position: relative;
     color: rgb(151, 255, 220);
     text-align: center;
-    width: 1000px;
+    width: 1125px;
 }
 .row{
     position: relative;
