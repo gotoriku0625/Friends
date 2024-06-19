@@ -54,24 +54,24 @@
         <div class="sub-images">
             <div class="sub-image-wrapper">
                 <div class="sub-square" id="subImageContainer1">
-                    <img id="subImage1" alt="サブ写真1">
+                    <img id="subImage1"  alt="サブ写真1">
                 </div>
                 <label for="subImageInput1" class="subImagePut">+</label>
-                <input type="file" id="subImageInput1" accept="image/*" style="display: none;">
+                <input type="file" id="subImageInput1" name="subImage1" accept="image/*" style="display: none;">
             </div>
             <div class="sub-image-wrapper">
                 <div class="sub-square" id="subImageContainer2">
                     <img id="subImage2" alt="サブ写真2">
                 </div>
                 <label for="subImageInput2" class="subImagePut">+</label>
-                <input type="file" id="subImageInput2" accept="image/*" style="display: none;">
+                <input type="file" id="subImageInput2" name="subImage2" accept="image/*" style="display: none;">
             </div>
             <div class="sub-image-wrapper">
                 <div class="sub-square" id="subImageContainer3">
                     <img id="subImage3" alt="サブ写真3">
                 </div>
                 <label for="subImageInput3" class="subImagePut">+</label>
-                <input type="file" id="subImageInput3" accept="image/*" style="display: none;">
+                <input type="file" id="subImageInput3" name="subImage3" accept="image/*" style="display: none;">
             </div>
         </div>
 

@@ -39,17 +39,17 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                 <div id="menu">
                     <nav class="nav-menu">
                         <!-- <ul class="menu-list"> -->
-                            <li class="menu-item drop-menu">
+                            <div class="menu-item drop-menu">
                                 <a href="#"><span class="dli-more-v"></span></a>
-                                <ul class="drop-menu-list">
-                                    <li class="drop-menu-item">
+                                <div class="drop-menu-list">
+                                    <div class="drop-menu-item">
                                         <a href="#block">ブロック</a>
-                                    </li>
-                                    <li class="drop-menu-item">
+                                    </div>
+                                    <div class="drop-menu-item">
                                         <a href="#report">通報</a>
-                                    </li>
-                                </ul>
-                            </li>
+                                    </div>
+                                </div>
+                            </div>
                         <!-- </ul> -->
                     </nav>
                 </div>
