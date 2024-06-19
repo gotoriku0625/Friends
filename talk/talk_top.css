@@ -5,6 +5,7 @@
 }
 .talk-head{
     position: fixed;
+    top: 15px;
 }
 .h1-talk{
     position: relative;
@@ -21,7 +22,7 @@ hr{
 }
 .row{
     position: relative;
-    top: 70px;
+    top: 90px;
 }
 .reciver_list{
     position: relative;
