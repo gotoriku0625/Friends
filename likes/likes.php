@@ -46,10 +46,10 @@ $stmt_liked_by->closeCursor();
                     <li>
                         <div class="flex">
                         <div class="likeicom">
-                        <img src="../user/image/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
+                        <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
                         </div>
                         <div class="likename">
-                        <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>歳)
+                        <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
                         </div>
                         <div class="actions">
                             <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
@@ -69,8 +69,8 @@ $stmt_liked_by->closeCursor();
             <ul class="user-list">
                 <?php foreach ($liked_by_users as $user): ?>
                     <li>
-                        <img src="../user/image/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
-                        <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>歳)
+                        <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
+                        <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
                         <div class="actions">
                             <button onclick="likeUser(<?php echo $user['user_id']; ?>)">いいね</button>
                             <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
