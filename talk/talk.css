@@ -260,6 +260,7 @@ ul{
     width: 200px;
     height: 100px;
     top: 100%;
+    margin-top: 15px;
     visibility: hidden; /* 下層メニューを非表示*/
     width: max-content;
     z-index: 1;
