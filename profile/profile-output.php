@@ -13,25 +13,78 @@
             $smoking='no';
         }
 
-            $main = 'user_image/main/';//保存するフォルダの名前
-            $fileName_main = basename($_FILES['profileIcon']['name']);//登録したいファイルの名前
-            $sub = 'user_image/sub/';
-            // $fileName_sub1 = basename($_FILES['subPhoto1']['name']);
-            // $fileName_sub2 = basename($_FILES['subPhoto2']['name']);
-            // $fileName_sub3 = basename($_FILES['subPhoto3']['name']);
-            $path = $main . $fileName_main;//二つをドッキング
-            $fileType = pathinfo($path,PATHINFO_EXTENSION);
+         //保存するフォルダの名前
+        $main = 'user_image/main/';
+        $sub = 'user_image/sub/';
+
+        $subImg = array("subPhoto1", "subPhoto2", "subPhoto3");
+
+        $fileName_main = basename($_FILES['profileIcon']['name']);//登録したいファイルの名前
+        $path = $main . $fileName_main;//二つをドッキング
+        $fileType_main = pathinfo($path,PATHINFO_EXTENSION);
             
+        // アイコンをサーバーのフォルダに送信
+        if(!empty($_FILES['subPhoto1']['name'])){
+            $allowTypes = array('jpg','png','jpeg','gif');
+            if(in_array($fileType,$allowTypes)){
+                if(move_uploaded_file($_FILES['profileIcon']['tmp_name'],"../". $path)){
+                    if (exif_imagetype("../".$path)) {//画像ファイルかのチェック
+                    } else {
+                    }
+                }
+            }
+        }
+
+        if($_POST[$subImg[0]]){
+            //登録したいファイルの名前
+            $fileName_sub1 = basename($_FILES[$subImg[0]]['name']);
+            //二つをドッキング
+            $subpath1 = $sub . $fileName_sub1;
+            $fileType_sub1 = pathinfo($subpath1,PATHINFO_EXTENSION);
+            // 画像をサーバーにアップロード
             if(!empty($_FILES['subPhoto1']['name'])){
                 $allowTypes = array('jpg','png','jpeg','gif');
                 if(in_array($fileType,$allowTypes)){
-                    if(move_uploaded_file($_FILES['image']['tmp_name'],"../". $path)){
+                    if(move_uploaded_file($_FILES['profileIcon']['tmp_name'],"../". $path)){
                         if (exif_imagetype("../".$path)) {//画像ファイルかのチェック
+                            
                         } else {
+
                         }
                     }
                 }
             }
+        }
+        if($_POST[$subImg[1]]){
+            //登録したいファイルの名前
+            $fileName_sub1 = basename($_FILES[$subImg[1]]['name']);
+            //二つをドッキング
+            $subpath2 = $sub . $fileName_sub2;
+            // 画像パスの拡張子を変数に入れる
+            $fileType_sub2 = pathinfo($subpath2,PATHINFO_EXTENSION);
+            if(!empty($_FILES['subPhoto1']['name'])){
+                $allowTypes = array('jpg','png','jpeg','gif');
+                if(in_array($fileType,$allowTypes)){
+                    if(move_uploaded_file($_FILES[$subImg[1]]['tmp_name'],"../". $path)){
+                        //画像ファイルかのチェック
+                        if (exif_imagetype("../".$path)) {
+
+                        } else {
+
+                        }
+                    }
+                }
+            }
+        }
+        if($_POST[$subImg[2]]){
+            //登録したいファイルの名前
+            $fileName_sub1 = basename($_FILES[$subImg[2]]['name']);
+            //二つをドッキング
+            $subpath3 = $sub . $fileName_sub3;
+            $fileType_sub3 = pathinfo($subpath3,PATHINFO_EXTENSION);
+        }
+            
+            
 
        if($_POST['subPhoto1']&&$_POST['subPhoto2']&&$_POST['subPhoto3']){
 
