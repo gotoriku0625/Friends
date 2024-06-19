@@ -217,7 +217,6 @@ ul{
 }
 .nav-menu {
     color: #fff; /* メニューテキストの色 */
-    font-size: 30px;
 }
   .menu-list {
     display: flex;
@@ -243,7 +242,7 @@ ul{
     height: 50px;
     justify-content: center;
     text-decoration: none;  /*リンクの下線を非表示 */
-    width: 100px;
+    width: 50px;
   }
   
   /* ドロップダウンメニュー  */
@@ -256,7 +255,7 @@ ul{
     border-radius: 10%;
     position: relative;
     width: 200px;
-    height: 80px;
+    height: auto;
     top: 100%;
     visibility: hidden; /* 下層メニューを非表示*/
     width: max-content;
