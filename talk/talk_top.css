@@ -23,3 +23,6 @@ hr{
     position: relative;
     top: 70px;
 }
+.reciver_list{
+    display: flex;
+}
