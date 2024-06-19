@@ -12,7 +12,7 @@ try {
         $management_user = $sql->fetch(PDO::FETCH_ASSOC);
 
         // パスワードの確認
-        if () {
+        if ($management_user && $_POST['password'] === $management_user['m_pass']) {
             $_SESSION['m_user_id'] = $management_user['m_user_id'];
             header('Location: ./dashboard.php'); // ログイン成功後にダッシュボードにリダイレクト
             exit;
