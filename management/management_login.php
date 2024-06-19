@@ -12,7 +12,7 @@ try {
         $management_user = $sql->fetch(PDO::FETCH_ASSOC);
 
         // パスワードの確認
-        if {
+        if () {
             $_SESSION['m_user_id'] = $management_user['m_user_id'];
             header('Location: ./dashboard.php'); // ログイン成功後にダッシュボードにリダイレクト
             exit;
@@ -38,7 +38,7 @@ try {
     </div>
     <div class="content">
         <img src="../image/person1.png" alt="human1" class="side-image">
-        <form action="Dashboard.php" method="post" class="login-form">
+        <form action="" method="post" class="login-form">
             <div class="form-group">
                 <label for="id">ID</label>
                 <input type="text" id="id" name="id">
