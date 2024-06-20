@@ -286,3 +286,8 @@ ul{
   position: relative;
   left: 0;
 }
+#menu{
+ position: relative;
+ width: 50px;
+ left: 40px;
+}
