@@ -1,4 +1,4 @@
-<!-- 新規登録用 -->
+<!-- update用 -->
 <?php
     $pdo=new PDO($connect,USER,PASS);
     if(isset($_POST['btn'])&&$_POST['btn']==='submit'){
@@ -107,8 +107,10 @@
 
         // 全てのサブ写真が設定されている場合
         if($_POST['subPhoto1']&&$_POST['subPhoto2']&&$_POST['subPhoto3']){
-            $insert='insert into profile values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
-            $sql=$pdo->prepare($insert);
+            $update='update profile set user_id=?,introduction=?,hobby_id=?,gender=?,
+                    age=?,blood_type=?,school=?,birthplace=?,residence=?,holiday_spend=?,
+                    icon_image=?,sub_a_image=?,sub_b_image=?,sub_c_image=?,';
+            $sql=$pdo->prepare($update);
             $sql->execute([
                 $id,$_POST['selfIntro'],$_POST['hobbies'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
                 $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['message'],$_POST['profileIcon'],
