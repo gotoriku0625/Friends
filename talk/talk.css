@@ -266,7 +266,7 @@ ul{
     z-index: 1;
   }
   
-a{
+.a-all{
   position: relative;
   left: 100px;
 }
