@@ -210,6 +210,8 @@ ul{
 
 /* ナビゲーションメニュー */
 .dli-more-v {
+    position: relative;
+    top: 15px;
     display: inline-block;
     vertical-align: middle;
     color: #333;
