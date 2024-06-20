@@ -40,13 +40,13 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                     <nav class="nav-menu">
                         <!-- <ul class="menu-list"> -->
                             <div class="menu-item drop-menu">
-                                <a href="#"><span class="dli-more-v"></span></a>
+                                <a href="#" class="a-all"><span class="dli-more-v"></span></a>
                                 <div class="drop-menu-list">
                                     <div class="drop-menu-item">
-                                        <a href="#block">ブロック</a>
+                                        <a href="#block" class="a-b">ブロック</a>
                                     </div>
                                     <div class="drop-menu-item">
-                                        <a href="#report">通報</a>
+                                        <a href="#report" class="a-t">通報</a>
                                     </div>
                                 </div>
                             </div>
@@ -108,6 +108,7 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 </body>
+
 
 
 
