@@ -43,10 +43,10 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
                                 <a href="#"><span class="dli-more-v"></span></a>
                                 <div class="drop-menu-list">
                                     <div class="drop-menu-item">
-                                        <a href="#block">ブロック</a>
+                                        <a href="#block" class="a-b">ブロック</a>
                                     </div>
                                     <div class="drop-menu-item">
-                                        <a href="#report">通報</a>
+                                        <a href="#report" class="a-t">通報</a>
                                     </div>
                                 </div>
                             </div>

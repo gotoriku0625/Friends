@@ -266,5 +266,16 @@ ul{
     z-index: 1;
   }
   
-  
+a{
+  position: relative;
+  left: 90px;
+}
 
+.a-b{
+  position: relative;
+  left: -50px;
+}
+.a-c{
+  position: relative;
+  left: -50px;
+}
