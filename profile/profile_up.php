@@ -1,3 +1,4 @@
+<!-- プロフィールを更新するためのもの -->
 <?php require '../header.php';?>
 <?php require '../menu/menu.php';?><!--menuはbodyタグの中に絶対に入れるように -->
 <title>プロフィール</title>
@@ -28,13 +29,11 @@
         </div>
         <hr>
         <div class="icon-section">
-        <!-- フォーム要素 -->
-        <form action="./profile-output.php" method="post">
-                <span>アイコン設定</span>
-                <div class="icon-container">
-                    <img id="profileIcon" src="placeholder.png" alt="プロフィールアイコン" name="profileIcon" value="main">
-                    <span class="plus" onclick="uploadIcon()">＋</span>
-                </div>
+            <span>アイコンの変更</span>
+            <div class="icon-container">
+                <img id="profileIcon" src="placeholder.png" alt="プロフィールアイコン" name="profileIcon" value="main">
+                <span class="plus" onclick="uploadIcon()">＋</span>
+            </div>
         </div>
 
         <!-- <div class="sub-photo-section">
@@ -53,32 +52,33 @@
             </div>
         </div> -->
 
-            <p>サブ写真</p>
-            <div class="sub-images">
-                <div class="sub-image-wrapper">
-                    <div class="sub-square" id="subImageContainer1">
-                        <img id="subImage1"  alt="サブ写真1">
-                    </div>
-                    <label for="subImageInput1" class="subImagePut">+</label>
-                    <input type="file" id="subImageInput1" name="subImage1" accept="image/*" style="display: none;">
+        <p>サブ写真</p>
+        <div class="sub-images">
+            <div class="sub-image-wrapper">
+                <div class="sub-square" id="subImageContainer1">
+                    <img id="subImage1"  alt="サブ写真1">
                 </div>
-                <div class="sub-image-wrapper">
-                    <div class="sub-square" id="subImageContainer2">
-                        <img id="subImage2" alt="サブ写真2">
-                    </div>
-                    <label for="subImageInput2" class="subImagePut">+</label>
-                    <input type="file" id="subImageInput2" name="subImage2" accept="image/*" style="display: none;">
-                </div>
-                <div class="sub-image-wrapper">
-                    <div class="sub-square" id="subImageContainer3">
-                        <img id="subImage3" alt="サブ写真3">
-                    </div>
-                    <label for="subImageInput3" class="subImagePut">+</label>
-                    <input type="file" id="subImageInput3" name="subImage3" accept="image/*" style="display: none;">
-                </div>
+                <label for="subImageInput1" class="subImagePut">+</label>
+                <input type="file" id="subImageInput1" name="subImage1" accept="image/*" style="display: none;">
             </div>
+            <div class="sub-image-wrapper">
+                <div class="sub-square" id="subImageContainer2">
+                    <img id="subImage2" alt="サブ写真2">
+                </div>
+                <label for="subImageInput2" class="subImagePut">+</label>
+                <input type="file" id="subImageInput2" name="subImage2" accept="image/*" style="display: none;">
+            </div>
+            <div class="sub-image-wrapper">
+                <div class="sub-square" id="subImageContainer3">
+                    <img id="subImage3" alt="サブ写真3">
+                </div>
+                <label for="subImageInput3" class="subImagePut">+</label>
+                <input type="file" id="subImageInput3" name="subImage3" accept="image/*" style="display: none;">
+            </div>
+        </div>
 
-        
+        <!-- その他のフォーム要素 -->
+        <form>
             <div class="form-group">
                 <label for="username">ユーザー名</label>
                 <input type="text" id="username" name="username">
