@@ -111,3 +111,4 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
 
 
 
+
