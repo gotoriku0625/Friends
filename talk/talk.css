@@ -257,7 +257,6 @@ ul{
   /* ドロップダウンメニュー  */
   .drop-menu {
     position: relative;
-    width: 50px;
     /* height: 15px; */
   }
   .drop-menu-list {
