@@ -6,6 +6,11 @@
 <script src="js/style.js"></script>
 </head>
 <body>
+<?php
+$pdo=new PDO($connect,USER,PASS);
+$select='select * from profile where user_id=?';
+$sql=$pdo->prepare($select);
+?>
     <div class="container">
         <p class="title">プロフィール</p>
     <!-- ログアウトボタン-->
@@ -28,6 +33,12 @@
             </div>
         </div>
         <hr>
+        <?php 
+        if(isset($_SESSION['user']['id'])){
+            $sql->execute($_SESSION['user']['id']);
+            //明日はここから
+        }
+        ?>
         <div class="icon-section">
             <span>アイコンの変更</span>
             <div class="icon-container">
