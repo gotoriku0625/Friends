@@ -254,7 +254,7 @@ ul{
   }
   .drop-menu-list {
     background-color: #93f5d4; /*ドロップダウンメニューの背景色*/ 
-    left: 0;
+    left: 30px;
     border-radius: 10%;
     position: relative;
     width: 200px;
