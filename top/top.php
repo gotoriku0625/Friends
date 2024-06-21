@@ -47,7 +47,7 @@
         $sql=$pdo->prepare('select user.user_id, icon_image, user_name, gender_name, age 
                             from user
                             join profile ON user.user_id = profile.user_id
-                            join gemder ON gemder.gender_id = profile.gemder_id
+                            join gender ON gender.gender_id = profile.gender_id
                             order by RAND()
                             limit 30');
         $sql->execute();
