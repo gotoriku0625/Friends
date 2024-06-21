@@ -5,7 +5,7 @@ require '../db-connect.php';
 try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = $pdo->prepare('SELECT m_user_id, m_pass FROM management_user WHERE m_user_id = ?');
+    $sql = $pdo->prepare('SELECT m_user_id,m_user_name, m_pass FROM management_user WHERE m_user_id = ?');
 
     if (isset($_POST['login']) && $_POST['login'] === "ログイン") {
         $sql->execute([$_POST['id']]);
