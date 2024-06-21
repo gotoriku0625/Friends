@@ -1,12 +1,15 @@
-<?php require '../db-connect.php'; ?>
+<?php require '../header.php';?>
+<link rel="stylesheet" href="./top.css">
+<link rel="stylesheet" href="../menu/menu.css">
+<link rel="stylesheet" href="result.css">
+<title>result</title>
+</head>
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../menu/menu.css">
-    <link rel="stylesheet" href="result.css">
     <title>検索結果</title>
 </head>
 <body>
