@@ -1,9 +1,12 @@
-<?php require '../db-connect.php';?>
-<?php require '../menu/menu.html';?>
-<head>
-    <link rel="stylesheet" href="../menu/menu.css">
-    <link rel="stylesheet" href="search.css">
+<?php require '../header.php';?>
+<link rel="stylesheet" href="./top.css">
+<link rel="stylesheet" href="../menu/menu.css">
+<link rel="stylesheet" href="search.css">
+<title>Friends Top</title>
 </head>
+
+<body>
+<?php require '../menu/menu.php';?>
 
 <?php $pdo = new PDO($connect, USER, PASS);
 
