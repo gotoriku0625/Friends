@@ -1,34 +1,42 @@
-<?php require '../header.php';?>
-<link rel="stylesheet" href="./top.css">
-<link rel="stylesheet" href="../menu/menu.css">
-<link rel="stylesheet" href="search.css">
-<title>Friends Top</title>
-</head>
-
-<body>
-<?php require '../menu/menu.php';?>
-
-<?php $pdo = new PDO($connect, USER, PASS);
-// データベースから趣味データを取得
-$sql = "SELECT hobby_id, hobby_name FROM hobby";
-$sql = "SELECT gender_id, gender_name FROM gender";
-$sql = "SELECT blood_type_id, blood_type_name FROM blood_type";
-$sql = "SELECT school_id, school_name FROM school";
-$sql = "SELECT residence_id, residence_name FROM residence";
-$stmt = $pdo->query($sql);
-$data = $stmt->fetchAll();
-
-
+<?php
+require '../header.php'; // これは必要に応じて適切なパスに修正してください
 ?>
-</body>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>ユーザー検索</title>
-    
+    <link rel="stylesheet" href="./top.css">
+    <link rel="stylesheet" href="../menu/menu.css">
+    <link rel="stylesheet" href="search.css">
 </head>
 <body>
+    <?php require '../menu/menu.php'; ?>
+
+    <?php
+    // データベース接続設定（適切に修正してください）
+    $pdo = new PDO($connect, USER, PASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // 各データを取得するSQLクエリを実行
+    $sqlHobby = "SELECT hobby_id, hobby_name FROM hobby";
+    $stmtHobby = $pdo->query($sqlHobby);
+    $dataHobby = $stmtHobby->fetchAll();
+
+    $sqlGender = "SELECT gender_id, gender_name FROM gender";
+    $stmtGender = $pdo->query($sqlGender);
+    $dataGender = $stmtGender->fetchAll();
+
+    $sqlResidence = "SELECT residence_id, residence_name FROM residence";
+    $stmtResidence = $pdo->query($sqlResidence);
+    $dataResidence = $stmtResidence->fetchAll();
+
+    $sqlSchool = "SELECT school_id, school_name FROM school";
+    $stmtSchool = $pdo->query($sqlSchool);
+    $dataSchool = $stmtSchool->fetchAll();
+    ?>
+
     <div class="container">
         <h1>ユーザー検索</h1>
 
@@ -58,23 +66,23 @@ $data = $stmt->fetchAll();
 
             <div id="gender" class="tab-content">
                 <label for="dropdown">性別:</label><br>
-                <?php foreach ($data as $row): ?>
+                <?php foreach ($dataGender as $row): ?>
                     <input type="checkbox" id="gender_<?php echo $row['gender_id']; ?>" name="selected_gender_id[]" value="<?php echo htmlspecialchars($row['gender_id']); ?>">
                     <label for="gender_<?php echo $row['gender_id']; ?>"><?php echo htmlspecialchars($row['gender_name']); ?></label><br>
                 <?php endforeach; ?>
             </div>
 
             <div id="residence" class="tab-content">
-                <label for="dropdown">学校名:</label><br>
-                <?php foreach ($data as $row): ?>
-                    <input type="checkbox" id="school_<?php echo $row['residence_id']; ?>" name="selected_residence_id[]" value="<?php echo htmlspecialchars($row['residence_id']); ?>">
+                <label for="dropdown">現住居:</label><br>
+                <?php foreach ($dataResidence as $row): ?>
+                    <input type="checkbox" id="residence_<?php echo $row['residence_id']; ?>" name="selected_residence_id[]" value="<?php echo htmlspecialchars($row['residence_id']); ?>">
                     <label for="residence_<?php echo $row['residence_id']; ?>"><?php echo htmlspecialchars($row['residence_name']); ?></label><br>
                 <?php endforeach; ?>
             </div>
 
             <div id="school" class="tab-content">
                 <label for="dropdown">学校名:</label><br>
-                <?php foreach ($data as $row): ?>
+                <?php foreach ($dataSchool as $row): ?>
                     <input type="checkbox" id="school_<?php echo $row['school_id']; ?>" name="selected_school_id[]" value="<?php echo htmlspecialchars($row['school_id']); ?>">
                     <label for="school_<?php echo $row['school_id']; ?>"><?php echo htmlspecialchars($row['school_name']); ?></label><br>
                 <?php endforeach; ?>
@@ -82,13 +90,12 @@ $data = $stmt->fetchAll();
 
             <div id="hobby" class="tab-content">
                 <label for="dropdown">趣味:</label><br>
-                <?php foreach ($data as $row): ?>
+                <?php foreach ($dataHobby as $row): ?>
                     <input type="checkbox" id="hobby_<?php echo $row['hobby_id']; ?>" name="selected_hobby_id[]" value="<?php echo htmlspecialchars($row['hobby_id']); ?>">
                     <label for="hobby_<?php echo $row['hobby_id']; ?>"><?php echo htmlspecialchars($row['hobby_name']); ?></label><br>
                 <?php endforeach; ?>
             </div>
 
-           
         </form>
     </div>
 
