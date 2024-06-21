@@ -22,13 +22,19 @@
             echo '<div class="user-set">';
             if($row['gender']==='男性'){
                 // アイコンの枠の色を青色に
+                echo '<div class="frame-blue">';
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="best-icon"></a>';// アイコン
+                echo '</div>';
             }else if($row['gender']==='女性'){
                 // アイコンの枠の色を赤色に
+                echo '<div class="frame-pink">';
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="best-icon"></a>';// アイコン
+                echo '</div>';
             }else{
                 // アイコンの枠の色を灰色に
+                echo '<div class="frame-gray">';
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="best-icon"></a>';// アイコン
+                echo '</div>';
             }
             // アイコンとユーザー名、年齢を表示
             echo '<div class="nick_name1">',$row['user_name'],'(',$row['age'],')</div>';

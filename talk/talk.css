@@ -58,6 +58,7 @@ ul{
     float: left;/*bms_chat_user_statusに対して左寄せ */
     line-height: 1em;/*高さ調整*/
     padding: 10px;
+    font-family: mameron;
 }
     /* ブロック中を表示 */
 #block {
@@ -113,6 +114,7 @@ ul{
   border: 2px solid #13178E;
   border-radius: 20px 20px 20px 0px;/*左下だけ尖らせて吹き出し感を出す*/
   margin-right: 50px;/*左側の発言だとわかる様に、吹き出し右側に隙間を入れる*/
+  font-family: mameron;
 }
   /* メッセージ２（右側） */
 .right {
@@ -125,6 +127,7 @@ ul{
     border: 2px solid #93f5d4;
     border-radius: 30px 30px 0px 30px;/*右下だけ尖らせて吹き出し感を出す*/
     margin-left: 50px;/*右側の発言だとわかる様に、吹き出し左側に隙間を入れる*/
+    font-family: mameron;
 }
 
   /* 回り込みを解除 */
@@ -151,6 +154,7 @@ ul{
     text-align: left;/*文字を左寄せ*/
     box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;/*内側に影を入れてテキストエリアらしくした*/
     box-sizing: border-box;/*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
+    font-family: mameron;
 }
 .talk_btn {
     width: 70px;
@@ -173,6 +177,7 @@ ul{
 
 .text-color {
     color: #fff; /* テキストのカラー変更はこちら*/
+    font-family: mameron;
     font-size: 16px; /*テキストサイズの変更はこちら（なければデフォルトのサイズになります）*/
 }
 /* スクロール用 */
@@ -223,10 +228,8 @@ ul{
     box-shadow: 0 -0.375em 0 0 currentColor, 0 0.375em 0 0 currentColor;
 }
 .nav-menu {
-    position: relative;
-    height: 60px;
     color: #fff; /* メニューテキストの色 */
-
+    
 }
   .menu-list {
     display: flex;
