@@ -52,13 +52,15 @@ hr{
 }
 .frame-pink{
     position: relative;
-    background-color: #ff5691be;
+    background: radial-gradient(circle, transparent 60%, #ff5691be 20%);
     width: 80px;
+    height: 80px;
     border-radius: 50%;
 }
 .frame-gray{
     position: relative;
-    background-color: #626262bf;
+    background: radial-gradient(circle, transparent 60%, #626262bf 20%);
     width: 80px;
+    height: 80px;
     border-radius: 50%;
 }
