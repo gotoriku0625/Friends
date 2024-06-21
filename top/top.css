@@ -30,6 +30,7 @@ hr{
     height: 70px;
     left: 4.3px;
     top: 2.5px;
+    z-index: 2;
 }
 
 .standard-icon{
@@ -50,6 +51,7 @@ hr{
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    z-index: 1;
 
 }
 .frame-pink{
@@ -58,6 +60,7 @@ hr{
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    z-index: 1;
 }
 .frame-gray{
     position: relative;
@@ -65,4 +68,5 @@ hr{
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    z-index: 1;
 }
