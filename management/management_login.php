@@ -5,7 +5,7 @@ require '../db-connect.php';
 try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = $pdo->prepare('SELECT m_user_id, m_pass FROM management_user WHERE m_user_id = ?');
+    $sql = $pdo->prepare('SELECT m_user_id,m_user_name, m_pass FROM management_user WHERE m_user_id = ?');
 
     if (isset($_POST['login']) && $_POST['login'] === "ログイン") {
         $sql->execute([$_POST['id']]);
@@ -14,6 +14,7 @@ try {
         // パスワードの確認
         if ($management_user && $_POST['password'] === $management_user['m_pass']) {
             $_SESSION['m_user_id'] = $management_user['m_user_id'];
+            $_SESSION['m_user_name'] = $management_user['m_user_name'];
             header('Location: Dashboard.php'); // ログイン成功後にダッシュボードにリダイレクト
             exit;
         } else {
