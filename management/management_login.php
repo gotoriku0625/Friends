@@ -14,6 +14,7 @@ try {
         // パスワードの確認
         if ($management_user && $_POST['password'] === $management_user['m_pass']) {
             $_SESSION['m_user_id'] = $management_user['m_user_id'];
+            $_SESSION['m_user_name'] = $management_user['m_user_name'];
             header('Location: Dashboard.php'); // ログイン成功後にダッシュボードにリダイレクト
             exit;
         } else {
