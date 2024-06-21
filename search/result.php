@@ -5,6 +5,9 @@
 <title>result</title>
 </head>
 
+<body>
+<?php require '../menu/menu.html'; ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -14,7 +17,7 @@
 </head>
 <body>
     <div class="menu">
-        <?php require '../menu/menu.html'; ?>
+       
     </div>
     
     <div class="main">
