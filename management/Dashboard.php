@@ -1,4 +1,10 @@
-<?php require '../db-connect.php'; ?>
+<?php require '../header.php';?>
+    <!-- ↓ここにＣＳＳを追加↓ -->
+    <link rel="stylesheet" href="./top.css">
+    <title>Friends Top</title>
+</head>
+
+<body>
 <?php require '../m_menu/m_menu.php';?>
 
 <?php $pdo = new PDO($connect, USER, PASS);
