@@ -1,3 +1,12 @@
+<?php require '../header.php';?>
+    <!-- ↓ここにＣＳＳを追加↓ -->
+    <link rel="stylesheet" href="./top.css">
+    <title>Friends Top</title>
+</head>
+
+<body>
+<?php require '../menu/menu.php';?>
+
 <?php require '../db-connect.php';?>
 <?php require '../menu/menu.html';?>
 <head>
