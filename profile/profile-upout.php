@@ -2,18 +2,7 @@
 <?php
     $pdo=new PDO($connect,USER,PASS);
     if(isset($_POST['btn'])&&$_POST['btn']==='submit'){
-
-        if(isset($_POST['drinking'])){
-            $drinking='yes';
-        }else{
-            $drinking='no';
-        }
-        if(isset($_POST['smoking'])){
-            $smoking='yes';
-        }else{
-            $smoking='no';
-        }
-
+        
          //保存するフォルダの名前
         $main = 'user_image/main/';
         $sub = 'user_image/sub/';
@@ -103,8 +92,8 @@
 
         // 全てのサブ写真が設定されている場合
         if($_POST['subPhoto1']&&$_POST['subPhoto2']&&$_POST['subPhoto3']){
-            $update='update profile set user_id=?,introduction=?,hobby_id=?,gender=?,
-                    age=?,blood_type=?,school=?,birthplace=?,residence=?,holiday_spend=?,
+            $update='update profile set user_id=?,introduction=?,hobby_id=?,gender_id=?,
+                    age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     icon_image=?,sub_a_image=?,sub_b_image=?,sub_c_image=?,alcohol=?,smoke=?';
             $sql=$pdo->prepare($update);
             $sql->execute([

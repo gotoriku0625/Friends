@@ -203,10 +203,12 @@
             </div>
             <div class="checkbox-group">
                 <label>
-                    <input type="checkbox" name="drinking" value="drinking"> 飲酒
+                    <input type="hidden" name="drinking" value="0">
+                    <input type="checkbox" name="drinking" value="1"> 飲酒
                 </label>
                 <label>
-                    <input type="checkbox" name="smoking" value="smoking"> 喫煙
+                    <input type="hidden" name="smoking" value="0">
+                    <input type="checkbox" name="smoking" value="1"> 喫煙
                 </label>
             </div>
             <div class="form-group" id="submit_button">
