@@ -1,4 +1,5 @@
 <!-- 新規登録用 -->
+<?php require '../header.php';?>
 <?php
     $pdo=new PDO($connect,USER,PASS);
     if(isset($_POST['btn'])&&$_POST['btn']==='submit'){

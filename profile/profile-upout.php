@@ -1,23 +1,25 @@
 <!-- update用 -->
+<?php require '../db-connect.php';?>
 <?php
-    $pdo=new PDO($connect,USER,PASS);
+$pdo=new PDO($connect,USER,PASS);
+try{
     if(isset($_POST['btn'])&&$_POST['btn']==='submit'){
         
          //保存するフォルダの名前
         $main = 'user_image/main/';
         $sub = 'user_image/sub/';
 
-        $subImg = array("subPhoto1", "subPhoto2", "subPhoto3");
+        $subImg = array("subImage1", "subImage2", "subImage3");
 
-        $fileName_main = basename($_FILES['profileIcon']['name']);//登録したいファイルの名前
+        $fileName_main = basename($_FILES['icon']['name']);//登録したいファイルの名前
         $path = $main . $fileName_main;//二つをドッキング
         $fileType_main = pathinfo($path,PATHINFO_EXTENSION);
             
         // アイコンをサーバーのフォルダに送信
-        if(!empty($_FILES['profileIcon']['name'])){
+        if(!empty($_FILES['icon']['name'])){
             $allowTypes = array('jpg','png','jpeg','gif');
             if(in_array($fileType,$allowTypes)){
-                if(move_uploaded_file($_FILES['profileIcon']['tmp_name'],"../". $path)){
+                if(move_uploaded_file($_FILES['icon']['tmp_name'],"../". $path)){
                     if (!exif_imagetype("../".$path)) {//画像ファイルかのチェック
                         if (!empty($_SERVER['HTTP_REFERER'])){
                             header("Location:". $_SERVER['HTTP_REFERER']);
@@ -86,7 +88,7 @@
             }
         }
     
-        $select='select user_id from user mail=?';
+        $select='select user_id from user where user_id=?';
         $id = $pdo->prepare($select);
         $id->execute($_SESSION['user']['id']);
 
@@ -105,8 +107,8 @@
         }else if($_POST['subPhoto1']){
             // 2つ目のサブ写真が設定されている場合
             if($_POST['subPhot2']){
-                $update='update profile set user_id=?,introduction=?,hobby_id=?,gender=?,
-                    age=?,blood_type=?,school=?,birthplace=?,residence=?,holiday_spend=?,
+                $update='update profile set user_id=?,introduction=?,hobby_id=?,gender_id=?,
+                    age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     icon_image=?,sub_a_image=?,sub_b_image=?,alcohol=?,smoke=?';
                 $sql=$pdo->prepare($insert);
                 $sql->execute([
@@ -116,8 +118,8 @@
                 ]);
             // 3つ目のサブ写真が設定されている場合
             }else if($_POST['subPhot3']){
-                $update='update profile set user_id=?,introduction=?,hobby_id=?,gender=?,
-                    age=?,blood_type=?,school=?,birthplace=?,residence=?,holiday_spend=?,
+                $update='update profile set user_id=?,introduction=?,hobby_id=?,gender_id=?,
+                    age=?,blood_type=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     icon_image=?,sub_a_image=?,sub_c_image=?,alcohol=?,smoke=?';
                 $sql=$pdo->prepare($insert);
                 $sql->execute([
@@ -127,8 +129,8 @@
                 ]);
             }
             // 1つ目のサブ写真のみが設定されている場合
-            $update='update profile set user_id=?,introduction=?,hobby_id=?,gender=?,
-                    age=?,blood_type=?,school=?,birthplace=?,residence=?,holiday_spend=?,
+            $update='update profile set user_id=?,introduction=?,hobby_id=?,gender_id=?,
+                    age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     icon_image=?,sub_a_image=?,alcohol=?,smoke=?';
             $sql=$pdo->prepare($insert);
             $sql->execute([
@@ -140,8 +142,8 @@
         }else if($_POST['subPhoto2']){
             // 3つ目のサブ写真が設定されている場合
             if($_POST['subPhot3']){
-                $update='update profile set user_id=?,introduction=?,hobby_id=?,gender=?,
-                    age=?,blood_type=?,school=?,birthplace=?,residence=?,holiday_spend=?,
+                $update='update profile set user_id=?,introduction=?,hobby_id=?,gender_id=?,
+                    age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     icon_image=?,sub_b_image=?,sub_c_image=?,alcohol=?,smoke=?';
                 $sql=$pdo->prepare($insert);
                 $sql->execute([
@@ -151,8 +153,8 @@
                 ]);
             }
             // 2つ目のサブ写真のみが設定されている場合
-            $update='update profile set user_id=?,introduction=?,hobby_id=?,gender=?,
-                    age=?,blood_type=?,school=?,birthplace=?,residence=?,holiday_spend=?,
+            $update='update profile set user_id=?,introduction=?,hobby_id=?,gender_id=?,
+                    age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     icon_image=?,sub_b_image=?,alcohol=?,smoke=?';
             $sql=$pdo->prepare($insert);
             $sql->execute([
@@ -162,8 +164,8 @@
             ]);
         // 3つ目のみに画像が設定されている場合
         }else{
-            $update='update profile set user_id=?,introduction=?,hobby_id=?,gender=?,
-                    age=?,blood_type=?,school=?,birthplace=?,residence=?,holiday_spend=?,
+            $update='update profile set user_id=?,introduction=?,hobby_id=?,gender_id=?,
+                    age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     icon_image=?,sub_c_image=?,alcohol=?,smoke=?';
             $sql=$pdo->prepare($insert);
             $sql->execute([
@@ -175,11 +177,14 @@
         // ｾｯｼｮﾝに性別、年齢、アイコン画像を設定
         foreach($sql as $row){
             $_SESSION['user']=[
-                'gender'=>$row['gender'],'age'=>$row['age'],'icon'=>$row['icon_image']
+                'gender'=>$row['gender_id'],'age'=>$row['age'],'icon'=>$row['icon_image']
             ];
         }
         // トップへ飛ぶ
         header("Location: ../top/top.php");
         exit;
     }
+}catch(\Exception $e){
+    echo 'エラー発生:' . $e->getMessage();
+}
 ?>

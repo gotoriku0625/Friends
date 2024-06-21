@@ -33,7 +33,7 @@ function Change(inputId, imageId) {
         }
     });
 }
-
+Change('profileIcon', 'icon');
 Change('subImageInput1', 'subImage1');
 Change('subImageInput2', 'subImage2');
 Change('subImageInput3', 'subImage3');
