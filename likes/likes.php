@@ -1,4 +1,4 @@
-<?php require '../header.php';?>
+<?php require '../header.php'; ?>
 <link rel="stylesheet" href="../likes/likes.css?v=1.0.1">
     <title>likes</title>
 </head>
@@ -35,56 +35,56 @@ $stmt_liked_by->closeCursor();
 <div class="main">
     <div class="fiex">
         <div class="tabs">
-            <div class="tab active" onclick="showTab('liked')">いいねした人<img src="../menu-image/like-free-icon.png"width="40"height="40"></div>
+            <div class="tab active" onclick="showTab('liked')">いいねした人<img src="../menu-image/like-free-icon.png" width="40" height="40"></div>
             <div class="tab" onclick="showTab('liked_by')">あなたにいいね</div>
         </div>
     </div>
     <div id="liked" class="tab-content active">
-        <?php if (!empty($liked_users)): ?>
-            <ul class="user-list">
-                <?php foreach ($liked_users as $user): ?>
-                    <div class="flex">
-                        <div class="likeicom">
-                            <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
-                        </div>
-                        <div class="likename">
-                            <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
-                        </div>
-                        <div class="actions">
-                            <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
-                        </div>
+    <?php if (!empty($liked_users)): ?>
+        <ul class="user-list">
+            <?php foreach ($liked_users as $user): ?>
+                <div class="flex">
+                    <div class="likeicom">
+                        <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
                     </div>
-                <?php endforeach; ?>
-            </ul>
-        <?php else: ?>
-            <p>友達になりたい人を見つけに行きましょう。<img src="../image/person2.png"></p>
-            <div class="like">
-                <img src="../image/person1.png"width="300"height="300">
-            </div>
-        <?php endif; ?>
-    </div>
-    <div id="liked_by" class="tab-content">
-        <?php if (!empty($liked_by_users)): ?>
-            <ul class="user-list">
-                <?php foreach ($liked_by_users as $user): ?>
-                    <div class="flex">
-                        <div class="likeicom">
-                            <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
-                        </div>
-                        <div class="likename">
-                            <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
-                        </div>
-                        <div class="actions">
-                            <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
-                            <button onclick="likeUser(<?php echo $user['user_id']; ?>)">いいね</button>
-                        </div>
+                    <div class="likename">
+                        <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
                     </div>
-                <?php endforeach; ?>
-            </ul>
-        <?php else: ?>
-            <p>いいねをもらった人はいません。<img src="../image/person1.png"></p>
-        <?php endif; ?>
-    </div>
+                    <div class="actions">
+                        <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>友達になりたい人を見つけに行きましょう。<img src="../image/person2.png"></p>
+        <div class="like">
+            <img src="../image/person1.png" width="300" height="300">
+        </div>
+    <?php endif; ?>
+</div>
+<div id="liked_by" class="tab-content">
+    <?php if (!empty($liked_by_users)): ?>
+        <ul class="user-list">
+            <?php foreach ($liked_by_users as $user): ?>
+                <div class="flex">
+                    <div class="likeicom">
+                        <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
+                    </div>
+                    <div class="likename">
+                        <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
+                    </div>
+                    <div class="actions">
+                        <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
+                        <button onclick="likeUser(<?php echo $user['user_id']; ?>)">いいね</button>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>いいねをもらった人はいません。<img src="../image/person1.png"></p>
+    <?php endif; ?>
+</div>
 </div>
 
 <script>
@@ -108,7 +108,7 @@ $stmt_liked_by->closeCursor();
         
         // マッチング処理を行う
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'match.php'); // マッチングを処理するPHPファイルへのパスを指定
+        xhr.open('POST', '../matchs/match.php'); // マッチングを処理するPHPファイルへのパスを指定
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -127,6 +127,23 @@ $stmt_liked_by->closeCursor();
     function unlikeUser(userId) {
         // いいねを削除する処理をここに追加
         console.log("削除:", userId);
+
+        // いいね削除処理を行う
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'unlike.php'); // いいね削除を処理するPHPファイルへのパスを指定
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // いいね削除処理が成功した場合の処理をここに記述
+                    console.log(xhr.responseText);
+                } else {
+                    // いいね削除処理が失敗した場合の処理をここに記述
+                    console.error('いいね削除処理に失敗しました');
+                }
+            }
+        };
+        xhr.send('user_id=' + userId); // ユーザーIDをPOSTリクエストで送信
     }
 </script>
 </body>

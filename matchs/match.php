@@ -1,35 +1,27 @@
 <?php
-session_start();
- require '../db-connect.php';// データベース接続を含む
+<?php require '../header.php'; ?>
 $pdo = new PDO($connect, USER, PASS);
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user_id1 = $_POST['user_id1']; // ユーザー1のID
-    $user_id2 = $_POST['user_id2']; // ユーザー2のID
- 
-    // ユーザー2がユーザー1にいいねしているかチェック
-    $sql = "SELECT * FROM likes WHERE likes_user_id = ? AND liked_user_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindValue("ii", $user_id2, $user_id1);
-    $stmt->execute();
-    $result = $stmt->get_result();
- 
-    if ($result->num_rows > 0) {
-        // マッチングが成立した場合、マッチング情報を挿入
-        $sql = "INSERT INTO matchs (user_id1, user_id2) VALUES (?, ?)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue("ii", $user_id1, $user_id2);
- 
-        if ($stmt->execute()) {
-            echo "マッチングが成立しました。";
-        } else {
-            echo "Error: " . $sql . "<br>" . $pdo->error;
-        }
+
+// POSTデータからユーザーIDを取得
+$user_id = $_POST['user_id'];
+$logged_in_user_id = $_SESSION['user']['id'];
+
+// マッチングのチェック
+$sql_check_match = "SELECT * FROM matchs WHERE (user_id1 = ? AND user_id2 = ?) OR (user_id1 = ? AND user_id2 = ?)";
+$stmt_check_match = $pdo->prepare($sql_check_match);
+$stmt_check_match->execute([$logged_in_user_id, $user_id, $user_id, $logged_in_user_id]);
+$match = $stmt_check_match->fetch();
+
+if (!$match) {
+    // マッチングが存在しない場合はマッチングを挿入
+    $sql_insert_match = "INSERT INTO matchs (user_id1, user_id2) VALUES (?, ?)";
+    $stmt_insert_match = $pdo->prepare($sql_insert_match);
+    if ($stmt_insert_match->execute([$logged_in_user_id, $user_id])) {
+        echo "マッチングしました!";
     } else {
-        echo "まだマッチングしていません。";
+        echo "マッチングに失敗しました。";
     }
- 
-    $stmt->close();
+} else {
+    echo "すでにマッチングしています。";
 }
- 
-$pdo->close();
-?>
+    ?>
