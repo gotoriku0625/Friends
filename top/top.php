@@ -55,7 +55,7 @@
             if($row['gender_id']==='男性'){
                 // アイコンの枠の色を青色に
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
-            }else if($row['gender']==='女性'){
+            }else if($row['gender_id']==='女性'){
                 // アイコンの枠の色を赤色に
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
             }else{
