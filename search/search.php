@@ -7,7 +7,6 @@
 
 <body>
 <?php require '../menu/menu.php';?>
-<?php require '../db-connect.php';?>
 
 <?php $pdo = new PDO($connect, USER, PASS);
 
