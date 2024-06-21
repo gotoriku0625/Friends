@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // ユーザー2がユーザー1にいいねしているかチェック
     $sql = "SELECT * FROM likes WHERE likes_user_id = ? AND liked_user_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $user_id2, $user_id1);
+    $stmt->bindValue("ii", $user_id2, $user_id1);
     $stmt->execute();
     $result = $stmt->get_result();
  
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // マッチングが成立した場合、マッチング情報を挿入
         $sql = "INSERT INTO matchs (user_id1, user_id2) VALUES (?, ?)";
         $stmt = $pdo->prepare($sql);
-        $stmt->bind_param("ii", $user_id1, $user_id2);
+        $stmt->bindValue("ii", $user_id1, $user_id2);
  
         if ($stmt->execute()) {
             echo "マッチングが成立しました。";

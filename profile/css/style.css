@@ -79,13 +79,13 @@ hr {
 .sub-photos {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 30px;
     align-items: center;
 }
 
 .sub-photo-container {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 8px;
     background-color: #ddd; /* 灰色の背景 */
     display: flex;
@@ -355,3 +355,4 @@ form[action="../logout/logout.php"] {
     right: 10px;
     cursor: pointer;
 }
+

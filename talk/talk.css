@@ -28,10 +28,15 @@ ul{
 /* ヘッダー部分② */
 #bms_chat_header {
     /* padding: 6px;隙間調整 */
+    position: fixed;
     font-size: 20px;
     height: 45px;
     background: #ffffff;
     display: flex;
+    width: 79%;
+    top: 0px;
+    padding: 0px;
+    margin: 0px;
     justify-content: space-between;
     /* align-items: center; */
 }
@@ -53,6 +58,7 @@ ul{
     float: left;/*bms_chat_user_statusに対して左寄せ */
     line-height: 1em;/*高さ調整*/
     padding: 10px;
+    font-family: mameron;
 }
     /* ブロック中を表示 */
 #block {
@@ -83,7 +89,7 @@ ul{
   /* メッセージ全般のスタイル */
 .comment {
     margin: 0px;
-    padding: 0 14px;/*吹き出しがタイムラインの側面にひっつかない様に隙間を開ける*/
+    padding: 0 20px;/*吹き出しがタイムラインの側面にひっつかない様に隙間を開ける*/
     font-size: 16px;
     word-wrap: break-word;/* 吹き出し内で自動で改行 */
     white-space: normal;/*指定widthに合わせて、文字を自動的に改行*/
@@ -108,6 +114,7 @@ ul{
   border: 2px solid #13178E;
   border-radius: 20px 20px 20px 0px;/*左下だけ尖らせて吹き出し感を出す*/
   margin-right: 50px;/*左側の発言だとわかる様に、吹き出し右側に隙間を入れる*/
+  font-family: mameron;
 }
   /* メッセージ２（右側） */
 .right {
@@ -115,11 +122,12 @@ ul{
     line-height: 1em;
 }
 .right .talking {
-    color: #fff;/*テキストを白にする*/
-    background: #13178E;
-    border: 2px solid #13178E;
+    color: #000000;/*テキストを白にする*/
+    background: #93f5d4;
+    border: 2px solid #93f5d4;
     border-radius: 30px 30px 0px 30px;/*右下だけ尖らせて吹き出し感を出す*/
     margin-left: 50px;/*右側の発言だとわかる様に、吹き出し左側に隙間を入れる*/
+    font-family: mameron;
 }
 
   /* 回り込みを解除 */
@@ -146,6 +154,7 @@ ul{
     text-align: left;/*文字を左寄せ*/
     box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;/*内側に影を入れてテキストエリアらしくした*/
     box-sizing: border-box;/*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
+    font-family: mameron;
 }
 .talk_btn {
     width: 70px;
@@ -162,12 +171,13 @@ ul{
     box-sizing: border-box;/*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
 }
 .talk_btn:hover {
-    background: #13178E; /*マウスポインタを当てた時にアクティブな色になる*/
+    background: #93f5d4; /*マウスポインタを当てた時にアクティブな色になる*/
     cursor: pointer;/*マウスポインタを当てた時に、カーソルが指の形になる*/
 }
 
 .text-color {
     color: #fff; /* テキストのカラー変更はこちら*/
+    font-family: mameron;
     font-size: 16px; /*テキストサイズの変更はこちら（なければデフォルトのサイズになります）*/
 }
 /* スクロール用 */
@@ -205,6 +215,8 @@ ul{
 
 /* ナビゲーションメニュー */
 .dli-more-v {
+    position: relative;
+    top: 15px;
     display: inline-block;
     vertical-align: middle;
     color: #333;
@@ -217,6 +229,7 @@ ul{
 }
 .nav-menu {
     color: #fff; /* メニューテキストの色 */
+    
 }
   .menu-list {
     display: flex;
@@ -239,11 +252,11 @@ ul{
     align-items: center;
     color: #fff;  /*メニューアイテム内のリンクテキストの色*/ 
     display: flex;
-    height: 50px;
-    font-size: 20px;
+    height: 45px;
+    font-size: 30px;
     justify-content: center;
     text-decoration: none;  /*リンクの下線を非表示 */
-    width: 100px;
+    width: 150px;
     font-family: mameron;
   }
   
@@ -254,7 +267,7 @@ ul{
   }
   .drop-menu-list {
     background-color: #93f5d4; /*ドロップダウンメニューの背景色*/ 
-    left: 0;
+    left: 20px;
     border-radius: 10%;
     position: relative;
     width: 200px;
@@ -266,5 +279,16 @@ ul{
     z-index: 1;
   }
   
-  
+.a-all{
+  position: relative;
+  left: 100px;
+}
 
+.a-b{
+  position: relative;
+  left: 0;
+}
+.a-t{
+  position: relative;
+  left: 0;
+}
