@@ -57,7 +57,7 @@
                 foreach ($sub_images as $field_name => $label) {
                     echo '<div class="sub-photo-container">';
                     if (!empty($profile[$field_name])) {
-                        $image_data = htmlspecialchars($profile[$field_name], ENT_QUOTES, 'UTF-8');
+                        $image_data = $profile[$field_name];
                         echo '<img src="data:image/jpeg;base64,' . base64_encode($image_data) . '" alt="' . $label . '">';
                     } else {
                         echo '<p>' . $label . 'が見つかりません。</p>';
@@ -69,7 +69,7 @@
                 echo '</div>'; // .sub-photo-section
 
                 // その他のプロフィール情報の表示
-                echo '<div class="profile-info">';
+                echo '<div class="form-group">';
                 echo '<p><span class="label">ユーザーID:</span> ' . htmlspecialchars($profile['user_id']) . '</p>';
                 echo '<p><span class="label">自己紹介:</span> ' . htmlspecialchars($profile['introduction']) . '</p>';
                 echo '<p><span class="label">趣味ID:</span> ' . htmlspecialchars($profile['hobby_id']) . '</p>';
@@ -106,8 +106,8 @@
         }
 
         function goBack() {
-                window.history.back();
-            }
+            window.history.back();
+        }
     </script>
 </body>
 </html>
