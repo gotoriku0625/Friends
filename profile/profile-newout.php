@@ -3,17 +3,6 @@
     $pdo=new PDO($connect,USER,PASS);
     if(isset($_POST['btn'])&&$_POST['btn']==='submit'){
 
-        if(isset($_POST['drinking'])){
-            $drinking='yes';
-        }else{
-            $drinking='no';
-        }
-        if(isset($_POST['smoking'])){
-            $smoking='yes';
-        }else{
-            $smoking='no';
-        }
-
          //保存するフォルダの名前
         $main = 'user_image/main/';
         $sub = 'user_image/sub/';
