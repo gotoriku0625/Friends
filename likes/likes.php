@@ -31,51 +31,54 @@ $liked_by_users = $stmt_liked_by->fetchAll(PDO::FETCH_ASSOC);
 $stmt_liked_by->closeCursor();
 ?>
 <body>
-<?php require '../menu/menu.php';?>
+<?php require '../menu/menu.php'; ?>
 <div class="main">
     <div class="fiex">
-    <div class="tabs">
-        <div class="tab active" onclick="showTab('liked')">いいねした人<img src="../menu-image/like-free-icon.png"width="40"height="40"></div>
-        <div class="tab" onclick="showTab('liked_by')">あなたにいいね</div>
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('liked')">いいねした人<img src="../menu-image/like-free-icon.png"width="40"height="40"></div>
+            <div class="tab" onclick="showTab('liked_by')">あなたにいいね</div>
+        </div>
     </div>
-</div>
     <div id="liked" class="tab-content active">
         <?php if (!empty($liked_users)): ?>
             <ul class="user-list">
                 <?php foreach ($liked_users as $user): ?>
-                    <li>
-                        <div class="flex">
+                    <div class="flex">
                         <div class="likeicom">
-                        <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
+                            <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
                         </div>
                         <div class="likename">
-                        <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
+                            <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
                         </div>
                         <div class="actions">
                             <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
                         </div>
-                    </li>
+                    </div>
                 <?php endforeach; ?>
             </ul>
         <?php else: ?>
-            <p>友達になりたい人を見つけに行きましょう。</p>
+            <p>友達になりたい人を見つけに行きましょう。<img src="../image/person2.png"></p>
             <div class="like">
-            <img src="../image/person1.png"width="300"height="300">
-        </div>
+                <img src="../image/person1.png"width="300"height="300">
+            </div>
         <?php endif; ?>
     </div>
     <div id="liked_by" class="tab-content">
         <?php if (!empty($liked_by_users)): ?>
             <ul class="user-list">
                 <?php foreach ($liked_by_users as $user): ?>
-                    <li>
-                        <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
-                        <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
-                        <div class="actions">
-                            <button onclick="likeUser(<?php echo $user['user_id']; ?>)">いいね</button>
-                            <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
+                    <div class="flex">
+                        <div class="likeicom">
+                            <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
                         </div>
-                    </li>
+                        <div class="likename">
+                            <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
+                        </div>
+                        <div class="actions">
+                            <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
+                            <button onclick="likeUser(<?php echo $user['user_id']; ?>)">いいね</button>
+                        </div>
+                    </div>
                 <?php endforeach; ?>
             </ul>
         <?php else: ?>
@@ -102,6 +105,23 @@ $stmt_liked_by->closeCursor();
     function likeUser(userId) {
         // いいねを送る処理をここに追加
         console.log("いいね:", userId);
+        
+        // マッチング処理を行う
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'match.php'); // マッチングを処理するPHPファイルへのパスを指定
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // マッチング処理が成功した場合の処理をここに記述
+                    console.log(xhr.responseText);
+                } else {
+                    // マッチング処理が失敗した場合の処理をここに記述
+                    console.error('マッチング処理に失敗しました');
+                }
+            }
+        };
+        xhr.send('user_id=' + userId); // ユーザーIDをPOSTリクエストで送信
     }
 
     function unlikeUser(userId) {
