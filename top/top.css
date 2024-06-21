@@ -44,7 +44,7 @@ hr{
 
 .frame-blue{
     position: relative;
-    background-color: #613dffbb;
+    background: radial-gradient(circle, transparent 40%, #613dffbb 40%);
     width: 80px;
     border-radius: 50%;
 
