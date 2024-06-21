@@ -75,7 +75,7 @@
                 <?php foreach ($results as $profile): ?>
                     <li>
                         <a href="../profile/profile-user.html">
-                            <img src="<?php echo htmlspecialchars($profile['icon_image']); ?>" alt="icon" class="icon <?php echo htmlspecialchars($profile['gender']); ?>">
+                            <img src="<?php echo htmlspecialchars($profile['icon_image']); ?>" alt="icon" class="icon <?php echo htmlspecialchars($profile['gender_id']); ?>">
                             <?php echo htmlspecialchars($profile['user_name']); ?><?php echo " (" . htmlspecialchars($profile['age']) . ")"; ?>
                         </a>
                     </li>
