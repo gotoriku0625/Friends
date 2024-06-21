@@ -45,8 +45,7 @@
 
         // ランダムに30人を表示する
         $sql=$pdo->prepare('select user.user_id, icon_image, user_name, gender_name, age 
-                            from user,gender
-                            where gender.gender_id=profile.gender_id
+                            from user
                             join profile ON user.user_id = profile.user_id
                             join gemder ON gemder.gender_id = profile.gemder_id
                             order by RAND()
