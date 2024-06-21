@@ -1,18 +1,13 @@
 <?php require '../header.php';?>
-    <!-- ↓ここにＣＳＳを追加↓ -->
-    <link rel="stylesheet" href="./top.css">
-    <title>Friends Top</title>
+<link rel="stylesheet" href="./top.css">
+<link rel="stylesheet" href="../menu/menu.css">
+<link rel="stylesheet" href="search.css">
+<title>Friends Top</title>
 </head>
 
 <body>
 <?php require '../menu/menu.php';?>
-
 <?php require '../db-connect.php';?>
-<?php require '../menu/menu.html';?>
-<head>
-    <link rel="stylesheet" href="../menu/menu.css">
-    <link rel="stylesheet" href="search.css">
-</head>
 
 <?php $pdo = new PDO($connect, USER, PASS);
 
