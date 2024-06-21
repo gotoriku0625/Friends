@@ -48,6 +48,7 @@
                             from user,gender
                             where gender.gender_id=profile.gender_id
                             join profile ON user.user_id = profile.user_id
+                            join gemder ON gemder.gender_id = profile.gemder_id
                             order by RAND()
                             limit 30');
         $sql->execute();
