@@ -10,8 +10,9 @@
         <?php
         $pdo=new PDO($connect,USER,PASS);
         // おすすめ
-        $sql=$pdo->prepare('select user.user_id,icon_image,user_name,gender_id,age from user,profile,hobby
+        $sql=$pdo->prepare('select user.user_id,icon_image,user_name,gender_name,age from user,profile,hobby,gender
                             where profile.hobby_id=hobby.hobby_id
+                            and gender.gender_id=profile.gender_id
                             and user.user_id<>?
                             order by user.user_id
                             limit 10');
@@ -20,12 +21,12 @@
         echo '<div class="recommendation">';
         foreach($sql as $row){
             echo '<div class="user-set">';
-            if($row['gender_id']==='男性'){
+            if($row['gender_name']==='男性'){
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue">';
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="best-icon"></a>';// アイコン
                 echo '</div>';
-            }else if($row['gender_id']==='女性'){
+            }else if($row['gender_name']==='女性'){
                 // アイコンの枠の色を赤色に
                 echo '<div class="frame-pink">';
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="best-icon"></a>';// アイコン
@@ -43,8 +44,9 @@
         echo '</div>';
 
         // ランダムに30人を表示する
-        $sql=$pdo->prepare('select user.user_id, icon_image, user_name, gender_id, age 
-                            from user
+        $sql=$pdo->prepare('select user.user_id, icon_image, user_name, gender_name, age 
+                            from user,gender
+                            where gender.gender_id=profile.gender_id
                             join profile ON user.user_id = profile.user_id
                             order by RAND()
                             limit 30');
@@ -52,10 +54,10 @@
         echo '<hr>';
         foreach($sql as $row){
             echo '<div class="user-set">';
-            if($row['gender_id']==='男性'){
+            if($row['gender_name']==='男性'){
                 // アイコンの枠の色を青色に
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
-            }else if($row['gender_id']==='女性'){
+            }else if($row['gender_name']==='女性'){
                 // アイコンの枠の色を赤色に
                 echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
             }else{
