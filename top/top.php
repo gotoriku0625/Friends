@@ -10,8 +10,9 @@
         <?php
         $pdo=new PDO($connect,USER,PASS);
         // おすすめ
-        $sql=$pdo->prepare('select user.user_id,icon_image,user_name,gender_id,age from user,profile,hobby
+        $sql=$pdo->prepare('select user.user_id,icon_image,user_name,profile.gender_id,age from user,profile,hobby,gender
                             where profile.hobby_id=hobby.hobby_id
+                            and gender.gender_id=profile.gender_id
                             and user.user_id<>?
                             order by user.user_id
                             limit 10');
