@@ -3,12 +3,14 @@
 }
 
 .nick_name1{
+    position: relative;
     font-size: 18px;
     width: fit-content;
     text-align: center;
 }
 
 .nick_name2{
+    position: relative;
     font-size: 22px;
     width: fit-content;
     text-align: center;
@@ -40,8 +42,8 @@ hr{
 .user-set2{
     position: relative;
     margin: 2%;
-    width: 140;
-    height: 140;
+    width: 130px;
+    height: 130px;
 }
 
 .frame-blue{
