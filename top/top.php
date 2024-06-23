@@ -53,7 +53,7 @@
         $sql->execute();
         echo '<hr>';
         foreach($sql as $row){
-            echo '<div class="user-set">';
+            echo '<div class="user-set2">';
             if($row['gender_name']==='男性'){
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue2">';
