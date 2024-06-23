@@ -18,7 +18,7 @@
                             limit 10');
         $sql->execute(array($_SESSION['user']['id']));
         echo '<h2>おすすめ</h2>';
-        echo '<div class="recommendation">';
+        echo '<div class="recommendation2">';
         foreach($sql as $row){
             echo '<div class="user-set">';
             if($row['gender_name']==='男性'){
