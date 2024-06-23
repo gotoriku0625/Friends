@@ -52,6 +52,7 @@
                             limit 30');
         $sql->execute();
         echo '<hr>';
+        echo '<div class="recommendation">';
         foreach($sql as $row){
             echo '<div class="user-set2">';
             if($row['gender_name']==='男性'){
@@ -72,9 +73,10 @@
             }
             // アイコンとユーザー名、年齢を表示
             echo '<div class="nick_name2">',$row['user_name'],'(',$row['age'],')</div>';
-            
+            echo '</div>';
         }
         echo '</div>';
+        
         ?>
         
     </div>
