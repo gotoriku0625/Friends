@@ -1,6 +1,6 @@
 <?php require '../header.php'; ?>
 <link rel="stylesheet" href="../likes/likes.css?v=1.0.1">
-    <title>likes</title>
+<title>likes</title>
 </head>
 <?php
 $pdo = new PDO($connect, USER, PASS);
@@ -36,7 +36,7 @@ $stmt_liked_by->closeCursor();
     <div class="fiex">
         <div class="tabs">
             <div class="tab active" onclick="showTab('liked')">いいねした人<img src="../menu-image/like-free-icon.png" width="40" height="40"></div>
-            <div class="tab" onclick="showTab('liked_by')">あなたにいいね</div>
+            <div class="tab" onclick="showTab('liked_by')">あなたにいいね<img src="../image/you.png" width="40" height="40"></div>
         </div>
     </div>
     <div id="liked" class="tab-content active">
@@ -51,13 +51,13 @@ $stmt_liked_by->closeCursor();
                         <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
                     </div>
                     <div class="actions">
-                        <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
+                        <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>">削除</button>
                     </div>
                 </div>
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
-        <p>友達になりたい人を見つけに行きましょう。<img src="../image/person2.png"></p>
+        <p>友達になりたい人を見つけに行きましょう。<img src="../image/person2.png" width="300" height="300"></p>
         <div class="like">
             <img src="../image/person1.png" width="300" height="300">
         </div>
@@ -75,17 +75,19 @@ $stmt_liked_by->closeCursor();
                         <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
                     </div>
                     <div class="actions">
-                        <button onclick="unlikeUser(<?php echo $user['user_id']; ?>)">削除</button>
-                        <button onclick="likeUser(<?php echo $user['user_id']; ?>)">いいね</button>
+                        <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>">削除</button>
+                        <button class="like" data-user-id="<?php echo $user['user_id']; ?>">いいね</button>
                     </div>
                 </div>
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
-        <p>いいねをもらった人はいません。<img src="../image/person1.png"></p>
+        <p>いいねをもらった人はいません。<img src="../image/person1.png" width="300" height="300"></p>
     <?php endif; ?>
 </div>
 </div>
+
+<script src="../likes/javascript/likes.js"></script>
 
 <script>
     function showTab(tabId) {
@@ -100,50 +102,6 @@ $stmt_liked_by->closeCursor();
             content.classList.remove('active');
         });
         document.getElementById(tabId).classList.add('active');
-    }
-
-    function likeUser(userId) {
-        // いいねを送る処理をここに追加
-        console.log("いいね:", userId);
-        
-        // マッチング処理を行う
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '../matchs/match.php'); // マッチングを処理するPHPファイルへのパスを指定
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    // マッチング処理が成功した場合の処理をここに記述
-                    console.log(xhr.responseText);
-                } else {
-                    // マッチング処理が失敗した場合の処理をここに記述
-                    console.error('マッチング処理に失敗しました');
-                }
-            }
-        };
-        xhr.send('user_id=' + userId); // ユーザーIDをPOSTリクエストで送信
-    }
-
-    function unlikeUser(userId) {
-        // いいねを削除する処理をここに追加
-        console.log("削除:", userId);
-
-        // いいね削除処理を行う
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'unlike.php'); // いいね削除を処理するPHPファイルへのパスを指定
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    // いいね削除処理が成功した場合の処理をここに記述
-                    console.log(xhr.responseText);
-                } else {
-                    // いいね削除処理が失敗した場合の処理をここに記述
-                    console.error('いいね削除処理に失敗しました');
-                }
-            }
-        };
-        xhr.send('user_id=' + userId); // ユーザーIDをPOSTリクエストで送信
     }
 </script>
 </body>
