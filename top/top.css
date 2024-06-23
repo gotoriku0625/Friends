@@ -47,7 +47,7 @@ hr{
 
 .frame-blue{
     position: relative;
-    background: radial-gradient(circle, transparent 60%, #613dffbb 15%);
+    background: radial-gradient(circle, transparent 65%, #613dffbb 15%);
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -56,7 +56,7 @@ hr{
 }
 .frame-pink{
     position: relative;
-    background: radial-gradient(circle, transparent 60%, #ff5691be 20%);
+    background: radial-gradient(circle, transparent 65%, #ff5691be 20%);
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -64,7 +64,7 @@ hr{
 }
 .frame-gray{
     position: relative;
-    background: radial-gradient(circle, transparent 60%, #626262bf 20%);
+    background: radial-gradient(circle, transparent 65%, #626262bf 20%);
     width: 80px;
     height: 80px;
     border-radius: 50%;
