@@ -72,9 +72,9 @@
             }
             // アイコンとユーザー名、年齢を表示
             echo '<div class="nick_name2">',$row['user_name'],'(',$row['age'],')</div>';
-            echo '</div>';
+            
         }
-        
+        echo '</div>';
         ?>
         
     </div>
