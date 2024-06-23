@@ -1,6 +1,9 @@
 .recommendation{
     display: flex;
 }
+.recommendation2{
+    position: relative;
+}
 
 .nick_name1{
     font-size: 18px;
