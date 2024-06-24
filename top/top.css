@@ -3,6 +3,10 @@
 }
 .recommendation2{
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 .nick_name1{
@@ -20,7 +24,7 @@
 }
 
 h2{
-    margin-top: 5%;
+    margin-top: 3%;
     margin-left: 3%;
 }
 
@@ -40,7 +44,7 @@ hr{
 
 .user-set{
     position: relative;
-    margin: 3%;
+    margin-left: 2.2%;
 }
 .user-set2{
     position: relative;
