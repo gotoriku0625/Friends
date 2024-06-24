@@ -86,8 +86,8 @@ hr{
 .frame-blue2{
     position: relative;
     background: radial-gradient(circle, transparent 65%, #613dffbb 15%);
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     left: 5px;
     border-radius: 50%;
     z-index: 1;
@@ -96,8 +96,8 @@ hr{
 .frame-pink2{
     position: relative;
     background: radial-gradient(circle, transparent 65%, #ff5691be 20%);
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     left: 5px;
     border-radius: 50%;
     z-index: 1;
@@ -105,8 +105,8 @@ hr{
 .frame-gray2{
     position: relative;
     background: radial-gradient(circle, transparent 65%, #626262bf 20%);
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     left: 5px;
     border-radius: 50%;
     z-index: 1;
