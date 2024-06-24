@@ -1,5 +1,5 @@
-<?php
 <?php require '../header.php'; ?>
+<?php
 $pdo = new PDO($connect, USER, PASS);
 
 // POSTデータからユーザーIDを取得
