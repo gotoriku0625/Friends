@@ -1,4 +1,5 @@
 // likes.js
+
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.actions button.unlike').forEach(button => {
         button.addEventListener('click', function() {
