@@ -4,7 +4,7 @@ function get_user($user_id){// 現在ログインしているユーザー情報
     try{
         $pdo = new PDO($connect,$user,$pass);
         // ユーザ情報取得
-        $user_set='select user.user_id,user_name,gender,icon_image,age
+        $user_set='select user.user_id,user_name,gender_id,icon_image,age
                from user,profile 
                where user.user_id=profile.user_id
                and user.user_id=:user_id';
