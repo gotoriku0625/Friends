@@ -5,7 +5,7 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    margin: 3%;
+    padding: 3%;
 }
 
 .nick_name1{
