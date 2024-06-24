@@ -15,7 +15,7 @@
                             and gender.gender_id=profile.gender_id
                             and user.user_id<>?
                             order by user.user_id
-                            limit 10');
+                            limit 9');
         $sql->execute(array($_SESSION['user']['id']));
         echo '<h2>おすすめ</h2>';
         echo '<div class="recommendation">';
