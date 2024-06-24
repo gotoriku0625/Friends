@@ -3,6 +3,7 @@
 }
 .recommendation2{
     position: relative;
+    flex-wrap: wrap;
 }
 
 .nick_name1{
