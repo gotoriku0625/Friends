@@ -1,7 +1,8 @@
-<!-- update用 -->
-<?php require '../db-connect.php';?>
 <?php
+session_start();
+require '../db-connect.php';
 $pdo=new PDO($connect,USER,PASS);
+// update用
 try{
     if(isset($_POST['btn'])&&$_POST['btn']==='submit'){
         
@@ -90,7 +91,7 @@ try{
     
         $select='select user_id from user where user_id=?';
         $id = $pdo->prepare($select);
-        $id->execute($_SESSION['user']['id']);
+        $id->execute([$_SESSION['user']['id']]);
 
         // 全てのサブ写真が設定されている場合
         if($_POST['subPhoto1']&&$_POST['subPhoto2']&&$_POST['subPhoto3']){

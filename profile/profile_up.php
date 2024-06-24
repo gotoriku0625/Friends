@@ -45,9 +45,10 @@
                     <span>アイコンの変更</span>
                     <div class="icon-container">
                         <img id="profileIcon" src="../user_image/main/{$user['icon_image']}" alt="プロフィールアイコン" value="main">
-                        <label for="iconInput" class="plus">+</label>
-                        <input type="file" id="profileIcon" name="icon" accept="image/*" style="display: none;">
                     </div>
+                    <label for="iconInput" class="plus">+</label>
+                    <input type="file" id="iconInput" name="icon" accept="image/*" style="display: none;">
+
                 </div>
 
                 <!-- <div class="sub-photo-section">
@@ -144,7 +145,7 @@ EOF;
                         if($bloodType==$row['blood_type_id']){
                             echo '<option value=',$bloodType,' selected>',$row['blood_type_name'],'</option>';
                         }else{
-                            echo '<option value=',$row['gender_id'],'>',$row['blood_type_name'],'</option>';
+                            echo '<option value=',$row['blood_type_id'],'>',$row['blood_type_name'],'</option>';
                         }
                     }
                     echo <<< EOF
