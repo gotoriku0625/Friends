@@ -5,7 +5,8 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    padding: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 .nick_name1{
@@ -23,7 +24,7 @@
 }
 
 h2{
-    margin-top: 5%;
+    margin-top: 3%;
     margin-left: 3%;
 }
 
