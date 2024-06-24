@@ -9,13 +9,14 @@
     font-size: 18px;
     width: fit-content;
     text-align: center;
-    
+    font-family: mameron;
 }
 
 .nick_name2{
     font-size: 22px;
     width: fit-content;
     text-align: center;
+    font-family: mameron;
 }
 
 h2{
