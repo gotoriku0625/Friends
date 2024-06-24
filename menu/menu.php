@@ -7,7 +7,7 @@
 
             $icon = $_SESSION['user']['icon'];
             // せしょんにジェンダーはいってたら
-            $gender = $_SESSION['user']['gender_id'];
+            $gender = $_SESSION['user']['gender'];
                 if($gender==='男性'){
                     // アイコンの枠の色を青色に
                     echo '<div class="icon-space">
