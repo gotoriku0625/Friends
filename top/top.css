@@ -3,6 +3,7 @@
 }
 .recommendation2{
     position: relative;
+    display: flex;
     flex-wrap: wrap;
 }
 
