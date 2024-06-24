@@ -58,9 +58,6 @@ $stmt_liked_by->closeCursor();
         </ul>
     <?php else: ?>
         <p>友達になりたい人を見つけに行きましょう。<img src="../image/person2.png" width="300" height="300"></p>
-        <div class="like">
-            <img src="../image/person1.png" width="300" height="300">
-        </div>
     <?php endif; ?>
 </div>
 <div id="liked_by" class="tab-content">
