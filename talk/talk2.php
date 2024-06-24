@@ -98,7 +98,7 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
     </div>
     <!-- モーダルの表示(ポップアップ表示)　ブロック -->
             <section id="block">
-                <h3>ブロックしますか？</h2>
+                <!-- <h3>ブロックしますか？</h2> -->
                 <form action="./talk2-add.php" method="post">
                     <button type="submit" name="check" value="1">はい</button>
                     <button type="submit" name="check" value="0">いいえ</button>
