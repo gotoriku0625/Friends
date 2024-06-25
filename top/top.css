@@ -47,7 +47,7 @@ hr{
 }
 .user-set2{
     position: relative;
-    margin: 4%;
+    margin: 3%;
     height: 160px;
     width: 140px;
 }
@@ -84,6 +84,7 @@ hr{
     width: 100px;
     height: 100px;
     left: 5px;
+    top: 2px;
 }
 
 .frame-blue2{
