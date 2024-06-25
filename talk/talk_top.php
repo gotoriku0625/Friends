@@ -32,9 +32,9 @@
                         echo '<button class="" type=submit name="submit">';
                             echo '<div class="reciver_list">';
                                 // 性別によってアイコン枠の色を変更
-                                    if($reciver['gender_name'] === '男性'){
+                                    if($reciver['gender_id'] === 1){
                                         echo '<div class="frame-blue">';
-                                    }else if($reciver['gender_name'] === '女性'){
+                                    }else if($reciver['gender_id'] === 2){
                                         echo '<div class="frame-pink">';
                                     }else{
                                         echo '<div class="frame-gray">';

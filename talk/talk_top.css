@@ -1,8 +1,4 @@
-.talk_user_img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
+
 .talk-head{
     position: fixed;
     top: 15px;
@@ -41,6 +37,15 @@ hr{
 }
 .reciver_info{
     padding-top: 25px;
+}
+
+.talk_user_img{
+    position: relative;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    left: 2%;
+    bottom: 3%;
 }
 
 .frame-blue{
