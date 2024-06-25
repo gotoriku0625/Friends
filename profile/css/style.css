@@ -117,7 +117,6 @@ hr {
     margin-bottom: 5px;
 }
 
-/* 修正箇所：入力要素の幅を40%に固定 */
 .form-group input[type="text"],
 .form-group input[type="number"],
 .form-group select,
@@ -129,45 +128,6 @@ hr {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
-
-/* フォームグループの設定 */
-.select-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-}
-
-.select-group label {
-    margin-bottom: 5px;
-}
-
-/* 修正箇所：入力要素の幅を40%に固定 */
-.select-group input[type="text"],
-.select-group input[type="number"],
-.select-group select,
-.select-group textarea {
-    width: 35%;
-    padding: 6px;
-    font-size: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-/* チェックボックスグループ */
-.checkbox-group {
-    display: flex;
-    margin: 20px 0;
-}
-
-input[type="checkbox"] {
-    transform: scale(2); /* チェックボックスの表示を2倍に拡大 */
-    margin-right: 15px; /* 右側の余白を15pxに設定 */
-    margin-bottom: 15px; /* 下側の余白を15pxに設定 */
-    margin-top: 15px; /* 上側の余白を25pxに設定 */
-    margin-left: 15px;
-}
-
 
 /* 修正箇所：ボタンコンテナを中央揃えに設定 */
 .btn-container {
@@ -191,14 +151,12 @@ input[type="checkbox"] {
     margin: 0 1%; /* 左右の外側の余白を1%に設定 */
 }
 
-
 form[action="../logout/logout.php"] {
     display: flex;
     justify-content: flex-end;
 }
 
-
-/*サブウィンドウcss*/
+/* サブウィンドウcss */
 /* サブウィンドウを開くボタンの親要素のスタイル */
 .open_sub_window_wrapper {
     text-align: right;
@@ -244,6 +202,7 @@ form[action="../logout/logout.php"] {
     max-width: 900px;
     z-index: 100; /* サブウィンドウを他の要素よりも手前に表示するためのz-index */
 }
+
 /* サブウィンドウのコンテンツを中央に配置するスタイル */
 .sub_window_content {
     display: table;
@@ -286,16 +245,6 @@ form[action="../logout/logout.php"] {
 /* キャンセルボタンのホバー時のスタイル */
 .btn-cancel:hover {
     background-color: #888;
-}
-
-
-/* アイコンと追加ボタンのスタイル */
-.icon-container,
-.sub-photo-container,
-.icon-container .plus,
-.sub-photo-container .plus {
-    position: relative; /* position: absolute; から戻す */
-    z-index: 101; /* サブウィンドウよりも前面に表示させるためのz-indexを設定 */
 }
 
 /* 追加ボタンの位置調整 */
@@ -355,4 +304,19 @@ form[action="../logout/logout.php"] {
     right: 10px;
     cursor: pointer;
 }
+
+/* profile-box クラスのスタイル */
+.data-box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 追加スタイルが必要な場合はここに追記します */
+
+
+
 
