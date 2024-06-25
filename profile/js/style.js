@@ -1,22 +1,3 @@
-function uploadIcon() {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'image/*';
-    input.onchange = e => {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = event => {
-                const icon = document.getElementById('profileIcon');
-                icon.src = event.target.result;
-                icon.style.display = 'block'; // アイコンを表示
-                icon.parentElement.style.backgroundColor = 'transparent'; // 背景を透明に
-            };
-            reader.readAsDataURL(file);
-        }
-    };
-    input.click();
-}
 
 function Change(inputId, imageId) {
     document.getElementById(inputId).addEventListener('change', function(event) {

@@ -89,14 +89,20 @@
             </div>
             <div class="form-group">
                 <label for="hobbies">趣味/特技</label>
-                <input type="text" id="hobbies" name="hobbies" required>
+                <select name="category" required>
+                <?php
+                foreach($pdo->query('select * from hobby order by hobby_id') as $row){
+                    echo '<option value=',$row['hobby_id'],'>',$row['hobby_name'],'</option>';
+                }
+                ?>
+                </select>
             </div>
             <div class="select-group">
                 <label for="gender">性別</label>
-                <select id="gender" name="gender"required>
-                <?
-                foreach($pdo->query('select * from blood_type order by blood_type_id') as $row){
-                    echo '<option value=',$row['blood_type_id'],'>',$row['blood_type_name'],'</option>';   
+                <select id="gender" name="gender" required>
+                <?php
+                foreach($pdo->query('select * from gender order by gender_id') as $row){
+                    echo '<option value=',$row['gender_id'],'>',$row['gender_name'],'</option>';   
                 }
                 ?>
                 </select>
@@ -108,7 +114,7 @@
             <div class="select-group">
                 <label for="bloodType">血液型</label>
                 <select id="bloodType" name="bloodType">
-                <?
+                <?php
                 foreach($pdo->query('select * from blood_type order by blood_type_id') as $row){
                     echo '<option value=',$row['blood_type_id'],'>',$row['blood_type_name'],'</option>';
                 }
@@ -118,28 +124,28 @@
             <div class="select-group">
             <label for="school">学校</label>
             <select id="school" name="school">
-            <?
-            foreach($pdo->query('select * from school order by school_id') as $row){
-                echo '<option value=',$row['school_id'],'>',$row['school_name'],'</option>';
-            }
-            ?>            
+                <?php
+                foreach($pdo->query('select * from school order by school_id') as $row){
+                    echo '<option value="',$row['school_id'],'">',$row['school_name'],'</option>';
+                }
+                ?>            
             </select>
             </div>
             <div class="select-group">
                 <label for="hometown">出身地</label>
                 <select id="hometown" name="hometown">
-                <?
+                <?php
                 foreach($pdo->query('select * from birthplace order by birthplace_id') as $row){
-                    echo '<option value=',$row['birthplace_id'],'>',$row['birthplace_name'],'</option>';
+                    echo '<option value='$row['birthplace_id'].'>'.$row['birthplace_name'].'</option>';
                 }
                 ?>                 
                 </select>
             </div>
             <div class="select-group">
                 <label for="residence">居住地</label>
-                <?
+                <?php
                 foreach($pdo->query('select * from residence order by residence_id') as $row){
-                    echo '<option value=',$row['residence_id'],'>',$row['residence_name'],'</option>';
+                    echo '<option value="',$row['residence_id'],'">',$row['residence_name'],'</option>';
                 }
                 ?>
             </div>
