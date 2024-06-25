@@ -24,7 +24,25 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
             <div id="bms_chat_header">
                 <div id="bms_chat_user_status">
                     <button type=”button” onclick="location.href='./talk_top.php'" class="btn">戻る</button>
-                    <div id="bms_status_icon"><img src="../user_image/main/<?=$reciver['icon_image']?>" class="talk_user_img"></div>
+                    <?php 
+                        if($reciver['gender_id']==='1'){
+                            // アイコンの枠の色を青色に
+                            echo '<div id="bms_status_icon">';
+                                echo '<img src="../user_image/main/'.$reciver['icon_image'].'" class="talk_user_img">';
+                            echo '</div>';
+
+                        }else if($reciver['gender_id']==='2'){
+                            // アイコンの枠の色を赤色に
+                            echo '<div id="bms_status_icon">';
+                                echo '<img src="../user_image/main/'.$reciver['icon_image'].'" class="talk_user_img">';
+                            echo '</div>';
+                        }else{
+                            // アイコンの枠の色を灰色に
+                            echo '<div id="bms_status_icon">';
+                                echo '<img src="../user_image/main/'.$reciver['icon_image'].'" class="talk_user_img">';
+                            echo '</div>';
+                        }
+                    ?>
                     <div id="bms_chat_user_name"><?=$reciver['user_name']?></div>
                     <?php
                     $pdo=new PDO($connect,USER,PASS);
