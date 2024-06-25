@@ -1,7 +1,8 @@
-<!-- update用 -->
-<?php require '../db-connect.php';?>
 <?php
+session_start();
+require '../db-connect.php';
 $pdo=new PDO($connect,USER,PASS);
+// update用
 try{
     if(isset($_POST['btn'])&&$_POST['btn']==='submit'){
         
@@ -11,12 +12,11 @@ try{
 
         $subImg = array("subImage1", "subImage2", "subImage3");
 
-        $fileName_main = basename($_FILES['icon']['name']);//登録したいファイルの名前
-        $path = $main . $fileName_main;//二つをドッキング
-        $fileType_main = pathinfo($path,PATHINFO_EXTENSION);
-            
         // アイコンをサーバーのフォルダに送信
         if(!empty($_FILES['icon']['name'])){
+            $fileName_main = basename($_FILES['icon']['name']);//登録したいファイルの名前
+            $path = $main . $fileName_main;//二つをドッキング
+            $fileType_main = pathinfo($path,PATHINFO_EXTENSION);
             $allowTypes = array('jpg','png','jpeg','gif');
             if(in_array($fileType,$allowTypes)){
                 if(move_uploaded_file($_FILES['icon']['tmp_name'],"../". $path)){
@@ -90,7 +90,7 @@ try{
     
         $select='select user_id from user where user_id=?';
         $id = $pdo->prepare($select);
-        $id->execute($_SESSION['user']['id']);
+        $id->execute([$_SESSION['user']['id']]);
 
         // 全てのサブ写真が設定されている場合
         if($_POST['subPhoto1']&&$_POST['subPhoto2']&&$_POST['subPhoto3']){

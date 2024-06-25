@@ -22,11 +22,11 @@ try{
     $sql->execute($data);
     $pdo=null;
 
-    if(!check_relation_talk($user_id,$reciver_id)){
-        $member_add='insert into talk_member(sender_id,reciver_id) values (?,?)';
-        $sql=$pdo->prepare($member_add);
-        $sql->execute([$user_id,$reciver_id]);
-    }
+    // if(!check_relation_talk($user_id,$reciver_id)){
+    //     $member_add='insert into talk_member(sender_id,reciver_id) values (?,?)';
+    //     $sql=$pdo->prepare($member_add);
+    //     $sql->execute([$user_id,$reciver_id]);
+    // }
     // ブロックしたかどうかの判定
     if(isset($_POST['check'])&&$_POST['check']===1){
         $block='insert into block values(null,?,?)';
