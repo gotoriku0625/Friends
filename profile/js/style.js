@@ -1,6 +1,28 @@
+// profile.js
 
-function Change(inputId, imageId) {
-    document.getElementById(inputId).addEventListener('change', function(event) {
+function uploadIcon() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.onchange = e => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = event => {
+                const icon = document.getElementById('profileIcon');
+                icon.src = event.target.result;
+                icon.style.display = 'block'; // アイコンを表示
+                icon.parentElement.style.backgroundColor = 'transparent'; // 背景を透明に
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+    input.click();
+}
+
+function uploadSubImage(inputId, imageId) {
+    const fileInput = document.getElementById(inputId);
+    fileInput.addEventListener('change', function(event) {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
@@ -14,14 +36,7 @@ function Change(inputId, imageId) {
     });
 }
 
-// 以下のように呼び出しを修正
-Change('iconInput', 'profileIcon');
-Change('subImageInput1', 'subImage1');
-Change('subImageInput2', 'subImage2');
-Change('subImageInput3', 'subImage3');
-
-
-/* サブウィンドウの表示と非表示 */
+// サブウィンドウの表示と非表示
 function openSubWindow() {
     document.querySelector('.bg_sub_window').style.visibility = 'visible';
     document.querySelector('.bg_sub_window').style.opacity = '1';
