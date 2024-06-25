@@ -82,7 +82,9 @@
         
             <div class="form-group">
                 <label for="username">ユーザー名</label>
-                <input type="text" id="username" name="username">
+                <?php
+                echo '<input type="text" id="username" name="username" value="'.$_SESSION['user']['name'].'">';
+                ?>
             </div>
             <div class="form-group">
                 <label for="selfIntro">自己紹介</label>
