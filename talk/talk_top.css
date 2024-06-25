@@ -44,6 +44,8 @@ hr{
     width: 77px;
     height: 77px;
     border-radius: 50%;
+    left: 1%;
+    bottom: 1%;
 }
 
 .frame-blue{
