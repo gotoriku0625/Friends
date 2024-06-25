@@ -41,11 +41,11 @@ hr{
 
 .talk_user_img{
     position: relative;
-    width: 77px;
-    height: 77px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
-    left: 1%;
-    bottom: 1%;
+    left: 2%;
+    bottom: 3%;
 }
 
 .frame-blue{
