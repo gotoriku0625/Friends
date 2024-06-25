@@ -12,6 +12,7 @@
         // おすすめ
         $sql=$pdo->prepare('select profile.user_id,icon_image,user_name,gender_name,age from user,profile,hobby,gender
                             where profile.hobby_id=hobby.hobby_id
+                            and user.user_id = profile.user_id
                             and gender.gender_id=profile.gender_id
                             and profile.user_id<>?
                             and profile.hobby_id=?
