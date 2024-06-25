@@ -31,7 +31,16 @@
                         echo '<form method="post" action="talk2.php">';
                         echo '<button class="" type=submit name="submit">';
                             echo '<div class="reciver_list">';
-                                echo '<img src="../user_image/main/'.$reciver['icon_image'].'" class="talk_user_img">';
+                                // 性別によってアイコン枠の色を変更
+                                    if($reciver['gender_name'] === '男性'){
+                                        echo '<div class="frame-blue">';
+                                    }else if($reciver['gender_name'] === '女性'){
+                                        echo '<div class="frame-pink">';
+                                    }else{
+                                        echo '<div class="frame-gray">';
+                                    }
+                                        echo '<a href="../profile/profile-user.php"><img src="../user_image/main/'.$reciver['icon_image'].'" class="talk_user_img"></a>';
+                                        echo '</div>';
                                     echo '<div class="reciver_info">';
                                     echo '<input type="hidden" name="reciver_id" value="'.$reciver['user_id'].'">';
                                         echo '<div class="reciver_namea_age">'.$reciver['user_name'].'('.$reciver['age'].')</div>';
