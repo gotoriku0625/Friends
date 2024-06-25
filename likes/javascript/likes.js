@@ -47,7 +47,17 @@ function likeUser(userId) {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 console.log(xhr.responseText);
-                // 必要に応じてUIを更新
+                const response = JSON.parse(xhr.responseText);
+                alert(response.message); // メッセージを表示
+
+                // 必要に応じてUIを更新または遷移
+                if (response.status === 'success') {
+                    // 成功時に遷移するページにリダイレクト
+                    window.location.href = '../matchs/match-result.php'; // ここに遷移先のURLを指定
+                } else {
+                    // エラー時の処理（必要に応じてUIを更新）
+                    console.error(response.message);
+                }
             } else {
                 console.error('いいね処理に失敗しました');
             }
