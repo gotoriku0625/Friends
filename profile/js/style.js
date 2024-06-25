@@ -18,7 +18,6 @@ function uploadIcon() {
     input.click();
 }
 
-/* サブ写真アップロード機能 */
 function Change(inputId, imageId) {
     document.getElementById(inputId).addEventListener('change', function(event) {
         const file = event.target.files[0];
@@ -33,10 +32,13 @@ function Change(inputId, imageId) {
         }
     });
 }
-Change('iconInput', 'icon');
+
+// 以下のように呼び出しを修正
+Change('iconInput', 'profileIcon');
 Change('subImageInput1', 'subImage1');
 Change('subImageInput2', 'subImage2');
 Change('subImageInput3', 'subImage3');
+
 
 /* サブウィンドウの表示と非表示 */
 function openSubWindow() {
