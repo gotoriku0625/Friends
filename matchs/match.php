@@ -40,7 +40,12 @@ try {
         $stmt_user_name->execute([$liked_user_id]);
         $user_name = $stmt_user_name->fetchColumn();
 
-        echo json_encode(['status' => 'success', 'message' => $user_name . 'さんとマッチングしましたよ']);
+        // マッチング成功メッセージの表示
+        $_SESSION['match_message'] = $user_name . 'さんとマッチングしましたよ';
+        $_SESSION['reciver_id'] = $liked_user_id;
+
+        header("Location: match_success.php");
+        exit;
     } else {
         echo json_encode(['status' => 'success', 'message' => 'いいねを送りました']);
     }
