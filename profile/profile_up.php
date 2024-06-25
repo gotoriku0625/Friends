@@ -41,56 +41,39 @@
             //明日はここから
             foreach($sql as $user){
                 echo<<<EOF
-                 <div class="icon-section">
-                    <span>アイコンの変更</span>
-                    <div class="icon-container">
-                        <img id="profileIcon" src="../user_image/main/{$user['icon_image']}" alt="プロフィールアイコン" value="main">
-                        <label for="iconInput" class="plus">+</label>
-                        <input type="file" id="profileIcon" name="icon" accept="image/*" style="display: none;">
-                    </div>
-                </div>
+                    <div class="icon-section">
+                            <span>アイコンの変更</span>
+                            <div class="icon-container">
+                                <img id="profileIcon" src="../user_image/main/{$user['icon_image']}" alt="プロフィールアイコン">
+                                <label for="iconInput" class="plus">+</label>
+                                <input type="file" id="iconInput" name="icon" accept="image/*" style="display: none;">
+                            </div>
+                        </div>
 
-                <!-- <div class="sub-photo-section">
-                    <span>サブ写真</span>
-                    <div class="sub-photos">
-                        <div class="sub-photo-container">
-                            <img id="subPhoto1" src=alt="サブ写真1" name="subPhoto1" >
-                        </div>
-                        <div class="sub-photo-container">
-                            <img id="subPhoto2" src="placeholder.png" alt="サブ写真2" name="subPhoto2">
-                        </div>
-                        <div class="sub-photo-container">
-                            <img id="subPhoto3" src="placeholder.png" alt="サブ写真3" name="subPhoto3">
-                        </div>
-                        <span class="plus" onclick="uploadSubPhotos()">＋</span>
-                    </div>
-                </div> -->
-
-                <p>サブ写真</p>
-                <div class="sub-images">
-                    <div class="sub-image-wrapper">
-                        <div class="sub-square" id="subImageContainer1">
-                            <img id="subImage1" src="../user_image/sub/{$user['sub_a_image']}"  alt="サブ写真1">
-                        </div>
-                        <label for="subImageInput1" class="subImagePut">+</label>
-                        <input type="file" id="subImageInput1" name="subImage1" accept="image/*" style="display: none;">
-                    </div>
-                    <div class="sub-image-wrapper">
-                        <div class="sub-square" id="subImageContainer2">
-                            <img id="subImage2" src="../user_image/sub/{$user['sub_b_image']}" alt="サブ写真2">
-                        </div>
-                        <label for="subImageInput2" class="subImagePut">+</label>
-                        <input type="file" id="subImageInput2" name="subImage2" accept="image/*" style="display: none;">
-                    </div>
-                    <div class="sub-image-wrapper">
-                        <div class="sub-square" id="subImageContainer3">
-                            <img id="subImage3" src="../user_image/sub/{$user['sub_c_image']}" alt="サブ写真3">
-                        </div>
-                        <label for="subImageInput3" class="subImagePut">+</label>
-                        <input type="file" id="subImageInput3" name="subImage3" accept="image/*" style="display: none;">
-                    </div>
-                </div>
-
+                        <p>サブ写真</p>
+                        <div class="sub-images">
+                            <div class="sub-image-wrapper">
+                                <div class="sub-square" id="subImageContainer1">
+                                    <img id="subImage1" src="../user_image/sub/{$user['sub_a_image']}" alt="サブ写真1">
+                                </div>
+                                <label for="subImageInput1" class="subImagePut">+</label>
+                                <input type="file" id="subImageInput1" name="subImage1" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="sub-image-wrapper">
+                                <div class="sub-square" id="subImageContainer2">
+                                    <img id="subImage2" src="../user_image/sub/{$user['sub_b_image']}" alt="サブ写真2">
+                                </div>
+                                <label for="subImageInput2" class="subImagePut">+</label>
+                                <input type="file" id="subImageInput2" name="subImage2" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="sub-image-wrapper">
+                                <div class="sub-square" id="subImageContainer3">
+                                    <img id="subImage3" src="../user_image/sub/{$user['sub_c_image']}" alt="サブ写真3">
+                                </div>
+                                <label for="subImageInput3" class="subImagePut">+</label>
+                                <input type="file" id="subImageInput3" name="subImage3" accept="image/*" style="display: none;">
+                            </div>
+                     </div>
                 
                     <div class="form-group">
                         <label for="username">ユーザー名</label>
