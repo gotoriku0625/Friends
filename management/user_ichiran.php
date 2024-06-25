@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-<link rel="stylesheet" href="css/user_ichiran.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/user_ichiran.css">
     <title>ユーザー一覧</title>
-    <style>
-        /* 必要なCSSスタイルをここに記述 */
-    </style>
 </head>
 
 <body>
@@ -36,9 +33,10 @@
             <?php
             // ユーザー情報を取得するクエリ
             $user_query = "
-                SELECT u.user_name, u.mail, p.gender, p.age
+                SELECT u.user_id, u.user_name, u.mail, g.gender_name AS gender, p.age
                 FROM user u
                 INNER JOIN profile p ON u.user_id = p.user_id
+                INNER JOIN gender g ON p.gender_id = g.gender_id
             ";
 
             // クエリ実行
@@ -51,16 +49,16 @@
                 echo "<td>" . htmlspecialchars($row['mail']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['age']) . "歳</td>";
-                echo '<td><a href="../profile/profile-user.php">プロフィールへ</a></td>';
+                echo '<td><a href="../profile/profile-user.php?id=' . $row['user_id'] . '">プロフィールへ</a></td>'; // ユーザーIDを使用してリンク先を個別化
                 echo "</tr>";
             }
             ?>
         </tbody>
     </table>
+
+    <?php
+    // データベース接続解除
+    $pdo = null;
+    ?>
 </body>
 </html>
-
-<?php
-// データベース接続解除
-$pdo = null;
-?>

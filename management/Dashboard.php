@@ -1,13 +1,16 @@
 <?php require '../header.php';?>
-    <!-- ↓ここにＣＳＳを追加↓ -->
-    <link rel="stylesheet" href="./top.css">
-    <title>Friends Top</title>
+<!-- ↓ここにＣＳＳを追加↓ -->
+<link rel="stylesheet" href="./top.css">
+<title>Friends Top</title>
 </head>
 
 <body>
 <?php require '../m_menu/m_menu.php';?>
 
-<?php $pdo = new PDO($connect, USER, PASS);
+
+<?php
+// データベース接続
+$pdo = new PDO($connect, USER, PASS);
 try {
     // ユーザー数を取得
     $user_count_sql = "SELECT COUNT(*) as count FROM user";
@@ -15,7 +18,9 @@ try {
     $user_count = $user_stmt->fetchColumn();
 
     // 性別ごとのユーザー数を取得
-    $gender_count_sql = "SELECT gender, COUNT(*) as count FROM profile GROUP BY gender";
+    $gender_count_sql = "SELECT g.gender_name AS gender, COUNT(*) as count FROM profile p
+                         INNER JOIN gender g ON p.gender_id = g.gender_id
+                         GROUP BY p.gender_id";
     $gender_stmt = $pdo->query($gender_count_sql);
 
     $gender_counts = [
@@ -53,15 +58,29 @@ try {
     <title>ダッシュボード</title>
 </head>
 <body>
+<div class="container">
     <h1>ダッシュボード</h1>
-    <p>ユーザー数：<?php echo $user_count; ?></p>
-    <p>男性：<?php echo $gender_counts['男性']; ?></p>
-    <p>女性：<?php echo $gender_counts['女性']; ?></p>
-    <p>その他：<?php echo $gender_counts['その他']; ?></p>
-    <a href="user_ichiran.php">ユーザー一覧へ</a>
-    
-    <p>通報数：<?php echo $report_count; ?></p>
-    <a href="tuuhou_ichiran.php">通報一覧へ</a>
-    <p>ブロック数：<?php echo $block_count; ?></p>
+    <div class="dashboard-item">
+        <p>ユーザー数：<?php echo $user_count; ?></p>
+        <p>男性：<?php echo $gender_counts['男性']; ?></p>
+        <p>女性：<?php echo $gender_counts['女性']; ?></p>
+        <p>その他：<?php echo $gender_counts['その他']; ?></p>
+        <a href="user_ichiran.php">ユーザー一覧へ</a>
+    </div>
+
+    <div class="dashboard-item">
+        <p>通報数：<?php echo $report_count; ?></p>
+        <a href="tuuhou_ichiran.php">通報一覧へ</a>
+    </div>
+
+    <div class="dashboard-item">
+        <p>ブロック数：<?php echo $block_count; ?></p>
+    </div>
+</div>
 </body>
 </html>
+
+<?php
+// データベース接続解除
+$pdo = null;
+?>
