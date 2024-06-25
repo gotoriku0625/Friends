@@ -12,12 +12,11 @@ try{
 
         $subImg = array("subImage1", "subImage2", "subImage3");
 
-        $fileName_main = basename($_FILES['icon']['name']);//登録したいファイルの名前
-        $path = $main . $fileName_main;//二つをドッキング
-        $fileType_main = pathinfo($path,PATHINFO_EXTENSION);
-            
         // アイコンをサーバーのフォルダに送信
         if(!empty($_FILES['icon']['name'])){
+            $fileName_main = basename($_FILES['icon']['name']);//登録したいファイルの名前
+            $path = $main . $fileName_main;//二つをドッキング
+            $fileType_main = pathinfo($path,PATHINFO_EXTENSION);
             $allowTypes = array('jpg','png','jpeg','gif');
             if(in_array($fileType,$allowTypes)){
                 if(move_uploaded_file($_FILES['icon']['tmp_name'],"../". $path)){

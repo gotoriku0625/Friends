@@ -9,13 +9,12 @@
         $sub = 'user_image/sub/';
 
         $subImg = array("subPhoto1", "subPhoto2", "subPhoto3");
-
-        $fileName_main = basename($_FILES['profileIcon']['name']);//登録したいファイルの名前
-        $path = $main . $fileName_main;//二つをドッキング
-        $fileType_main = pathinfo($path,PATHINFO_EXTENSION);
             
         // アイコンをサーバーのフォルダに送信
         if(!empty($_FILES['profileIcon']['name'])){
+            $fileName_main = basename($_FILES['profileIcon']['name']);//登録したいファイルの名前
+            $path = $main . $fileName_main;//二つをドッキング
+            $fileType_main = pathinfo($path,PATHINFO_EXTENSION);
             $allowTypes = array('jpg','png','jpeg','gif');
             if(in_array($fileType,$allowTypes)){
                 if(move_uploaded_file($_FILES['profileIcon']['tmp_name'],"../". $path)){
