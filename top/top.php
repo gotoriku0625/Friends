@@ -14,9 +14,10 @@
                             where profile.hobby_id=hobby.hobby_id
                             and gender.gender_id=profile.gender_id
                             and user.user_id<>?
+                            and profile.hobby_id=?
                             order by user.user_id
                             limit 10');
-        $sql->execute(array($_SESSION['user']['id']));
+        $sql->execute(array($_SESSION['user']['id'],$_SESSION['user']['hobby']));
         echo '<h2>おすすめ</h2>';
         echo '<div class="recommendation">';
         foreach($sql as $row){
