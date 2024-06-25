@@ -1,6 +1,6 @@
 <?php
 require '../header.php';
-require '../menu/menu.php'; // menu must be included inside the body tag
+require '../menu/menu.php'; // メニューはbodyタグの中に絶対に入れるように
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -13,15 +13,15 @@ require '../menu/menu.php'; // menu must be included inside the body tag
 <body>
     <div class="container">
         <p class="title">プロフィール</p>
-        <!-- Logout button -->
+        <!-- ログアウトボタン -->
         <div class="open_sub_window_wrapper">
             <form action="../logout/logout.php" method="post">
                 <button type="button" class="open_sub_window" onclick="openSubWindow()">ログアウト</button>
             </form>
         </div>
-        <!-- Sub window background (click to close sub window) -->
+        <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
         <div class="bg_sub_window" onclick="closeSubWindow()">
-            <!-- Sub window content -->
+            <!-- サブウィンドウの内容 -->
             <div class="sub_window" onclick="event.stopPropagation()">
                 <div class="sub_window_content">
                     <form action="../logout/logout.php" method="post">
@@ -32,7 +32,7 @@ require '../menu/menu.php'; // menu must be included inside the body tag
             </div>
         </div>
         <hr>
-        <!-- Form elements -->
+        <!-- フォーム要素 -->
         <form action="./profile-upout.php" method="post" enctype="multipart/form-data">
             <?php
             $pdo = new PDO($connect, USER, PASS);

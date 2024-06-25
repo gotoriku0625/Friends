@@ -39,6 +39,7 @@ Change('subImageInput1', 'subImage1');
 Change('subImageInput2', 'subImage2');
 Change('subImageInput3', 'subImage3');
 
+
 /* サブウィンドウの表示と非表示 */
 function openSubWindow() {
     document.querySelector('.bg_sub_window').style.visibility = 'visible';
