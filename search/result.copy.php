@@ -1,4 +1,4 @@
-<?php require '../header.php'; ?>
+<?php require '../header.php';?>
 
 <title>検索結果</title>
 </head>
@@ -17,6 +17,7 @@
 </head>
 <body>
    
+    
     <div class="main">
         <h1>検索結果</h1>
         <?php
@@ -34,9 +35,8 @@
             $hobby = isset($_GET['selected_hobby_id']) ? $_GET['selected_hobby_id'] : null;
 
             // SQLクエリの構築
-            $sql = "SELECT profile.*, user.user_name, gender.gender_name FROM profile
+            $sql = "SELECT profile.*, user.user_name FROM profile
                     JOIN user ON profile.user_id = user.user_id
-                    JOIN gender ON profile.gender_id = gender.gender_id
                     WHERE 1=1";
             $params = [];
 
@@ -80,19 +80,19 @@
                 }
             }
             if ($gender) {
-                $sql .= " AND profile.gender_id IN (" . implode(',', array_map('intval', $gender)) . ")";
+                $sql .= " AND gender_id IN (" . implode(',', array_map('intval', $gender)) . ")";
             }
             if ($residence) {
-                $sql .= " AND profile.residence_id IN (" . implode(',', array_map('intval', $residence)) . ")";
+                $sql .= " AND residence_id IN (" . implode(',', array_map('intval', $residence)) . ")";
             }
             if ($school) {
-                $sql .= " AND profile.school_id IN (" . implode(',', array_map('intval', $school)) . ")";
+                $sql .= " AND school_id IN (" . implode(',', array_map('intval', $school)) . ")";
             }
             if ($hobby) {
-                $sql .= " AND profile.hobby_id IN (" . implode(',', array_map('intval', $hobby)) . ")";
+                $sql .= " AND hobby_id IN (" . implode(',', array_map('intval', $hobby)) . ")";
             }
 
-            $sql .= " ORDER BY profile.age ASC";
+            $sql .= " ORDER BY age ASC";
 
             // SQLを実行
             $stmt = $pdo->prepare($sql);
@@ -102,30 +102,20 @@
         ?>
 
         <?php if (!empty($results)): ?>
-            <ul class="recommendation2">
+            <ul>
                 <?php foreach ($results as $profile): ?>
-                    <li class="user-set2">
-                        <?php if((int)$profile['gender_id'] === 1): // 男性 ?>
-                            <div class="frame-blue2">
-                        <?php elseif((int)$profile['gender_id'] === 2): // 女性 ?>
-                            <div class="frame-pink2">
-                        <?php else: // その他 ?>
-                            <div class="frame-gray2">
-                        <?php endif; ?>
-                        <a href="../profile/profile-user.php">
-                            <img src="../user_image/main/<?php echo htmlspecialchars($profile['icon_image']); ?>" alt="icon" class="standard-icon">
+                    <li>
+                        <a href="../profile/profile-user.html">
+                            <img src="<?php echo htmlspecialchars($profile['icon_image']); ?>" alt="icon" class="icon <?php echo htmlspecialchars($profile['gender_id']); ?>">
+                            <?php echo htmlspecialchars($profile['user_name']); ?><?php echo " (" . htmlspecialchars($profile['age']) . ")"; ?>
                         </a>
-                        </div>
-                        <div class="nick_name2">
-                            <?php echo htmlspecialchars($profile['user_name']); ?>
-                            (<?php echo htmlspecialchars($profile['age']); ?>)
-                        </div>
                     </li>
                 <?php endforeach; ?>
             </ul>
         <?php else: ?>
             <p>検索結果がありません。</p>
         <?php endif; ?>
+        <a href="search.php" class="center">検索フォームに戻る</a>
     </div>
 </body>
 </html>
