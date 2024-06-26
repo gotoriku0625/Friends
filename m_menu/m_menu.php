@@ -5,7 +5,8 @@
         </div>
         <?php
 
-            $icon = $_SESSION['management_user']['icon'];
+           // $icon = 
+            $_SESSION['management_user']['icon'];
         
             
 
