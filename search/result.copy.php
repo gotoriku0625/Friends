@@ -1,4 +1,4 @@
-<?php require '../header.php'; ?>
+<?php require '../header.php';?>
 
 <title>検索結果</title>
 </head>
@@ -17,6 +17,7 @@
 </head>
 <body>
    
+    
     <div class="main">
         <h1>検索結果</h1>
         <?php
@@ -104,16 +105,8 @@
             <ul>
                 <?php foreach ($results as $profile): ?>
                     <li>
-                        <a href="../profile/profile-user.php">
-                            <?php if((int)$profile['gender_id'] === 1): // 男性 ?>
-                                <div class="frame-blue">
-                            <?php elseif((int)$profile['gender_id'] === 2): // 女性 ?>
-                                <div class="frame-pink">
-                            <?php else: // その他 ?>
-                                <div class="frame-gray">
-                            <?php endif; ?>
-                            <img src="../user_image/main/<?php echo htmlspecialchars($profile['icon_image']); ?>" alt="icon" class="best-icon">
-                            </div>
+                        <a href="../profile/profile-user.html">
+                            <img src="<?php echo htmlspecialchars($profile['icon_image']); ?>" alt="icon" class="icon <?php echo htmlspecialchars($profile['gender_id']); ?>">
                             <?php echo htmlspecialchars($profile['user_name']); ?><?php echo " (" . htmlspecialchars($profile['age']) . ")"; ?>
                         </a>
                     </li>
