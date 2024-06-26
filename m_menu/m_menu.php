@@ -4,16 +4,7 @@
             <a href="../top/top.php"><img src="../image/logo.png" class="logo"></a>
         </div>
         <?php
-
-        if (isset($array['management_user'])) {
-    // 配列キーが存在する場合のみアクセスする
-        $value = $array['management_user'];
-        } else {
-    // 配列キーが存在しない場合の処理
-        $value = null; // 必要に応じて適切なデフォルト値を設定
-        }
-
-
+        var_dump($_SESSION)
            $icon = $_SESSION['management_user']['icon'];
         
             
