@@ -1,5 +1,3 @@
-// likes.js
-
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.actions button.unlike').forEach(button => {
         button.addEventListener('click', function() {
@@ -20,15 +18,22 @@ function unlikeUser(userId, button) {
     console.log("削除:", userId);
 
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '../likes/unlike.php'); // いいね削除を処理するPHPファイルへのパスを指定
+    xhr.open('POST', '../likes/unlike.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                console.log(xhr.responseText);
-                // UIの更新
-                const userItem = button.closest('.flex');
-                userItem.remove();
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.status === 'success') {
+                        const userItem = button.closest('.flex');
+                        userItem.remove();
+                    } else {
+                        console.error(response.message);
+                    }
+                } catch (error) {
+                    console.error('レスポンスの解析に失敗しました:', error);
+                }
             } else {
                 console.error('いいね削除処理に失敗しました');
             }
@@ -41,22 +46,22 @@ function likeUser(userId) {
     console.log("いいね:", userId);
 
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '../matchs/match.php'); // いいねを処理するPHPファイルへのパスを指定
+    xhr.open('POST', '../matchs/match.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                console.log(xhr.responseText);
-                const response = JSON.parse(xhr.responseText);
-                alert(response.message); // メッセージを表示
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    alert(response.message);
 
-                // 必要に応じてUIを更新または遷移
-                if (response.status === 'success') {
-                    // 成功時に遷移するページにリダイレクト
-                    window.location.href = '../matchs/match-result.php'; // ここに遷移先のURLを指定
-                } else {
-                    // エラー時の処理（必要に応じてUIを更新）
-                    console.error(response.message);
+                    if (response.status === 'success') {
+                        window.location.href = '../matchs/match_success.php';
+                    } else {
+                        console.error(response.message);
+                    }
+                } catch (error) {
+                    console.error('レスポンスの解析に失敗しました:', error);
                 }
             } else {
                 console.error('いいね処理に失敗しました');
