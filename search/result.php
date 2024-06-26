@@ -16,9 +16,7 @@
     <title>検索結果</title>
 </head>
 <body>
-    <div class="menu">
-        <!-- 必要に応じてメニューを追加 -->
-    </div>
+   
     
     <div class="main">
         <h1>検索結果</h1>
