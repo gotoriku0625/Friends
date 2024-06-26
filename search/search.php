@@ -58,15 +58,15 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
             <div id="age" class="tab-content">
                 <label for="age">年齢:</label><br>
                 <input type="checkbox" id="age_18" name="age[]" value="18">
-                <label for="age_18">18</label><br>
+                <label for="age_18">18歳</label><br>
                 <input type="checkbox" id="age_19" name="age[]" value="19">
-                <label for="age_19">19</label><br>
+                <label for="age_19">19歳</label><br>
                 <input type="checkbox" id="age_20" name="age[]" value="20">
-                <label for="age_20">20</label><br>
+                <label for="age_20">20歳</label><br>
                 <input type="checkbox" id="age_21" name="age[]" value="21">
-                <label for="age_21">21</label><br>
+                <label for="age_21">21歳</label><br>
                 <input type="checkbox" id="age_22" name="age[]" value="22">
-                <label for="age_22">22</label><br>
+                <label for="age_22">22歳</label><br>
                 <input type="checkbox" id="age_22_plus" name="age[]" value="22_plus">
                 <label for="age_22_plus">23歳~29歳</label><br>
                 <input type="checkbox" id="age_30s" name="age[]" value="30s">
