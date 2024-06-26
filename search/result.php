@@ -1,6 +1,6 @@
 <?php require '../header.php';?>
 <link rel="stylesheet" href="./top.css">
-<link rel="stylesheet" href../menu/menu.css">
+<link rel="stylesheet" href="../menu/menu.css">
 <link rel="stylesheet" href="result.css">
 <title>検索結果</title>
 </head>
