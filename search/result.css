@@ -1,115 +1,47 @@
-.recommendation{
+.recommendation2 {
     display: flex;
-}
-.recommendation2{
-    position: relative;
-    display: flex;
+    justify-content: flex-start; /* 左寄せ */
     flex-wrap: wrap;
+    gap: 20px; /* アイコン間の間隔 */
 }
 
-.nick_name1{
-    font-size: 18px;
-    width: fit-content;
+.user-set2 {
+    position: relative;
+    margin-bottom: 20px; /* アイコンセット間の間隔 */
     text-align: center;
-    font-family: mameron;
+    width: 140px; /* アイコンセットの幅 */
 }
 
-.nick_name2{
-    font-size: 22px;
-    width: fit-content;
-    text-align: center;
-    font-family: mameron;
-}
-
-h2{
-    margin-top: 2%;
-    margin-left: 3%;
-    margin-bottom: 2%;
-}
-
-hr{
-    color: rgb(151, 255, 220);
-}
-
-.best-icon{
-    position: relative;
-    border-radius: 50%;
-    width: 71px;
-    height: 71px;
-    left: 4.6px;
-    top: 2.4px;
-    z-index: 2;
-}
-
-.user-set{
-    position: relative;
-    margin-left: 2.2%;
-}
-.user-set2{
-    position: relative;
-    margin: 3%;
-    height: 160px;
-    width: 140px;
-}
-
-.frame-blue{
-    position: relative;
-    background: radial-gradient(circle, transparent 65%, #613dffbb 15%);
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    z-index: 1;
-}
-.frame-pink{
-    position: relative;
-    background: radial-gradient(circle, transparent 65%, #ff5691be 20%);
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    z-index: 1;
-}
-.frame-gray{
-    position: relative;
-    background: radial-gradient(circle, transparent 65%, #626262bf 20%);
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.standard-icon{
+.standard-icon {
     position: relative;
     border-radius: 50%;
     width: 100px;
     height: 100px;
-    left: 5px;
-    top: 2px;
 }
 
-.frame-blue2{
+.frame-blue2 {
     position: relative;
     background: radial-gradient(circle, transparent 65%, #613dffbb 15%);
     width: 110px;
     height: 110px;
-    left: 5px;
     border-radius: 50%;
     z-index: 1;
 }
-.frame-pink2{
+
+.frame-pink2 {
     position: relative;
     background: radial-gradient(circle, transparent 65%, #ff5691be 20%);
     width: 110px;
     height: 110px;
-    left: 5px;
     border-radius: 50%;
     z-index: 1;
 }
-.frame-gray2{
+
+.frame-gray2 {
     position: relative;
     background: radial-gradient(circle, transparent 65%, #626262bf 20%);
     width: 110px;
     height: 110px;
-    left: 5px;
     border-radius: 50%;
     z-index: 1;
 }
