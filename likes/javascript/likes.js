@@ -35,7 +35,7 @@ function unlikeUser(userId, button) {
                     console.error('レスポンスの解析に失敗しました:', error);
                 }
             } else {
-                console.error('いいね削除処理に失敗しました');
+                console.error('いいね削除処理に失敗しました:', xhr.status, xhr.statusText);
             }
         }
     };
@@ -64,7 +64,7 @@ function likeUser(userId) {
                     console.error('レスポンスの解析に失敗しました:', error);
                 }
             } else {
-                console.error('いいね処理に失敗しました');
+                console.error('いいね処理に失敗しました:', xhr.status, xhr.statusText);
             }
         }
     };
