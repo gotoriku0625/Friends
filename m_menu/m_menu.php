@@ -1,13 +1,10 @@
-<?php 
-session_start(); 
-require '../db-connect.php'; 
-?>
+
 <div class="menu">
         <div class="logo-space">
             <a href="../top/top.php"><img src="../image/logo.png" class="logo"></a>
         </div>
         <?php
-
+        var_dump($_SESSION)
            $icon = $_SESSION['management_user']['icon'];
         
             
