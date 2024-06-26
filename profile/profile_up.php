@@ -1,3 +1,4 @@
+
 <?php require '../header.php';?>
 <?php require '../menu/menu.php';?><!--menuはbodyタグの中に絶対に入れるように -->
 <title>プロフィール</title>
@@ -28,52 +29,50 @@
             </div>
         </div>
         <hr>
-        <!-- フォーム要素 -->
-        <form action="./profile-upout.php" method="post">
-        <?php
-        $pdo=new PDO($connect,USER,PASS);
-        $select='select * from user,profile where user.user_id = profile.user_id and profile.user_id=?';
-        $sql=$pdo->prepare($select);
-        $user_id=$_SESSION['user']['id'];
-        
-        if(isset($_SESSION['user']['id'])){
-            $sql->execute([$user_id]);
-            //明日はここから
-            foreach($sql as $user){
-                echo<<<EOF
-                    <div class="icon-section">
-                            <span>アイコンの変更</span>
-                            <div class="icon-container">
-                                <img id="profileIcon" src="../user_image/main/{$user['icon_image']}" alt="プロフィールアイコン">
-                                <label for="iconInput" class="plus">+</label>
-                                <input type="file" id="iconInput" name="icon" accept="image/*" style="display: none;">
-                            </div>
-                        </div>
+        <form action="./profile-upout.php" method="post" enctype="multipart/form-data">
+            <?php
+            $pdo = new PDO($connect, USER, PASS);
+            $select = 'select * from user, profile where user.user_id = profile.user_id and profile.user_id = ?';
+            $sql = $pdo->prepare($select);
+            $user_id = $_SESSION['user']['id'];
 
-                        <p>サブ写真</p>
-                        <div class="sub-images">
-                            <div class="sub-image-wrapper">
-                                <div class="sub-square" id="subImageContainer1">
-                                    <img id="subImage1" src="../user_image/sub/{$user['sub_a_image']}" alt="サブ写真1">
-                                </div>
-                                <label for="subImageInput1" class="subImagePut">+</label>
-                                <input type="file" id="subImageInput1" name="subImage1" accept="image/*" style="display: none;">
+            if (isset($_SESSION['user']['id'])) {
+                $sql->execute([$user_id]);
+                foreach ($sql as $user) {
+                    echo <<<EOF
+                    <div class="icon-section">
+                        <span>アイコンの変更</span>
+                        <div class="icon-container">
+                            <img id="profileIcon" src="../user_image/main/{$user['icon_image']}" alt="プロフィールアイコン">
+                            <label for="iconInput" class="plus" onclick="uploadIcon()">+</label>
+                            <input type="file" id="iconInput" name="icon" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+
+                    <p>サブ写真</p>
+                    <div class="sub-images">
+                        <div class="sub-image-wrapper">
+                            <div class="sub-square" id="subImageContainer1">
+                                <img id="subImage1" src="../user_image/sub/{$user['sub_a_image']}" alt="サブ写真1">
                             </div>
-                            <div class="sub-image-wrapper">
-                                <div class="sub-square" id="subImageContainer2">
-                                    <img id="subImage2" src="../user_image/sub/{$user['sub_b_image']}" alt="サブ写真2">
-                                </div>
-                                <label for="subImageInput2" class="subImagePut">+</label>
-                                <input type="file" id="subImageInput2" name="subImage2" accept="image/*" style="display: none;">
+                            <label for="subImageInput1" class="subImagePut" onclick="uploadSubImage('subImageInput1', 'subImage1')">+</label>
+                            <input type="file" id="subImageInput1" name="subImage1" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="sub-image-wrapper">
+                            <div class="sub-square" id="subImageContainer2">
+                                <img id="subImage2" src="../user_image/sub/{$user['sub_b_image']}" alt="サブ写真2">
                             </div>
-                            <div class="sub-image-wrapper">
-                                <div class="sub-square" id="subImageContainer3">
-                                    <img id="subImage3" src="../user_image/sub/{$user['sub_c_image']}" alt="サブ写真3">
-                                </div>
-                                <label for="subImageInput3" class="subImagePut">+</label>
-                                <input type="file" id="subImageInput3" name="subImage3" accept="image/*" style="display: none;">
+                            <label for="subImageInput2" class="subImagePut" onclick="uploadSubImage('subImageInput2', 'subImage2')">+</label>
+                            <input type="file" id="subImageInput2" name="subImage2" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="sub-image-wrapper">
+                            <div class="sub-square" id="subImageContainer3">
+                                <img id="subImage3" src="../user_image/sub/{$user['sub_c_image']}" alt="サブ写真3">
                             </div>
-                     </div>
+                            <label for="subImageInput3" class="subImagePut" onclick="uploadSubImage('subImageInput3', 'subImage3')">+</label>
+                            <input type="file" id="subImageInput3" name="subImage3" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
                 
                     <div class="form-group">
                         <label for="username">ユーザー名</label>
