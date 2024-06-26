@@ -15,7 +15,7 @@
                 //$username = $_SESSION['m_user_id'];
                 //$username = $_SESSION['m_user_name'];
                 // $username = "sample";
-                echo '<div class="name">',$username,'</div>';
+                //echo '<div class="name">',$username,'</div>';
         ?>
 
 
