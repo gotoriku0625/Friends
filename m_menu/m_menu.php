@@ -5,15 +5,15 @@
         </div>
         <?php
 
-            $icon = $_SESSION['management_user']['icon'];
+            //$icon = $_SESSION['management_user']['icon'];
         
             
 
                 // 出力UI確認用に一時置き返してます（後で戻す予定）
                 // $icon = "logo.png";
                 // 出力UI確認用に一時置き返してます（後で戻す予定）
-                $username = $_SESSION['m_user_id'];
-                $username = $_SESSION['m_user_name'];
+                //$username = $_SESSION['m_user_id'];
+                //$username = $_SESSION['m_user_name'];
                 // $username = "sample";
                 echo '<div class="name">',$username,'</div>';
         ?>
