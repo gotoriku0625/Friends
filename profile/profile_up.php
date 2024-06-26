@@ -1,4 +1,3 @@
-
 <?php require '../header.php';?>
 <?php require '../menu/menu.php';?><!--menuはbodyタグの中に絶対に入れるように -->
 <title>プロフィール</title>
