@@ -70,8 +70,8 @@ setupImagePreview('subImageInput2', 'subImage2');
 setupImagePreview('subImageInput3', 'subImage3');
 
 // アイコンをアップロードするためのボタンのクリックイベントを設定
-document.querySelector('.plus').addEventListener('click', function(event) {
-    document.getElementById('iconInput').click();
-    // Prevent the default behavior to avoid any unintended effects
-    event.preventDefault();
-});
+// document.querySelector('.plus').addEventListener('click', function(event) {
+//     document.getElementById('iconInput').click();
+//     // Prevent the default behavior to avoid any unintended effects
+//     event.preventDefault();
+// });
