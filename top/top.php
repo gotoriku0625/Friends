@@ -1,5 +1,4 @@
 <?php require '../header.php';?>
-    <!-- ↓ここにＣＳＳを追加↓ -->
     <link rel="stylesheet" href="./top.css">
     <title>Friends Top</title>
 </head>

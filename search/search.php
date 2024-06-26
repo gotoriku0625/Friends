@@ -7,7 +7,6 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
 <head>
     <meta charset="UTF-8">
     <title>ユーザー検索</title>
-    <link rel="stylesheet" href="./top.css">
     <link rel="stylesheet" href="../menu/menu.css">
     <link rel="stylesheet" href="search.css">
 </head>
