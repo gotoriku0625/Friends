@@ -24,7 +24,7 @@
                     }
                     $bottom_talk = get_bottom_talk($current_user['user_id'],$reciver['user_id']);
                     echo '<div class="talk-head">';
-                    echo '<h1 class="h1-talk">トーク</s>';
+                    echo '<h1 class="h1-talk">トーク</h1>';
                     echo '<hr></div>';
                     echo '<div class="row">';
                         echo '<div class="col-8 offset-2">';
