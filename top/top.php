@@ -52,7 +52,7 @@
                             where profile.user_id<>?
                             order by RAND()
                             limit 30');
-        $sql->execute($_SESSION['user']['id']);
+        $sql->execute();
         echo '<hr>';
         echo '<div class="recommendation2">';
         foreach($sql as $row){
