@@ -36,9 +36,10 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
     $dataSchool = $stmtSchool->fetchAll();
     ?>
 
-    <div class="container">
+    
         <h1 class="h1-search">ユーザー検索</h1>
             <hr>
+    <div class="container">
         <form action="result.php" method="GET">
             <!-- ユーザー名検索フォーム -->
             <div>
