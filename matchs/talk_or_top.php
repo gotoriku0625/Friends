@@ -2,14 +2,29 @@
 session_start();
 require '../db-connect.php'; // データベース接続情報を含むファイル
 
-$pdo = new PDO($connect, USER, PASS);
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+    $pdo = new PDO($connect, USER, PASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    // エラーメッセージをログに記録して表示しないようにする
+    error_log("DB接続エラー: " . $e->getMessage());
+    die("データベース接続に失敗しました");
+}
 
 // ユーザーIDはセッションから取得
-$logged_in_user_id = $_SESSION['user']['id'];
-$matched_user_id = $_POST['reciver_id'];
+if (isset($_SESSION['user']['id'])) {
+    $logged_in_user_id = $_SESSION['user']['id'];
+} else {
+    die("ユーザーがログインしていません。");
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['reciver_id'])) {
+        $matched_user_id = $_POST['reciver_id'];
+    } else {
+        die("受信者IDが設定されていません。");
+    }
+
     $action = $_POST['action'];
 
     try {
@@ -20,14 +35,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // 遷移先を設定
         if ($action == 'talk') {
-            header("Location: talk.php?reciver_id=$matched_user_id");
+            header("Location: ../talk/talk2.php?reciver_id=$matched_user_id");
         } else {
-            header("Location: top.php");
+            header("Location: ../top.php");
         }
         exit;
     } catch (PDOException $e) {
-        // エラー処理
-        echo "エラー: " . $e->getMessage();
+        // エラーメッセージをログに記録して表示しないようにする
+        error_log("SQLエラー: " . $e->getMessage());
+        die("データベース操作中にエラーが発生しました。");
     }
+} else {
+    die("無効なリクエストです。");
 }
 ?>
