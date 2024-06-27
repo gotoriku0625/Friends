@@ -44,7 +44,7 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
             <!-- ユーザー名検索フォーム -->
             <div class="nickname">
                 <!-- <label for="nickname">ユーザー名:</label><br> -->
-                <input type="text" id="nickname" name="nickname" placeholder="ユーザー名"><input type="submit" class="search-button" >
+                <input type="text" id="nickname" name="nickname" placeholder="ユーザー名"><input type="submit" class="search-button" value="">
             </div>
         <div class="container">
             <div class="tab">
