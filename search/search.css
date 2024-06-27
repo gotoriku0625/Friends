@@ -58,11 +58,10 @@ hr{
 }
 
 /*ユーザー名を入力するフォームの外枠*/
-/* #nickname {
-    border: 2px solid #7FFFD4;
-    border-radius: 24px; 
-    padding: 8px; 
-} */
+#nickname {
+   width: 250px;
+   font-size: 22px;
+}
 
 .nickname{
     margin: 30px;
@@ -71,4 +70,5 @@ hr{
     border: 2px solid #7FFFD4;
     border-radius: 24px; 
     padding: 8px; 
+    width: 300px;
 }
