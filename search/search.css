@@ -60,8 +60,8 @@ hr{
 /*ユーザー名を入力するフォームの外枠*/
 #nickname {
     border: 2px solid #7FFFD4;
-    border-radius: 5px; /* 角を丸くする場合に追加 */
-    padding: 5px; /* 必要に応じてパディングを追加 */
+    border-radius: 24px; /* 角を丸くする場合に追加 */
+    padding: 8px; /* 必要に応じてパディングを追加 */
 }
 
 /*虫メガネの外枠*/
