@@ -63,6 +63,7 @@ hr{
    width: 340px;
    font-size: 22px;
    text-align: center;
+   font-family: mameron;
 }
 
 .nickname{
@@ -74,4 +75,5 @@ hr{
     border-radius: 24px; 
     padding: 8px; 
     width: 400px;
+    font-family: mameron;
 }
