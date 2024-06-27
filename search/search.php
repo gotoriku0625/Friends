@@ -39,14 +39,14 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
     <div class="main">
         <h1 class="h1-search">ユーザー検索</h1>
             <hr>
-    <div class="container">
+        
         <form action="result.php" method="GET">
             <!-- ユーザー名検索フォーム -->
-            <div>
+            <div class="nickname">
                 <label for="nickname">ユーザー名:</label><br>
                 <input type="text" id="nickname" name="nickname"><input type="submit" class="search-button" value="">
             </div>
-
+        <div class="container">
             <div class="tab">
                 <div class="tab-item" data-tab="age">年齢</div>
                 <div class="tab-item" data-tab="gender">性別</div>
