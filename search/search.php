@@ -43,8 +43,8 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
         <form action="result.php" method="GET">
             <!-- ユーザー名検索フォーム -->
             <div class="nickname">
-                <label for="nickname">ユーザー名:</label><br>
-                <input type="text" id="nickname" name="nickname"><input type="submit" class="search-button" value="">
+                <!-- <label for="nickname">ユーザー名:</label><br> -->
+                <input type="text" id="nickname" name="nickname"><input type="submit" class="search-button" placeholder="ユーザー名">
             </div>
         <div class="container">
             <div class="tab">
