@@ -15,6 +15,12 @@ body {
     width: 100%;
     font-family: mameron;
 }
+hr{
+    position: relative;
+    border: 1.5px solid rgb(151, 255, 220);
+    text-align: center;
+    width: 1125px;
+}
 .tab {
     display: flex;
     justify-content: space-between;
