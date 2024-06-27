@@ -64,3 +64,6 @@ hr{
     padding: 8px; /* 必要に応じてパディングを追加 */
 }
 
+.nickname{
+    margin: 10px;
+}
