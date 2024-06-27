@@ -34,6 +34,7 @@ hr{
     border-radius: 5px;
     font-size: 25px;
     transition: background-color 0.3s;
+    font-family: mameron;
 }
 .tab-item.is-active {
     background-color: #d0d0d0;
@@ -80,4 +81,5 @@ hr{
 
 label{
     font-size: 20px;
+    font-family: mameron;
 }
