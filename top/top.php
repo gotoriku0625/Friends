@@ -52,7 +52,7 @@
                             join gender ON gender.gender_id = profile.gender_id
                             order by RAND()
                             limit 30');
-        $sql->execute();
+        $sql->execute($_SESSION['user']['id']);
         echo '<hr>';
         echo '<div class="recommendation2">';
         foreach($sql as $row){
