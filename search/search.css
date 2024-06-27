@@ -66,7 +66,7 @@ hr{
 
 .nickname{
     margin: 30px;
-    text-align: center;
+    left: 20%;
     font-size: 23px;
     border: 2px solid #7FFFD4;
     border-radius: 24px; 
