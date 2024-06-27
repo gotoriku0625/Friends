@@ -59,27 +59,27 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
             <div id="age" class="tab-content">
                 <!-- <label for="age">年齢:</label><br> -->
                 <input type="checkbox" id="age_18" name="age[]" value="18">
-                <label for="age_18">18歳</label><br>
+                <label for="age_18" class="search-age">18歳</label><br>
                 <input type="checkbox" id="age_19" name="age[]" value="19">
-                <label for="age_19">19歳</label><br>
+                <label for="age_19" class="search-age">19歳</label><br>
                 <input type="checkbox" id="age_20" name="age[]" value="20">
-                <label for="age_20">20歳</label><br>
+                <label for="age_20" class="search-age">20歳</label><br>
                 <input type="checkbox" id="age_21" name="age[]" value="21">
-                <label for="age_21">21歳</label><br>
+                <label for="age_21" class="search-age">21歳</label><br>
                 <input type="checkbox" id="age_22" name="age[]" value="22">
-                <label for="age_22">22歳</label><br>
+                <label for="age_22" class="search-age">22歳</label><br>
                 <input type="checkbox" id="age_22_plus" name="age[]" value="22_plus">
-                <label for="age_22_plus">23歳~29歳</label><br>
+                <label for="age_22_plus" class="search-age">23歳~29歳</label><br>
                 <input type="checkbox" id="age_30s" name="age[]" value="30s">
-                <label for="age_30s">30代</label><br>
+                <label for="age_30s" class="search-age">30代</label><br>
                 <input type="checkbox" id="age_40s" name="age[]" value="40s">
-                <label for="age_40s">40代</label><br>
+                <label for="age_40s" class="search-age">40代</label><br>
                 <input type="checkbox" id="age_50s" name="age[]" value="50s">
-                <label for="age_50s">50代</label><br>
+                <label for="age_50s" class="search-age">50代</label><br>
                 <input type="checkbox" id="age_60s" name="age[]" value="60s">
-                <label for="age_60s">60代</label><br>
+                <label for="age_60s" class="search-age">60代</label><br>
                 <input type="checkbox" id="age_70s" name="age[]" value="70s">
-                <label for="age_70s">70代</label><br>
+                <label for="age_70s" class="search-age">70代</label><br>
             </div>
 
             <div id="gender" class="tab-content">
