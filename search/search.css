@@ -64,9 +64,3 @@ hr{
     padding: 8px; /* 必要に応じてパディングを追加 */
 }
 
-/*虫メガネの外枠*/
-.search-button-container {
-    border: 2px solid #7FFFD4;
-    border-radius: 5px; /* 角を丸くする場合に追加 */
-    display: inline-block; /* 親要素をインラインブロックにすることで横幅を自動調整 */
-}
