@@ -45,10 +45,11 @@
         echo '</div>';
 
         // ランダムに30人を表示する
-        $sql=$pdo->prepare('select user.user_id, icon_image, user_name, gender_name, age 
-                            from user
+        $sql=$pdo->prepare('select user.user_id, icon_image, user_name, gender_name, age, profile.user_id
+                            from user profile
                             join profile ON user.user_id = profile.user_id
                             join gender ON gender.gender_id = profile.gender_id
+                            where profile.user_id<>?
                             order by RAND()
                             limit 30');
         $sql->execute();
