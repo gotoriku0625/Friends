@@ -61,6 +61,7 @@ hr{
 #nickname {
    width: 250px;
    font-size: 22px;
+   text-align: center;
 }
 
 .nickname{
