@@ -28,9 +28,10 @@ hr{
 }
 .tab-item {
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 10px 45px;
     background-color: #f0f0f0;
     border-radius: 5px;
+    font-size: 25px;
     transition: background-color 0.3s;
 }
 .tab-item.is-active {
