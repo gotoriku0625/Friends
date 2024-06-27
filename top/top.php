@@ -45,7 +45,7 @@
         echo '</div>';
 
         // ランダムに30人を表示する
-        $sql=$pdo->prepare('select user.user_id, icon_image, user_name, gender_name, age 
+        $sql=$pdo->prepare('select user.user_id, icon_image, user_name, gender_name, age , profile.user_id
                             from user,frofile
                             join profile ON user.user_id = profile.user_id
                             join gender ON gender.gender_id = profile.gender_id
