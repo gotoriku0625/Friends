@@ -8,9 +8,12 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.h1-search {
+    position: relative;
+    font-size: 50px;
+    text-align: center;
+    width: 100%;
+    font-family: mameron;
 }
 .tab {
     display: flex;
