@@ -28,6 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt_match = $pdo->prepare($sql_match);
             $stmt_match->execute([$logged_in_user_id, $liked_user_id]);
 
+            // likesテーブルから該当のいいね情報を削除
+            $sql_delete_likes = "DELETE FROM likes WHERE (likes_user_id = ? AND liked_user_id = ?) OR (likes_user_id = ? AND liked_user_id = ?)";
+            $stmt_delete_likes = $pdo->prepare($sql_delete_likes);
+            $stmt_delete_likes->execute([$logged_in_user_id, $liked_user_id, $liked_user_id, $logged_in_user_id]);
+
             // マッチング成功時の処理
             $_SESSION['match_message'] = 'マッチングしました！';
             $_SESSION['reciver_id'] = $liked_user_id;
@@ -47,7 +52,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     } catch (PDOException $e) {
         // エラー処理
-        echo "エラー: " . $e->getMessage();
+        header('Content-Type: application/json'); // JSONレスポンスのヘッダーを設定
+        $response = [
+            'status' => 'error',
+            'message' => 'リクエストの処理中にエラーが発生しました: ' . $e->getMessage()
+        ];
+        echo json_encode($response); // JSONレスポンスを送信
+        exit;
     }
 }
 
