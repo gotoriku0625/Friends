@@ -2,7 +2,6 @@
 <?php require '../menu/menu.php';?><!--menuはbodyタグの中に絶対に入れるように -->
 <title>プロフィール</title>
 <link rel="stylesheet" href="css/profile.css">
-<script src="js/style.js"></script>
 </head>
 <!-- プロフィールを更新するためのもの -->
 <body>
@@ -164,7 +163,7 @@ EOF;
                         <label for="residence">居住地</label>
 \n
 EOF;
-                        echo '<select id="residence">';
+                        echo '<select id="residence" name="residence">';
                         $residence=$user['residence_id'];
                         foreach($pdo->query('select * from residence order by residence_id') as $row){
                             if($residence==$row['residence_id']){
