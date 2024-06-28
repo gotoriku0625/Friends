@@ -286,7 +286,7 @@ form[action="../logout/logout.php"] {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: none;
+    display: block; /* 初期状態で表示に変更 */
 }
 
 /* ファイル入力ボックスを非表示にする */
@@ -314,9 +314,3 @@ form[action="../logout/logout.php"] {
     background-color: #f9f9f9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* 追加スタイルが必要な場合はここに追記します */
-
-
-
-
