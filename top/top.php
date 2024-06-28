@@ -49,9 +49,10 @@
                             from user
                             join profile ON user.user_id = profile.user_id
                             join gender ON gender.gender_id = profile.gender_id
+                            where profile.user_id<>?
                             order by RAND()
                             limit 30');
-        $sql->execute();
+        $sql->execute([$_SESSION['user']['id']]);
         echo '<hr>';
         echo '<div class="recommendation2">';
         foreach($sql as $row){

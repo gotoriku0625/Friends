@@ -1,3 +1,8 @@
+.main{
+    position: relative;
+    left: 21%;
+}
+
 .recommendation{
     display: flex;
 }
@@ -5,6 +10,7 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    width: 80%;
 }
 
 .nick_name1{
@@ -48,9 +54,9 @@ hr{
 }
 .user-set2{
     position: relative;
-    width: calc(20% - 10px);
+    margin: 3%;
     height: 160px;
-    /* width: 140px; */
+    width: 140px;
 }
 
 .frame-blue{
