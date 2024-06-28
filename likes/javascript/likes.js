@@ -5,13 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
             unlikeUser(userId, this);
         });
     });
-
-    document.querySelectorAll('.actions button.like').forEach(button => {
-        button.addEventListener('click', function() {
-            const userId = this.dataset.userId;
-            likeUser(userId);
-        });
-    });
 });
 
 function unlikeUser(userId, button) {
@@ -36,35 +29,6 @@ function unlikeUser(userId, button) {
                 }
             } else {
                 console.error('いいね削除処理に失敗しました:', xhr.status, xhr.statusText);
-            }
-        }
-    };
-    xhr.send('user_id=' + userId);
-}
-
-function likeUser(userId) {
-    console.log("いいね:", userId);
-
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '../matchs/match.php');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                try {
-                    const response = JSON.parse(xhr.responseText);
-                    alert(response.message);
-
-                    if (response.status === 'success') {
-                        window.location.href = '../matchs/match_success.php';
-                    } else {
-                        console.error(response.message);
-                    }
-                } catch (error) {
-                    console.error('レスポンスの解析に失敗しました:', error);
-                }
-            } else {
-                console.error('いいね処理に失敗しました:', xhr.status, xhr.statusText);
             }
         }
     };

@@ -1,19 +1,24 @@
 .tabs {
+    position: relative;
     display: flex;
     cursor: pointer;
     margin-bottom: 10px;
-    
+    top: 10px;
+    width: 1125px;
 }
 .tab {
     flex: 1;
     padding: 10px;
     text-align: center;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    /* border: 1px solid #ccc; */
+    background-color: #ffffff00;
     font-size: x-large ;
+    font-family: mameron;
+    border-radius: 5px;
 }
 .tab.active {
-    background-color: #ddd;
+    background-color: #7dffc76d;
+    border-radius: 5px;
 }
 .tab-content {
     display: none;
@@ -30,7 +35,7 @@
     align-items: center;
     margin: 5px 0;
     padding: 10px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
 }
 .user-list img {
     width: 50px;

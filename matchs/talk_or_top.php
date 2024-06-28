@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($action == 'talk') {
             header("Location: ../talk/talk2.php?reciver_id=$matched_user_id");
         } else {
-            header("Location: ../top.php");
+            header("Location: ../top/top.php");
         }
         exit;
     } catch (PDOException $e) {

@@ -1,5 +1,5 @@
 <?php require '../header.php'; ?>
-<link rel="stylesheet" href="../likes/likes.css?v=1.0.1">
+<link rel="stylesheet" href="../likes/likes.css">
 <title>likes</title>
 </head>
 <?php
@@ -51,11 +51,7 @@ $stmt_liked_by->closeCursor();
                         <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
                     </div>
                     <div class="actions">
-                        <form action="../likes/unlike.php" method="post">
-                            <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
-                            <input type="hidden" name="action" value="unlike">
-                            <button type="submit" class="unlike">削除</button>
-                        </form>
+                        <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>">削除</button>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -75,17 +71,14 @@ $stmt_liked_by->closeCursor();
                     <div class="likename">
                         <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
                     </div>
-                    <div class="actions">
+                    
                         <form action="../matchs/match.php" method="post">
                             <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
                             <input type="hidden" name="action" value="like">
                             <button type="submit" class="like">いいね</button>
                         </form>
-                        <form action="../likes/unlike.php" method="post">
-                            <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
-                            <input type="hidden" name="action" value="unlike">
-                            <button type="submit" class="unlike">削除</button>
-                        </form>
+                        <div class="actions">   
+                        <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>">削除</button>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -95,7 +88,7 @@ $stmt_liked_by->closeCursor();
     <?php endif; ?>
 </div>
 </div>
-
+<script src="../likes/javascript/likes.js"></script>
 <script>
     function showTab(tabId) {
         const tabs = document.querySelectorAll('.tab');

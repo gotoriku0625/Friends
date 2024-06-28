@@ -11,6 +11,7 @@ $current_user = get_user($_SESSION['user']['id']);// 現在ログインしてい
 $reciver = get_user($_POST['reciver_id']);// トーク相手のユーザー情報
 // $reciver = get_user();
 $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取りされるメッセージ情報
+reset_message_count($current_user['user_id'],$destination_user['user_id']); 
 ?>
 <body>
 <?php require '../menu/menu.php';?>
