@@ -112,7 +112,7 @@
                         <?php else: // その他 ?>
                             <div class="frame-gray2">
                         <?php endif; ?>
-                        <a href="../profile/profile-user.php">
+                        <a href="../profile/pro-test.php">
                             <img src="../user_image/main/<?php echo htmlspecialchars($profile['icon_image']); ?>" alt="icon" class="standard-icon">
                         </a>
                         </div>
