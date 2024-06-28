@@ -27,6 +27,7 @@ try{
     //     $sql=$pdo->prepare($member_add);
     //     $sql->execute([$user_id,$reciver_id]);
     // }
+    insert_message_count($user_id,$reciver_id);
     // ブロックしたかどうかの判定
     if(isset($_POST['check'])&&$_POST['check']===1){
         $block='insert into block values(null,?,?)';

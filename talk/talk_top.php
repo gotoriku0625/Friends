@@ -8,14 +8,20 @@
     <div class="main">
     <?php require '../menu/menu.php';?>
         <?php
-            $_SESSION['user1_id']=3;
-            $_SESSION['user2_id']=2;
-            $current_user = get_user($_SESSION['user1_id']);
-            $reciver = get_user($_SESSION['user2_id']);//本当はGET
+        $r_id='select reciver_id from talk_member where sender_id=?';
+        $sql=$pdo->prepare($r_id);
+        $sql->execute([$_SESSION['user']['id']])
+        foreach($sql as $row){
+            // 自分の情報を格納する変数
+            $current_user = get_user($_SESSION['user']['id']);
+            // トーク相手の情報を格納する変数
+            $reciver = get_user($row['reciver_id']);
             // echo var_dump($reciver);
+            // トーク内容を取得する変数
             $talk_relations = get_talk_relations($current_user['user_id']);
             if(!empty($talk_relations)){
             // echo var_dump($talk_relations);
+                // 自分が送り手なのか受け取り手なのか判定
                 foreach($talk_relations as $talk_relation){
                     if($talk_relation['reciver_id']==$current_user['user_id']){
                         $reciver = get_user($talk_relation['user_id']);
@@ -54,7 +60,8 @@
                         </div>
                         EOF;
                     }
-                }?>
+                }
+            }?>
     </div>
 </body>
 <script>

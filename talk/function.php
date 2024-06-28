@@ -50,7 +50,7 @@ function check_relation_talk($user_id,$reciver_id){// talk_memberテーブルに
         echo 'エラー発生:' . $e->getMessage();
     }
 }
-
+// talk_memberの送り手に自分がいるかどうかチェック
 function get_talk_relations($user_id){
     require './db-connect.php';
     try {
@@ -65,7 +65,7 @@ function get_talk_relations($user_id){
         echo 'エラー発生:' . $e->getMessage();
     }
 }
-  
+// トークの一番下の内容を取得する
 function get_bottom_talk($user_id,$reciver_id){
     require './db-connect.php';
     try{
@@ -77,6 +77,54 @@ function get_bottom_talk($user_id,$reciver_id){
         $sql=$pdo->prepare($get_talk);
         $sql->execute(array(':sender_id'=> $user_id,':reciver_id' => $reciver_id));
         return $sql->fetch();
+    }catch (\Exception $e) {
+        echo 'エラー発生:' . $e->getMessage();
+    }
+}
+// トークの件数を追加する
+function insert_message_count($user_id,$reciver_id){
+    require './db-connect.php';
+    try{
+        $pdo=new PDO($connect,$user,$pass);
+        $count='update talk_member
+            SET talk_count = talk_count + 1
+            WHERE ((sender_id = :sender_id and reciver_id = :reciver_id) 
+            or (sender_id = :reciver_id and reciver_id = :sender_id)) 
+            and sender_id = :sender_id';
+        $sql=$pdo->prepare($count);
+        $sql->execute(array(':sender_id'=> $user_id,':reciver_id' => $reciver_id));
+        return $sql->fetch();
+    }catch (\Exception $e) {
+        echo 'エラー発生:' . $e->getMessage();
+    }
+}
+// 自分に来ている未読のメッセージの通知件数を取得する
+function new_message_count($user_id){
+    require './db-connect.php';
+    try{
+        $pdo=new PDO($connect,$user,$pass);
+        $count='select talk_count
+                from talk_member
+                where reciver_id = :sender_id';
+        $sql=$pdo->prepare($count);
+        $sql->execute(array(':sender_id' => $user_id));
+        return $sql->fetch();
+    }catch (\Exception $e) {
+        echo 'エラー発生:' . $e->getMessage();
+    }
+}
+// 画面を開いたら、通知数をリセット
+function reset_message_count($user_id,$destination_user_id){
+    require './db-connect.php';
+    try{
+        $pdo=new PDO($connect,$user,$pass);
+        $reset='UPDATE talk_member SET message_count = 0 
+        WHERE ((sender_id = :sender_id and reciver_id = :reciver_id) 
+        or (sender_id = :reciver_id and reciver_id = :sender_id)) 
+        and sender_id = :reciver_id';
+        $sql=$pdo->prepare($reset);
+        $sql->execute(array(':sender_id'=> $user_id,':reciver_id' => $reciver_id));
+        $sql->commit();
     }catch (\Exception $e) {
         echo 'エラー発生:' . $e->getMessage();
     }
