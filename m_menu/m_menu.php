@@ -6,7 +6,8 @@
         <?php
         var_dump($_SESSION)
            //$icon = 
-           $_SESSION['management_user']['icon'];
+           $_SESSION['management_user'];
+           //['icon'];
         
             
 
