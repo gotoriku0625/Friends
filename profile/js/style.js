@@ -1,35 +1,67 @@
-function uploadIcon() {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'image/*';
-    input.onchange = e => {
-        const file = e.target.files[0];
+// function uploadIcon() {
+//     const input = document.createElement('input');
+//     input.type = 'file';
+//     input.accept = 'image/*';
+//     input.onchange = e => {
+//         const file = e.target.files[0];
+//         if (file) {
+//             const reader = new FileReader();
+//             reader.onload = event => {
+//                 const icon = document.getElementById('profileIcon');
+//                 icon.src = event.target.result;
+//                 icon.style.display = 'block'; // アイコンを表示
+//                 icon.parentElement.style.backgroundColor = 'transparent'; // 背景を透明に
+//             };
+//             reader.readAsDataURL(file);
+//         }
+//     };
+//     input.click();
+// }
+
+
+function uploadIcon(){
+    const iconInput = document.getElementById("iconInput");
+    iconInput.addEventListener("change", function (e) {
+        const file = e.target.files[0];//複数ファイルはfiles配列をループで回す
+        const reader = new FileReader();
+        const icon = document.getElementById("profileIcon");
+        reader.addEventListener("load", function () {
+            icon.src = reader.result;
+            icon.style.display = 'block'; // アイコンを表示
+            icon.parentElement.style.backgroundColor = 'transparent'; // 背景を透明に
+        }, false);
+
         if (file) {
-            const reader = new FileReader();
-            reader.onload = event => {
-                const icon = document.getElementById('profileIcon');
-                icon.src = event.target.result;
-                icon.style.display = 'block'; // アイコンを表示
-                icon.parentElement.style.backgroundColor = 'transparent'; // 背景を透明に
-            };
             reader.readAsDataURL(file);
         }
-    };
-    input.click();
+    });
 }
-
 function uploadSubImage(inputId, imageId) {
+    // const fileInput = document.getElementById(inputId);
+    // fileInput.click();
+    // fileInput.addEventListener('change', function(event) {
+    //     const file = event.target.files[0];
+    //     if (file) {
+    //         const reader = new FileReader();
+    //         reader.onload = function(e) {
+    //             const image = document.getElementById(imageId);
+    //             image.src = e.target.result;
+    //             image.style.display = 'block';
+    //         };
+    //         reader.readAsDataURL(file);
+    //     }
+    // });
     const fileInput = document.getElementById(inputId);
-    fileInput.click();
-    fileInput.addEventListener('change', function(event) {
-        const file = event.target.files[0];
+    fileInput.addEventListener("change", function (e) {
+        const file = e.target.files[0];//複数ファイルはfiles配列をループで回す
+        const reader = new FileReader();
+        const img = document.getElementById(imageId);
+        reader.addEventListener("load", function () {
+            img.src = reader.result;
+            img.style.display = 'block';
+        }, false);
+
         if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const image = document.getElementById(imageId);
-                image.src = e.target.result;
-                image.style.display = 'block';
-            };
             reader.readAsDataURL(file);
         }
     });
@@ -64,14 +96,13 @@ function setupImagePreview(inputId, imageId) {
 }
 
 // 初期化関数の呼び出し
-setupImagePreview('iconInput', 'profileIcon');
 setupImagePreview('subImageInput1', 'subImage1');
 setupImagePreview('subImageInput2', 'subImage2');
 setupImagePreview('subImageInput3', 'subImage3');
 
-アイコンをアップロードするためのボタンのクリックイベントを設定
-document.querySelector('.plus').addEventListener('click', function(event) {
-    document.getElementById('iconInput').click();
-    // Prevent the default behavior to avoid any unintended effects
-    event.preventDefault();
-});
+// アイコンをアップロードするためのボタンのクリックイベントを設定
+// document.querySelector('.plus').addEventListener('click', function(event) {
+//     document.getElementById('iconInput').click();
+//     // Prevent the default behavior to avoid any unintended effects
+//     event.preventDefault();
+// });
