@@ -1,6 +1,4 @@
-<?php
-require '../header.php'; // これは必要に応じて適切なパスに修正してください
-?>
+<?php require '../header.php';?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -36,16 +34,17 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
     $dataSchool = $stmtSchool->fetchAll();
     ?>
 
-    <div class="container">
-        <h1>ユーザー検索</h1>
-
+    <div class="main">
+        <h1 class="h1-search">ユーザー検索</h1>
+            <hr>
+        
         <form action="result.php" method="GET">
             <!-- ユーザー名検索フォーム -->
-            <div>
-                <label for="nickname">ユーザー名:</label><br>
-                <input type="text" id="nickname" name="nickname"><input type="submit" class="search-button" value="">
+            <div class="nickname">
+                <!-- <label for="nickname">ユーザー名:</label><br> -->
+                <input type="text" id="nickname" name="nickname" placeholder="ユーザー名"><input type="submit" class="search-button" value="">
             </div>
-
+        <div class="container">
             <div class="tab">
                 <div class="tab-item" data-tab="age">年齢</div>
                 <div class="tab-item" data-tab="gender">性別</div>
@@ -56,7 +55,7 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
 
             <!-- 各タブの内容 -->
             <div id="age" class="tab-content">
-                <label for="age">年齢:</label><br>
+                <!-- <label for="age">年齢:</label><br> -->
                 <input type="checkbox" id="age_18" name="age[]" value="18">
                 <label for="age_18">18歳</label><br>
                 <input type="checkbox" id="age_19" name="age[]" value="19">
@@ -82,7 +81,7 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
             </div>
 
             <div id="gender" class="tab-content">
-                <label for="dropdown">性別:</label><br>
+                <!-- <label for="dropdown">性別:</label><br> -->
                 <?php foreach ($dataGender as $row): ?>
                     <input type="checkbox" id="gender_<?php echo $row['gender_id']; ?>" name="selected_gender_id[]" value="<?php echo htmlspecialchars($row['gender_id']); ?>">
                     <label for="gender_<?php echo $row['gender_id']; ?>"><?php echo htmlspecialchars($row['gender_name']); ?></label><br>
@@ -90,7 +89,7 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
             </div>
 
             <div id="residence" class="tab-content">
-                <label for="dropdown">現住居:</label><br>
+                <!-- <label for="dropdown">現住居:</label><br> -->
                 <?php foreach ($dataResidence as $row): ?>
                     <input type="checkbox" id="residence_<?php echo $row['residence_id']; ?>" name="selected_residence_id[]" value="<?php echo htmlspecialchars($row['residence_id']); ?>">
                     <label for="residence_<?php echo $row['residence_id']; ?>"><?php echo htmlspecialchars($row['residence_name']); ?></label><br>
@@ -98,7 +97,7 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
             </div>
 
             <div id="school" class="tab-content">
-                <label for="dropdown">学校名:</label><br>
+                <!-- <label for="dropdown">学校名:</label><br> -->
                 <?php foreach ($dataSchool as $row): ?>
                     <input type="checkbox" id="school_<?php echo $row['school_id']; ?>" name="selected_school_id[]" value="<?php echo htmlspecialchars($row['school_id']); ?>">
                     <label for="school_<?php echo $row['school_id']; ?>"><?php echo htmlspecialchars($row['school_name']); ?></label><br>
@@ -106,7 +105,7 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
             </div>
 
             <div id="hobby" class="tab-content">
-                <label for="dropdown">趣味:</label><br>
+                <!-- <label for="dropdown">趣味:</label><br> -->
                 <?php foreach ($dataHobby as $row): ?>
                     <input type="checkbox" id="hobby_<?php echo $row['hobby_id']; ?>" name="selected_hobby_id[]" value="<?php echo htmlspecialchars($row['hobby_id']); ?>">
                     <label for="hobby_<?php echo $row['hobby_id']; ?>"><?php echo htmlspecialchars($row['hobby_name']); ?></label><br>
@@ -148,5 +147,6 @@ require '../header.php'; // これは必要に応じて適切なパスに修正�
             });
         });
     </script>
+    </div>
 </body>
 </html>

@@ -1,8 +1,8 @@
 
 .talk-head{
     position: fixed;
-    top: 15px;
-    bottom: 15px;
+    /* top: 15px;
+    bottom: 15px; */
 }
 .h1-talk{
     position: relative;
@@ -10,6 +10,7 @@
     text-align: center;
     width: 100%;
     font-family: mameron;
+    margin: 5px;
 }
 hr{
     position: relative;

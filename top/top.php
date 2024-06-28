@@ -18,7 +18,7 @@
                             order by user.user_id
                             limit 10');
         $sql->execute(array($_SESSION['user']['id'],$_SESSION['user']['hobby']));
-        echo '<h2>おすすめ</h2>';
+        echo '<h2>おすすめ(あなたと共通の趣味)</h2>';
         echo '<div class="recommendation">';
         foreach($sql as $row){
             echo '<div class="user-set">';

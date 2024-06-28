@@ -25,6 +25,7 @@ h2{
     margin-top: 2%;
     margin-left: 3%;
     margin-bottom: 2%;
+    font-family: mameron;
 }
 
 hr{
@@ -47,9 +48,9 @@ hr{
 }
 .user-set2{
     position: relative;
-    margin: 3%;
+    width: calc(20% - 10px);
     height: 160px;
-    width: 140px;
+    /* width: 140px; */
 }
 
 .frame-blue{
