@@ -30,14 +30,14 @@ hr{
 .tab-item {
     cursor: pointer;
     padding: 10px 49px;
-    background-color: #f0f0f0;
+    background-color: #ffffff00;
     border-radius: 5px;
     font-size: 25px;
     transition: background-color 0.3s;
     font-family: mameron;
 }
 .tab-item.is-active {
-    background-color: #d0d0d0;
+    background-color: #7dffc76d;
 }
 .tab-content {
     display: none;
