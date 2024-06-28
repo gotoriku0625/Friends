@@ -11,9 +11,11 @@
     /* border: 1px solid #ccc; */
     background-color: #ffffff00;
     font-size: x-large ;
+    border-radius: 5px;
 }
 .tab.active {
     background-color: #7dffc792;
+    border-radius: 5px;
 }
 .tab-content {
     display: none;
