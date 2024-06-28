@@ -23,11 +23,9 @@ hr{
     width: 1125px;
 }
 .tab {
-    position: relative;
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    width: 800px;
 }
 .tab-item {
     cursor: pointer;

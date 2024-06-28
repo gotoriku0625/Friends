@@ -5,6 +5,7 @@
     
 }
 .tab {
+    position: relative;
     flex: 1;
     padding: 10px;
     text-align: center;
@@ -12,6 +13,7 @@
     background-color: #ffffff00;
     font-size: x-large ;
     border-radius: 5px;
+    width: 800px;
 }
 .tab.active {
     background-color: #7dffc76d;
