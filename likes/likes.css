@@ -8,12 +8,12 @@
     flex: 1;
     padding: 10px;
     text-align: center;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    /* border: 1px solid #ccc; */
+    background-color: #f1f1f100;
     font-size: x-large ;
 }
 .tab.active {
-    background-color: #ddd;
+    background-color: #8cff7da5;
 }
 .tab-content {
     display: none;
@@ -30,7 +30,7 @@
     align-items: center;
     margin: 5px 0;
     padding: 10px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
 }
 .user-list img {
     width: 50px;
