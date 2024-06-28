@@ -6,16 +6,22 @@
 <?php require './function.php';?>
 <body>
     <div class="main">
+        <div class="talk-head">
+            <h1 class="h1-talk">トーク</h1>
+            <hr>
+        </div>
     <?php require '../menu/menu.php';?>
         <?php
+        $pdo=new PDO($connect,USER,PASS);
         $r_id='select reciver_id from talk_member where sender_id=?';
         $sql=$pdo->prepare($r_id);
-        $sql->execute([$_SESSION['user']['id']])
+        $sql->execute([$_SESSION['user']['id']]);
         foreach($sql as $row){
             // 自分の情報を格納する変数
             $current_user = get_user($_SESSION['user']['id']);
             // トーク相手の情報を格納する変数
             $reciver = get_user($row['reciver_id']);
+        }
             // echo var_dump($reciver);
             // トーク内容を取得する変数
             $talk_relations = get_talk_relations($current_user['user_id']);
@@ -29,9 +35,7 @@
                         $reciver = get_user($talk_relation['reciver_id']);
                     }
                     $bottom_talk = get_bottom_talk($current_user['user_id'],$reciver['user_id']);
-                    echo '<div class="talk-head">';
-                    echo '<h1 class="h1-talk">トーク</h1>';
-                    echo '<hr></div>';
+                    
                     echo '<div class="row">';
                         echo '<div class="col-8 offset-2">';
                         echo '<form method="post" action="talk2.php">';
@@ -50,6 +54,7 @@
                                     echo '<div class="reciver_info">';
                                     echo '<input type="hidden" name="reciver_id" value="'.$reciver['user_id'].'">';
                                         echo '<div class="reciver_namea_age">'.$reciver['user_name'].'('.$reciver['age'].')</div>';
+                                        // なにもメッセージがない場合の判定(if)
                                         echo '<span class="reciver_text">'.$bottom_talk['content'].'</span>';
                                     echo<<<EOF
                                         </div>
@@ -60,8 +65,7 @@
                         </div>
                         EOF;
                     }
-                }
-            }?>
+                }?>
     </div>
 </body>
 <script>
