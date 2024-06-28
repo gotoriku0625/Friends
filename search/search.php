@@ -1,6 +1,4 @@
-<?php
-require '../header.php'; // これは必要に応じて適切なパスに修正してください
-?>
+<?php require '../header.php';?>
 
 <!DOCTYPE html>
 <html lang="ja">
