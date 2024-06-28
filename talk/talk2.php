@@ -5,11 +5,11 @@
 </head>
 <?php require './function.php';?>
 <?php
-$_SESSION['user1_id']=3;
-$_SESSION['user2_id']=2;
-$current_user = get_user($_SESSION['user1_id']);// 現在ログインしているユーザー情報
-// $reciver = get_user($_POST['user_id']);// トーク相手のユーザー情報
-$reciver = get_user($_SESSION['user2_id']);
+// $_SESSION['user1_id']=3;
+// $_SESSION['user2_id']=2;
+$current_user = get_user($_SESSION['user']['id']);// 現在ログインしているユーザー情報
+$reciver = get_user($_POST['reciver_id']);// トーク相手のユーザー情報
+// $reciver = get_user();
 $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取りされるメッセージ情報
 ?>
 <body>
