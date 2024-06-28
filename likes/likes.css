@@ -3,7 +3,8 @@
     display: flex;
     cursor: pointer;
     margin-bottom: 10px;
-    width: 800px;
+    top: 10px;
+    width: 1125px;
 }
 .tab {
     flex: 1;
@@ -12,6 +13,7 @@
     /* border: 1px solid #ccc; */
     background-color: #ffffff00;
     font-size: x-large ;
+    font-family: mameron;
     border-radius: 5px;
 }
 .tab.active {
