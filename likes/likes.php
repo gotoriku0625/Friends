@@ -1,5 +1,5 @@
 <?php require '../header.php'; ?>
-<link rel="stylesheet" href="../likes/likes.css?v=1.0.1">
+<link rel="stylesheet" href="../likes/likes.css">
 <title>likes</title>
 </head>
 <?php
