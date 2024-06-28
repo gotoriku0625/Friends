@@ -250,8 +250,8 @@ form[action="../logout/logout.php"] {
 /* 追加ボタンの位置調整 */
 .icon-container .plus,
 .sub-photo-container .plus {
-    right: -50; /* 右端に固定 */
-    top: 50%; /* 上下中央に寄せる */
+    right: -3px; /* 右端に固定 */
+    bottom:-10px;
     transform: translateY(-50%);
 }
 
