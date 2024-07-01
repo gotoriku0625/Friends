@@ -5,7 +5,7 @@
         </div>
         <?php
             //　トークの通知件数を表示するために追加
-            require require '../talk/function.php';
+            require '../talk/function.php';
             $icon = $_SESSION['user']['icon'];
             // せしょんにジェンダーはいってたら
             $gender = $_SESSION['user']['gender'];
@@ -44,7 +44,7 @@
             <p class="textlink textlink04"><img src="../menu-image/talk-free-icon.png" class="talk-free-icon">
             <a href="../talk/talk_top.php">トーク
                 <div class="talk_count">
-                    <?if(new_message_count($_SESSION['user']['id'])!=0){  //
+                    <?if(new_message_count($_SESSION['user']['id'])!= 0){  
                     echo new_message_count($_SESSION['user']['id']);  //ココ
                     }?>
                 </div>
