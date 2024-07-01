@@ -55,7 +55,11 @@
                                     echo '<input type="hidden" name="reciver_id" value="'.$reciver['user_id'].'">';
                                         echo '<div class="reciver_namea_age">'.$reciver['user_name'].'('.$reciver['age'].')</div>';
                                         // なにもメッセージがない場合の判定(if)
-                                        echo '<span class="reciver_text">'.$bottom_talk['content'].'</span>';
+                                        if(!empty($bottom_talk)){
+                                            echo '<span class="reciver_text">'.$bottom_talk['content'].'</span>';
+                                        }else{
+                                            echo '<span class="reciver_text"></span>';
+                                        }
                                     echo<<<EOF
                                         </div>
                                 </div>
