@@ -89,6 +89,8 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index:3;
 }
 
 .sub-photo-container img {
@@ -280,14 +282,19 @@ form[action="../logout/logout.php"] {
     justify-content: center;
     align-items: center;
     border-radius: 20px;
+    position: relative;
+    z-index:3;
+    
 }
 
 /* サブ写真内の画像の設定 */
 .sub-square img {
+    position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block; /* 初期状態で表示に変更 */
+    z-index:3;
 }
 
 /* ファイル入力ボックスを非表示にする */
