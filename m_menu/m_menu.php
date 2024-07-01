@@ -5,7 +5,9 @@
         </div>
         <?php
         var_dump($_SESSION)
-           $icon = $_SESSION['management_user']['icon'];
+           //$icon = 
+           $_SESSION['management_user'];
+           //['icon'];
         
             
 
