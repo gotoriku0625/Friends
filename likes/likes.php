@@ -43,6 +43,7 @@ $stmt_liked_by->closeCursor();
     <?php if (!empty($liked_users)): ?>
         <ul class="user-list">
             <?php foreach ($liked_users as $user): ?>
+                <div class="flex">
                     <div class="likeicom">
                         <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
                     </div>
@@ -52,6 +53,7 @@ $stmt_liked_by->closeCursor();
                     <div class="actions">
                         <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>"><img src="../image/bat.png" class="bat"></button>
                     </div>
+                </div>
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
