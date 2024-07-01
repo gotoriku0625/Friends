@@ -1,10 +1,11 @@
 <?php session_start();?>
 <?php require './function.php';?>
 <?php require '../db-connect.php';?>
+<!-- <script type="module" src="./script.js"></script> -->
 <?php
 try{
     $talk_text=$_POST['text'];
-    $user_id=$_SESSION['user1_id'];
+    $user_id=$_SESSION['user']['id'];
     $reciver_id=$_POST['reciver_id'];
 
     $talk_text=htmlspecialchars($talk_text,ENT_QUOTES,'UTF-8');
@@ -36,8 +37,10 @@ try{
         header('Location:./talk2.php?user_id='.$reciver_id.'');
         exit;
     }
-
-    header('Location:./talk2.php?user_id='.$reciver_id.'');
+    echo '<form name="add" action="./talk2.php" method="post">';
+        echo '<input type="hidden" name="reciver_id" value="'.$reciver_id.'">';
+        echo '<SCRIPT language="JavaScript">document.add.submit();</SCRIPT>';
+    echo '</form>';
     exit;
 }catch(Exception $e){
     echo 'ただいま障害により大変ご迷惑をおかけしております。';

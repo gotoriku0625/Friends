@@ -114,17 +114,18 @@ function new_message_count($user_id){
     }
 }
 // 画面を開いたら、通知数をリセット
-function reset_message_count($user_id,$destination_user_id){
+function reset_message_count($user_id,$reciver_id){
     require './db-connect.php';
     try{
         $pdo=new PDO($connect,$user,$pass);
-        $reset='UPDATE talk_member SET message_count = 0 
-        WHERE ((sender_id = :sender_id and reciver_id = :reciver_id) 
+        $pdo->beginTransaction();
+        $reset='update talk_member set talk_count = 0 
+        where ((sender_id = :sender_id and reciver_id = :reciver_id) 
         or (sender_id = :reciver_id and reciver_id = :sender_id)) 
         and sender_id = :reciver_id';
         $sql=$pdo->prepare($reset);
         $sql->execute(array(':sender_id'=> $user_id,':reciver_id' => $reciver_id));
-        $sql->commit();
+        $pdo->commit();
     }catch (\Exception $e) {
         echo 'エラー発生:' . $e->getMessage();
     }

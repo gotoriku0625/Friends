@@ -65,4 +65,6 @@ after_close:function(){// モーダルが閉じた後に行う動作
 }
 });
 
-// topの文字折り返し用
+window.onload=function(){
+  document.forms["add"].submit();
+}
