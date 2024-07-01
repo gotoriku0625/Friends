@@ -58,3 +58,9 @@
 .div.flex{
     text-align: center;
 }
+.actions{
+    display: flex;
+}
+.user-list{
+    display: flex;
+}
