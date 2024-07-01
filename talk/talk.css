@@ -88,7 +88,7 @@ ul{
 }
   /* メッセージ全般のスタイル */
 .comment {
-    margin: 0px;
+    margin: 20px 0 0 0;
     padding: 0 20px;/*吹き出しがタイムラインの側面にひっつかない様に隙間を開ける*/
     font-size: 16px;
     word-wrap: break-word;/* 吹き出し内で自動で改行 */
@@ -139,10 +139,10 @@ ul{
 #talk_process {
     background-color:#ffffff;/*タイムラインの色と同じにする*/
     height: 9%;
-    width: 78%;
+    width: 80%;
     padding: 4px;
     position: fixed;
-	bottom: 0;
+	  bottom: 0;
 }
 .text{
     width: calc(100% - 75px);/*常に送信ボタンの横幅を引いたサイズに動的に計算*/
