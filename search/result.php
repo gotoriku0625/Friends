@@ -18,7 +18,6 @@
 <body>
    
     <div class="main">
-        <h1>検索結果</h1>
         <?php
         $pdo = new PDO($connect, USER, PASS);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
