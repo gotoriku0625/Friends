@@ -66,11 +66,32 @@ $stmt_liked_by->closeCursor();
             <?php foreach ($liked_by_users as $user): ?>
                 <div class="flex">
                     <div class="likeicom">
-                        <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
-                    </div>
-                    <div class="likename">
-                        <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
-                    </div>
+                <?php
+                    foreach($sql as $row){
+                        echo '<div class="user-set">';
+                        if($row['gender_name']==='男性'){
+                            // アイコンの枠の色を青色に
+                            echo '<div class="frame-blue">';
+                            echo '<img src="../user_image/main/'.htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8').'" alt="User Icon">';// アイコン
+                            echo '</div>';
+                        }else if($row['gender_name']==='女性'){
+                            // アイコンの枠の色を赤色に
+                            echo '<div class="frame-pink">';
+                            echo '<img src="../user_image/main/'.htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8').'" alt="User Icon">';// アイコン
+                            echo '</div>';
+                        }else{
+                            // アイコンの枠の色を灰色に
+                            echo '<div class="frame-gray">';
+                            echo '<img src="../user_image/main/'.htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8').'" alt="User Icon">';// アイコン
+                            echo '</div>';
+                        }
+                        // アイコンとユーザー名、年齢を表示
+                        echo '<div class="likename">';
+                        echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8');
+                        echo '</div>';
+                    }
+                ?>
+                    
                     <div class="actions"> 
                         <form action="../matchs/match.php" method="post">
                             <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
