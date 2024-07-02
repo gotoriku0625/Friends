@@ -1,4 +1,4 @@
-// function uploadIcon() {
+// function uploadIcon() {element.style 
 //     const input = document.createElement('input');
 //     input.type = 'file';
 //     input.accept = 'image/*';
@@ -71,6 +71,8 @@ function openSubWindow() {
     document.querySelector('.bg_sub_window').style.visibility = 'visible';
     document.querySelector('.bg_sub_window').style.opacity = '1';
     document.querySelector('.bg_sub_window').style.pointerEvents = 'auto';
+    document.querySelector('.bg_sub_window').style.position = 'fixed';
+    document.querySelector('.bg_sub_window').style.zIndex = '5';
 }
 
 function closeSubWindow() {
