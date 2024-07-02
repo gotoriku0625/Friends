@@ -4,7 +4,6 @@
 </head>
 
 <body>
-<?php require '../m_menu/m_menu.php';?>
 
 
 
@@ -62,21 +61,21 @@ try {
 <div class="container">
     <h1>ダッシュボード</h1>
     <div class="dashboard-item">
-        <p>ユーザー数：<?php echo $user_count; ?></p>
-        <p>男性：<?php echo $gender_counts['男性']; ?></p>
-        <p>女性：<?php echo $gender_counts['女性']; ?></p>
-        <p>その他：<?php echo $gender_counts['その他']; ?></p>
-        <a href="user_ichiran.php">ユーザー一覧へ</a>
-    </div>
+    <p>ユーザー数：<?php echo $user_count; ?></p>
+    <p>男性：<?php echo $gender_counts['男性']; ?></p>
+    <p>女性：<?php echo $gender_counts['女性']; ?></p>
+    <p>その他：<?php echo $gender_counts['その他']; ?></p>
+    <a href="user_ichiran.php">ユーザー一覧へ</a>
+</div>
 
-    <div class="dashboard-item">
-        <p>通報数：<?php echo $report_count; ?></p>
-        <a href="tuuhou_ichiran.php">通報一覧へ</a>
-    </div>
+<div class="dashboard-item">
+    <p>通報数：<?php echo $report_count; ?></p>
+    <a href="tuuhou_ichiran.php">通報一覧へ</a>
+</div>
 
-    <div class="dashboard-item">
-        <p>ブロック数：<?php echo $block_count; ?></p>
-    </div>
+<div class="dashboard-item">
+    <p>ブロック数：<?php echo $block_count; ?></p>
+</div>
 </div>
 </body>
 </html>

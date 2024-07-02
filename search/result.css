@@ -13,8 +13,8 @@
 }
 
 /* アイコン4つごとに改行 */
-.user-set2:nth-child(4n+1) {
-    clear: both;
+.user-set2:nth-child(4n) {
+    margin-right: auto;
 }
 
 .standard-icon {
