@@ -14,11 +14,7 @@ body {
 }
 
 /* ログアウトボタンの位置 */
-.logout {
-    text-align: right;
-    margin: right 20px;
-    
-}
+
 
 /* タイトルの設定 */
 .title {
@@ -163,6 +159,7 @@ form[action="../logout/logout.php"] {
 /* サブウィンドウを開くボタンの親要素のスタイル */
 .open_sub_window_wrapper {
     text-align: right;
+    margin-right: 20px; 
 }
 
 /* サブウィンドウを開くボタンのスタイル */
