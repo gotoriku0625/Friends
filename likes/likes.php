@@ -51,7 +51,7 @@ $stmt_liked_by->closeCursor();
                         <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
                     </div>
                     <div class="actions">
-                        <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>">削除</button>
+                        <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>"><img src="../image/bat.png" class="bat"></button>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -71,14 +71,13 @@ $stmt_liked_by->closeCursor();
                     <div class="likename">
                         <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
                     </div>
-                    
+                    <div class="actions"> 
                         <form action="../matchs/match.php" method="post">
                             <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
                             <input type="hidden" name="action" value="like">
-                            <button type="submit" class="like">いいね</button>
+                            <button type="submit" class="like"><img src="../image/you.png" class="youlike"></button>
                         </form>
-                        <div class="actions">   
-                        <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>">削除</button>
+                        <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>"><img src="../image/bat.png" class="bat"></button>
                     </div>
                 </div>
             <?php endforeach; ?>

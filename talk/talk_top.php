@@ -72,11 +72,12 @@
                 }?>
     </div>
 </body>
+<!-- 表示するメッセージを制限する -->
 <script>
     const limit = document.querySelector(".reciver_text");
-const str = limit.textContent;
-const len = 40; // 半角80字（全角約40字）
-if (str.length > len) {
-  limit.textContent = str.substring(0, len) + "…";
-}
+    const str = limit.textContent;
+    const len = 40; // 半角80字（全角約40字）
+    if (str.length > len) {
+        limit.textContent = str.substring(0, len) + "…";
+    }
 </script>
