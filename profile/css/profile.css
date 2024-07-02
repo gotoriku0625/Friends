@@ -16,6 +16,8 @@ body {
 /* ログアウトボタンの位置 */
 .logout {
     text-align: right;
+    margin: right 20px;
+    
 }
 
 /* タイトルの設定 */
