@@ -261,7 +261,7 @@ form[action="../logout/logout.php"] {
 /* サブ写真コンテナの設定 */
 .sub-images {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 /* 各サブ写真のラッパー */
