@@ -1,15 +1,9 @@
-.recommendation2 {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap; /* これによりアイコンが改行される */
-    width: 80%;
-}
-
 .user-set2 {
     position: relative;
     margin: 3%; /* アイコン間のマージン */
     height: 160px; /* アイコンセットの高さ */
     width: 140px; /* アイコンセットの幅 */
+    flex-wrap: wrap;
 }
 
 .standard-icon {
