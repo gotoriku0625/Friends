@@ -284,7 +284,6 @@ form[action="../logout/logout.php"] {
     align-items: center;
     border-radius: 20px;
     position: relative;
-    z-index:3;
     
 }
 
