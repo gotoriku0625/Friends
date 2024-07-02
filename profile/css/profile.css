@@ -307,11 +307,13 @@ form[action="../logout/logout.php"] {
 
 /* 画像アップロードボタンのスタイル */
 .subImagePut {
+    position: relative;
     font-size: 30px;
     position: absolute;
     bottom: 0px;
     right: 10px;
     cursor: pointer;
+    z-index: 2;
 }
 
 /* profile-box クラスのスタイル */
