@@ -1,7 +1,7 @@
 <?php require '../header.php';?>
 <?php require '../menu/menu.php';?><!--menuはbodyタグの中に絶対に入れるように -->
 <title>プロフィール</title>
-<link rel="stylesheet" href="profile.css">
+<link rel="stylesheet" href="css/profile.css">
 <script src="js/style.js"></script>
 </head>
 <!-- プロフィールを更新するためのもの -->
