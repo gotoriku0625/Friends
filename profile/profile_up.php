@@ -6,7 +6,6 @@
 </head>
 <!-- プロフィールを更新するためのもの -->
 <body>
-    <div class="main">
     <div class="container">
         <p class="title">プロフィール</p>
     <!-- ログアウトボタン-->
@@ -216,6 +215,6 @@ EOF;
 
         </form>
     </div>
-    </div>
+
 </body>
 </html>
