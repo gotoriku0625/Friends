@@ -1,9 +1,19 @@
-.user-set2 {
-    position: relative;
-    margin: 3%; /* アイコン間のマージン */
-    height: 160px; /* アイコンセットの高さ */
-    width: 140px; /* アイコンセットの幅 */
+.recommendation2 {
+    display: flex;
+    justify-content: flex-start; /* 左寄せ */
     flex-wrap: wrap;
+    gap: 20px; /* アイコン間の間隔 */
+}
+
+.user-set2 {
+    flex: 0 0 calc(25% - 20px); /* アイコンセットの幅と間隔 */
+    margin-bottom: 20px; /* アイコンセット間の間隔 */
+    text-align: center;
+    box-sizing: border-box; /* ボックスモデルの調整 */
+}
+
+.user-set2:nth-child(4n + 1) {
+    margin-right: 0; /* アイコン4つごとに改行 */
 }
 
 .standard-icon {
@@ -19,6 +29,7 @@
     height: 110px;
     border-radius: 50%;
     z-index: 1;
+    display: inline-block; /* インライン要素として配置 */
 }
 
 .frame-blue2 {
