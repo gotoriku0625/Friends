@@ -1,6 +1,25 @@
+.menu {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 20%;
+    height: 100%;
+    background-color: rgb(151, 255, 220);
+    z-index: 10; /* メニューのz-indexを10に設定 */
+}
+
 .main {
     position: relative;
-    left: 20%; /* メニューの幅分だけ右にずらす */
-    width: 20%; /* メニュー以外の部分の幅 */
-    padding: 20px; /* ダッシュボードコンテンツの余白 */
+    left: 21%;
+    z-index: 1; /* ダッシュボードのz-indexを1に設定 */
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    width: 70%;
+    padding-top: 3%;
+    text-align: center;
+    z-index: 2; /* リンクのz-indexを2に設定 */
 }
