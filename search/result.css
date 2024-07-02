@@ -1,9 +1,19 @@
+.recommendation2 {
+    display: flex;
+    justify-content: flex-start; /* 左寄せ */
+    flex-wrap: wrap;
+    gap: 20px; /* アイコン間の間隔 */
+}
+
 .user-set2 {
     position: relative;
-    margin: 3%; /* アイコン間のマージン */
-    height: 160px; /* アイコンセットの高さ */
+    margin-bottom: 20px; /* アイコンセット間の間隔 */
+    text-align: center;
     width: 140px; /* アイコンセットの幅 */
-    flex-wrap: wrap;
+}
+
+.user-set2:nth-child(4n + 1) {
+    margin-right: auto; /* アイコン4つごとに改行 */
 }
 
 .standard-icon {
