@@ -56,12 +56,25 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                             <div class="menu-item drop-menu">
                                 <a href="#" class="a-all"><span class="dli-more-v"></span></a>
                                 <div class="drop-menu-list">
-                                    <div class="drop-menu-item">
-                                        <a href="#block" class="a-b modal-open">
+                                    <div class="drop-menu-item open_sub_window_wrapper">
+                                        <a href="#" class="a-b open_sub_window" onclick="openSubWindow()">
                                             <img src="../image/block.png" class="block">ブロック</a>
                                     </div>
+                                    <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
+                                    <div class="bg_sub_window" onclick="closeSubWindow()">
+                                        <!-- サブウィンドウの内容 -->
+                                        <div class="sub_window" onclick="event.stopPropagation()">
+                                            <div class="sub_window_content">
+                                                <form action="../block/block.php" method="post">
+                                                    <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
+                                                    <button type="submit" class="btn-logout" name="block" value="1">はい</button>
+                                                    <button type="submit" class="btn-logout" name="block" value="0">いいえ</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="drop-menu-item">
-                                        <a href="#report" class="a-t modal-open">
+                                        <a href="#" class="a-t open_sub_window" onclick="openSubWindow()">
                                         <img src="../image/report.png" class="report">通報</a>
                                     </div>
                                 </div>
@@ -110,20 +123,5 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
             EOF;
             }?>
         </div>
-
     </div>
 </body>
-
-
-<section id="block">
-    <!-- <h3>ブロックしますか？</h2> -->
-    <form action="./block.php" method="post">
-        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
-        <button type="submit" name="check" value="1">はい</button>
-        <button type="submit" name="check" value="0">いいえ</button>
-    </form>
-</section>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-
