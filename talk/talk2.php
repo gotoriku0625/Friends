@@ -57,10 +57,12 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                 <a href="#" class="a-all"><span class="dli-more-v"></span></a>
                                 <div class="drop-menu-list">
                                     <div class="drop-menu-item">
-                                        <a href="#block" class="a-b modal-open">ブロック</a>
+                                        <a href="#block" class="a-b modal-open">
+                                            <img src="../image/block.png" class="block">ブロック</a>
                                     </div>
                                     <div class="drop-menu-item">
-                                        <a href="#report" class="a-t modal-open">通報</a>
+                                        <a href="#report" class="a-t modal-open">
+                                        <img src="../image/report.png" class="report">通報</a>
                                     </div>
                                 </div>
                             </div>
@@ -113,5 +115,15 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
 </body>
 
 
-
+<section id="block">
+    <!-- <h3>ブロックしますか？</h2> -->
+    <form action="./block.php" method="post">
+        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
+        <button type="submit" name="check" value="1">はい</button>
+        <button type="submit" name="check" value="0">いいえ</button>
+    </form>
+</section>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 

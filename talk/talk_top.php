@@ -72,6 +72,7 @@
                 }?>
     </div>
 </body>
+<!-- 表示するメッセージを制限する -->
 <script>
     const limit = document.querySelector(".reciver_text");
     const str = limit.textContent;

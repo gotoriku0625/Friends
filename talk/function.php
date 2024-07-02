@@ -103,12 +103,13 @@ function new_message_count($user_id){
     require './db-connect.php';
     try{
         $pdo=new PDO($connect,$user,$pass);
-        $count='select talk_count
+        $count='select sum(talk_count)
                 from talk_member
-                where reciver_id = :sender_id';
+                where reciver_id = :sender_id
+                group by talk_count';
         $sql=$pdo->prepare($count);
-        $sql->execute(array(':sender_id' => $user_id));
-        return $sql->fetch();
+        return $sql->execute(array(':sender_id' => $user_id));
+        // return $sql->fetch();
     }catch (\Exception $e) {
         echo 'エラー発生:' . $e->getMessage();
     }
