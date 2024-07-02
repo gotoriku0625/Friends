@@ -103,7 +103,7 @@
         <?php if (!empty($results)): ?>
             <ul class="recommendation2">
                 <?php foreach ($results as $profile): ?>
-                    <li class="user-set2">
+                    <li class="user-set3">
                         <?php if((int)$profile['gender_id'] === 1): // 男性 ?>
                             <div class="frame-blue2">
                         <?php elseif((int)$profile['gender_id'] === 2): // 女性 ?>
