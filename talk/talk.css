@@ -18,7 +18,7 @@ ul{
 
     height:100%;/*ここはご自由に*/
     width: 81%;/*ここはご自由に*/
-    position: relative;
+    /* position: relative; */
     left: 20%;
 }
 /* チャットの外側部分① */
@@ -188,30 +188,81 @@ ul{
     padding: 2px 4px;
 } */
 
-/*========= モーダル表示のためのCSS ===============*/
 
-/*infoエリアをはじめは非表示*/
-#info{
-    display: none;
-  }
-  
-  /*モーダルの横幅を変更したい場合*/
-  .modaal-container{
-      max-width: 600px;
-  }
-  
-  /*モーダルのボタンの色を変更したい場合*/
-  .modaal-close:after, 
-  .modaal-close:before{
-    background:#ccc;  
-  }
-  
-  .modaal-close:focus:after,
-  .modaal-close:focus:before,
-  .modaal-close:hover:after,
-  .modaal-close:hover:before{
-    background:#666;
-  }
+/* サブウィンドウcss */
+/* サブウィンドウを開くボタンの親要素のスタイル */
+.open_sub_window_wrapper {
+  text-align: right;
+}
+
+/* サブウィンドウを開くボタンのスタイル */
+.open_sub_window {
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* サブウィンドウを開くボタンのホバー時のスタイル */
+.open_sub_window:hover {
+  opacity: 0.8;
+}
+
+/* サブウィンドウの背景のスタイル（初期状態は非表示） */
+.bg_sub_window {
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: visibility 0s, opacity 0.5s linear;
+  z-index: 1; /* サブウィンドウの背景を最背面に設定 */
+}
+
+/* サブウィンドウのスタイル */
+.sub_window {
+  position: fixed; /* スクロールに影響されないようにfixedに設定 */
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  max-height: 90%;
+  background-color: #fff;
+  overflow-y: auto;
+  width: 90%;
+  max-width: 900px;
+  z-index: 2; /* サブウィンドウをアイコンとサブ写真の下に設定 */
+}
+
+/* サブウィンドウのコンテンツを中央に配置するスタイル */
+.sub_window_content {
+  display: table;
+  margin: 20px auto;
+}
+
+/* ログアウトボタンのスタイル */
+.btn-logout {
+  display: block;
+  padding: 10px 20px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff4444;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  z-index: 1; /* サブウィンドウのボタンを最前面に設定 */
+}
+
+/* ログアウトボタンのホバー時のスタイル */
+.btn-logout:hover {
+  background-color: #dd3333;
+}
+
 
 /* ナビゲーションメニュー */
 .dli-more-v {
@@ -253,7 +304,7 @@ ul{
     color: #fff;  /*メニューアイテム内のリンクテキストの色*/ 
     display: flex;
     height: 45px;
-    font-size: 30px;
+    font-size: 25px;
     justify-content: center;
     text-decoration: none;  /*リンクの下線を非表示 */
     width: 150px;
@@ -291,4 +342,14 @@ ul{
 .a-t{
   position: relative;
   left: 0;
+}
+.block{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+.report{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
 }
