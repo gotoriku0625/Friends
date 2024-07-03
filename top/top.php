@@ -9,7 +9,7 @@
         <?php
         $pdo=new PDO($connect,USER,PASS);
         // おすすめ
-        $sql=$pdo->prepare('select user.user_id,icon_image,user_name,gender_name,age from user,profile,hobby,gender
+        $sql=$pdo->prepare('select user.user_id,icon_image,user_name,gender_name,age from user,profile,hobby,gender,profike_id
                             where profile.hobby_id=hobby.hobby_id
                             and user.user_id = profile.user_id
                             and gender.gender_id=profile.gender_id
@@ -25,22 +25,22 @@
             if($row['gender_name']==='男性'){
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue">';
-                echo '<a href="../profile/profile-user.php?profile_id='.htmlspecialchars($profile['profile_id']).'">';
-                echo '<img src="../user_image/main/'.htmlspecialchars($profile['icon_image']).'" alt="icon" class="standard-icon">';
+                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
                 echo '</a>';
                 echo '</div>';
             }else if($row['gender_name']==='女性'){
                 // アイコンの枠の色を赤色に
                 echo '<div class="frame-pink">';
-                echo '<a href="../profile/profile-user.php?profile_id='.htmlspecialchars($profile['profile_id']).'">';
-                echo '<img src="../user_image/main/'.htmlspecialchars($profile['icon_image']).'" alt="icon" class="standard-icon">';
+                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
                 echo '</a>';
                 echo '</div>';
             }else{
                 // アイコンの枠の色を灰色に
                 echo '<div class="frame-gray">';
-                echo '<a href="../profile/profile-user.php?profile_id='.htmlspecialchars($profile['profile_id']).'">';
-                echo '<img src="../user_image/main/'.htmlspecialchars($profile['icon_image']).'" alt="icon" class="standard-icon">';
+                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
                 echo '</a>';
                 echo '</div>';
             }
@@ -51,7 +51,7 @@
         echo '</div>';
 
         // ランダムに30人を表示する
-        $sql=$pdo->prepare('select user.user_id, icon_image, user_name, gender_name, age 
+        $sql=$pdo->prepare('select user.user_id, icon_image, user_name, gender_name, age, profile_id
                             from user
                             join profile ON user.user_id = profile.user_id
                             join gender ON gender.gender_id = profile.gender_id
@@ -66,21 +66,23 @@
             if($row['gender_name']==='男性'){
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue2">';
-                echo '<a href="../profile/profile-user.php?profile_id='.htmlspecialchars($profile['profile_id']).'">';
-                echo '<img src="../user_image/main/'.htmlspecialchars($profile['icon_image']).'" alt="icon" class="standard-icon">';
+                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
                 echo '</a>';
                 echo '</div>';
             }else if($row['gender_name']==='女性'){
                 // アイコンの枠の色を赤色に
                 echo '<div class="frame-pink2">';
-                echo '<a href="../profile/profile-user.php?profile_id='.htmlspecialchars($profile['profile_id']).'">';
-                echo '<img src="../user_image/main/'.htmlspecialchars($profile['icon_image']).'" alt="icon" class="standard-icon">';
+                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
                 echo '</a>';
                 echo '</div>';
             }else{
                 // アイコンの枠の色を灰色に
                 echo '<div class="frame-gray2">';
-                echo '<a href="../profile/profile-user.php"><img src="../user_image/main/',$row['icon_image'],'"class="standard-icon"></a>';// アイコン
+                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
+                echo '</a>';
                 echo '</div>';
             }
             // アイコンとユーザー名、年齢を表示
