@@ -13,9 +13,6 @@ body {
     overflow-x: hidden;       /* 横スクロールを無効化 */
 }
 
-/* ログアウトボタンの位置 */
-
-
 /* タイトルの設定 */
 .title {
     text-align: center;
