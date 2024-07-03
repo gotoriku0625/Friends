@@ -1,6 +1,10 @@
 /* 全体のフォント設定 */
+@font-face {
+    font-family: mameron;
+    src: url("../font/mamelon_hireg/Mamelon-3.5-Hi-Regular.otf") format("OpenType");
+  }
 body {
-    font-family: Arial, sans-serif;
+    
     font-size: 20px;
     text-align: left;
 }
@@ -11,7 +15,6 @@ body {
     margin: 0 auto;           /* 自動で中央寄せ */
     margin-left: 21%;         /* 左に20%の余白を作る */
     overflow-x: hidden;       /* 横スクロールを無効化 */
-    font-family: Arial, sans-serif;
 }
 
 /* タイトルの設定 */
