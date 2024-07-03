@@ -52,21 +52,21 @@
                     <div class="sub-images">
                         <div class="sub-image-wrapper">
                             <div class="sub-square" id="subImageContainer1">
-                                <img id="subImage1" src="../user_image/sub/{$user['sub_a_image']}" alt="サブ写真1">
+                                <img id="subImage1" src="../user_image/sub/{$user['sub_a_image']}">
                             </div>
                             <label for="subImageInput1" class="subImagePut" onclick="uploadSubImage('subImageInput1', 'subImage1')">+</label>
                             <input type="file" id="subImageInput1" name="subImage1" accept="image/*" style="display: none;">
                         </div>
                         <div class="sub-image-wrapper">
                             <div class="sub-square" id="subImageContainer2">
-                                <img id="subImage2" src="../user_image/sub/{$user['sub_b_image']}" alt="サブ写真2">
+                                <img id="subImage2" src="../user_image/sub/{$user['sub_b_image']}">
                             </div>
                             <label for="subImageInput2" class="subImagePut" onclick="uploadSubImage('subImageInput2', 'subImage2')">+</label>
                             <input type="file" id="subImageInput2" name="subImage2" accept="image/*" style="display: none;">
                         </div>
                         <div class="sub-image-wrapper">
                             <div class="sub-square" id="subImageContainer3">
-                                <img id="subImage3" src="../user_image/sub/{$user['sub_c_image']}" alt="サブ写真3">
+                                <img id="subImage3" src="../user_image/sub/{$user['sub_c_image']}">
                             </div>
                             <label for="subImageInput3" class="subImagePut" onclick="uploadSubImage('subImageInput3', 'subImage3')">+</label>
                             <input type="file" id="subImageInput3" name="subImage3" accept="image/*" style="display: none;">
