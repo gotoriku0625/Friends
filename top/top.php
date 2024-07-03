@@ -9,7 +9,8 @@
         <?php
         $pdo=new PDO($connect,USER,PASS);
         // おすすめ
-        $sql=$pdo->prepare('select user.user_id,icon_image,user_name,gender_name,age from user,profile,hobby,gender,profike_id
+        $sql=$pdo->prepare('select user.user_id,icon_image,user_name,gender_name,age,profile_id 
+                            from user,profile,hobby,gender
                             where profile.hobby_id=hobby.hobby_id
                             and user.user_id = profile.user_id
                             and gender.gender_id=profile.gender_id
