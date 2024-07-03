@@ -1,12 +1,11 @@
-<?php require '../header.php';?>
-<!-- ↓ここにＣＳＳを追加↓ -->
-<title>Friends Top</title>
+<?php require '../m_header.php';?>
+    <link rel="stylesheet" href="css/Dashboard.css">
+    <title>Dashboard</title>
 </head>
 
 <body>
-
-
-
+<?php require '../m_menu/m_menu.php';?>
+    <div class="main"></div>
 <?php
 // データベース接続
 $pdo = new PDO($connect, USER, PASS);
