@@ -1,7 +1,12 @@
 <?php session_start(); ?>
 <?php require '../db-connect.php'; ?>
-
-<body>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/management_login.css">
+</head>
 <div class="container">
     <div class="header">
         <img src="../image/logo.png" alt="Logo" class="logo">
