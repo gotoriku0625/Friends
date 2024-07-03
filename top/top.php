@@ -9,7 +9,8 @@
         <?php
         $pdo=new PDO($connect,USER,PASS);
         // おすすめ
-        $sql=$pdo->prepare('select user.user_id,icon_image,user_name,gender_name,age from user,profile,hobby,gender,profike_id
+        $sql=$pdo->prepare('select user.user_id,icon_image,user_name,gender_name,age,profile_id 
+                            from user,profile,hobby,gender
                             where profile.hobby_id=hobby.hobby_id
                             and user.user_id = profile.user_id
                             and gender.gender_id=profile.gender_id
@@ -26,21 +27,21 @@
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue">';
                 echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
-                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
+                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="best-icon">';
                 echo '</a>';
                 echo '</div>';
             }else if($row['gender_name']==='女性'){
                 // アイコンの枠の色を赤色に
                 echo '<div class="frame-pink">';
                 echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
-                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
+                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="best-icon">';
                 echo '</a>';
                 echo '</div>';
             }else{
                 // アイコンの枠の色を灰色に
                 echo '<div class="frame-gray">';
                 echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
-                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
+                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="best-icon">';
                 echo '</a>';
                 echo '</div>';
             }

@@ -2,11 +2,12 @@
     display: flex;
     justify-content: flex-start; /* 左寄せ */
     flex-wrap: wrap;
-    gap: 20px; /* アイコン間の間隔 */
+    gap: 10px; /* アイコン間の間隔を狭める */
+    padding-right: 100px; /* 一番左のアイコンの位置を左に持ってくる */
 }
 
 .user-set2 {
-    flex: 0 0 calc(25% - 20px); /* アイコンセットの幅と間隔 */
+    flex: 0 0 calc(23% - 20px); /* アイコンセットの幅と間隔を狭める */
     margin-bottom: 20px; /* アイコンセット間の間隔 */
     text-align: center;
     box-sizing: border-box; /* ボックスモデルの調整 */
@@ -42,4 +43,11 @@
 
 .frame-gray2 {
     background: radial-gradient(circle, transparent 65%, #626262bf 20%);
+}
+
+.standard-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* 画像もアイコンの形に合わせる */
 }
