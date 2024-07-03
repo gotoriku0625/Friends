@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../config.php'; // データベース接続設定ファイルをインクルード
+require '../db-connect.php'; // データベース接続設定ファイルをインクルード
 
 try {
     $pdo = new PDO($connect, USER, PASS);
@@ -12,10 +12,10 @@ try {
 
     if ($profile_id && $user_id) {
         // いいねを挿入するSQLクエリ
-        $sql = 'INSERT INTO likes (profile_id, user_id) VALUES (:profile_id, :user_id)';
+        $sql = 'INSERT INTO likes (likes_user_id, liked_user_id) VALUES (:user_id, :profile_id)';
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':profile_id', $profile_id, PDO::PARAM_INT);
         $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->bindValue(':profile_id', $profile_id, PDO::PARAM_INT);
         $stmt->execute();
 
         // 成功メッセージ

@@ -58,7 +58,7 @@
                 echo '<div class="like-section">';
                 echo '<form action="../likes/Like.php" method="post">';
                 echo '<input type="hidden" name="profile_id" value="' . $profile_id . '">';
-                echo '<input type="hidden" name="user_id" value="' . $_SESSION['user_id'] . '">';
+                echo '<input type="hidden" name="user_id" value="' . $_SESSION['user']['id'] . '">';
                 echo '<button type="submit">いいね</button>';
                 echo '</form>';
                 echo '</div>'; // .like-section
