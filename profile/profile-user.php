@@ -1,7 +1,7 @@
 <?php require '../header.php'; ?>
 <?php require '../menu/menu.php'; ?>
 <title>プロフィール</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/profile-user.css">
 </head>
 <body>
     <div class="container">
