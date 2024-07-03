@@ -55,15 +55,17 @@ onMounted(() => {
 
 
 //モーダル表示
-$(".modal-open").modal({
-overlay_close:true,//モーダル背景クリック時に閉じるか
-before_open:function(){// モーダルが開く前に行う動作
-  $('html').css('overflow-y','hidden');/*縦スクロールバーを出さない*/
-},
-after_close:function(){// モーダルが閉じた後に行う動作
-  $('html').css('overflow-y','scroll');/*縦スクロールバーを出す*/
+function openSubWindow() {
+  document.querySelector('.bg_sub_window').style.visibility = 'visible';
+  document.querySelector('.bg_sub_window').style.opacity = '1';
+  document.querySelector('.bg_sub_window').style.pointerEvents = 'auto';
 }
-});
+
+function closeSubWindow() {
+  document.querySelector('.bg_sub_window').style.visibility = 'hidden';
+  document.querySelector('.bg_sub_window').style.opacity = '0';
+  document.querySelector('.bg_sub_window').style.pointerEvents = 'none';
+}
 
 window.onload=function(){
   document.forms["add"].submit();

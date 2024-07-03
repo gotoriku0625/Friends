@@ -39,7 +39,7 @@ try {
 <body>
     <div class="container">
         <p><?php echo htmlspecialchars($message); ?></p>
-        <button onclick="location.href='../index.php'">トップに戻る</button>
+        <button onclick="location.href='../top/top.php'">トップに戻る</button>
     </div>
 </body>
 </html>

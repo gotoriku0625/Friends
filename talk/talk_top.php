@@ -12,13 +12,14 @@
         </div>
     <?php require '../menu/menu.php';?>
         <?php
+        // 自分の情報を格納する変数
+        $current_user = get_user($_SESSION['user']['id']);
+
         $pdo=new PDO($connect,USER,PASS);
         $r_id='select reciver_id from talk_member where sender_id=?';
         $sql=$pdo->prepare($r_id);
         $sql->execute([$_SESSION['user']['id']]);
         foreach($sql as $row){
-            // 自分の情報を格納する変数
-            $current_user = get_user($_SESSION['user']['id']);
             // トーク相手の情報を格納する変数
             $reciver = get_user($row['reciver_id']);
         }

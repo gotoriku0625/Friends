@@ -1,36 +1,30 @@
-<?php session_start(); 
-require '../db-connect.php'; 
+<?php session_start(); ?>
+<?php require '../db-connect.php'; ?>
+    <?php
+        try {
+            $pdo = new PDO($connect, USER, PASS);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = $pdo->prepare('SELECT m_user_id,m_user_name, m_pass FROM management_user WHERE m_user_id = ?');
 
-try {
-    $pdo = new PDO($connect, USER, PASS);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = $pdo->prepare('SELECT m_user_id,m_user_name, m_pass FROM management_user WHERE m_user_id = ?');
+                if (isset($_POST['login']) && $_POST['login'] === "ログイン") {
+                    $sql->execute([$_POST['id']]);
+                    $management_user = $sql->fetch(PDO::FETCH_ASSOC);
 
-    if (isset($_POST['login']) && $_POST['login'] === "ログイン") {
-        $sql->execute([$_POST['id']]);
-        $management_user = $sql->fetch(PDO::FETCH_ASSOC);
-
-        // パスワードの確認
-        if ($management_user && $_POST['password'] === $management_user['m_pass']) {
-            $_SESSION['m_user_id'] = $management_user['m_user_id'];
-            $_SESSION['m_user_name'] = $management_user['m_user_name'];
-            header('Location: Dashboard.php'); // ログイン成功後にダッシュボードにリダイレクト
-            exit;
-        } else {
-            $error_message = 'IDまたはパスワードが違います。';
+                    // パスワードの確認
+                    if ($management_user && $_POST['password'] === $management_user['m_pass']) {
+                        $_SESSION['m_user_id'] = $management_user['m_user_id'];
+                        $_SESSION['m_user_name'] = $management_user['m_user_name'];
+                        header('Location: Dashboard.php'); // ログイン成功後にダッシュボードにリダイレクト
+                        exit;
+                    } else {
+                        $error_message = 'IDまたはパスワードが違います。';
+                    }
+                }
+        } catch (PDOException $e) {
+            echo 'Database error: ' . $e->getMessage();
         }
-    }
-} catch (PDOException $e) {
-    echo 'Database error: ' . $e->getMessage();
-}
-?>
-<!DOCTYPE html>
-<html lang="ja">
-<head> 
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/management_login.css">
-</head>
+    ?>
+    
 <body>
 <div class="container">
     <div class="header">
