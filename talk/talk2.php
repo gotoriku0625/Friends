@@ -66,11 +66,13 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                         <div class="sub_window" onclick="event.stopPropagation()">
                                             <div class="sub_window_content">
                                                 <h2 class="title">ブロックしますか？</h2>
-                                                <form action="../block/block.php" method="post">
-                                                    <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
-                                                    <button type="submit" class="btn-logout">はい</button>
-                                                </form>
-                                                <button type="submit" class="btn-logout" onclick="closeSubWindow()">いいえ</button>
+                                                <div class="content">
+                                                    <form action="../block/block.php" method="post">
+                                                        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
+                                                        <button type="submit" class="btn-logout">はい</button>
+                                                    </form>
+                                                </div>
+                                                <button type="submit" class="btn-logout" onclick="closeSubWindow()">いいえ</butto>
                                             </div>
                                         </div>
                                     </div>

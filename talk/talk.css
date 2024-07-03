@@ -232,7 +232,7 @@ ul{
   max-height: 90%;
   background-color: #fff;
   overflow-y: auto;
-  width: 90%;
+  width: 60%;
   max-width: 900px;
   z-index: 2; /* サブウィンドウをアイコンとサブ写真の下に設定 */
 }
@@ -262,7 +262,9 @@ ul{
 .btn-logout:hover {
   background-color: #dd3333;
 }
-
+.content{
+  display: flex;
+}
 
 /* ナビゲーションメニュー */
 .dli-more-v {
