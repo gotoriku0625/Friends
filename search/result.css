@@ -2,11 +2,11 @@
     display: flex;
     justify-content: flex-start; /* 左寄せ */
     flex-wrap: wrap;
-    gap: 20px; /* アイコン間の間隔 */
+    gap: 0px; /* アイコン間の間隔 */
 }
 
 .user-set2 {
-    flex: 0 0 calc(25% - 20px); /* アイコンセットの幅と間隔 */
+    flex: 0 0 calc(25% - 30px); /* アイコンセットの幅と間隔 */
     margin-bottom: 20px; /* アイコンセット間の間隔 */
     text-align: center;
     box-sizing: border-box; /* ボックスモデルの調整 */
