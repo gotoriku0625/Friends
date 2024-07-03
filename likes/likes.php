@@ -40,52 +40,52 @@ $stmt_liked_by->closeCursor();
         </div>
     </div>
     <div id="liked" class="tab-content active">
-    <?php if (!empty($liked_users)): ?>
-        <ul class="user-list">
-            <?php foreach ($liked_users as $user): ?>
-                <div class="flex">
-                    <div class="likeicom">
-                        <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
+        <?php if (!empty($liked_users)): ?>
+            <ul class="user-list">
+                <?php foreach ($liked_users as $user): ?>
+                    <div class="flex">
+                        <div class="likeicom">
+                            <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
+                        </div>
+                        <div class="likename">
+                            <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
+                        </div>
+                        <div class="actions">
+                            <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>"><img src="../image/bat.png" class="bat"></button>
+                        </div>
                     </div>
-                    <div class="likename">
-                        <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>友達になりたい人を見つけに行きましょう。<img src="../image/person2.png" width="300" height="300"></p>
+        <?php endif; ?>
+    </div>
+    <div id="liked_by" class="tab-content">
+        <?php if (!empty($liked_by_users)): ?>
+            <ul class="user-list">
+                <?php foreach ($liked_by_users as $user): ?>
+                    <div class="flex">
+                        <div class="likeicom">
+                            <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
+                        </div>
+                        <div class="likename">
+                            <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
+                        </div>
+                        <div class="actions"> 
+                            <form action="../matchs/match.php" method="post">
+                                <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
+                                <input type="hidden" name="action" value="like">
+                                <button type="submit" class="like"><img src="../image/you.png" class="youlike"></button>
+                            </form>
+                            <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>"><img src="../image/bat.png" class="bat"></button>
+                        </div>
                     </div>
-                    <div class="actions">
-                        <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>"><img src="../image/bat.png" class="bat"></button>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <p>友達になりたい人を見つけに行きましょう。<img src="../image/person2.png" width="300" height="300"></p>
-    <?php endif; ?>
-</div>
-<div id="liked_by" class="tab-content">
-    <?php if (!empty($liked_by_users)): ?>
-        <ul class="user-list">
-            <?php foreach ($liked_by_users as $user): ?>
-                <div class="flex">
-                    <div class="likeicom">
-                        <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon">
-                    </div>
-                    <div class="likename">
-                        <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
-                    </div>
-                    <div class="actions"> 
-                        <form action="../matchs/match.php" method="post">
-                            <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
-                            <input type="hidden" name="action" value="like">
-                            <button type="submit" class="like"><img src="../image/you.png" class="youlike"></button>
-                        </form>
-                        <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>"><img src="../image/bat.png" class="bat"></button>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <p>いいねをもらった人はいません。<img src="../image/person1.png" width="300" height="300"></p>
-    <?php endif; ?>
-</div>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>いいねをもらった人はいません。<img src="../image/person1.png" width="300" height="300"></p>
+        <?php endif; ?>
+    </div>
 </div>
 <script src="../likes/javascript/likes.js"></script>
 <script>
