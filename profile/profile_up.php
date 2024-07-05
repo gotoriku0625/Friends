@@ -21,9 +21,9 @@
             <div class="sub_window" onclick="event.stopPropagation()">
                 <div class="sub_window_content">
                     <form action="../logout/logout.php" method="post">
-                        <button type="submit" class="btn-logout">ログアウト</button>
+                        <button type="submit" class="btn-logout">はい</button>
                     </form>
-                    <button class="btn-cancel" onclick="closeSubWindow()">キャンセル</button>
+                    <button class="btn-cancel" onclick="closeSubWindow()">いいえ</button>
                 </div>
             </div>
         </div>
