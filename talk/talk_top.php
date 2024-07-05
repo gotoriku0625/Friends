@@ -1,6 +1,6 @@
 <?php require '../header.php';?>
     <link rel="stylesheet" href="talk_top.css">
-    <script type="module" src="./script.js"></script>
+    <script src="./script.js"></script>
     <title>Talk Top</title>
 </head>
 <?php require './function.php';?>
