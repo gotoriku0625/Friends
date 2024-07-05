@@ -5,7 +5,7 @@
         </div>
         <?php
             //　トークの通知件数を表示するために追加
-            require '../talk/function.php';
+            // require '../talk/function.php';
             $icon = $_SESSION['user']['icon'];
             // せしょんにジェンダーはいってたら
             $gender = $_SESSION['user']['gender'];
