@@ -5,8 +5,6 @@
 </head>
 <body>
     <div class="container">
-        <button onclick="goBack()">戻る</button>
-        <hr>
 
         <?php
         try {
@@ -34,13 +32,15 @@
             $profile = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($profile) {
+                // ユーザー名の表示
+                echo '<p><span class="label"></span> <span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '') . '</span></p>';
+
+                echo '<button onclick="goBack()">戻る</button>';
+                echo '<hr>';
                 // アイコン画像の表示
                 if (!empty($profile['icon_image'])) {
                     echo '<img src="' . htmlspecialchars($profile['icon_image']) . '" alt="アイコン" class="profile-icon">';
                 }
-
-                // ユーザー名の表示
-                echo '<p><span class="label">ユーザー名:</span> <span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '') . '</span></p>';
 
                 // 趣味名の表示
                 echo '<p><span class="label">趣味:</span> <span class="data-box">' . htmlspecialchars($profile['hobby_name'] ?? '') . '</span></p>';
