@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php require '../db-connect.php';?>
 <head>
     <meta charset="UTF-8">
