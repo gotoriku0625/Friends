@@ -71,28 +71,8 @@
                                             echo '<div class="block">ブロック中</div>';
                                         }
                                     echo '</div>';
-                                echo<<<EOF
-                                </div>
-                                </button>
-                                </form>
-                            </div>
-                        </div>
-                        EOF;
-                    }
-                }?>
-    </div>
-</body>
-<!-- 表示するメッセージを制限する -->
-<script>
-    const limit = document.querySelector(".reciver_text");
-    const str = limit.textContent;
-    const len = 40; // 半角80字（全角約40字）
-    if (str.length > len) {
-        limit.textContent = str.substring(0, len) + "…";
-    }
-</script>
-
-                <div id="menu">
+                                    
+                    echo '<div id="menu">
                     <nav class="nav-menu">
                         <!-- <ul class="menu-list"> -->
                             <div class="menu-item drop-menu">
@@ -110,7 +90,7 @@
                                                 <h2 class="title">ブロックしますか？</h2>
                                                 <div class="content">
                                                     <form action="../block/block.php" method="post">
-                                                        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
+                                                        <input type="hidden" name="reciver_id" value="'.$reciver['user_id'].'">
                                                         <button type="submit" class="btn-logout">はい</button>
                                                     </form>
                                                 </div>
@@ -129,7 +109,7 @@
                                                 <h2 class="title"></h2>
                                                 <div class="content">
                                                     <form action="../report/report.php" method="post">
-                                                        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
+                                                        <input type="hidden" name="reciver_id" value="'.$reciver['user_id'].'">
                                                         <input type="radio" name="report" value="性的嫌がらせ">性的嫌がらせ
                                                         <input type="radio" name="report" value="迷惑行為">迷惑行為
                                                         <input type="radio" name="report" value="その他">その他
@@ -146,3 +126,23 @@
                         <!-- </ul> -->
                     </nav>
                 </div>
+                                </div>
+                                </button>
+                                </form>
+                            </div>
+                        </div>';
+                    }
+                }?>
+    </div>
+</body>
+<!-- 表示するメッセージを制限する -->
+<script>
+    const limit = document.querySelector(".reciver_text");
+    const str = limit.textContent;
+    const len = 40; // 半角80字（全角約40字）
+    if (str.length > len) {
+        limit.textContent = str.substring(0, len) + "…";
+    }
+</script>
+
+                
