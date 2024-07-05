@@ -4,8 +4,7 @@
             <a href="../top/top.php"><img src="../image/logo.png" class="logo"></a>
         </div>
             <?php
-            $username = $_SESSION['m_user_name'];
-            echo '<div class="name">',$username,'</div>';
+            echo '<div class="name">',$management_user['m_user_name'],'</div>';
             ?>
 
         <div class="link-space">
