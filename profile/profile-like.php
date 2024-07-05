@@ -54,14 +54,6 @@
                 echo '<p><span class="label">出生地:</span> <span class="data-box">' . htmlspecialchars($profile['birthplace_name'] ?? '') . '</span></p>';
                 echo '<p><span class="label">居住地:</span> <span class="data-box">' . htmlspecialchars($profile['residence_name'] ?? '') . '</span></p>';
 
-                // いいねボタンの表示（フォーム形式）
-                echo '<div class="like-section">';
-                echo '<form action="../likes/Like.php" method="post">';
-                echo '<input type="hidden" name="profile_id" value="' . $profile_id . '">';
-                echo '<input type="hidden" name="user_id" value="' . $_SESSION['user']['id'] . '">';
-                echo '<button type="submit">いいね</button>';
-                echo '</form>';
-                echo '</div>'; // .like-section
 
             } else {
                 echo '<p>プロフィールが見つかりません。</p>';
