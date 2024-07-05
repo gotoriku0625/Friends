@@ -4,7 +4,8 @@
             <a href="../top/top.php"><img src="../image/logo.png" class="logo"></a>
         </div>
             <?php
-            $username = $_SESSION['m_user_name'];
+            // var_dump($_SESSION);
+            // // $username = $_SESSION['m_user_name'];
             echo '<div class="name">',$username,'</div>';
             ?>
 
