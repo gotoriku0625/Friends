@@ -5,8 +5,8 @@
         </div>
             <?php
             var_dump($_SESSION);
-            $username = $_SESSION['m_user_name'];
-            echo '<div class="name">',$username,'</div>';
+            // $username = $_SESSION['m_user_name'];
+            // echo '<div class="name">',$username,'</div>';
             ?>
 
         <div class="link-space">
