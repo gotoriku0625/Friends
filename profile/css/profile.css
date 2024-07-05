@@ -178,7 +178,7 @@ form[action="../logout/logout.php"] {
 
 /* サブウィンドウの背景のスタイル（初期状態は非表示） */
 .bg_sub_window {
-    display: flex;
+    display: block;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -209,13 +209,12 @@ form[action="../logout/logout.php"] {
 
 /* サブウィンドウのコンテンツを中央に配置するスタイル */
 .sub_window_content {
-    display: table;
+    display: flex;
     margin: 20px auto;
 }
 
 /* ログアウトボタンのスタイル */
 .btn-logout {
-    display: inline-block;
     padding: 10px 20px;
     margin: 10px auto;
     border: none;
@@ -228,9 +227,13 @@ form[action="../logout/logout.php"] {
     z-index: 1; /* サブウィンドウのボタンを最前面に設定 */
 }
 
+/* ログアウトボタンのホバー時のスタイル */
+.btn-logout:hover {
+    background-color: #00ffd9;
+}
+
 /* キャンセルボタンのスタイル */
 .btn-cancel {
-    display: inline-block;
     padding: 10px 20px;
     margin: 10px auto;
     border: none;
@@ -245,7 +248,7 @@ form[action="../logout/logout.php"] {
 
 /* キャンセルボタンのホバー時のスタイル */
 .btn-cancel:hover {
-    background-color: #888;
+    background-color: #fffdfd;
 }
 
 /* 追加ボタンの位置調整 */
