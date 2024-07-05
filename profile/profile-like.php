@@ -14,7 +14,7 @@
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             // profile_id をクエリパラメータから取得
-            $profile_id = isset($_GET['profile_id']) ? (int)$_GET['profile_id'] : 1;
+            $profile_id = isset($_GET['user_id']) ? (int)$_GET['user_id'] : 1;
 
             // プロフィール情報を取得するSQLクエリ
             $sql = 'SELECT p.*, h.hobby_name, g.gender_name, s.school_name, b.birthplace_name, r.residence_name, d.blood_type_name, u.user_name

@@ -98,7 +98,6 @@ $stmt_liked_by->closeCursor();
                                 <input type="hidden" name="action" value="like">
                                 <button type="submit" class="like"><img src="../image/you.png" class="youlike"></button>
                             </form>
-                            <button class="unlike" data-user-id="<?php echo $user['user_id']; ?>"><img src="../image/bat.png" class="bat"></button>
                         </div>
                     </div>
                 <?php endforeach; ?>
