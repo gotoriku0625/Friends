@@ -80,16 +80,38 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                         <a href="#" class="a-t open_sub_window" onclick="openSubWindow()">
                                         <img src="../image/report.png" class="report">通報</a>
                                     </div>
+                                    <div class="bg_sub_window" onclick="closeSubWindow()">
+                                    <!-- サブウィンドウの内容 -->
+                                        <div class="sub_window" onclick="event.stopPropagation()">
+                                            <div class="sub_window_content">
+                                                <h2 class="title"></h2>
+                                                <div class="content">
+                                                    <form action="../report/report.php" method="post">
+                                                        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
+                                                        <input type="radio" name="report" value="性的嫌がらせ">性的嫌がらせ
+                                                        <input type="radio" name="report" value="迷惑行為">迷惑行為
+                                                        <input type="radio" name="report" value="その他">その他
+                                                        <textarea class="" name="text" placeholder="内容を入力してください"></textarea>
+                                                        <button type="submit" class="btn-logout">送信</button>
+                                                    </form>
+                                                </div>
+                                                <button type="submit" class="btn-logout" onclick="closeSubWindow()">キャンセル</butto>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         <!-- </ul> -->
                     </nav>
                 </div>
             </div>
-            <?php 
-            if($messages!=null){
+            <?php
+            while($messages!=null){
+                sleep(2);
+                $messages = get_talks($current_user['user_id'],$reciver['user_id']);
                 echo '<div id="my_talk">';// トーク画面全体
                     echo '<div id="scroll-inner">';
+                echo '<script>setInterval(get)'
                 foreach ($messages as $message){
                     // echo var_dump($message);
                     if($message['sender_id']==$current_user['user_id']){
