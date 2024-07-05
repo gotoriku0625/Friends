@@ -14,7 +14,7 @@
     z-index: 1; /* ダッシュボードのz-indexを1に設定 */
 }
 
-a {
+.a {
     display: block;
     text-decoration: none;
     color: black;
@@ -22,4 +22,7 @@ a {
     padding-top: 3%;
     text-align: center;
     z-index: 2; /* リンクのz-indexを2に設定 */
+}
+.h1{
+    color: rgb(151, 255, 220);
 }
