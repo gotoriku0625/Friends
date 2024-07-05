@@ -106,12 +106,11 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                 </div>
             </div>
             <?php
-            while($messages!=null){
-                sleep(2);
-                $messages = get_talks($current_user['user_id'],$reciver['user_id']);
+            if($messages!=null){
+                echo '<script>setInterval(fetchUpdates, 2000)</script>';
+                // $messages = get_talks($current_user['user_id'],$reciver['user_id']);
                 echo '<div id="my_talk">';// トーク画面全体
                     echo '<div id="scroll-inner">';
-                echo '<script>setInterval(get)'
                 foreach ($messages as $message){
                     // echo var_dump($message);
                     if($message['sender_id']==$current_user['user_id']){

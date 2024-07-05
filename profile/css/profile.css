@@ -178,7 +178,7 @@ form[action="../logout/logout.php"] {
 
 /* サブウィンドウの背景のスタイル（初期状態は非表示） */
 .bg_sub_window {
-    display: block;
+    display: flex;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -215,12 +215,12 @@ form[action="../logout/logout.php"] {
 
 /* ログアウトボタンのスタイル */
 .btn-logout {
-    display: block;
+    display: inline-block;
     padding: 10px 20px;
     margin: 10px auto;
     border: none;
     border-radius: 5px;
-    background-color: #ff4444;
+    background-color:aquamarine; 
     color: #fff;
     cursor: pointer;
     text-align: center;
@@ -228,14 +228,9 @@ form[action="../logout/logout.php"] {
     z-index: 1; /* サブウィンドウのボタンを最前面に設定 */
 }
 
-/* ログアウトボタンのホバー時のスタイル */
-.btn-logout:hover {
-    background-color: #dd3333;
-}
-
 /* キャンセルボタンのスタイル */
 .btn-cancel {
-    display: block;
+    display: inline-block;
     padding: 10px 20px;
     margin: 10px auto;
     border: none;

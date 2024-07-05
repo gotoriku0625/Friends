@@ -68,3 +68,12 @@ function closeSubWindow() {
   document.querySelector('.bg_sub_window').style.opacity = '0';
   document.querySelector('.bg_sub_window').style.pointerEvents = 'none';
 }
+
+function fetchUpdates() {
+  fetch('talk2.php')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('content').innerHTML = data;
+      })
+      .catch(error => console.error('Error:', error));
+}
