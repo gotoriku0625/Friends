@@ -1,10 +1,12 @@
-
+<?php session_start(); ?>
 <div class="menu">
         <div class="logo-space">
             <a href="../top/top.php"><img src="../image/logo.png" class="logo"></a>
         </div>
             <?php
-            echo '<div class="name">',$management_user['m_user_name'],'</div>';
+            var_dump($_SESSION);
+            $username = $_SESSION['m_user_name'];
+            echo '<div class="name">',$username,'</div>';
             ?>
 
         <div class="link-space">
