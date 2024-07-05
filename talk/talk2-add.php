@@ -34,8 +34,10 @@ try{
         $block='insert into block values(null,?,?)';
         $sql=$pdo->prepare($block);
         $sql->execute([$user_id,$reciver_id]);
-        header('Location:./talk2.php?user_id='.$reciver_id.'');
-        exit;
+        echo '<form name="add" action="./talk2.php" method="post">';
+            echo '<input type="hidden" name="reciver_id" value="'.$reciver_id.'">';
+            echo '<SCRIPT language="JavaScript">document.add.submit();</SCRIPT>';
+        echo '</form>';
     }
     echo '<form name="add" action="./talk2.php" method="post">';
         echo '<input type="hidden" name="reciver_id" value="'.$reciver_id.'">';

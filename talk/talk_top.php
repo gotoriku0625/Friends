@@ -54,6 +54,7 @@
                                         echo '</div>';
                                     echo '<div class="reciver_info">';
                                     echo '<input type="hidden" name="reciver_id" value="'.$reciver['user_id'].'">';
+                                    echo '<div class="content">';
                                         echo '<div class="reciver_namea_age">'.$reciver['user_name'].'('.$reciver['age'].')</div>';
                                         // なにもメッセージがない場合の判定(if)
                                         if(!empty($bottom_talk)){
@@ -61,8 +62,16 @@
                                         }else{
                                             echo '<span class="reciver_text"></span>';
                                         }
-                                    echo<<<EOF
-                                        </div>
+                                    echo '</div>';
+                                        $pdo=new PDO($connect,USER,PASS);
+                                        $block='select * from block where blocker_id=? and blocked_id=?';
+                                        $sql=$pdo->prepare($block);
+                                        $sql->execute([$current_user['user_id'],$reciver['user_id']]);
+                                        if($sql->fetch()){
+                                            echo '<div class="block">ブロック中</div>';
+                                        }
+                                    echo '</div>';
+                                echo<<<EOF
                                 </div>
                                 </button>
                                 </form>

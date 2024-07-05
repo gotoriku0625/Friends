@@ -1,6 +1,6 @@
 <?php require '../header.php';?>
     <link rel="stylesheet" href="./talk.css">
-    <script type="module" src="./script.js"></script>
+    <script src="./script.js"></script>
     <title>talk</title>
 </head>
 <?php require './function.php';?>
@@ -62,14 +62,17 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                     </div>
                                     <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
                                     <div class="bg_sub_window" onclick="closeSubWindow()">
-                                        <!-- サブウィンドウの内容 -->
+                                    <!-- サブウィンドウの内容 -->
                                         <div class="sub_window" onclick="event.stopPropagation()">
                                             <div class="sub_window_content">
-                                                <form action="../block/block.php" method="post">
-                                                    <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
-                                                    <button type="submit" class="btn-logout" name="block" value="1">はい</button>
-                                                    <button type="submit" class="btn-logout" name="block" value="0">いいえ</button>
-                                                </form>
+                                                <h2 class="title">ブロックしますか？</h2>
+                                                <div class="content">
+                                                    <form action="../block/block.php" method="post">
+                                                        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
+                                                        <button type="submit" class="btn-logout">はい</button>
+                                                    </form>
+                                                </div>
+                                                <button type="submit" class="btn-logout" onclick="closeSubWindow()">いいえ</butto>
                                             </div>
                                         </div>
                                     </div>

@@ -31,13 +31,21 @@ hr{
     font-size: 25px;
     font-family: mameron;
 }
+.block{
+    margin-left: 30px;
+    font-size: 20px;
+    color: red;
+}
+
 .reciver_text{
     font-size: 20px;
     font-family: mameron;
     color: rgba(84, 111, 91, 0.529);
 }
 .reciver_info{
+    margin-left: 30px;
     padding-top: 25px;
+    display: flex;
 }
 
 .talk_user_img{
@@ -57,7 +65,6 @@ hr{
     height: 80px;
     border-radius: 50%;
     z-index: 1;
-
 }
 .frame-pink{
     position: relative;
