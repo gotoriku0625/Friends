@@ -51,9 +51,9 @@
                 <h1 class="h1">ダッシュボード</h1>
                 <div class="dashboard-item">
                 <p>ユーザー数：<?php echo $user_count; ?></p>
-                <p>男性：<?php echo $gender_counts['男性']; ?></p>
-                <p>女性：<?php echo $gender_counts['女性']; ?></p>
-                <p>その他：<?php echo $gender_counts['その他']; ?></p>
+                <p class="m-boy">男性：<?php echo $gender_counts['男性']; ?></p>
+                <p class="m-girl">女性：<?php echo $gender_counts['女性']; ?></p>
+                <p class="m-others">その他：<?php echo $gender_counts['その他']; ?></p>
                 <a href="user_ichiran.php">ユーザー一覧へ</a>
             </div>
 

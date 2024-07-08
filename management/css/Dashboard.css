@@ -29,3 +29,15 @@
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
 }
+
+.m-boy{
+    color: rgb(132, 65, 255);
+}
+
+.m-girl{
+    color: rgb(255, 86, 148);
+}
+
+.m-others{
+    color: rgb(70, 70, 70);
+}
