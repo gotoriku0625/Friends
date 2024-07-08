@@ -8,12 +8,12 @@
 </head>
 
 <body>
+<?php require '../m_menu/m_menu.php';?>
     <h1>ユーザー一覧</h1>
     <p>ユーザー数：
         <?php
         // データベース接続
         require '../db-connect.php';
-        require '../m_menu/m_menu.php';
         $pdo = new PDO($connect, USER, PASS);
 
         // ユーザー数を取得するクエリ
