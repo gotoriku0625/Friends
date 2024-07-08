@@ -11,8 +11,8 @@
             $pdo = new PDO($connect, USER, PASS);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // profile_id をクエリパラメータから取得
-            $profile_id = isset($_GET['profile_id']) ? (int)$_GET['profile_id'] : 1;
+            // user_id をクエリパラメータから取得
+            $user_id = isset($_GET['user_id']) ? (int)$_GET['user_id'] : 0;
 
             // プロフィール情報を取得するSQLクエリ
             $sql = 'SELECT p.*, h.hobby_name, g.gender_name, s.school_name, b.birthplace_name, r.residence_name, d.blood_type_name, u.user_name
@@ -24,9 +24,9 @@
                     LEFT JOIN birthplace b ON p.birthplace_id = b.birthplace_id
                     LEFT JOIN residence r ON p.residence_id = r.residence_id
                     LEFT JOIN user u ON p.user_id = u.user_id
-                    WHERE p.profile_id = :profile_id';
+                    WHERE p.user_id = :user_id';
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':profile_id', $profile_id, PDO::PARAM_INT);
+            $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
             $stmt->execute();
 
             $profile = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -39,7 +39,7 @@
                 echo '<hr>';
                 // アイコン画像の表示
                 if (!empty($profile['icon_image'])) {
-                    echo '<img src="' . htmlspecialchars($profile['icon_image']) . '" alt="アイコン" class="profile-icon">';
+                    echo '<img src="../user_image/main/' . htmlspecialchars($profile['icon_image'], ENT_QUOTES, 'UTF-8') . '" alt="アイコン" class="profile-icon">';
                 }
 
                 // 趣味名の表示
@@ -57,9 +57,10 @@
                 // いいねボタンの表示（フォーム形式）
                 echo '<div class="like-section">';
                 echo '<form action="../likes/Like.php" method="post">';
-                echo '<input type="hidden" name="profile_id" value="' . $profile_id . '">';
+                echo '<input type="hidden" name="liked_user_id" value="' . $profile['user_id'] . '">'; // user_id に修正
                 echo '<input type="hidden" name="user_id" value="' . $_SESSION['user']['id'] . '">';
-                echo '<button type="submit">いいね</button>';
+                echo '<button type="submit" class="like-button">
+                      <img src="../menu-image/like-free-icon.png" alt="いいね"></button>';
                 echo '</form>';
                 echo '</div>'; // .like-section
 
