@@ -33,7 +33,7 @@
 
             if ($profile) {
                 // ユーザー名の表示
-                echo '<p><span class="label"></span> <span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '') . '</span></p>';
+                echo '<p><span class="label"></span> <span class="username">' . htmlspecialchars($profile['user_name'] ?? '') . '</span></p>';
 
                 echo '<button onclick="goBack()">戻る</button>';
                 echo '<hr>';
