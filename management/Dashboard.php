@@ -60,7 +60,7 @@
                         <p class="m-others">その他<br><?php echo $gender_counts['その他']; ?></p>
                     </div>
                     <div class="itiran1">
-                        <a href="user_ichiran.php">ユーザー一覧へ</a>
+                        <a href="user_ichiran.php" class="itiranGo">ユーザー一覧へ</a>
                     </div>
 
                 </div>

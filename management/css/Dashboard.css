@@ -57,6 +57,10 @@
     border-radius: 10px;
 }
 
-.dash{
+.dash1{
     display: flex;
+}
+
+.itiranGo{
+    color: rgb(87, 87, 87);
 }
