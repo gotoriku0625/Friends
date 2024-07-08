@@ -1,5 +1,10 @@
 h1{
     color: rgb(151, 255, 220);
+    text-shadow:
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000; /* 黒い外枠を作成 */
 }
 
 table {
