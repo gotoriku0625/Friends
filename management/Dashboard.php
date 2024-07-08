@@ -52,13 +52,18 @@
 
                 <p>ユーザー数：<?php echo $user_count; ?></p>
 
-                <div class="dashboard-item1">
-                <p class="m-boy">男性：<?php echo $gender_counts['男性']; ?></p>
-                <p class="m-girl">女性：<?php echo $gender_counts['女性']; ?></p>
-                <p class="m-others">その他：<?php echo $gender_counts['その他']; ?></p>
-                </div>
+                <div class="dash1">
 
-                <a href="user_ichiran.php">ユーザー一覧へ</a>
+                    <div class="dashboard-item1">
+                        <p class="m-boy">男性：<?php echo $gender_counts['男性']; ?></p>
+                        <p class="m-girl">女性：<?php echo $gender_counts['女性']; ?></p>
+                        <p class="m-others">その他：<?php echo $gender_counts['その他']; ?></p>
+                    </div>
+                    <div class="itiran1">
+                        <a href="user_ichiran.php">ユーザー一覧へ</a>
+                    </div>
+
+                </div>
 
                 <div class="dashboard-item">
                     <p>通報数：<?php echo $report_count; ?></p>

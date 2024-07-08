@@ -77,46 +77,41 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                         </div>
                                     </div>
                                     <div class="drop-menu-item">
-                                        <a href="#" class="a-t open_sub_window" data-toggle="modal" data-target="#modal1">
+                                        <a href="#" class="a-t open_sub_window" onclick="openSubWindow()">
                                         <img src="../image/report.png" class="report">通報</a>
                                     </div>
-                                    
-                                    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="label1">Modal title</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                    <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
+                                    <div class="bg_sub1_window" onclick="closeSubWindow()" id="model1">
+                                    <!-- サブウィンドウの内容 -->
+                                        <div class="sub_window" onclick="event.stopPropagation()">
+                                            <div class="sub_window_content">
+                                                <h2 class="title">通報</h2>
+                                                <div class="content">
+                                                    <div>通報内容を選択し、内容を入力してください</div>
+                                                    
+                                                        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
+                                                        <input type="radio" class="btn-logout" name="report" value="性的嫌がらせ">性的嫌がらせ
+                                                        <input type="radio" class="btn-logout" name="report" value="迷惑行為">迷惑行為
+                                                        <input type="radio" class="btn-logout" name="report" value="その他">その他
+                                                        <textarea class="text" type="text" name="re_text" required placeholder="例)裸の写真を要求された"></textarea>
+                                                        <button type="submit" class="btn-logout" name="check" value="submit">送信</button>
+                                                    
                                                 </div>
-                                                <div class="modal-body">
-                                                    Modal body 1
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2">modal2へ</button>
-                                                </div>
+                                                <button type="submit" class="btn-logout" onclick="closeSubWindow()">キャンセル</butto>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal fade" id="modal2" tabindex="-1"
-                                        role="dialog" aria-labelledby="label1" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="label1">Modal title</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                    <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
+                                    <div class="bg_sub_window" onclick="closeSubWindow()" id="model2">
+                                    <!-- サブウィンドウの内容 -->
+                                        <div class="sub_window" onclick="event.stopPropagation()">
+                                            <div class="sub_window_content">
+                                                <h2 class="title">ブロックしますか？</h2>
+                                                <div class="content">
+                                                <form action="./talk-add.php" method="post">
+                                                </form>
                                                 </div>
-                                                <div class="modal-body">
-                                                    Modal body 2
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-                                                </div>
+                                                <button type="submit" class="btn-logout" onclick="closeSubWindow()">いいえ</butto>
                                             </div>
                                         </div>
                                     </div>

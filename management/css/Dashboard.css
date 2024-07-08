@@ -34,19 +34,29 @@
 }
 
 .m-boy{
+    position: relative;
     color: rgb(132, 65, 255);
+    left: 20px;
 }
 
 .m-girl{
+    position: relative;
     color: rgb(255, 86, 148);
+    left: 40px;
 }
 
 .m-others{
+    position: relative;
     color: rgb(70, 70, 70);
+    left: 60px;
 }
 
 .dashboard-item1{
     display: flex;
     border: 1px solid #000000;
     border-radius: 10px;
+}
+
+.dash{
+    display: flex;
 }

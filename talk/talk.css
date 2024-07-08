@@ -222,6 +222,21 @@ ul{
   z-index: 1; /* サブウィンドウの背景を最背面に設定 */
 }
 
+.bg_sub1_window {
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: visibility 0s, opacity 0.5s linear;
+  z-index: 1; /* サブウィンドウの背景を最背面に設定 */
+}
+
 /* サブウィンドウのスタイル */
 .sub_window {
   position: fixed; /* スクロールに影響されないようにfixedに設定 */
