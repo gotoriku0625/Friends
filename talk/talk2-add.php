@@ -29,15 +29,14 @@ try{
     //     $sql->execute([$user_id,$reciver_id]);
     // }
     insert_message_count($user_id,$reciver_id);
-    // ブロックしたかどうかの判定
-    if(isset($_POST['check'])&&$_POST['check']===1){
+    // 通報したかどうかの判定
+    if(isset($_POST['check'])&&$_POST['check']===""){
+        $report='insert into report values (null,?,?,?,?)';
+        $sql=$pdo->prepare($block);
+        $sql->execute(array($_SESSION['user']['id'],$_POST['reciver_id'],$_POST['report'],$_POST['re_text']));
         $block='insert into block values(null,?,?)';
         $sql=$pdo->prepare($block);
         $sql->execute([$user_id,$reciver_id]);
-        echo '<form name="add" action="./talk2.php" method="post">';
-            echo '<input type="hidden" name="reciver_id" value="'.$reciver_id.'">';
-            echo '<SCRIPT language="JavaScript">document.add.submit();</SCRIPT>';
-        echo '</form>';
     }
     echo '<form name="add" action="./talk2.php" method="post">';
         echo '<input type="hidden" name="reciver_id" value="'.$reciver_id.'">';
