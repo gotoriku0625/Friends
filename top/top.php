@@ -26,21 +26,21 @@
             if($row['gender_name']==='男性'){
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue">';
-                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
                 echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="best-icon">';
                 echo '</a>';
                 echo '</div>';
             }else if($row['gender_name']==='女性'){
                 // アイコンの枠の色を赤色に
                 echo '<div class="frame-pink">';
-                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
                 echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="best-icon">';
                 echo '</a>';
                 echo '</div>';
             }else{
                 // アイコンの枠の色を灰色に
                 echo '<div class="frame-gray">';
-                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
                 echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="best-icon">';
                 echo '</a>';
                 echo '</div>';
@@ -67,21 +67,21 @@
             if($row['gender_name']==='男性'){
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue2">';
-                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
                 echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
                 echo '</a>';
                 echo '</div>';
             }else if($row['gender_name']==='女性'){
                 // アイコンの枠の色を赤色に
                 echo '<div class="frame-pink2">';
-                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
                 echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
                 echo '</a>';
                 echo '</div>';
             }else{
                 // アイコンの枠の色を灰色に
                 echo '<div class="frame-gray2">';
-                echo '<a href="../profile/profile-user.php?profile_id='.$row['profile_id'].'">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
                 echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="standard-icon">';
                 echo '</a>';
                 echo '</div>';
