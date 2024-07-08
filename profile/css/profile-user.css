@@ -193,6 +193,7 @@ input[type="checkbox"] {
 .username {
     text-align: center; /* テキストを中央揃え */
     margin-bottom: 20px; /* 下部の余白を追加（必要に応じて調整） */
+    font-size: 24px;
 }
 
 .data-box {
@@ -201,3 +202,4 @@ input[type="checkbox"] {
     border-radius: 5px; /* 角を丸くする */
     display: inline-block; /* インライン要素に対するブロックレベルのスタイリング */
 }
+

@@ -33,7 +33,7 @@
 
             if ($profile) {
                 // ユーザー名の表示
-                echo '<p><span class="label"></span> <span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '') . '</span></p>';
+                echo '<p><span class="label"></span> <span class="username">' . htmlspecialchars($profile['user_name'] ?? '') . '</span></p>';
 
                 echo '<button onclick="goBack()">戻る</button>';
                 echo '<hr>';
@@ -46,13 +46,14 @@
                 echo '<p><span class="label">趣味:</span> <span class="data-box">' . htmlspecialchars($profile['hobby_name'] ?? '') . '</span></p>';
 
                 // その他のプロフィール情報の表示
-                echo '<p><span class="label">自己紹介:</span> <span class="data-box">' . htmlspecialchars($profile['introduction'] ?? '') . '</span></p>';
-                echo '<p><span class="label">性別:</span> <span class="data-box">' . htmlspecialchars($profile['gender_name'] ?? '') . '</span></p>';
-                echo '<p><span class="label">年齢:</span> <span class="data-box">' . htmlspecialchars($profile['age'] ?? '') . '</span></p>';
-                echo '<p><span class="label">血液型:</span> <span class="data-box">' . htmlspecialchars($profile['blood_type_name'] ?? '') . '</span></p>';
-                echo '<p><span class="label">学校:</span> <span class="data-box">' . htmlspecialchars($profile['school_name'] ?? '') . '</span></p>';
-                echo '<p><span class="label">出生地:</span> <span class="data-box">' . htmlspecialchars($profile['birthplace_name'] ?? '') . '</span></p>';
-                echo '<p><span class="label">居住地:</span> <span class="data-box">' . htmlspecialchars($profile['residence_name'] ?? '') . '</span></p>';
+                echo '<p><span class="label">自己紹介:</span><br><span class="data-box">' . htmlspecialchars($profile['introduction'] ?? '') . '</span></p>';
+                echo '<p><span class="label">性別:</span><br><span class="data-box">' . htmlspecialchars($profile['gender_name'] ?? '') . '</span></p>';
+                echo '<p><span class="label">年齢:</span><br><span class="data-box">' . htmlspecialchars($profile['age'] ?? '') . '</span></p>';
+                echo '<p><span class="label">血液型:</span><br><span class="data-box">' . htmlspecialchars($profile['blood_type_name'] ?? '') . '</span></p>';
+                echo '<p><span class="label">学校:</span><br><span class="data-box">' . htmlspecialchars($profile['school_name'] ?? '') . '</span></p>';
+                echo '<p><span class="label">出生地:</span><br><span class="data-box">' . htmlspecialchars($profile['birthplace_name'] ?? '') . '</span></p>';
+                echo '<p><span class="label">居住地:</span><br><span class="data-box">' . htmlspecialchars($profile['residence_name'] ?? '') . '</span></p>';
+                
 
                 // いいねボタンの表示（フォーム形式）
                 echo '<div class="like-section">';
