@@ -12,6 +12,7 @@
     position: relative;
     left: 21%;
     z-index: 1; /* ダッシュボードのz-indexを1に設定 */
+    padding-left: 50px;
 }
 
 .a {
@@ -28,6 +29,8 @@
     font-size: 50px;
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
+    font-weight: bold;
+    margin: 50px 50px 50px 50px;
 }
 
 .m-boy{
