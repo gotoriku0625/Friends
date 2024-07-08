@@ -69,6 +69,32 @@ function closeSubWindow() {
   document.querySelector('.bg_sub_window').style.pointerEvents = 'none';
 }
 
+function openSubWindow() {
+  document.querySelector('.bg_sub1_window').style.visibility = 'visible';
+  document.querySelector('.bg_sub1_window').style.opacity = '1';
+  document.querySelector('.bg_sub1_window').style.pointerEvents = 'auto';
+  document.querySelector('.bg_sub1_window').style.position = 'fixed';
+  document.querySelector('.bg_sub1_window').style.zIndex = '5';
+}
+
+function closeSubWindow() {
+  document.querySelector('.bg_sub1_window').style.visibility = 'hidden';
+  document.querySelector('.bg_sub1_window').style.opacity = '0';
+  document.querySelector('.bg_sub1_window').style.pointerEvents = 'none';
+}
+
+$(function(){
+  /* 送信ボタン押下時のイベント */
+  $('#to-modal2').on('click', function() {
+      changeModal('modal1', 'modal2');
+  });
+  /* モーダルの切り替え */
+  function changeModal(beforeModal, afterModal) {
+      $('#'+beforeModal).modal( 'hide' );
+      $('#'+afterModal).modal('show');
+  }
+});
+
 function fetchUpdates() {
   fetch('talk2.php')
       .then(response => response.text())

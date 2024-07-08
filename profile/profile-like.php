@@ -36,9 +36,11 @@
 
                 if ($profile) {
                     // アイコン画像の表示
+                    echo '<div class="profile-icon-container">';
                     if (!empty($profile['icon_image'])) {
                         echo '<img src="../user_image/main/' . htmlspecialchars($profile['icon_image'], ENT_QUOTES, 'UTF-8') . '" alt="アイコン" class="profile-icon">';
                     }
+                    echo'</div>';
 
                     // ユーザー名の表示
                     echo '<p><span class="label">ユーザー名:</span> <span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
@@ -47,13 +49,14 @@
                     echo '<p><span class="label">趣味:</span> <span class="data-box">' . htmlspecialchars($profile['hobby_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
 
                     // その他のプロフィール情報の表示
-                    echo '<p><span class="label">自己紹介:</span> <span class="data-box">' . htmlspecialchars($profile['introduction'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
-                    echo '<p><span class="label">性別:</span> <span class="data-box">' . htmlspecialchars($profile['gender_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
-                    echo '<p><span class="label">年齢:</span> <span class="data-box">' . htmlspecialchars($profile['age'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
-                    echo '<p><span class="label">血液型:</span> <span class="data-box">' . htmlspecialchars($profile['blood_type_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
-                    echo '<p><span class="label">学校:</span> <span class="data-box">' . htmlspecialchars($profile['school_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
-                    echo '<p><span class="label">出生地:</span> <span class="data-box">' . htmlspecialchars($profile['birthplace_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
-                    echo '<p><span class="label">居住地:</span> <span class="data-box">' . htmlspecialchars($profile['residence_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
+                    echo '<p><span class="label">自己紹介:</span><br><span class="data-box">' . htmlspecialchars($profile['introduction'] ?? '') . '</span></p>';
+                    echo '<p><span class="label">性別:</span><br><span class="data-box">' . htmlspecialchars($profile['gender_name'] ?? '') . '</span></p>';
+                    echo '<p><span class="label">年齢:</span><br><span class="data-box">' . htmlspecialchars($profile['age'] ?? '') . '</span></p>';
+                    echo '<p><span class="label">血液型:</span><br><span class="data-box">' . htmlspecialchars($profile['blood_type_name'] ?? '') . '</span></p>';
+                    echo '<p><span class="label">学校:</span><br><span class="data-box">' . htmlspecialchars($profile['school_name'] ?? '') . '</span></p>';
+                    echo '<p><span class="label">出生地:</span><br><span class="data-box">' . htmlspecialchars($profile['birthplace_name'] ?? '') . '</span></p>';
+                    echo '<p><span class="label">居住地:</span><br><span class="data-box">' . htmlspecialchars($profile['residence_name'] ?? '') . '</span></p>';
+                    
                 } else {
                     echo '<p>プロフィールが見つかりません。</p>';
                 }
