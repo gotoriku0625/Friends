@@ -1,5 +1,5 @@
 <?php
-require '../db-connect.php';
+require '../m_header.php';
 $pdo = new PDO($connect, USER, PASS);
 
 // 通報数を取得するSQLクエリ
@@ -27,6 +27,7 @@ JOIN
 $stmt = $pdo->query($sql);
 $reports = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+   <?php require '../m_menu/m_menu.php';?>
 
 <!DOCTYPE html>
 <html lang="ja">
