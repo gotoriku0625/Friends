@@ -13,6 +13,7 @@
         <?php
         // データベース接続
         require '../db-connect.php';
+        require '../m_menu/m_menu.php';
         $pdo = new PDO($connect, USER, PASS);
 
         // ユーザー数を取得するクエリ
