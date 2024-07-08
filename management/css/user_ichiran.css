@@ -1,3 +1,7 @@
+h1{
+    color: rgb(151, 255, 220);
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -14,12 +18,12 @@ thead {
     top: 0;
     z-index: 1;
     display: table; /* 表全体をテーブルとして扱う */
-    width: 100%;
+    width: 98.7%;
     table-layout: fixed; /* セルの幅を固定 */
 }
 tbody {
     display: block;
-    max-height: 200px; /* スクロール領域の高さを指定 */
+    max-height: 260px; /* スクロール領域の高さを指定 */
     overflow-y: auto;
     width: 100%;
 }
@@ -40,9 +44,9 @@ tbody tr:nth-child(odd) {
 
 /* 性別に応じた文字色の設定 */
 .male {
-    color: blue; /* 男性の場合は青色 */
+    color: #613dffbb;/* 男性の場合は青色 */
 }
 
 .female {
-    color: pink; /* 女性の場合はピンク */
+    color:  #ff5691be; /* 女性の場合はピンク */
 }

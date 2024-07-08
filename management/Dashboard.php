@@ -49,22 +49,25 @@
             ?>
 
                 <h1 class="h1">ダッシュボード</h1>
-                <div class="dashboard-item">
+
                 <p>ユーザー数：<?php echo $user_count; ?></p>
+
+                <div class="dashboard-item1">
                 <p class="m-boy">男性：<?php echo $gender_counts['男性']; ?></p>
                 <p class="m-girl">女性：<?php echo $gender_counts['女性']; ?></p>
                 <p class="m-others">その他：<?php echo $gender_counts['その他']; ?></p>
+                </div>
+
                 <a href="user_ichiran.php">ユーザー一覧へ</a>
-            </div>
 
-            <div class="dashboard-item">
-                <p>通報数：<?php echo $report_count; ?></p>
-                <a href="tuuhou_ichiran.php">通報一覧へ</a>
-            </div>
+                <div class="dashboard-item">
+                    <p>通報数：<?php echo $report_count; ?></p>
+                    <a href="tuuhou_ichiran.php">通報一覧へ</a>
+                </div>
 
-            <div class="dashboard-item">
-                <p>ブロック数：<?php echo $block_count; ?></p>
-            </div>
+                <div class="dashboard-item">
+                    <p>ブロック数：<?php echo $block_count; ?></p>
+                </div>
     </div>
 </body>
 </html>

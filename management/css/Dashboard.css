@@ -26,7 +26,7 @@
 .h1{
     color: rgb(151, 255, 220);
     font-size: 50px;
-    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
 }
 
@@ -40,4 +40,10 @@
 
 .m-others{
     color: rgb(70, 70, 70);
+}
+
+.dashboard-item1{
+    display: flex;
+    border: 1px solid #000000;
+    border-radius: 10px;
 }
