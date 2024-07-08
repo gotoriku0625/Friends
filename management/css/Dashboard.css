@@ -34,14 +34,19 @@
 }
 
 .m-boy{
+    position: relative;
     color: rgb(132, 65, 255);
+    left: 20px;
 }
 
 .m-girl{
+    position: relative;
     color: rgb(255, 86, 148);
+    left: 40px;
 }
 
 .m-others{
+    position: relative;
     color: rgb(70, 70, 70);
 }
 
