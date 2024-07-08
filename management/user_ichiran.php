@@ -1,3 +1,6 @@
+<?php
+require '../m_header.php';
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,8 +15,6 @@
     <h1>ユーザー一覧</h1>
     <p>ユーザー数：
         <?php
-        // データベース接続
-        require '..m_header.php';
         $pdo = new PDO($connect, USER, PASS);
 
         // ユーザー数を取得するクエリ
