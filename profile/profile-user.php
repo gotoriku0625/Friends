@@ -12,7 +12,7 @@
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             // profile_id をクエリパラメータから取得
-            $profile_id = isset($_GET['profile_id']) ? (int)$_GET['profile_id'] : 1;
+            $profile_id = isset($_GET['profile_id']) ? (int)$_GET['profile_id'] : 0;
 
             // プロフィール情報を取得するSQLクエリ
             $sql = 'SELECT p.*, h.hobby_name, g.gender_name, s.school_name, b.birthplace_name, r.residence_name, d.blood_type_name, u.user_name
@@ -39,7 +39,7 @@
                 echo '<hr>';
                 // アイコン画像の表示
                 if (!empty($profile['icon_image'])) {
-                    echo '<img src="' . htmlspecialchars($profile['icon_image']) . '" alt="アイコン" class="profile-icon">';
+                    echo '<img src="../user_image/main/' . htmlspecialchars($profile['icon_image'], ENT_QUOTES, 'UTF-8') . '" alt="アイコン" class="profile-icon">';
                 }
 
                 // 趣味名の表示
@@ -59,7 +59,8 @@
                 echo '<form action="../likes/Like.php" method="post">';
                 echo '<input type="hidden" name="profile_id" value="' . $profile_id . '">';
                 echo '<input type="hidden" name="user_id" value="' . $_SESSION['user']['id'] . '">';
-                echo '<button type="submit">いいね</button>';
+                echo '<button type="submit" class="like-button">
+                      <img src="../menu-image/like-free-icon.png" alt="いいね"></button>';
                 echo '</form>';
                 echo '</div>'; // .like-section
 

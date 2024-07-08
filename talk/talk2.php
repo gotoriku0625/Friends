@@ -77,25 +77,46 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                         </div>
                                     </div>
                                     <div class="drop-menu-item">
-                                        <a href="#" class="a-t open_sub_window" onclick="openSubWindow()">
+                                        <a href="#" class="a-t open_sub_window" data-toggle="modal" data-target="#modal1">
                                         <img src="../image/report.png" class="report">通報</a>
                                     </div>
-                                    <div class="bg_sub_window" onclick="closeSubWindow()">
-                                    <!-- サブウィンドウの内容 -->
-                                        <div class="sub_window" onclick="event.stopPropagation()">
-                                            <div class="sub_window_content">
-                                                <h2 class="title"></h2>
-                                                <div class="content">
-                                                    <form action="../report/report.php" method="post">
-                                                        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
-                                                        <input type="radio" name="report" value="性的嫌がらせ">性的嫌がらせ
-                                                        <input type="radio" name="report" value="迷惑行為">迷惑行為
-                                                        <input type="radio" name="report" value="その他">その他
-                                                        <textarea class="" name="text" placeholder="内容を入力してください"></textarea>
-                                                        <button type="submit" class="btn-logout">送信</button>
-                                                    </form>
+                                    
+                                    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="label1">Modal title</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
                                                 </div>
-                                                <button type="submit" class="btn-logout" onclick="closeSubWindow()">キャンセル</butto>
+                                                <div class="modal-body">
+                                                    Modal body 1
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2">modal2へ</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="modal2" tabindex="-1"
+                                        role="dialog" aria-labelledby="label1" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="label1">Modal title</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Modal body 2
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -106,12 +127,11 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                 </div>
             </div>
             <?php
-            while($messages!=null){
-                sleep(2);
-                $messages = get_talks($current_user['user_id'],$reciver['user_id']);
+            if($messages!=null){
+                echo '<script>setInterval(fetchUpdates, 2000)</script>';
+                // $messages = get_talks($current_user['user_id'],$reciver['user_id']);
                 echo '<div id="my_talk">';// トーク画面全体
                     echo '<div id="scroll-inner">';
-                echo '<script>setInterval(get)'
                 foreach ($messages as $message){
                     // echo var_dump($message);
                     if($message['sender_id']==$current_user['user_id']){
