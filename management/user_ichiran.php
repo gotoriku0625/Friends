@@ -44,12 +44,18 @@
 
             // 結果を取得してテーブルに表示
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                $gender_class = "";
+                if ($row['gender'] == "男性") {
+                    $gender_class = "male";
+                } elseif ($row['gender'] == "女性") {
+                    $gender_class = "female";
+                }
                 echo "<tr>";
                 echo "<td>" . htmlspecialchars($row['user_name']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['mail']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
+                echo "<td class=\"$gender_class\">" . htmlspecialchars($row['gender']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['age']) . "歳</td>";
-                echo '<td><a href="../profile/profile-user.php?id=' . $row['user_id'] . '">プロフィールへ</a></td>'; // ユーザーIDを使用してリンク先を個別化
+                echo '<td><a href="../profile/profile-user.php?id=' . $row['user_id'] . '">プロフィールへ</a></td>';
                 echo "</tr>";
             }
             ?>
