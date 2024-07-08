@@ -55,9 +55,9 @@
                 <div class="dash1">
 
                     <div class="dashboard-item1">
-                        <p class="m-boy">男性：<?php echo $gender_counts['男性']; ?></p>
-                        <p class="m-girl">女性：<?php echo $gender_counts['女性']; ?></p>
-                        <p class="m-others">その他：<?php echo $gender_counts['その他']; ?></p>
+                        <p class="m-boy">男性<br><?php echo $gender_counts['男性']; ?></p>
+                        <p class="m-girl">女性<br><?php echo $gender_counts['女性']; ?></p>
+                        <p class="m-others">その他<br><?php echo $gender_counts['その他']; ?></p>
                     </div>
                     <div class="itiran1">
                         <a href="user_ichiran.php">ユーザー一覧へ</a>
