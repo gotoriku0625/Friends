@@ -43,8 +43,9 @@
                     echo'</div>';
 
                     // ユーザー名の表示
+                    echo'<div class="username">';
                     echo '<p><span class="label">ユーザー名:</span> <span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
-
+                    echo'</div>';
                     // 趣味名の表示
                     echo '<p><span class="label">趣味:</span> <span class="data-box">' . htmlspecialchars($profile['hobby_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
 
