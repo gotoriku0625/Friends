@@ -41,3 +41,8 @@
 .m-others{
     color: rgb(70, 70, 70);
 }
+
+.dashboard-item1{
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
