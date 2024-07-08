@@ -12,6 +12,7 @@
     position: relative;
     left: 21%;
     z-index: 1; /* ダッシュボードのz-indexを1に設定 */
+    padding-left: 50px;
 }
 
 .a {
