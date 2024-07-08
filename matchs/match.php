@@ -6,8 +6,15 @@ $pdo = new PDO($connect, USER, PASS);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // ユーザーIDはセッションから取得
-$logged_in_user_id = $_SESSION['user']['id'];
-$liked_user_id = $_POST['user_id'];
+$logged_in_user_id = isset($_SESSION['user']['id']) ? (int)$_SESSION['user']['id'] : 0;
+$liked_user_id = isset($_POST['liked_user_id']) ? (int)$_POST['liked_user_id'] : 0;
+
+if ($logged_in_user_id === 0 || $liked_user_id === 0) {
+    // ユーザーIDまたはいいねされたユーザーIDが無効な場合
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'error', 'message' => '無効なユーザーIDです']);
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {

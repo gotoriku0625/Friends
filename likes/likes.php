@@ -85,7 +85,7 @@ $stmt_liked_by->closeCursor();
                         <?php else: ?>
                             <div class="frame-gray2">
                         <?php endif; ?>
-                                <a href="../profile/profile-user.php?user_id=<?php echo $user['user_id']; ?>">
+                                <a href="../profile/profile-match.php?user_id=<?php echo $user['user_id']; ?>">
                                     <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon" class="standard-icon">
                                 </a>
                             </div>
