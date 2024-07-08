@@ -8,6 +8,7 @@ body {
 .container {
     width: calc(100% - 200px);
     margin: 0 auto;
+    margin-left: 21%;         /* 左に20%の余白を作る */
     overflow-x: hidden;
 }
 
