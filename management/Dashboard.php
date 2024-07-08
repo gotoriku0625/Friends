@@ -48,7 +48,7 @@
                 }
             ?>
 
-                <h1>ダッシュボード</h1>
+                <h1 class="h1">ダッシュボード</h1>
                 <div class="dashboard-item">
                 <p>ユーザー数：<?php echo $user_count; ?></p>
                 <p>男性：<?php echo $gender_counts['男性']; ?></p>
