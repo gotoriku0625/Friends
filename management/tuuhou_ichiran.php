@@ -1,5 +1,5 @@
 <?php
-require '../db-connect.php';
+require '../m_header.php';
 $pdo = new PDO($connect, USER, PASS);
 
 // 通報数を取得するSQLクエリ
