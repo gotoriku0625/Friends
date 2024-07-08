@@ -252,12 +252,28 @@ ul{
   z-index: 2; /* サブウィンドウをアイコンとサブ写真の下に設定 */
 }
 
+.sub_window1 {
+  position: fixed; /* スクロールに影響されないようにfixedに設定 */
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  max-height: 90%;
+  background-color: #fff;
+  overflow-y: auto;
+  width: 60%;
+  max-width: 900px;
+  z-index: 2; /* サブウィンドウをアイコンとサブ写真の下に設定 */
+}
 /* サブウィンドウのコンテンツを中央に配置するスタイル */
 .sub_window_content {
   display: table;
   margin: 20px auto;
 }
-
+.sub_window_content1 {
+  display: table;
+  margin: 20px auto;
+}
 /* ボタンのスタイル */
 .btn-logout {
   display: block;
