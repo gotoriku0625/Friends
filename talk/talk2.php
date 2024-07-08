@@ -83,33 +83,32 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                     <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
                                     <div class="bg_sub1_window" onclick="closeSubWindow()" id="model1">
                                     <!-- サブウィンドウの内容 -->
-                                        <div class="sub_window" onclick="event.stopPropagation()">
-                                            <div class="sub_window_content">
+                                        <div class="sub_window1" onclick="event.stopPropagation()">
+                                            <div class="sub_window_content1">
                                                 <h2 class="title">通報</h2>
-                                                <div class="content">
+                                                <div class="content1">
                                                     <div>通報内容を選択し、内容を入力してください</div>
-                                                    
+                                                    <form action="./talk-add.php" method="post">
                                                         <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
                                                         <input type="radio" class="btn-logout" name="report" value="性的嫌がらせ">性的嫌がらせ
                                                         <input type="radio" class="btn-logout" name="report" value="迷惑行為">迷惑行為
                                                         <input type="radio" class="btn-logout" name="report" value="その他">その他
                                                         <textarea class="text" type="text" name="re_text" required placeholder="例)裸の写真を要求された"></textarea>
                                                         <button type="submit" class="btn-logout" name="check" value="submit">送信</button>
-                                                    
+                                                    </form>
                                                 </div>
                                                 <button type="submit" class="btn-logout" onclick="closeSubWindow()">キャンセル</butto>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
-                                    <div class="bg_sub_window" onclick="closeSubWindow()" id="model2">
+                                    <div class="bg_sub_window">
                                     <!-- サブウィンドウの内容 -->
                                         <div class="sub_window" onclick="event.stopPropagation()">
                                             <div class="sub_window_content">
-                                                <h2 class="title">ブロックしますか？</h2>
+                                                <h2 class="title">通報を受け付けました</h2>
                                                 <div class="content">
-                                                <form action="./talk-add.php" method="post">
-                                                </form>
+                                                    <span>引き続き、サービスをお楽しみください</span>
                                                 </div>
                                                 <button type="submit" class="btn-logout" onclick="closeSubWindow()">いいえ</butto>
                                             </div>

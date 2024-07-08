@@ -83,17 +83,6 @@ function closeSubWindow() {
   document.querySelector('.bg_sub1_window').style.pointerEvents = 'none';
 }
 
-$(function(){
-  /* 送信ボタン押下時のイベント */
-  $('#to-modal2').on('click', function() {
-      changeModal('modal1', 'modal2');
-  });
-  /* モーダルの切り替え */
-  function changeModal(beforeModal, afterModal) {
-      $('#'+beforeModal).modal( 'hide' );
-      $('#'+afterModal).modal('show');
-  }
-});
 
 function fetchUpdates() {
   fetch('talk2.php')
