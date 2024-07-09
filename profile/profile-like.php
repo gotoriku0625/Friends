@@ -71,6 +71,8 @@
                     echo '<p><span class="label">居住地:</span></p>';
                     echo '<p><span class="data-box">' . htmlspecialchars($profile['residence_name'] ?? '') . '</span></p>';
                     
+                    echo '<p><span class="label">休日の過ごし方:</span></p>';
+                    echo '<p><span class="data-box">' . htmlspecialchars($profile['holiday_spend'] ?? '') . '</span></p>';
                     
                     
                 } else {
