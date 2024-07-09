@@ -39,9 +39,11 @@
                 echo'<button onclick="goBack()">戻る</button>';
                 echo'<hr>';
                 // アイコン画像の表示
+                echo '<div class="profile-icon-container">';
                 if (!empty($profile['icon_image'])) {
                     echo '<img src="../user_image/main/' . htmlspecialchars($profile['icon_image'], ENT_QUOTES, 'UTF-8') . '" alt="アイコン" class="profile-icon">';
                 }
+                echo'</div>';
 
                 // 趣味名の表示
                 echo '<p><span class="label">趣味:</span> <span class="data-box">' . htmlspecialchars($profile['hobby_name'] ?? '') . '</span></p>';
