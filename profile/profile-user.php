@@ -33,10 +33,11 @@
 
             if ($profile) {
                 // ユーザー名の表示
-                echo '<p><span class="label"></span> <span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '') . '</span></p>';
-
-                echo '<button onclick="goBack()">戻る</button>';
-                echo '<hr>';
+                echo '<div class="username">';
+                echo '<h2><span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></h2>';
+                echo '</div>';
+                echo'<button onclick="goBack()">戻る</button>';
+                echo'<hr>';
                 // アイコン画像の表示
                 if (!empty($profile['icon_image'])) {
                     echo '<img src="../user_image/main/' . htmlspecialchars($profile['icon_image'], ENT_QUOTES, 'UTF-8') . '" alt="アイコン" class="profile-icon">';
