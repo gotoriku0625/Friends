@@ -11,7 +11,6 @@ require '../m_header.php';
 </head>
 
 <body>
-    <div class="main">
 <?php require '../m_menu/m_menu.php';?>
     <h1>ユーザー一覧</h1>
     <p>ユーザー数：
@@ -69,6 +68,5 @@ require '../m_header.php';
     // データベース接続解除
     $pdo = null;
     ?>
-    </div>
 </body>
 </html>
