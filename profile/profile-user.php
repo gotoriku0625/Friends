@@ -33,10 +33,11 @@
 
             if ($profile) {
                 // ユーザー名の表示
-                echo '<p><span class="label"></span> <span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '') . '</span></p>';
-
-                echo '<button onclick="goBack()">戻る</button>';
-                echo '<hr>';
+                echo '<div class="username">';
+                echo '<h2><span class="name-box">' . htmlspecialchars($profile['user_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></h2>';
+                echo '</div>';
+                echo'<button onclick="goBack()">戻る</button>';
+                echo'<hr>';
                 // アイコン画像の表示
                 if (!empty($profile['icon_image'])) {
                     echo '<img src="../user_image/main/' . htmlspecialchars($profile['icon_image'], ENT_QUOTES, 'UTF-8') . '" alt="アイコン" class="profile-icon">';
@@ -53,6 +54,8 @@
                 echo '<p><span class="label">学校:</span> <span class="data-box">' . htmlspecialchars($profile['school_name'] ?? '') . '</span></p>';
                 echo '<p><span class="label">出生地:</span> <span class="data-box">' . htmlspecialchars($profile['birthplace_name'] ?? '') . '</span></p>';
                 echo '<p><span class="label">居住地:</span> <span class="data-box">' . htmlspecialchars($profile['residence_name'] ?? '') . '</span></p>';
+                echo '<p><span class="label">休日の過ごし方:</span></p>';
+                echo '<p><span class="data-box">' . htmlspecialchars($profile['holiday_spend'] ?? '') . '</span></p>';
 
                 // いいねボタンの表示（フォーム形式）
                 echo '<div class="like-section">';
@@ -60,9 +63,10 @@
                 echo '<input type="hidden" name="liked_user_id" value="' . $profile['user_id'] . '">'; // user_id に修正
                 echo '<input type="hidden" name="user_id" value="' . $_SESSION['user']['id'] . '">';
                 echo '<button type="submit" class="like-button">
-                      <img src="../menu-image/like-free-icon.png" alt="いいね"></button>';
+                    <img src="../menu-image/like-free-icon.png" alt="いいね"></button>';
                 echo '</form>';
                 echo '</div>'; // .like-section
+
 
             } else {
                 echo '<p>プロフィールが見つかりません。</p>';

@@ -70,7 +70,7 @@ $stmt_liked_by->closeCursor();
                 <?php endforeach; ?>
             </div>
         <?php else: ?>
-            <p>友達になりたい人を見つけに行きましょう。<img src="../image/person2.png" width="300" height="300"></p>
+            <p>友達になりたい人を見つけに行きましょう。<img src="../image/person1.png" width="300" height="300"></p>
         <?php endif; ?>
     </div>
     <div id="liked_by" class="tab-content">
@@ -95,10 +95,10 @@ $stmt_liked_by->closeCursor();
                         <div class="actions">
                             <form action="../matchs/match.php" method="post">
                                 <input type="hidden" name="liked_user_id" value="<?php echo $user['user_id']; ?>">
-                                <button type="submit" class="like"><img src="../image/you.png" class="icon"></button>
+                                <button type="submit" class="like"><img src="../image/you.png" class="like"></button>
                             </form>
                             <form action="../likes/unlike.php" method="post">
-                                <input type="hidden" name="liked_user_id" value="<?php echo $user['user_id']; ?>">
+                                <input type="hidden" name="likes_user_id" value="<?php echo $user['user_id']; ?>">
                                 <button type="submit" class="unlike"><img src="../image/bat.png" class="bat"></button>
                             </form>
                         </div>

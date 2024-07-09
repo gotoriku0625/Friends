@@ -8,7 +8,7 @@ body {
 .container {
     width: calc(100% - 200px);
     margin: 0 auto;
-    margin-left: 21%;         /* 左に20%の余白を作る */
+    margin-left: 21%;
     overflow-x: hidden;
 }
 
@@ -43,11 +43,11 @@ hr {
     margin: 20px 0;
     width: 150px;
     height: 150px;
-    background-color: #ddd; /* 灰色の背景 */
+    background-color: #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%; /* 丸い形状 */
+    border-radius: 50%;
     z-index: 2;
 }
 
@@ -55,7 +55,6 @@ hr {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    /* display: none;  */
 }
 
 .icon-container .plus, .sub-photo-container .plus {
@@ -86,7 +85,7 @@ hr {
     width: 100px;
     height: 100px;
     border-radius: 8px;
-    background-color: #ddd; /* 灰色の背景 */
+    background-color: #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -96,7 +95,6 @@ hr {
     width: 100%;
     height: 100%;
     border-radius: 8px;
-    /* display: none;  */
 }
 
 .plus {
@@ -116,7 +114,7 @@ hr {
     margin-bottom: 5px;
 }
 
-/* 修正箇所：入力要素の幅を40%に固定 */
+/* 入力要素の幅を80%に固定 */
 .form-group input[type="text"],
 .form-group input[type="number"],
 .form-group select,
@@ -140,7 +138,7 @@ hr {
     margin-bottom: 5px;
 }
 
-/* 修正箇所：入力要素の幅を40%に固定 */
+/* 入力要素の幅を35%に固定 */
 .select-group input[type="text"],
 .select-group input[type="number"],
 .select-group select,
@@ -165,7 +163,9 @@ input[type="checkbox"] {
     margin-bottom: 15px;
     margin-top: 15px;
     margin-left: 15px;
-}/* ボタンコンテナを中央揃えに設定 */
+}
+
+/* ボタンコンテナを中央揃えに設定 */
 .btn-container {
     display: flex;
     justify-content: center;
@@ -187,20 +187,32 @@ input[type="checkbox"] {
     margin: 0 1%;
 }
 
+/* ユーザー名のスタイル */
 .username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center; /* テキストを中央揃え */
     margin-bottom: 20px; /* 下部の余白を追加 */
     font-size: 24px;
 }
 
+/* データボックスのスタイル */
 .data-box {
-    border: 1px solid #000; /* 黒い枠線 */
+    border: 2px solid #000; /* 黒い枠線 */
     padding: 5px; /* 内側の余白 */
     border-radius: 5px; /* 角を丸くする */
     display: inline-block; /* インライン要素に対するブロックレベルのスタイリング */
 }
 
-.profile-icon-container,.username {
+.name-box {
+    padding: 5px; /* 内側の余白 */
+    border-radius: 5px; /* 角を丸くする */
+    display: inline-block; /* インライン要素に対するブロックレベルのスタイリング */
+}
+
+/* プロフィールアイコンのスタイル */
+.profile-icon-container {
     display: flex;
     justify-content: center; /* 水平方向に中央揃え */
     align-items: center; /* 垂直方向に中央揃え */
@@ -212,7 +224,31 @@ input[type="checkbox"] {
     border-radius: 50%; /* 丸形にするための設定 */
     object-fit: cover; /* 画像を枠に収める */
     border: 3px solid black; /* 黒色の枠 */
-    /* 枠の大きさを調整する場合は、pxで指定 */
 }
 
+/* いいねボタンのセクション */
+.like-section {
+    display: flex;
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
+    margin: 20px 0; /* 上下に余白を追加 */
+}
 
+.like-button {
+    background-color: transparent; /* ボタンの背景を透明に */
+    border: none; /* ボタンの枠をなしに */
+    padding: 0; /* ボタンの内側の余白をなしに */
+    cursor: pointer; /* マウスポインターを指に */
+}
+
+.like-button img {
+    width: 50px; /* 画像の幅を50pxに設定（任意に変更可能） */
+    height: 50px; /* 画像の高さを50pxに設定（任意に変更可能） */
+    border-radius: 50%; /* 画像を丸形に */
+    object-fit: cover; /* 画像のアスペクト比を保持 */
+    transition: transform 0.3s; /* ホバー時のアニメーション効果 */
+}
+
+.like-button img:hover {
+    transform: scale(1.1); /* ホバー時に画像を拡大 */
+}

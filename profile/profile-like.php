@@ -34,8 +34,7 @@
 
                 if ($profile) {
                     echo '<div class="username">';
-                    echo '<p><span class="label">ユーザー名:</span><br></p>';
-                    echo '<p><span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
+                    echo '<h2><span class="name-box">' . htmlspecialchars($profile['user_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></h2>';
                     echo '</div>';
                     echo'<button onclick="goBack()">戻る</button>';
                     echo'<hr>';
@@ -72,6 +71,8 @@
                     echo '<p><span class="label">居住地:</span></p>';
                     echo '<p><span class="data-box">' . htmlspecialchars($profile['residence_name'] ?? '') . '</span></p>';
                     
+                    echo '<p><span class="label">休日の過ごし方:</span></p>';
+                    echo '<p><span class="data-box">' . htmlspecialchars($profile['holiday_spend'] ?? '') . '</span></p>';
                     
                     
                 } else {
