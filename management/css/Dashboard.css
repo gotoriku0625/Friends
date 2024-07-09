@@ -58,13 +58,13 @@
     border-radius: 10px;
 }
 
-/* .dash1{
+.dash1{
+    position: relative;
     display: flex;
-} */
+    width: 400px;
+    height: 100px;
+}
 
 .itiranGo{
-    color: rgb(87, 87, 87);
-}
-.itiranGo1{
     color: rgb(87, 87, 87);
 }
