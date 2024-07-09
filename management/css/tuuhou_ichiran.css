@@ -1,3 +1,7 @@
+.main{
+    position: relative;
+    left: 21%;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -19,7 +23,7 @@ thead {
 }
 tbody {
     display: block;
-    max-height: 200px; /* スクロール領域の高さを指定 */
+    max-height: 280px; /* スクロール領域の高さを指定 */
     overflow-y: auto;
     width: 100%;
 }
