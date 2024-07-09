@@ -76,7 +76,7 @@
         </div>
             <div class="dashboard-item2">
                 <?php foreach ($category_counts as $category => $count) : ?>
-                    <li><?php echo htmlspecialchars($category); ?><?php echo $count; ?>件</li>
+                    <?php echo htmlspecialchars($category); ?><?php echo $count; ?>件
                 <?php endforeach; ?>
             </div>
         <a href="tuuhou_ichiran.php" class="itiranGo1">通報一覧へ</a>
