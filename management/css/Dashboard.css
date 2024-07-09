@@ -8,6 +8,7 @@
     z-index: 10; /* メニューのz-indexを10に設定 */
 }
 
+
 .main {
     position: relative;
     left: 21%;
@@ -55,6 +56,15 @@
 }
 
 .dashboard-item1{
+    position: relative;
+    display: flex;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 420px;
+    height: 100px;
+}
+
+.dashboard-item2{
     position: relative;
     display: flex;
     border: 1px solid #000000;
