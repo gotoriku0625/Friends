@@ -235,20 +235,19 @@ input[type="checkbox"] {
 }
 
 .like-button {
-    background-color: transparent; /* ボタンの背景を透明に */
-    border: none; /* ボタンの枠をなしに */
-    padding: 0; /* ボタンの内側の余白をなしに */
-    cursor: pointer; /* マウスポインターを指に */
+    background-color: transparent;
+    border: 1px solid #000000;
+    padding: 30px;
+    cursor: pointer;
+    border-radius: 50%;
 }
-
 .like-button img {
-    width: 50px; /* 画像の幅を50pxに設定（任意に変更可能） */
-    height: 50px; /* 画像の高さを50pxに設定（任意に変更可能） */
-    border-radius: 50%; /* 画像を丸形に */
-    object-fit: cover; /* 画像のアスペクト比を保持 */
-    transition: transform 0.3s; /* ホバー時のアニメーション効果 */
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    object-fit: cover;
+    transition: transform 0.3s;
 }
-
 .like-button img:hover {
     transform: scale(1.1); /* ホバー時に画像を拡大 */
 }
