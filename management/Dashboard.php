@@ -65,10 +65,34 @@
 
                 </div>
 
-                <div class="dashboard-item">
-                    <p>通報数：<?php echo $report_count; ?></p>
-                    <a href="tuuhou_ichiran.php" class="itiranGo1">通報一覧へ</a>
-                </div>
+        <p>ユーザー数：<?php echo $user_count; ?></p>
+
+        <div class="dash1">
+            <div class="dashboard-item1">
+                <p class="m-boy">男性<br><?php echo $gender_counts['男性']; ?>人</p>
+                <p class="m-girl">女性<br><?php echo $gender_counts['女性']; ?>人</p>
+                <p class="m-others">その他<br><?php echo $gender_counts['その他']; ?>人</p>
+            </div>
+            <div class="itiran1">
+                <a href="user_ichiran.php" class="itiranGo">ユーザー一覧へ</a>
+            </div>
+        </div>
+
+        <div class="dashboard-item">
+            <p>通報数：<?php echo $report_count; ?></p>
+            <a href="tuuhou_ichiran.php" class="itiranGo1">通報一覧へ</a>
+        </div>
+        <div class="dashboard-item">
+            <h2>カテゴリー別通報数</h2>
+            <ul>
+                <?php foreach ($category_counts as $category => $count) : ?>
+                    <li><?php echo htmlspecialchars($category); ?>: <?php echo $count; ?>件</li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <div class="dashboard-item">
+            <p>ブロック数：<?php echo $block_count; ?></p>
+        </div>
 
                 <div class="dashboard-item">
                     <p>ブロック数：<?php echo $block_count; ?></p>
