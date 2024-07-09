@@ -210,12 +210,12 @@ input[type="checkbox"] {
     border-radius: 5px; /* 角を丸くする */
     display: inline-block; /* インライン要素に対するブロックレベルのスタイリング */
 }
-
 /* プロフィールアイコンのスタイル */
 .profile-icon-container {
     display: flex;
     justify-content: center; /* 水平方向に中央揃え */
     align-items: center; /* 垂直方向に中央揃え */
+    margin: 20px 0; /* 上下の余白 */
 }
 
 .profile-icon {
