@@ -54,13 +54,17 @@
 .dashboard-item1{
     display: flex;
     border: 1px solid #000000;
+    
     border-radius: 10px;
 }
 
-.dash1{
+/* .dash1{
     display: flex;
-}
+} */
 
 .itiranGo{
+    color: rgb(87, 87, 87);
+}
+.itiranGo1{
     color: rgb(87, 87, 87);
 }

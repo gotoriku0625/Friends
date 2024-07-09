@@ -67,7 +67,7 @@
 
                 <div class="dashboard-item">
                     <p>通報数：<?php echo $report_count; ?></p>
-                    <a href="tuuhou_ichiran.php">通報一覧へ</a>
+                    <a href="tuuhou_ichiran.php" class="itiranGo1">通報一覧へ</a>
                 </div>
 
                 <div class="dashboard-item">
