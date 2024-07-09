@@ -1,5 +1,6 @@
 <?php
-function get_user($user_id){// 現在ログインしているユーザー情報
+// ユーザー情報
+function get_user($user_id){
     require './db-connect.php';
     try{
         $pdo = new PDO($connect,$user,$pass);
@@ -16,8 +17,8 @@ function get_user($user_id){// 現在ログインしているユーザー情報
         echo 'エラー発生：'.$e->getMessage();
     }
 }
-
-function get_talks($sender_id,$reciver_id){// やり取りされるメッセージ情報
+// やり取りされるメッセージ情報
+function get_talks($sender_id,$reciver_id){
     require './db-connect.php';
     try{
         $pdo=new PDO($connect,$user,$pass);
@@ -33,8 +34,8 @@ function get_talks($sender_id,$reciver_id){// やり取りされるメッセー�
         echo 'エラー発生:' . $e->getMessage();
     }
 }
-
-function check_relation_talk($user_id,$reciver_id){// talk_memberテーブルに自分のIDと送信先ユーザーのIDがあるかどうか確認
+ // talk_memberテーブルに自分のIDと送信先ユーザーのIDがあるかどうか確認
+function check_relation_talk($user_id,$reciver_id){
     require './db-connect.php';
     try{
         $pdo=new PDO($connect,$user,$pass);

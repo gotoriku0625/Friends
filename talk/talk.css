@@ -240,7 +240,7 @@ ul{
 /* サブウィンドウのスタイル */
 .sub_window {
   position: fixed; /* スクロールに影響されないようにfixedに設定 */
-  top: 60%;
+  top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);
   padding: 30px;
@@ -254,7 +254,7 @@ ul{
 
 .sub_window1 {
   position: fixed; /* スクロールに影響されないようにfixedに設定 */
-  top: 60%;
+  top: 45%;
   left: 60%;
   transform: translate(-50%, -50%);
   padding: 30px;
@@ -262,7 +262,7 @@ ul{
   background-color: #fff;
   overflow-y: auto;
   width: 60%;
-  max-width: 900px;
+  max-width: 500px;
   z-index: 2; /* サブウィンドウをアイコンとサブ写真の下に設定 */
 }
 /* サブウィンドウのコンテンツを中央に配置するスタイル */
@@ -278,7 +278,7 @@ ul{
 .btn-logout {
   display: block;
   padding: 10px 20px;
-  margin: 10px auto;
+  margin: 10px 60px;
   border: none;
   border-radius: 5px;
   background-color: #ff4444;
@@ -293,10 +293,40 @@ ul{
 .btn-logout:hover {
   background-color: #dd3333;
 }
-.content{
+.contents{
   display: flex;
 }
-
+.contents1{
+  display: block;
+}
+.submit{
+  display: flex;
+}
+.radio{
+  margin:10px 10px;
+}
+#report{
+  display: flex;
+  text-align: center;
+  color: #000;
+  margin-left: 60px;
+}
+.moji{
+  font-family: mameron;
+  margin: 10px 10px;
+}
+.area{
+  text-align: center;
+}
+.area .re_text{
+  text-align: left;
+}
+.re_text{
+  resize: none;
+  width: 300px;
+  height:100px;
+  color: #000;
+}
 /* ナビゲーションメニュー */
 .dli-more-v {
     position: relative;
@@ -387,5 +417,8 @@ ul{
   margin-right: 10px;
 }
 .title{
+  font-family: mameron;
   color: #000000;
+  text-align: center;
+  margin-bottom: 10px;
 }
