@@ -27,12 +27,16 @@
         $school = isset($_GET['selected_school_id']) ? $_GET['selected_school_id'] : null;
         $hobby = isset($_GET['selected_hobby_id']) ? $_GET['selected_hobby_id'] : null;
 
-        // SQLクエリの構築
-        $sql = "SELECT profile.*, user.user_name, gender.gender_name FROM profile
-                JOIN user ON profile.user_id = user.user_id
-                JOIN gender ON profile.gender_id = gender.gender_id
-                WHERE profile.user_id != :loggedInUserId"; // 自分自身を除外する条件を追加
-        $params = [];
+        if (isset($_SESSION['user']['id'])) {
+            $loggedInUserId = $_SESSION['user']['id'];
+        
+            // SQLクエリを修正して、自分自身を除外する条件を追加する
+            $sql = "SELECT profile.*, user.user_name, gender.gender_name FROM profile
+                    JOIN user ON profile.user_id = user.user_id
+                    JOIN gender ON profile.gender_id = gender.gender_id
+                    WHERE profile.user_id != :loggedInUserId"; // 自分自身を除外する条件を追加
+        
+            $params = [':loggedInUserId' => $loggedInUserId];
 
         if ($user_name) {
             $sql .= " AND user.user_name LIKE :user_name";
@@ -93,6 +97,7 @@
         $stmt->execute($params);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+}
     ?>
 
     <?php if (!empty($results)): ?>
