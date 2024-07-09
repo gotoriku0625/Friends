@@ -72,9 +72,10 @@
         </div>
 
                 <div class="dashboard-item">
-                    <p>通報数：<?php echo $report_count; ?></p>
-                    <a href="tuuhou_ichiran.php" class="itiranGo1">通報一覧へ</a>
-                </div>
+            <ul>
+                <?php foreach ($category_counts as $category => $count) : ?>
+                    <li><?php echo htmlspecialchars($category); ?>: <?php echo $count; ?>件</li>
+            <a href="tuuhou_ichiran.php" class="itiranGo1">通報一覧へ</a>
 
                 <div class="dashboard-item">
                     <p>ブロック数：<?php echo $block_count; ?></p>
