@@ -181,3 +181,19 @@ hr{
     border-radius: 50%;
     z-index: 1;
 }
+.bat{
+    width: 50px;
+    margin-left: 50%;
+}
+.batlike{
+    width: 50px;
+}
+.like{
+    position: relative;
+    width: 50px;
+    /* height: 100px; */
+    /* top: -100; */
+    /* text-align: center; */
+    /* border-radius: 50%; */
+    z-index: 2;
+}
