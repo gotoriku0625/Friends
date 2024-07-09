@@ -69,7 +69,7 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                                 <div class="contents">
                                                     <form action="../block/block.php" method="post">
                                                         <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
-                                                        <button type="submit" class="btn-logout">はい</button>
+                                                        <button type="submit" class="btn-logout" name="check" value="block">はい</button>
                                                     </form>
                                                     <button type="submit" class="btn-logout" onclick="closeSubWindow1()">いいえ</button>
                                                 </div>
@@ -88,7 +88,7 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                                 <h2 class="title">通報</h2>
                                                 <div class="contents1">
                                                     <div class="title">通報内容を選択し、内容を入力してください</div>
-                                                    <form action="./talk-add.php" method="post">
+                                                    <form action="../report/report.php" method="post">
                                                         <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
                                                         <label id="report"><input type="radio" class="radio" name="report" value="性的嫌がらせ">
                                                         <div class="moji">性的嫌がらせ</div></label>
@@ -98,7 +98,7 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                                         <div class="moji">その他</div></label>
                                                         <div class="area"><textarea class="re_text" type="text" name="re_text" required placeholder="例)裸の写真を要求された"></textarea></div>
                                                         <div class="submit">
-                                                        <button type="submit" class="btn-logout" name="check" value="submit">送信</button>
+                                                        <button type="submit" class="btn-logout">送信</button>
                                                     </form>
                                                         <button type="submit" class="btn-logout" onclick="closeSubWindow2()">キャンセル</button>
                                                         </div>

@@ -26,7 +26,11 @@
             // echo var_dump($reciver);
             // トーク内容を取得する変数
             $talk_relations = get_talk_relations($current_user['user_id']);
-            if(!empty($talk_relations)){
+            $report='select reporter_id from report where reported_id=?';
+            $sql=$pdo->prepare($report);
+            $sql->execute([$_SESSION['user']['id']]);
+            $result = $sql->fetch();
+            if(!empty($talk_relations)||$result===$reciver){
             // echo var_dump($talk_relations);
                 // 自分が送り手なのか受け取り手なのか判定
                 foreach($talk_relations as $talk_relation){
