@@ -210,6 +210,7 @@ input[type="checkbox"] {
     border-radius: 5px; /* 角を丸くする */
     display: inline-block; /* インライン要素に対するブロックレベルのスタイリング */
 }
+
 /* プロフィールアイコンのスタイル */
 .profile-icon-container {
     display: flex;
@@ -223,4 +224,31 @@ input[type="checkbox"] {
     border-radius: 50%; /* 丸形にするための設定 */
     object-fit: cover; /* 画像を枠に収める */
     border: 3px solid black; /* 黒色の枠 */
+}
+
+/* いいねボタンのセクション */
+.like-section {
+    display: flex;
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
+    margin: 20px 0; /* 上下に余白を追加 */
+}
+
+.like-button {
+    background-color: transparent; /* ボタンの背景を透明に */
+    border: 1px solid #000000;
+    padding: 30px; /* ボタンの内側の余白をなしに */
+    cursor: pointer; /* マウスポインターを指に */
+}
+
+.like-button img {
+    width: 60px; /* 画像の幅を50pxに設定（任意に変更可能） */
+    height: 60px; /* 画像の高さを50pxに設定（任意に変更可能） */
+    border-radius: 50%; /* 画像を丸形に */
+    object-fit: cover; /* 画像のアスペクト比を保持 */
+    transition: transform 0.3s; /* ホバー時のアニメーション効果 */
+}
+
+.like-button img:hover {
+    transform: scale(1.1); /* ホバー時に画像を拡大 */
 }
