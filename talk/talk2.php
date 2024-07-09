@@ -57,47 +57,52 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                 <a href="#" class="a-all"><span class="dli-more-v"></span></a>
                                 <div class="drop-menu-list">
                                     <div class="drop-menu-item open_sub_window_wrapper">
-                                        <a href="#" class="a-b open_sub_window" onclick="openSubWindow()">
+                                        <a href="#" class="a-b open_sub_window" onclick="openSubWindow1()">
                                             <img src="../image/block.png" class="block">ブロック</a>
                                     </div>
                                     <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
-                                    <div class="bg_sub_window" onclick="closeSubWindow()">
+                                    <div class="bg_sub_window" onclick="closeSubWindow1()">
                                     <!-- サブウィンドウの内容 -->
                                         <div class="sub_window" onclick="event.stopPropagation()">
                                             <div class="sub_window_content">
                                                 <h2 class="title">ブロックしますか？</h2>
-                                                <div class="content">
+                                                <div class="contents">
                                                     <form action="../block/block.php" method="post">
                                                         <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
                                                         <button type="submit" class="btn-logout">はい</button>
                                                     </form>
+                                                    <button type="submit" class="btn-logout" onclick="closeSubWindow1()">いいえ</button>
                                                 </div>
-                                                <button type="submit" class="btn-logout" onclick="closeSubWindow()">いいえ</butto>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="drop-menu-item">
-                                        <a href="#" class="a-t open_sub_window" onclick="openSubWindow()">
+                                        <a href="#" class="a-t open_sub_window" onclick="openSubWindow2()">
                                         <img src="../image/report.png" class="report">通報</a>
                                     </div>
                                     <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
-                                    <div class="bg_sub1_window" onclick="closeSubWindow()" id="model1">
+                                    <div class="bg_sub1_window" onclick="closeSubWindow2()">
                                     <!-- サブウィンドウの内容 -->
                                         <div class="sub_window1" onclick="event.stopPropagation()">
                                             <div class="sub_window_content1">
                                                 <h2 class="title">通報</h2>
-                                                <div class="content1">
-                                                    <div>通報内容を選択し、内容を入力してください</div>
+                                                <div class="contents1">
+                                                    <div class="title">通報内容を選択し、内容を入力してください</div>
                                                     <form action="./talk-add.php" method="post">
                                                         <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
-                                                        <input type="radio" class="btn-logout" name="report" value="性的嫌がらせ">性的嫌がらせ
-                                                        <input type="radio" class="btn-logout" name="report" value="迷惑行為">迷惑行為
-                                                        <input type="radio" class="btn-logout" name="report" value="その他">その他
-                                                        <textarea class="text" type="text" name="re_text" required placeholder="例)裸の写真を要求された"></textarea>
+                                                        <label id="report"><input type="radio" class="radio" name="report" value="性的嫌がらせ">
+                                                        <div class="moji">性的嫌がらせ</div></label>
+                                                        <label id="report"><input type="radio" class="radio" name="report" value="迷惑行為">
+                                                        <div class="moji">迷惑行為</div></label>
+                                                        <label id="report"><input type="radio" class="radio" name="report" value="その他">
+                                                        <div class="moji">その他</div></label>
+                                                        <div class="area"><textarea class="re_text" type="text" name="re_text" required placeholder="例)裸の写真を要求された"></textarea></div>
+                                                        <div class="submit">
                                                         <button type="submit" class="btn-logout" name="check" value="submit">送信</button>
                                                     </form>
+                                                        <button type="submit" class="btn-logout" onclick="closeSubWindow2()">キャンセル</button>
+                                                        </div>
                                                 </div>
-                                                <button type="submit" class="btn-logout" onclick="closeSubWindow()">キャンセル</butto>
                                             </div>
                                         </div>
                                     </div>

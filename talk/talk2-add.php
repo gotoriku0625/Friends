@@ -30,7 +30,7 @@ try{
     // }
     insert_message_count($user_id,$reciver_id);
     // 通報したかどうかの判定
-    if(isset($_POST['check'])&&$_POST['check']===""){
+    if(isset($_POST['check'])&&$_POST['check']==="submit"){
         $report='insert into report values (null,?,?,?,?)';
         $sql=$pdo->prepare($block);
         $sql->execute(array($_SESSION['user']['id'],$_POST['reciver_id'],$_POST['report'],$_POST['re_text']));
