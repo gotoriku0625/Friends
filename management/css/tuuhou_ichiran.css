@@ -1,12 +1,16 @@
+.main{
+    position: relative;
+    left: 21%;
+}
 table {
-    width: 100%;
+    width: 78%;
     border-collapse: collapse;
     table-layout: fixed; /* セルの幅を固定 */
 }
 th, td {
     padding: 8px;
     text-align: left;
-    border: 1px solid #ddd;
+    /*border: px solid #ddd;*/
 }
 thead {
     background-color: #f2f2f2;

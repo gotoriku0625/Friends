@@ -38,8 +38,11 @@ $reports = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>通報一覧</title>
 </head>
 <body>
+    <div class="main">
     <h1>通報一覧</h1>
+    <div class="count">
     <p>通報数: <?php echo htmlspecialchars($report_count, ENT_QUOTES, 'UTF-8'); ?></p>
+</div>
     <table>
         <thead>
             <tr>
@@ -57,5 +60,6 @@ $reports = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php endforeach; ?>
         </tbody>
     </table>
+            </div>
 </body>
 </html>
