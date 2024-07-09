@@ -73,6 +73,10 @@
 
         <div class="dashboard-item">
             <p>通報数：<?php echo $report_count; ?></p>
+            <div class="dashboard-item">
+            <ul>
+                <?php foreach ($category_counts as $category => $count) : ?>
+                    <li><?php echo htmlspecialchars($category); ?>: <?php echo $count; ?>件</li>
             <a href="tuuhou_ichiran.php" class="itiranGo1">通報一覧へ</a>
         </div>
 
@@ -80,11 +84,7 @@
             <p>ブロック数：<?php echo $block_count; ?></p>
         </div>
 
-        <div class="dashboard-item">
-            <h2>カテゴリー別通報数</h2>
-            <ul>
-                <?php foreach ($category_counts as $category => $count) : ?>
-                    <li><?php echo htmlspecialchars($category); ?>: <?php echo $count; ?>件</li>
+        
                 <?php endforeach; ?>
             </ul>
         </div>
