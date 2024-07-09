@@ -200,7 +200,7 @@ input[type="checkbox"] {
     display: inline-block; /* インライン要素に対するブロックレベルのスタイリング */
 }
 
-.profile-icon-container {
+.profile-icon-container,.username {
     display: flex;
     justify-content: center; /* 水平方向に中央揃え */
     align-items: center; /* 垂直方向に中央揃え */

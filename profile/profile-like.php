@@ -5,8 +5,6 @@
 </head>
 <body>
     <div class="container">
-        <button onclick="goBack()">戻る</button>
-        <hr>
 
         <?php
         try {
@@ -35,17 +33,18 @@
                 $profile = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 if ($profile) {
+                    echo '<div class="username">';
+                    echo '<p><span class="label">ユーザー名:</span><br></p>';
+                    echo '<p><span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
+                    echo '</div>';
+                    echo'<button onclick="goBack()">戻る</button>';
+                    echo'<hr>';
                     // アイコン画像の表示
                     echo '<div class="profile-icon-container">';
                     if (!empty($profile['icon_image'])) {
                         echo '<img src="../user_image/main/' . htmlspecialchars($profile['icon_image'], ENT_QUOTES, 'UTF-8') . '" alt="アイコン" class="profile-icon">';
                     }
                     echo'</div>';
-
-                    echo '<div class="username">';
-                    echo '<p><span class="label">ユーザー名:</span><br></p>';
-                    echo '<p><span class="data-box">' . htmlspecialchars($profile['user_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
-                    echo '</div>';
                     
                     echo '<p><span class="label">趣味:</span><br></p>';
                     echo '<p><span class="data-box">' . htmlspecialchars($profile['hobby_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
