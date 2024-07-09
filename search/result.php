@@ -31,7 +31,7 @@
         $sql = "SELECT profile.*, user.user_name, gender.gender_name FROM profile
                 JOIN user ON profile.user_id = user.user_id
                 JOIN gender ON profile.gender_id = gender.gender_id
-                WHERE 1=1";
+                WHERE profile.user_id != :loggedInUserId"; // 自分自身を除外する条件を追加
         $params = [];
 
         if ($user_name) {
