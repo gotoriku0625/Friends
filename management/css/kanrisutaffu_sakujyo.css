@@ -34,3 +34,10 @@ thead, tbody tr {
     width: 100%;
     table-layout: fixed; /* セルの幅を固定 */
 }
+tbody tr:nth-child(even) {
+    background-color: #cccccc; /* 偶数行の背景色を灰色に設定 */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* 奇数行の背景色を白色に設定 */
+}

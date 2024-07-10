@@ -1,11 +1,10 @@
 <?php require '../m_header.php'; ?>
-<body>
+<head>
     <?php require '../m_menu/m_menu.php'; ?>
     <div class="main">
     <?php $pdo = new PDO($connect, USER, PASS); 
-</body>
-$pdo = new PDO($connect, USER, PASS);
-
+$pdo = new PDO($connect, USER, PASS);?>
+<?php
 $error_message = '';
 $success_message = '';
 
