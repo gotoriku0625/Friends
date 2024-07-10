@@ -57,8 +57,8 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                 <a href="#" class="a-all"><span class="dli-more-v"></span></a>
                                 <div class="drop-menu-list">
                                     <div class="drop-menu-item open_sub_window_wrapper">
-                                        <a href="#" class="a-b open_sub_window" onclick="openSubWindow1()">
-                                            <img src="../image/block.png" class="block">ブロック</a>
+                                        <button class="a-b open_sub_window" onclick="openSubWindow1()">
+                                            <img src="../image/block.png" class="block">ブロック</button>
                                     </div>
                                     <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
                                     <div class="bg_sub_window" onclick="closeSubWindow1()">
@@ -77,8 +77,8 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                         </div>
                                     </div>
                                     <div class="drop-menu-item">
-                                        <a href="#" class="a-t open_sub_window" onclick="openSubWindow2()">
-                                        <img src="../image/report.png" class="report">通報</a>
+                                        <button class="a-t open_sub_window" onclick="openSubWindow2()">
+                                        <img src="../image/report.png" class="report">通報</button>
                                     </div>
                                     <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
                                     <div class="bg_sub1_window" onclick="closeSubWindow2()">
@@ -89,7 +89,8 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                                 <div class="contents1">
                                                     <div class="title">通報内容を選択し、内容を入力してください</div>
                                                     <form action="../report/report.php" method="post">
-                                                        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
+                                                        <input type="hidden" name="reciver_id" value="<?=$reciver['user_id']?>">
+                                                        <input type="hidden" name="user_id" value="<?=$current_user['user_id']?>">
                                                         <label id="report"><input type="radio" class="radio" name="report" value="性的嫌がらせ">
                                                         <div class="moji">性的嫌がらせ</div></label>
                                                         <label id="report"><input type="radio" class="radio" name="report" value="迷惑行為">
@@ -97,11 +98,11 @@ reset_message_count($current_user['user_id'],$reciver['user_id']);
                                                         <label id="report"><input type="radio" class="radio" name="report" value="その他">
                                                         <div class="moji">その他</div></label>
                                                         <div class="area"><textarea class="re_text" type="text" name="re_text" required placeholder="例)裸の写真を要求された"></textarea></div>
-                                                        <div class="submit">
+                                                        <!-- <div class="submit"> -->
                                                         <button type="submit" class="btn-logout">送信</button>
                                                     </form>
                                                         <button type="submit" class="btn-logout" onclick="closeSubWindow2()">キャンセル</button>
-                                                        </div>
+                                                        <!-- </div> -->
                                                 </div>
                                             </div>
                                         </div>
