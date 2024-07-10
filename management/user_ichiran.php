@@ -40,6 +40,7 @@ require '../m_header.php';
                 FROM user u
                 INNER JOIN profile p ON u.user_id = p.user_id
                 INNER JOIN gender g ON p.gender_id = g.gender_id
+                order by u.user_id
             ";
 
             // クエリ実行
