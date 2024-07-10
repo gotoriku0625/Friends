@@ -1,19 +1,12 @@
-<?php require '../header.php';?>
+<?php session_start(); ?>
+<?php require '../db-connect.php';?>
 <title>プロフィール</title>
 <link rel="stylesheet" href="css/profile.css">
 <script src="js/style.js"></script>
-</head>
 <!-- プロフィールを更新するためのもの -->
 <body>
     <div class="container">
         <p class="title">プロフィール</p>
-    <!-- ログアウトボタン-->
-    <!-- サブウィンドウを開くボタンの親要素 -->
-        <div class="open_sub_window_wrapper">
-            <form action="../logout/logout.php" method="post">
-                <button type="button" class="open_sub_window" onclick="openSubWindow()">ログアウト</button>
-            </form>
-        </div>
         <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
         <div class="bg_sub_window" onclick="closeSubWindow()">
             <!-- サブウィンドウの内容 -->

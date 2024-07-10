@@ -44,8 +44,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>いいね結果</title>
+    <style>
+        .bg_pattern {
+            background-image: url('path_to_pattern_image'); /* ここに背景パターンの画像パスを指定 */
+        }
+        .section {
+            /* 必要に応じてセクションのスタイルを指定 */
+        }
+    </style>
 </head>
 <body>
+    <div class="bg_pattern Polka_v2"></div>
+    <div class="section">
+        <!-- PHPコードによるいいね結果の表示 -->
+    </div>
     <form action="../top/top.php" method="get">
         <button type="submit">トップに戻る</button>
     </form>
