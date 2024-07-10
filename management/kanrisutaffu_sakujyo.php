@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <link rel="stylesheet" href="css/kanrisutaffu_tuika.css">
+    <link rel="stylesheet" href="css/kanrisutaffu_sakujyo.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理スタッフ設定</title>

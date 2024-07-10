@@ -1,0 +1,38 @@
+/* logout.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.message {
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1.2em;
+    color: #333333;
+    transition: all 0.3s ease;
+}
+
+.message:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+    width: 100%;
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: aquamarine;
+    color: rgb(4, 4, 4);
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}

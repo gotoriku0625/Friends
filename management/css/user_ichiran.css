@@ -14,6 +14,7 @@ h1{
 
 table {
     width: 78%;
+    height: 40%;
     border-collapse: collapse;
     table-layout: fixed; /* セルの幅を固定 */
 }
@@ -33,7 +34,7 @@ thead {
 }
 tbody {
     display: block;
-    max-height: 260px; /* スクロール領域の高さを指定 */
+    max-height: 500px; /* スクロール領域の高さを指定 */
     overflow-y: auto;
     width: 100%;
 }
@@ -59,4 +60,9 @@ tbody tr:nth-child(odd) {
 
 .female {
     color:  #ff5691be; /* 女性の場合はピンク */
+}
+
+.user-num{
+    position: relative;
+    left: 20px;
 }

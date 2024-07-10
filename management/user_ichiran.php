@@ -14,7 +14,7 @@ require '../m_header.php';
     <div class="main">
 <?php require '../m_menu/m_menu.php';?>
     <h1>ユーザー一覧</h1>
-    <p>ユーザー数：
+    <p class="user-num">ユーザー数：
         <?php
         $pdo = new PDO($connect, USER, PASS);
 
@@ -40,6 +40,7 @@ require '../m_header.php';
                 FROM user u
                 INNER JOIN profile p ON u.user_id = p.user_id
                 INNER JOIN gender g ON p.gender_id = g.gender_id
+                order by u.user_id
             ";
 
             // クエリ実行
