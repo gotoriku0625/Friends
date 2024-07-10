@@ -19,7 +19,7 @@
                     $sql->execute([
                         $_POST['name'],$_POST['mail'],$pass
                     ]);
-                    echo '<a href="../profile/profile_up.php"><button type="submit" class="btn">プロフィール設定へ</button></a>';
+                    echo '<a href="../profile/profile.php"><button type="submit" class="btn">プロフィール設定へ</button></a>';
                     $sql=$pdo->prepare('select * from user where mail=?');
                     $sql->execute([$_POST['mail']]);
                     foreach($sql as $row){
