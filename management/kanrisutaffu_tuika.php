@@ -4,6 +4,7 @@
     <div class="main">
     <?php $pdo = new PDO($connect, USER, PASS); 
 $pdo = new PDO($connect, USER, PASS);?>
+</head>
 <?php
 $error_message = '';
 $success_message = '';

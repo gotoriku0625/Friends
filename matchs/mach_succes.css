@@ -1,3 +1,13 @@
+.container{
+    width: 500px; /* 要素の幅 */
+    padding: 20px; /* 内側の余白 */
+    border: 1px solid #cccccc; /* 枠線の設定 */
+    border-radius: 10px; /* 角丸 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
+    text-align: center; /* テキストの中央揃え */
+    margin: auto;
+}
+
 .logo{
     position: relative;
     margin: 0 auto;
