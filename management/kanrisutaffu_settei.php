@@ -24,12 +24,16 @@
         $adminCount = $stmt->rowCount();
         echo "管理者数：" . $adminCount;
     ?>
+    <div class="tuika_button">
     <form action="kanrisutaffu_tuika.php">
         <button type="submit">スタッフ追加</button>
     </form>
+</div>
+<div class="sakujo_button">
     <form action="kanrisutaffu_sakujyo.php">
         <button type="submit">スタッフ削除</button>
     </form>
+</div>
     <table>
         <thead>
             <tr>
