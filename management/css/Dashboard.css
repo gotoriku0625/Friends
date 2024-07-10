@@ -86,3 +86,10 @@
     top: 60px;
     width: 150px;
 }
+
+.tuhou-number{
+    position: relative;
+    color: rgb(0, 0, 0);
+    top: 10px;
+    left: 180px;
+}
