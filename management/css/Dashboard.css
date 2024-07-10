@@ -58,9 +58,9 @@
 .dashboard-item1{
     position: relative;
     display: flex;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     border-radius: 10px;
-    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.286);
     width: 420px;
     height: 100px;
 }
@@ -68,9 +68,9 @@
 .dashboard-item2{
     position: relative;
     display: flex;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     border-radius: 10px;
-    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.286);
     width: 520px;
     height: 100px;
 }
@@ -91,16 +91,18 @@
     position: relative;
     color: rgb(0, 0, 0);
     top: 10px;
-    left: 180px;
+    margin-left: 55px;
 }
 
 .itiranGo1{
     position: relative;
     color: rgb(87, 87, 87);
-    top: 60px;
+    top: -50px;
+    left: 300px;
     width: 150px;
 }
 
 .p1{
+    margin-top: 80px;
     font-size: 30px;
 }
