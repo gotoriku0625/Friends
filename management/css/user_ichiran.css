@@ -61,3 +61,8 @@ tbody tr:nth-child(odd) {
 .female {
     color:  #ff5691be; /* 女性の場合はピンク */
 }
+
+.user-num{
+    position: relative;
+    left: 20px;
+}

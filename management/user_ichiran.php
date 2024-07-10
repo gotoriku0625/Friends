@@ -14,7 +14,7 @@ require '../m_header.php';
     <div class="main">
 <?php require '../m_menu/m_menu.php';?>
     <h1>ユーザー一覧</h1>
-    <p>ユーザー数：
+    <p class="user-num">ユーザー数：
         <?php
         $pdo = new PDO($connect, USER, PASS);
 
