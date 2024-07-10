@@ -14,6 +14,7 @@ $reciver_id = $_SESSION['reciver_id'];
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="mach_succes.css">
     <title>マッチング成功</title>
 </head>
 <body>
