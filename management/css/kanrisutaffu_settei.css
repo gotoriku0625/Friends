@@ -34,3 +34,28 @@ thead, tbody tr {
     width: 100%;
     table-layout: fixed; /* セルの幅を固定 */
 }
+tbody tr:nth-child(even) {
+    background-color: #cccccc; /* 偶数行の背景色を灰色に設定 */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* 奇数行の背景色を白色に設定 */
+}
+.tuika_button {
+    border: 2px solid #000; /* ここで枠線を追加 */
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+.tuika-button:hover {
+    background-color: #ddd; /* ホバー時の色変更 */
+}
+.sakujo_button {
+    border: 2px solid #000; /* ここで枠線を追加 */
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+.sakujo-button:hover {
+    background-color: #ddd; /* ホバー時の色変更 */
+}
