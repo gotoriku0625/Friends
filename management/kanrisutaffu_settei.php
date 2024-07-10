@@ -1,14 +1,18 @@
-<?php
-require '../db-connect.php';
-$pdo = new PDO($connect, USER, PASS);
-?>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <link rel="stylesheet" href="css/kanrisutaffu_settei.css">
+<?php require '../m_header.php'; ?>
+<link rel="stylesheet" href="css/kanrisutaffu_settei.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理スタッフ設定</title>
+<body>
+    <?php require '../m_menu/m_menu.php'; ?>
+    <div class="main">
+    <?php $pdo = new PDO($connect, USER, PASS); ?>
+</body>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    
 </head>
 <body>
     <h1>管理スタッフ設定</h1>

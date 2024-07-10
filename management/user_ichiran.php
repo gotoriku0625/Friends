@@ -24,7 +24,7 @@ require '../m_header.php';
         $user_count = $user_count_result->fetch(PDO::FETCH_ASSOC)['count'];
 
         echo $user_count; // ユーザー数を表示
-        ?>
+        ?>人
     </p>
     <table>
         <thead>
