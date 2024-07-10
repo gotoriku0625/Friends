@@ -58,7 +58,7 @@
 .dashboard-item1{
     position: relative;
     display: flex;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     border-radius: 10px;
     box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.286);
     width: 420px;
@@ -68,7 +68,7 @@
 .dashboard-item2{
     position: relative;
     display: flex;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     border-radius: 10px;
     box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.286);
     width: 520px;
