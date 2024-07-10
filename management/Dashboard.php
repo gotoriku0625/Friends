@@ -72,7 +72,7 @@
         </div>
 
         <div class="dashboard-item">
-            <p class="p1">通報数件：<?php echo $report_count; ?></p>
+            <p class="p1">通報件数：<?php echo $report_count; ?></p>
         </div>
             <div class="dashboard-item2">
                 <?php foreach ($category_counts as $category => $count) : ?>
