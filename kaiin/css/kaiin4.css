@@ -6,7 +6,6 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #ffffff;
-    flex-direction: column; /* 子要素を縦に配置 */
 }
 
 #center {
@@ -18,9 +17,6 @@ body {
     text-align: center;
     padding-bottom: 40px;
     margin: 0 auto; /* 要素を水平中央に配置 */
-    display: flex;
-    flex-direction: column; /* 子要素を縦に配置 */
-    align-items: center; /* 子要素を水平中央に配置 */
 }
 
 .title {
