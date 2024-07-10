@@ -13,8 +13,10 @@
 if (isset($_SESSION['user'])) {
     unset($_SESSION['user']);
     echo '<div class="message">ログアウトしました。</div>';
+    echo '<a href="../login/login.html" class="btn">ログインへ</a>';
 } else {
     echo '<div class="message">すでにログアウトしています。</div>';
+    echo '<a href="../login/login.html" class="btn">ログインへ</a>';
 }
 ?>
 </body>
