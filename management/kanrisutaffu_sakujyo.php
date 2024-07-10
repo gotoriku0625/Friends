@@ -1,7 +1,11 @@
-<?php
-require '../db-connect.php';
-$pdo = new PDO($connect, USER, PASS);
+<?php require '../m_header.php'; ?>
 
+<body>
+    <?php require '../m_menu/m_menu.php'; ?>
+    <div class="main">
+    <?php $pdo = new PDO($connect, USER, PASS); ?>
+</body>
+<?php
 // フォームが送信された場合の処理
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     $idsToDelete = $_POST['delete'];
