@@ -41,21 +41,31 @@ tbody tr:nth-child(even) {
 tbody tr:nth-child(odd) {
     background-color: #ffffff; /* 奇数行の背景色を白色に設定 */
 }
-.tuika_button {
-    border: 2px solid #000; /* ここで枠線を追加 */
-    padding: 10px 20px;
-    background-color: #f0f0f0;
-    cursor: pointer;
-}
-.tuika-button:hover {
-    background-color: #ddd; /* ホバー時の色変更 */
-}
+.tuika_button,
 .sakujo_button {
     border: 2px solid #000; /* ここで枠線を追加 */
-    padding: 10px 20px;
+    padding: 5px 10px; /* パディングを縮小 */
     background-color: #f0f0f0;
     cursor: pointer;
+    display: inline-block; /* インラインブロックに変更 */
+    margin: 5px; /* ボタン間の余白を追加 */
 }
-.sakujo-button:hover {
+
+.tuika_button:hover,
+.sakujo_button:hover {
     background-color: #ddd; /* ホバー時の色変更 */
+}
+
+.tuika_button button,
+.sakujo_button button {
+    padding: 5px 10px; /* ボタン内のパディングを縮小 */
+    border: none; /* ボタンのデフォルトの枠線を削除 */
+    background: none; /* ボタンの背景を削除 */
+    cursor: pointer; /* ポインターを表示 */
+    font-size: 14px; /* フォントサイズを調整 */
+}
+
+.tuika_button button:hover,
+.sakujo_button button:hover {
+    background-color: #ddd; /* ボタンのホバー時の背景色変更 */
 }
