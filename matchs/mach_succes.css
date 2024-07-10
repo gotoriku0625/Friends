@@ -5,6 +5,7 @@
     border-radius: 10px; /* 角丸 */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
     text-align: center; /* テキストの中央揃え */
+    margin: auto;
 }
 
 .logo{
