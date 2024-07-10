@@ -146,7 +146,7 @@ a{
 .link-space{
     position: relative;
     padding-top: 5%;
-    padding-left: 10%;
+    margin: 0 auto;
     z-index: 5;
 }
 .parson-free-icon{
