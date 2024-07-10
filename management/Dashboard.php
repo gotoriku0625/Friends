@@ -58,7 +58,7 @@
 
         <h1 class="h1">ダッシュボード</h1>
 
-        <p>ユーザー数：<?php echo $user_count; ?></p>
+        <p class="p1">ユーザー数：<?php echo $user_count; ?></p>
 
         <div class="dash1">
             <div class="dashboard-item1">
@@ -72,7 +72,7 @@
         </div>
 
         <div class="dashboard-item">
-            <p>通報数件：<?php echo $report_count; ?></p>
+            <p class="p1">通報数件：<?php echo $report_count; ?></p>
         </div>
             <div class="dashboard-item2">
                 <?php foreach ($category_counts as $category => $count) : ?>
@@ -82,7 +82,7 @@
         <a href="tuuhou_ichiran.php" class="itiranGo1">通報一覧へ</a>
 
                 <div class="dashboard-item">
-                    <p>ブロック数：<?php echo $block_count; ?></p>
+                    <p class="p1">ブロック数：<?php echo $block_count; ?></p>
                 </div>
     </div>
 </body>
