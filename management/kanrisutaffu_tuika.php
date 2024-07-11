@@ -71,31 +71,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // 管理者数の取得
         $adminCount = $stmt->rowCount();
-        echo "管理者数：" . $adminCount;
+        echo "管理者数：" . $adminCount,"人";
     ?>
 
     <form action="" method="post" onsubmit="return confirmSubmission();">
         <?php if (!empty($error_message)): ?>
-        <p style="color: red;"><?php echo htmlspecialchars($error_message, ENT_QUOTES, 'UTF-8'); ?></p>
+            <p style="color: red;"><?php echo htmlspecialchars($error_message, ENT_QUOTES, 'UTF-8'); ?></p>
         <?php elseif (!empty($success_message)): ?>
-        <p style="color: green;"><?php echo htmlspecialchars($success_message, ENT_QUOTES, 'UTF-8'); ?></p>
+            <p style="color: green;"><?php echo htmlspecialchars($success_message, ENT_QUOTES, 'UTF-8'); ?></p>
         <?php endif; ?>
         
-        <p>管理者名<br>
-            <input type="text" id="kanri_name" name="kanri_name" size="30">
-        </p>
-        <p>管理者番号<br>
-            <input type="text" id="kanri_number" name="kanri_number" size="30">
-        </p>
-        <p>email<br>
-            <input type="text" id="email" name="email" size="30">
-        </p>
-        <button type="submit">追加</button>
+        <div class="form-group">
+            <label for="kanri_name">管理者名</label>
+            <input type="text" id="kanri_name" name="kanri_name">
+        </div>
+        <div class="form-group">
+            <label for="kanri_number">管理者番号</label>
+            <input type="text" id="kanri_number" name="kanri_number">
+        </div>
+        <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" id="email" name="email">
+        </div>
+        <div class="tuika_button">
+            <button type="submit">追加</button>
+        </div>
     </form>
-    <form action="kanrisutaffu_sakujyo.php">
-        <button type="submit">スタッフ削除</button>
-    </form>
-
+    <div class="sakujyo_button">
+        <form action="kanrisutaffu_sakujyo.php">
+            <button type="submit">スタッフ削除</button>
+        </form>
+    </div>
     <table>
         <thead>
             <tr>

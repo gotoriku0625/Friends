@@ -5,7 +5,7 @@
     padding-left: 50px;
 }
 table {
-    width: 100%;
+    width: 78%;
     border-collapse: collapse;
 }
 th, td {
@@ -42,7 +42,7 @@ tbody tr:nth-child(odd) {
     background-color: #ffffff; /* 奇数行の背景色を白色に設定 */
 }
 .tuika_button,
-.sakujo_button {
+.sakujyo_button {
     border: 2px solid #000; /* ここで枠線を追加 */
     padding: 5px 10px; /* パディングを縮小 */
     background-color: #f0f0f0;
@@ -52,12 +52,12 @@ tbody tr:nth-child(odd) {
 }
 
 .tuika_button:hover,
-.sakujo_button:hover {
+.sakujyo_button:hover {
     background-color: #ddd; /* ホバー時の色変更 */
 }
 
 .tuika_button button,
-.sakujo_button button {
+.sakujyo_button button {
     padding: 5px 10px; /* ボタン内のパディングを縮小 */
     border: none; /* ボタンのデフォルトの枠線を削除 */
     background: none; /* ボタンの背景を削除 */
@@ -66,6 +66,6 @@ tbody tr:nth-child(odd) {
 }
 
 .tuika_button button:hover,
-.sakujo_button button:hover {
+.sakujyo_button button:hover {
     background-color: #ddd; /* ボタンのホバー時の背景色変更 */
 }
