@@ -6,7 +6,7 @@
         <?php
             //　トークの通知件数を表示するために追加
             // require '../talk/function.php';
-            $icon = $_SESSION['user']['icon'];
+            $icon_image = empty($_SESSION['user']['icon']) ? '../user_image/main/1.png' : "../user_image/main/{$_SESSION['user']['icon']}";
             // せしょんにジェンダーはいってたら
             $gender = $_SESSION['user']['gender'];
                 if($gender=== 1){
