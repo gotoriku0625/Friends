@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php session_start();
 
 if (!isset($_SESSION['match_message']) || !isset($_SESSION['reciver_id'])) {
     header("Location: top.php");
