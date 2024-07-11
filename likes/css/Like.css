@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'mameron';
+    src: url("../font/mamelon_hireg/Mamelon-3.5-Hi-Regular.otf") format("opentype");
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+#center {
+    width: 400px;
+    padding: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding-bottom: 40px;
+    margin: 0 auto;
+}
+
+#center .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#center hr {
+    border: none;
+    border-top: 1px solid #00ff84;
+    margin-bottom: 20px;
+}
+
+#center .message {
+    margin-top: 40px;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+#center .error {
+    color: red;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+#center .btn {
+    width: 70%; /* ボタンの幅を調整 */
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: aquamarine;
+    color: #040404;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    margin: 0 auto; /* ボタンを中央に配置 */
+}
+
+#center .btn:hover {
+    background-color: #31b0d5;
+}
