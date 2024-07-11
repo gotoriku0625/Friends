@@ -17,7 +17,7 @@ if (isset($_SESSION['user'])) {
     echo '<p class="message">すでにログアウトしています。</p>';
     echo '<a href="../login/login.html" class="btn">ログインへ</a>';
 }
-?>
-</div>;
+?>-
+</div>
 </body>
 </html>
