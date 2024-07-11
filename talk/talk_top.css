@@ -20,7 +20,7 @@ hr{
 }
 .row{
     position: relative;
-    z-index: 3;
+    /* z-index: 1; */
 }
 .reciver_list{
     position: relative;
