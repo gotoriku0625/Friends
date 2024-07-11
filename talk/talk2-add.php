@@ -31,9 +31,16 @@ try{
     insert_message_count($user_id,$reciver_id);
     // ブロックしたかどうかの判定
     if(isset($_POST['check'])&&$_POST['check']==="block"){
-        $block='insert into block values(null,?,?)';
+        $check='select * from block where blocker_id=? and blocked_id=?';
         $sql=$pdo->prepare($block);
         $sql->execute([$user_id,$reciver_id]);
+        $result=$sql->fetch();
+        // 既にブロックしているかどうかを確認する
+        if(!empty($result)){
+            $block='insert into block values(null,?,?)';
+            $sql=$pdo->prepare($block);
+            $sql->execute([$user_id,$reciver_id]);
+        }
     }
     // 通報したかどうかの判定
     if(isset($_POST['check'])&&$_POST['check']==="report"){

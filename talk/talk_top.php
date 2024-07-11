@@ -99,7 +99,7 @@
                                                             <div class="sub_window_content">
                                                                 <h2 class="title">ブロックしますか？</h2>
                                                                 <div class="contents">
-                                                                    <form action="../block/block.php" method="post">
+                                                                    <form action="./talk2-add.php" method="post">
                                                                         <input type="hidden" name="reciver_id" value="{$reciver['user_id']}">
                                                                         <button type="submit" class="btn-logout" name="check" value="block">はい</button>
                                                                     </form>
@@ -120,7 +120,7 @@
                                                                 <h2 class="title">通報</h2>
                                                                 <div class="contents1">
                                                                     <div class="title">通報内容を選択し、内容を入力してください</div>
-                                                                    <form action="../report/report.php" method="post">
+                                                                    <form action="./talk2-add.php" method="post">
                                                                         <input type="hidden" name="reciver_id" value="{$reciver['user_id']}">
                                                                         <input type="hidden" name="user_id" value="{$current_user['user_id']}">
                                                                         <label id="report"><input type="radio" class="radio" name="report" value="性的嫌がらせ">
