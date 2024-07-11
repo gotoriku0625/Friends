@@ -22,14 +22,14 @@
         
         // 管理者数の取得
         $adminCount = $stmt->rowCount();
-        echo "管理者数：" . $adminCount;
+        echo "管理者数：" . $adminCount,"人";
     ?>
     <div class="tuika_button">
     <form action="kanrisutaffu_tuika.php">
         <button type="submit">スタッフ追加</button>
     </form>
 </div>
-<div class="sakujo_button">
+<div class="sakujyo_button">
     <form action="kanrisutaffu_sakujyo.php">
         <button type="submit">スタッフ削除</button>
     </form>
