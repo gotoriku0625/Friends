@@ -34,7 +34,7 @@
                         ];
                     }
                 }else{
-                    echo '<p class="message">メールアドレスが既に使用されています</p>';
+                    echo '<p class="message">メールアドレスが<br>既に使用されています</p>';
                     echo '<a href="../kaiin/kaiin1.html" class="btn">新規会員登録へ</a>';
                 }
             }else{
