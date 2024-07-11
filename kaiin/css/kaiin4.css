@@ -16,7 +16,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding-bottom: 40px;
-    margin: 0 auto; /* 要素を水平中央に配置 */
+    margin: 0 auto;
 }
 
 .title {
@@ -36,6 +36,12 @@ hr {
     margin-bottom: 40px;
 }
 
+.error {
+    color: red;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
 .btn {
     width: 100%;
     padding: 20px;
@@ -50,4 +56,12 @@ hr {
 
 .btn:hover {
     background-color: #31b0d5;
+}
+
+#center p {
+    display: block;
+    font-size: 16px;
+    z-index: 1;
+    margin: 10px 0;
+    font-family: Arial, sans-serif;
 }
