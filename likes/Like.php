@@ -29,9 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindValue(':liked_user_id', $liked_user_id, PDO::PARAM_INT);
             $stmt->execute();
 
-            echo 'いいねしました！';
+            echo '<p class="message">いいねしました！</p>';
         } else {
-            echo '既にいいねしています。';
+            echo '<p class="message">既にいいねしています。</p>';
         }
 
     } catch (PDOException $e) {
@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<link rel="stylesheet" href="css/Like.css">
     <meta charset="UTF-8">
     <title>いいね結果</title>
     <style>
@@ -54,12 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
+<div id="center">
     <div class="bg_pattern Polka_v2"></div>
     <div class="section">
         <!-- PHPコードによるいいね結果の表示 -->
     </div>
     <form action="../top/top.php" method="get">
-        <button type="submit">トップに戻る</button>
+        <button type="submit" class="btn">トップに戻る</button>
     </form>
+</div>
 </body>
 </html>
