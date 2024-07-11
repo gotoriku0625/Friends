@@ -21,3 +21,24 @@ body{
     width: 50%;
     height: 60%;
 }
+
+.mach-image{
+    position: relative;
+    margin: 0 auto;
+    width: 25%;
+}
+
+button {
+    padding: 10px 20px; /* 内側の余白を設定 */
+    border: none; /* 枠線を無しに */
+    border-radius: 5px; /* 角を丸める */
+    background-color: aquamarine; /* 背景色を緑に */
+    color: #201f1f; /* 文字色を黒に */
+    font-size: 16px; /* フォントサイズを設定 */
+    cursor: pointer; /* マウスポインターをポインターに */
+}
+
+/* ボタンにホバーしたときのスタイルを設定 */
+button:hover {
+    background-color: rgb(168, 255, 226);  /* ホバー時の背景色を濃い緑に */
+}

@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php session_start();
 
 if (!isset($_SESSION['match_message']) || !isset($_SESSION['reciver_id'])) {
     header("Location: top.php");
@@ -20,8 +19,11 @@ $reciver_id = $_SESSION['reciver_id'];
 <body>
     <div class="container">
             <div class="logo-space">
-                <img src="../image/logo.png" class="logo"></a>
+                <img src="../image/logo.png" class="logo">
             </div>
+
+            <img src="../image/mach.png" class="mach-image">
+
         <p><?php echo htmlspecialchars($match_message); ?></p>
             <form method="POST" action="talk_or_top.php">
                 <input type="hidden" name="reciver_id" value="<?php echo htmlspecialchars($reciver_id); ?>">
