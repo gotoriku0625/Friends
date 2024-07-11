@@ -45,7 +45,7 @@
                     <div class="icon-section">
                         <span>アイコンの変更</span>
                         <div class="icon-container">
-                            <img id="profileIcon" src="../user_image/main/{$icon_image}" alt="プロフィールアイコン">
+                            <img id="profileIcon" src="../user_image/main/{$user['icon_image']}" alt="プロフィールアイコン">
                             <label for="iconInput" class="plus" onclick="uploadIcon()">+</label>
                             <input type="file" id="iconInput" name="icon" accept="image/*" style="display: none;">
                         </div>
