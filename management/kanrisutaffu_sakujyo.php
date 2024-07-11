@@ -68,11 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
         
         // 管理者数の取得
         $adminCount = $stmt->rowCount();
-        echo "管理者数：" . $adminCount;
+        echo "管理者数：" . $adminCount,"人";
     ?>
-    
+    <div class="tuika_button">
     <form action="" method="post" onsubmit="return confirmDeletion();">
         <a href="kanrisutaffu_tuika.php"><button type="button">スタッフ追加</button></a>
+    </form>
+    </div>
         <table>
             <thead>
                 <tr>

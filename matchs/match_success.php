@@ -24,7 +24,7 @@ $reciver_id = $_SESSION['reciver_id'];
 
             <img src="../image/mach.png" class="mach-image">
 
-        <p><?php echo htmlspecialchars($match_message); ?></p>
+        <p>〇〇さんと<?php echo htmlspecialchars($match_message); ?></p>
             <form method="POST" action="talk_or_top.php">
                 <input type="hidden" name="reciver_id" value="<?php echo htmlspecialchars($reciver_id); ?>">
                 <p>トークへいきますか？</p>
