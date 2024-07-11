@@ -25,8 +25,8 @@ $reciver_id = $_SESSION['reciver_id'];
         <p><?php echo htmlspecialchars($match_message); ?></p>
             <form method="POST" action="talk_or_top.php">
                 <input type="hidden" name="reciver_id" value="<?php echo htmlspecialchars($reciver_id); ?>">
-                <button type="submit" name="action" value="talk">トーク</button>
-                <button type="submit" name="action" value="top">トップ</button>
+                <button type="submit" name="action" value="talk">はい</button>
+                <button type="submit" name="action" value="top">いいえ</button>
             </form>
     </div>
 </body>
