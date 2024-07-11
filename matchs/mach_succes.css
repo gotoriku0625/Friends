@@ -2,6 +2,7 @@ body{
     align-items: center; /* 縦方向に中央揃え */
     height: 100vh; /* ビューポートの高さに合わせる */
     margin: 0; /* 余白をゼロに */
+    display: flex;
 }
 
 .container{
