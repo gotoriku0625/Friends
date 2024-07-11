@@ -84,8 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="js/style.js"></script>
 </head>
 <body>
-    <div class="container">
-        <p class="title">プロフィール</p>
+    <div class="containerI">
+        <p class="title">新規プロフィール</p>
         <div class="bg_sub_window" onclick="closeSubWindow()">
             <div class="sub_window" onclick="event.stopPropagation()">
                 <div class="sub_window_content">

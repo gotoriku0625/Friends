@@ -19,6 +19,13 @@ body {
     font-family: mameron;
 }
 
+.containerI {
+    width: calc(100% - 200px); /* コンテナの幅を計算して設定 */
+    margin: 0 auto;           /* 自動で中央寄せ */
+    /* margin-left: 21%;         左に20%の余白を作る */
+    overflow-x: hidden;      /* 横スクロールを無効化 */
+    font-family: mameron;
+}
 /* タイトルの設定 */
 .title {
     text-align: center;
