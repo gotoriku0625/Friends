@@ -83,4 +83,236 @@ hr{
     border-radius: 50%;
     z-index: 1;
 }
-
+/* サブウィンドウcss */
+/* サブウィンドウを開くボタンの親要素のスタイル */
+.open_sub_window_wrapper {
+    text-align: right;
+  }
+  
+  /* サブウィンドウを開くボタンのスタイル */
+  .open_sub_window {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  /* サブウィンドウを開くボタンのホバー時のスタイル */
+  .open_sub_window:hover {
+    opacity: 0.8;
+  }
+  
+  /* サブウィンドウの背景のスタイル（初期状態は非表示） */
+  .bg_sub_window {
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: visibility 0s, opacity 0.5s linear;
+    z-index: 1; /* サブウィンドウの背景を最背面に設定 */
+  }
+  
+  .bg_sub1_window {
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: visibility 0s, opacity 0.5s linear;
+    z-index: 1; /* サブウィンドウの背景を最背面に設定 */
+  }
+  
+  /* サブウィンドウのスタイル */
+  .sub_window {
+    position: fixed; /* スクロールに影響されないようにfixedに設定 */
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    max-height: 90%;
+    background-color: #fff;
+    overflow-y: auto;
+    width: 60%;
+    max-width: 900px;
+    z-index: 2; /* サブウィンドウをアイコンとサブ写真の下に設定 */
+  }
+  
+  .sub_window1 {
+    position: fixed; /* スクロールに影響されないようにfixedに設定 */
+    top: 45%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    max-height: 90%;
+    background-color: #fff;
+    overflow-y: auto;
+    width: 60%;
+    max-width: 500px;
+    z-index: 2; /* サブウィンドウをアイコンとサブ写真の下に設定 */
+  }
+  /* サブウィンドウのコンテンツを中央に配置するスタイル */
+  .sub_window_content {
+    display: table;
+    margin: 20px auto;
+  }
+  .sub_window_content1 {
+    display: table;
+    margin: 20px auto;
+  }
+  /* ボタンのスタイル */
+  .btn-logout {
+    display: block;
+    padding: 10px 20px;
+    margin: 10px 60px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4444;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    z-index: 1; /* サブウィンドウのボタンを最前面に設定 */
+  }
+  
+  /* ボタンのホバー時のスタイル */
+  .btn-logout:hover {
+    background-color: #dd3333;
+  }
+  .contents{
+    display: flex;
+  }
+  .contents1{
+    display: block;
+  }
+  .submit{
+    display: flex;
+  }
+  .radio{
+    margin:10px 10px;
+  }
+  #report{
+    display: flex;
+    text-align: center;
+    color: #000;
+    margin-left: 60px;
+  }
+  .moji{
+    font-family: mameron;
+    margin: 10px 10px;
+  }
+  .area{
+    text-align: center;
+  }
+  .area .re_text{
+    text-align: left;
+  }
+  .re_text{
+    resize: none;
+    width: 300px;
+    height:100px;
+    color: #000;
+  }
+  /* ナビゲーションメニュー */
+  .dli-more-v {
+      position: relative;
+      top: 15px;
+      display: inline-block;
+      vertical-align: middle;
+      color: #333;
+      line-height: 1;
+      width: 0.25em;
+      height: 0.25em;
+      background: currentColor;
+      border-radius: 50%;
+      box-shadow: 0 -0.375em 0 0 currentColor, 0 0.375em 0 0 currentColor;
+  }
+  .nav-menu {
+      color: #fff; /* メニューテキストの色 */
+      
+  }
+    .menu-list {
+      display: flex;
+      justify-content: center; /* メニューアイテムを中央揃えに */
+    }
+    /* .menu-item {
+      border-left: 1px solid #fff; メニューアイテムの左ボーダ 
+      position: relative;
+    } */
+    /* .menu-item:last-child {
+      border-right: 1px solid #fff; 最後のメニューアイテムの右ボーダー 
+    } */
+    
+     /* メニューアイテムのホバースタイル  */
+    .menu-item:hover .drop-menu-list {
+      visibility: visible; /* 下層メニューを表示 */
+    }
+    
+    .drop-menu-item a {
+      align-items: center;
+      color: #fff;  /*メニューアイテム内のリンクテキストの色*/ 
+      display: flex;
+      height: 45px;
+      font-size: 25px;
+      justify-content: center;
+      text-decoration: none;  /*リンクの下線を非表示 */
+      width: 150px;
+      font-family: mameron;
+    }
+    
+    /* ドロップダウンメニュー  */
+    .drop-menu {
+      position: relative;
+      /* height: 15px; */
+    }
+    .drop-menu-list {
+      background-color: #93f5d4; /*ドロップダウンメニューの背景色*/ 
+      left: 20px;
+      border-radius: 10%;
+      position: relative;
+      width: 200px;
+      height: 100px;
+      top: 100%;
+      margin-top: 15px;
+      visibility: hidden; /* 下層メニューを非表示*/
+      width: max-content;
+      z-index: 1;
+    }
+    
+  .a-all{
+    position: relative;
+    left: 100px;
+  }
+  
+  .a-b{
+    position: relative;
+    left: 0;
+  }
+  .a-t{
+    position: relative;
+    left: 0;
+  }
+  .block{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  .report{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  .title{
+    font-family: mameron;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 10px;
+  }
