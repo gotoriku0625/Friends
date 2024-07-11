@@ -7,19 +7,17 @@
     <link rel="stylesheet" href="css/logout.css"> <!-- logout.cssファイルのリンク -->
 </head>
 <body>
+<div id="center">
 <?php
 if (isset($_SESSION['user'])) {
     unset($_SESSION['user']);
-    echo '<div id="center">';
     echo '<p class="message">ログアウトしました。</p>';
     echo '<a href="../login/login.html" class="btn">ログインへ</a>';
-    echo '</div>';
 } else {
-    echo '<div id="center">';
     echo '<p class="message">すでにログアウトしています。</p>';
     echo '<a href="../login/login.html" class="btn">ログインへ</a>';
-    echo '</div>';
 }
 ?>
+</div>;
 </body>
 </html>

@@ -24,31 +24,14 @@ body {
     margin: 0 auto;
 }
 
-#center .title {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-#center hr {
-    border: none;
-    border-top: 1px solid #00ff84;
-    margin-bottom: 20px;
-}
-
 #center .message {
     margin-top: 40px;
     font-size: 24px;
     margin-bottom: 40px;
 }
 
-#center .error {
-    color: red;
-    margin-top: 20px;
-    font-size: 16px;
-}
-
 #center .btn {
-    width: 70%;
+    width: 70%; /* ボタンの幅を調整 */
     padding: 20px;
     border: none;
     border-radius: 5px;
@@ -58,7 +41,7 @@ body {
     cursor: pointer;
     text-decoration: none;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto; /* ボタンを中央に配置 */
 }
 
 #center .btn:hover {
