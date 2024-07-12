@@ -19,6 +19,7 @@
         <div class="bg_sub_window" onclick="closeSubWindow()">
             <!-- サブウィンドウの内容 -->
             <div class="sub_window" onclick="event.stopPropagation()">
+            <h1 class="sub_window_title">ログアウトしますか？</h1>
                 <div class="sub_window_content">
                     <form action="../logout/logout.php" method="post">
                         <button type="submit" class="btn-logout">はい</button>

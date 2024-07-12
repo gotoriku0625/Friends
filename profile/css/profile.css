@@ -28,9 +28,12 @@ body {
 }
 /* タイトルの設定 */
 .title {
+    position: relative;
+    font-size: 50px;
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
+    width: 100%;
+    font-family: mameron;
+    margin: 5px;
 }
 
 /* 水平線のスタイル */
@@ -217,18 +220,22 @@ form[action="../logout/logout.php"] {
 /* サブウィンドウのコンテンツを中央に配置するスタイル */
 .sub_window_content {
     display: flex;
-    justify-content: center; /* 要素を中央に配置 */
     margin: 20px auto;
 }
-
+.sub_window_title {
+    text-align: center; /* テキストを中央に配置 */
+    margin-bottom: 20px; /* 下に余白を追加してボタンとの間隔を調整 */
+    font-size: 24px; /* フォントサイズを必要に応じて調整 */
+    color: #333; /* テキストカラーを指定 */
+}
 /* ログアウトボタンのスタイル */
 .btn-logout {
     padding: 10px 20px;
-    margin:20px auto;
-    margin-left: 150px; /* はいボタンの右側に空白を追加 */
+    margin: 10px auto;
+    margin-left:200px;
     border: none;
     border-radius: 5px;
-    background-color: aquamarine; 
+    background-color:aquamarine; 
     color: #fff;
     cursor: pointer;
     text-align: center;
@@ -244,6 +251,7 @@ form[action="../logout/logout.php"] {
 /* キャンセルボタンのスタイル */
 .btn-cancel {
     padding: 10px 20px;
+    margin: 10px auto;
     border: none;
     border-radius: 5px;
     background-color: #aaa;
@@ -258,7 +266,6 @@ form[action="../logout/logout.php"] {
 .btn-cancel:hover {
     background-color: #fffdfd;
 }
-
 
 /* 追加ボタンの位置調整 */
 .icon-container .plus,
