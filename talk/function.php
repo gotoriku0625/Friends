@@ -99,7 +99,7 @@ function insert_message_count($user_id,$reciver_id){
         echo 'エラー発生:' . $e->getMessage();
     }
 }
-// 自分に来ている未読のメッセージの通知件数を取得する
+// 自分に来ている未読のメッセージの通知件数を取得する(menu用)
 function new_message_count($user_id){
     require '../talk/db-connect.php';
     try{
