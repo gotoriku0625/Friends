@@ -224,7 +224,8 @@ form[action="../logout/logout.php"] {
 /* ログアウトボタンのスタイル */
 .btn-logout {
     padding: 10px 20px;
-    margin-right: 20px; /* はいボタンの右側に空白を追加 */
+    margin:20px auto;
+    margin-left: 150px; /* はいボタンの右側に空白を追加 */
     border: none;
     border-radius: 5px;
     background-color: aquamarine; 
