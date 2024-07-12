@@ -28,9 +28,12 @@ body {
 }
 /* タイトルの設定 */
 .title {
+    position: relative;
+    font-size: 50px;
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
+    width: 100%;
+    font-family: mameron;
+    margin: 5px;
 }
 
 /* 水平線のスタイル */
