@@ -21,25 +21,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $drinking = isset($_POST['drinking']) ? 1 : 0;
         $smoking = isset($_POST['smoking']) ? 1 : 0;
 
-        // アイコンとサブ写真の処理
-        $icon_image = $_FILES['icon']['name'];
-        $sub_a_image = $_FILES['subImage1']['name'];
-        $sub_b_image = $_FILES['subImage2']['name'];
-        $sub_c_image = $_FILES['subImage3']['name'];
+       // アイコンとサブ写真の処理
+$icon_image = $_FILES['icon']['name'];
+$sub_a_image = $_FILES['subImage1']['name'];
+$sub_b_image = $_FILES['subImage2']['name'];
+$sub_c_image = $_FILES['subImage3']['name'];
 
-        // 画像アップロード
-        if ($icon_image) {
-            move_uploaded_file($_FILES['icon']['tmp_name'], "../user_image/main/$icon_image");
-        }
-        if ($sub_a_image) {
-            move_uploaded_file($_FILES['subImage1']['tmp_name'], "../user_image/sub/$sub_a_image");
-        }
-        if ($sub_b_image) {
-            move_uploaded_file($_FILES['subImage2']['tmp_name'], "../user_image/sub/$sub_b_image");
-        }
-        if ($sub_c_image) {
-            move_uploaded_file($_FILES['subImage3']['tmp_name'], "../user_image/sub/$sub_c_image");
-        }
+// 画像アップロード
+if ($icon_image) {
+    move_uploaded_file($_FILES['icon']['tmp_name'], "../user_image/main/$icon_image");
+} else {
+    $icon_image = null; // ファイルが選択されなかった場合は null を設定
+}
+if ($sub_a_image) {
+    move_uploaded_file($_FILES['subImage1']['tmp_name'], "../user_image/sub/$sub_a_image");
+} else {
+    $sub_a_image = null; // ファイルが選択されなかった場合は null を設定
+}
+if ($sub_b_image) {
+    move_uploaded_file($_FILES['subImage2']['tmp_name'], "../user_image/sub/$sub_b_image");
+} else {
+    $sub_b_image = null; // ファイルが選択されなかった場合は null を設定
+}
+if ($sub_c_image) {
+    move_uploaded_file($_FILES['subImage3']['tmp_name'], "../user_image/sub/$sub_c_image");
+} else {
+    $sub_c_image = null; // ファイルが選択されなかった場合は null を設定
+}
+
 
         // プロフィール情報の更新
         $sql = "INSERT INTO profile (user_id, introduction, hobby_id, gender_id, age, blood_type_id, school_id, birthplace_id, residence_id, holiday_spend, icon_image, sub_a_image, sub_b_image, sub_c_image, alcohol, smoke) 

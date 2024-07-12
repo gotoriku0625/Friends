@@ -81,18 +81,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p style="color: green;"><?php echo htmlspecialchars($success_message, ENT_QUOTES, 'UTF-8'); ?></p>
         <?php endif; ?>
         
-        <div class="form-group">
             <label for="kanri_name">管理者名</label>
             <input type="text" id="kanri_name" name="kanri_name">
-        </div>
-        <div class="form-group">
+    
             <label for="kanri_number">管理者番号</label>
             <input type="text" id="kanri_number" name="kanri_number">
-        </div>
-        <div class="form-group">
+        
             <label for="email">email</label>
             <input type="text" id="email" name="email">
-        </div>
+    
             <button type="submit" class="tuika">追加</button>
     </form>
         <form action="kanrisutaffu_sakujyo.php">
