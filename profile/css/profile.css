@@ -219,7 +219,12 @@ form[action="../logout/logout.php"] {
     display: flex;
     margin: 20px auto;
 }
-
+.sub_window_title {
+    text-align: center; /* テキストを中央に配置 */
+    margin-bottom: 20px; /* 下に余白を追加してボタンとの間隔を調整 */
+    font-size: 24px; /* フォントサイズを必要に応じて調整 */
+    color: #333; /* テキストカラーを指定 */
+}
 /* ログアウトボタンのスタイル */
 .btn-logout {
     padding: 10px 20px;
