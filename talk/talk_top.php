@@ -69,7 +69,12 @@
                                                 echo '<span class="reciver_text"></span>';
                                             }
                                         echo '</div>';
-                                        $pdo=new PDO($connect,USER,PASS);
+                                        echo '<div class="talk_count">';
+                                        echo var_dump(new_message_count2($current_user['user_id'],$reciver['user_id']));
+                                        if(new_message_count2($current_user['user_id'],$reciver['user_id'])!=0){
+                                            echo new_message_count2($current_user['user_id'],$reciver['user_id']);
+                                        }
+                                        echo '</div>';
                                         $block='select * from block where blocker_id=? and blocked_id=?';
                                         $sql=$pdo->prepare($block);
                                         $sql->execute([$current_user['user_id'],$reciver['user_id']]);

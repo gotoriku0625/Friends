@@ -32,6 +32,10 @@ hr{
     font-size: 25px;
     font-family: mameron;
 }
+.talk_count{
+    font-size: 20px;
+    color: red;
+}
 .block_message{
     margin-left: 30px;
     font-size: 20px;
