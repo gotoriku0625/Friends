@@ -71,19 +71,4 @@ input[type="text"] {
     margin-bottom: 10px; /* 下のマージン */
 }
 
-/* フォームの項目を横並びに配置 */
-.form-group {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 10px; /* 項目間の余白 */
-}
 
-.form-group label {
-    flex: 0 0 150px; /* ラベルの固定幅 */
-    margin-right: 10px; /* ラベルとテキストボックスの間の余白 */
-    text-align: right; /* ラベルのテキストを右揃え */
-}
-
-.form-group input[type="text"] {
-    flex: 1; /* テキストボックスが残りのスペースを占める */
-}
