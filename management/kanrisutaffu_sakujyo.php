@@ -70,11 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
         $adminCount = $stmt->rowCount();
         echo "管理者数：" . $adminCount,"人";
     ?>
-    <div class="tuika_button">
+   
     <form action="" method="post" onsubmit="return confirmDeletion();">
+    <div class="tuika_button">
         <a href="kanrisutaffu_tuika.php"><button type="button">スタッフ追加</button></a>
+        </div>
     </form>
-    </div>
         <table>
             <thead>
                 <tr>
