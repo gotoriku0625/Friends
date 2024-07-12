@@ -72,9 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     ?>
    
     <form action="" method="post" onsubmit="return confirmDeletion();">
-    <div class="tuika_button">
-        <a href="kanrisutaffu_tuika.php"><button type="button">スタッフ追加</button></a>
-        </div>
+        <a href="kanrisutaffu_tuika.php"><button type="button" class="tuika">スタッフ追加</button></a>
     </form>
         <table>
             <thead>
@@ -97,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
                 ?>
             </tbody>
         </table>
-        <button type="submit">削除</button>
+        <button type="submit" class="sakujyo">削除</button>
     </form>
     
     <div id="error-message" class="error-message"></div>

@@ -93,15 +93,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="email">email</label>
             <input type="text" id="email" name="email">
         </div>
-        <div class="tuika_button">
-            <button type="submit">追加</button>
-        </div>
+            <button type="submit" class="tuika">追加</button>
     </form>
-    <div class="sakujyo_button">
         <form action="kanrisutaffu_sakujyo.php">
-            <button type="submit">スタッフ削除</button>
+            <button type="submit" class="sakujyo">スタッフ削除</button>
         </form>
-    </div>
     <table>
         <thead>
             <tr>
