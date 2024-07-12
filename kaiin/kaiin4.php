@@ -1,11 +1,17 @@
-<?php require '../header.php';?>
+<?php session_start(); ?>
+<?php require '../db-connect.php';?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- reset.css destyle -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
     <link rel="stylesheet" href="css/kaiin4.css">
     <title>新規会員登録</title>
 </head>
-    <body>
-        <div id="center">
-            <p class="title">新規会員登録</p>
-                <hr>
+<body>
+    <div id="center">
+        <p class="title">新規会員登録</p>
+        <hr>
         <?php
             $pdo=new PDO($connect,USER,PASS);
             if($_POST['name']&&$_POST['mail']&&$_POST['pass']){
@@ -28,14 +34,13 @@
                         ];
                     }
                 }else{
-                    echo '<p>メールアドレスが既に使用されています</p>';
+                    echo '<p class="message">メールアドレスが<br>既に使用されています</p>';
                     echo '<a href="../kaiin/kaiin1.html" class="btn">新規会員登録へ</a>';
                 }
             }else{
-                echo '<p>全て入力されていません</p>';
+                echo '<p class="message">全て入力されていません</p>';
                 echo '<a href="../kaiin/kaiin1.html" class="btn">新規会員登録へ</a>';
             }
-            
         ?>
-        </div>
+    </div>
 </body>

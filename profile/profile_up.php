@@ -38,6 +38,9 @@
             if (isset($_SESSION['user']['id'])) {
                 $sql->execute([$user_id]);
                 foreach ($sql as $user) {
+                    if($_SESSION['user']['icon']==null){
+                        $icon_image = '1.png';
+                    }
                     echo <<<EOF
                     <div class="icon-section">
                         <span>アイコンの変更</span>
