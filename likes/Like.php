@@ -1,6 +1,8 @@
 <?php
 session_start();
 require '../db-connect.php';
+$message = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $pdo = new PDO($connect, USER, PASS);
@@ -8,10 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $likes_user_id = $_POST['user_id']; // ログインユーザーのID
         $liked_user_id = $_POST['liked_user_id']; // いいねする相手のユーザーID
-
-        // デバッグ情報を表示
-        // echo 'likes_user_id: ' . htmlspecialchars($likes_user_id, ENT_QUOTES, 'UTF-8') . '<br>';
-        // echo 'liked_user_id: ' . htmlspecialchars($liked_user_id, ENT_QUOTES, 'UTF-8') . '<br>';
 
         // すでにいいねしているか確認
         $sql_check = 'SELECT COUNT(*) FROM likes WHERE likes_user_id = :likes_user_id AND liked_user_id = :liked_user_id';
@@ -29,22 +27,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindValue(':liked_user_id', $liked_user_id, PDO::PARAM_INT);
             $stmt->execute();
 
-            echo '<p class="message">いいねしました！</p>';
+            $message = 'いいねしました！';
         } else {
-            echo '<p class="message">既にいいねしています。</p>';
+            $message = '既にいいねしています。';
         }
 
     } catch (PDOException $e) {
-        die("データベース接続に失敗しました: " . $e->getMessage());
+        $message = "データベース接続に失敗しました: " . $e->getMessage();
     }
 }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<link rel="stylesheet" href="css/Like.css">
     <meta charset="UTF-8">
     <title>いいね結果</title>
+    <link rel="stylesheet" href="css/Like.css">
     <style>
         .bg_pattern {
             background-image: url('path_to_pattern_image'); /* ここに背景パターンの画像パスを指定 */
@@ -59,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="bg_pattern Polka_v2"></div>
     <div class="section">
         <!-- PHPコードによるいいね結果の表示 -->
+        <p class="message"><?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></p>
     </div>
     <form action="../top/top.php" method="get">
         <button type="submit" class="btn">トップに戻る</button>
