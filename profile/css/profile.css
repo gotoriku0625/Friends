@@ -224,7 +224,7 @@ form[action="../logout/logout.php"] {
 .btn-logout {
     padding: 10px 20px;
     margin: 10px auto;
-    margin-left:10px;
+    margin-left:200px;
     border: none;
     border-radius: 5px;
     background-color:aquamarine; 
