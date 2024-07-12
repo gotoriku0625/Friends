@@ -412,6 +412,7 @@ hr{
   /* ドロップダウンメニュー  */
   .drop-menu {
     position: relative;
+    z-index: 999;
     /* height: 15px; */
   }
   .drop-menu-list {
