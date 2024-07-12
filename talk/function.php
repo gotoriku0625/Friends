@@ -99,18 +99,17 @@ function insert_message_count($user_id,$reciver_id){
         echo 'エラー発生:' . $e->getMessage();
     }
 }
-// 自分に来ている未読のメッセージの通知件数を取得する
+// 自分に来ている未読のメッセージの通知件数を取得する(menu用)
 function new_message_count($user_id){
-    require './db-connect.php';
+    require '../talk/db-connect.php';
     try{
         $pdo=new PDO($connect,$user,$pass);
         $count='select sum(talk_count)
                 from talk_member
-                where reciver_id = :sender_id
-                group by talk_count';
+                where reciver_id = :sender_id';
         $sql=$pdo->prepare($count);
-        return $sql->execute(array(':sender_id' => $user_id));
-        // return $sql->fetch();
+        $sql->execute(array(':sender_id' => $user_id));
+        return $sql->fetch();
     }catch (\Exception $e) {
         echo 'エラー発生:' . $e->getMessage();
     }

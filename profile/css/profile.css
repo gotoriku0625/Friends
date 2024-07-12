@@ -217,16 +217,18 @@ form[action="../logout/logout.php"] {
 /* サブウィンドウのコンテンツを中央に配置するスタイル */
 .sub_window_content {
     display: flex;
+    justify-content: center; /* 要素を中央に配置 */
     margin: 20px auto;
 }
 
 /* ログアウトボタンのスタイル */
 .btn-logout {
     padding: 10px 20px;
-    margin: 10px auto;
+    margin:20px auto;
+    margin-left: 150px; /* はいボタンの右側に空白を追加 */
     border: none;
     border-radius: 5px;
-    background-color:aquamarine; 
+    background-color: aquamarine; 
     color: #fff;
     cursor: pointer;
     text-align: center;
@@ -242,7 +244,6 @@ form[action="../logout/logout.php"] {
 /* キャンセルボタンのスタイル */
 .btn-cancel {
     padding: 10px 20px;
-    margin: 10px auto;
     border: none;
     border-radius: 5px;
     background-color: #aaa;
@@ -257,6 +258,7 @@ form[action="../logout/logout.php"] {
 .btn-cancel:hover {
     background-color: #fffdfd;
 }
+
 
 /* 追加ボタンの位置調整 */
 .icon-container .plus,
