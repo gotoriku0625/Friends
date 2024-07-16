@@ -305,8 +305,8 @@ form[action="../logout/logout.php"] {
     position: relative;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block; /* 初期状態で表示に変更 */
+    object-fit: contain;
+    /* display: block; 初期状態で表示に変更 */
 }
 
 /* ファイル入力ボックスを非表示にする */
