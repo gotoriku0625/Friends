@@ -80,15 +80,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php elseif (!empty($success_message)): ?>
             <p style="color: green;"><?php echo htmlspecialchars($success_message, ENT_QUOTES, 'UTF-8'); ?></p>
         <?php endif; ?>
-        
-            <label for="kanri_name">管理者名</label>
-            <input type="text" id="kanri_name" name="kanri_name">
+        <table class="custom_table">
+        <tr>
+                <th><label for="kanri_name" class="kname">管理者名</label></th><th><label for="kanri_number" class="knumber" >管理者番号</label></th><th><label for="email" class="mail">email</label></th>
+            </tr>
+            <tr>
+            <td><input type="text" id="kanri_name" name="kanri_name" class="k_name"></td>
     
-            <label for="kanri_number">管理者番号</label>
-            <input type="text" id="kanri_number" name="kanri_number">
-        
-            <label for="email">email</label>
-            <input type="text" id="email" name="email">
+            <td><input type="text" id="kanri_number" name="kanri_number" class="k_number"></td>
+            
+            <td><input type="text" id="email" name="email" class="email"></td>
+        </tr>
+        </table>
     
             <button type="submit" class="tuika">追加</button>
     </form>
