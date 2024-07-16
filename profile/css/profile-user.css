@@ -9,7 +9,7 @@ body {
     width: calc(100% - 200px);
     margin: 0 auto;
     margin-left: 21%;
-    margin-right: 1%;
+    padding-right: 1%;
     overflow-x: hidden;
 }
 

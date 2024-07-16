@@ -59,24 +59,30 @@ require '../menu/menu.php'; // menuはbodyタグの中に絶対に入れるよ�
                     </div>
 
                     <p>サブ写真</p>
+                    <?php
+                    $default_subImg = 'no_image.png';
+                    $subImg_pathA = empty($user['sub_a_image']) ? $default_subImg : $user['sub_a_image'];
+                    $subImg_pathB = empty($user['sub_b_image']) ? $default_icon : $user['sub_b_image'];
+                    $subImg_pathB = empty($user['sub_c_image']) ? $default_icon : $user['sub_c_image'];
+                    ?>
                     <div class="sub-images">
                         <div class="sub-image-wrapper">
                             <div class="sub-square" id="subImageContainer1">
-                                <img id="subImage1" src="../user_image/sub/<?php echo $user['sub_a_image']; ?>">
+                                <img id="subImage1" src="../user_image/sub/<?php echo $subImg_pathA; ?>">
                             </div>
                             <label for="subImageInput1" class="subImagePut" onclick="uploadSubImage('subImageInput1', 'subImage1')">+</label>
                             <input type="file" id="subImageInput1" name="subImage1" accept="image/*" style="display: none;">
                         </div>
                         <div class="sub-image-wrapper">
                             <div class="sub-square" id="subImageContainer2">
-                                <img id="subImage2" src="../user_image/sub/<?php echo $user['sub_b_image']; ?>">
+                                <img id="subImage2" src="../user_image/sub/<?php echo $subImg_pathA; ?>">
                             </div>
                             <label for="subImageInput2" class="subImagePut" onclick="uploadSubImage('subImageInput2', 'subImage2')">+</label>
                             <input type="file" id="subImageInput2" name="subImage2" accept="image/*" style="display: none;">
                         </div>
                         <div class="sub-image-wrapper">
                             <div class="sub-square" id="subImageContainer3">
-                                <img id="subImage3" src="../user_image/sub/<?php echo $user['sub_c_image']; ?>">
+                                <img id="subImage3" src="../user_image/sub/<?php echo $subImg_pathA; ?>">
                             </div>
                             <label for="subImageInput3" class="subImagePut" onclick="uploadSubImage('subImageInput3', 'subImage3')">+</label>
                             <input type="file" id="subImageInput3" name="subImage3" accept="image/*" style="display: none;">
