@@ -41,7 +41,7 @@ $reports = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="main">
     <h1>通報一覧</h1>
     <div class="count">
-    <p>通報数: <?php echo htmlspecialchars($report_count, ENT_QUOTES, 'UTF-8'); ?></p>
+    <p>通報数: <?php echo htmlspecialchars($report_count, ENT_QUOTES, 'UTF-8'); ?>件</p>
 </div>
     <table>
         <thead>
