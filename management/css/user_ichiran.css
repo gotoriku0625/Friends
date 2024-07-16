@@ -9,7 +9,7 @@ h1{
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
     font-weight: bold;
-    margin: 0px 50px 50px 50px;
+    margin: 50px 50px 50px 0px;
 }
 
 table {
