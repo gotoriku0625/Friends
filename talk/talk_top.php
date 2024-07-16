@@ -41,8 +41,7 @@
                     $sql=$pdo->prepare($report);
                     $sql->execute([$current_user['user_id']]);
                     $result = $sql->fetch();
-                    // echo var_dump();
-                    if($reciver['user_id']!==$result[0]){
+                    if($result==false||$reciver['user_id']!=$result[0]){
                         echo '<div class="row">';
                             echo '<div class="col-5 offset-2">';
                             echo '<form method="post" action="talk2.php">';
@@ -69,7 +68,12 @@
                                                 echo '<span class="reciver_text"></span>';
                                             }
                                         echo '</div>';
-                                        $pdo=new PDO($connect,USER,PASS);
+                                        echo '<div class="talk_count">';
+                                        $count = new_message_count2($current_user['user_id'],$reciver['user_id']);
+                                        if($count!=false&&($count['talk_count']!=0&&$count['reciver_id']==$reciver['user_id'])){
+                                            echo $count['talk_count'];
+                                        }
+                                        echo '</div>';
                                         $block='select * from block where blocker_id=? and blocked_id=?';
                                         $sql=$pdo->prepare($block);
                                         $sql->execute([$current_user['user_id'],$reciver['user_id']]);
