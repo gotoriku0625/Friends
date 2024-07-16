@@ -71,7 +71,7 @@
                 }
 
                 // 未読メッセージ件数を表示
-                if(new_message_count($_SESSION['user']['id']) != 0){  
+                if(new_message_count($_SESSION['user']['id']) !== 0){  
                     echo new_message_count($_SESSION['user']['id'])[0];  
                 }
                 ?>
