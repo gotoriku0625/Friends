@@ -23,28 +23,30 @@
         echo '<div class="recommendation">';
         foreach($sql as $row){
             echo '<div class="user-set">';
-            if($row['gender_name']==='男性'){
-                // アイコンの枠の色を青色に
-                echo '<div class="frame-blue">';
-                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
-                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="best-icon">';
-                echo '</a>';
-                echo '</div>';
-            }else if($row['gender_name']==='女性'){
-                // アイコンの枠の色を赤色に
-                echo '<div class="frame-pink">';
-                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
-                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="best-icon">';
-                echo '</a>';
-                echo '</div>';
-            }else{
-                // アイコンの枠の色を灰色に
-                echo '<div class="frame-gray">';
-                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
-                echo '<img src="../user_image/main/'.$row['icon_image'].'" alt="icon" class="best-icon">';
-                echo '</a>';
-                echo '</div>';
+            // アイコンが設定されていない場合のデフォルトアイコンパス
+            $default_icon = '../user_image/main/1.png';
+            // 現在のユーザーアイコンパス
+            $icon_path = empty($_SESSION['user']['icon']) ? $default_icon : "../user_image/main/{$_SESSION['user']['icon']}";
+    
+            // アイコンと性別に応じた枠の色を設定
+            $gender = $_SESSION['user']['gender'];
+            if ($gender === 1) {
+                echo '<div class="icon-space">
+                        <div class="circle_width_man">
+                            <div class="circle_height_man">';
+            } elseif ($gender === 2) {
+                echo '<div class="icon-space">
+                        <div class="circle_width_woman">
+                            <div class="circle_height_woman">';
+            } else {
+                echo '<div class="icon-space">
+                        <div class="circle_width_others">
+                            <div class="circle_height_others">';
             }
+            // アイコンの表示
+            echo '<img src="' . $icon_path . '" class="icon">';
+            echo '</div></div></div>';
+
             // アイコンとユーザー名、年齢を表示
             echo '<div class="nick_name1">',$row['user_name'],'(',$row['age'],')</div>';
             echo '</div>';
