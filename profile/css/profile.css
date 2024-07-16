@@ -27,7 +27,7 @@ body {
     font-family: mameron;
 }
 /* タイトルの設定 */
-.title {
+.title p{
     position: relative;
     font-size: 50px;
     text-align: center;
