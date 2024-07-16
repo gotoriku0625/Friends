@@ -195,7 +195,7 @@ input[type="checkbox"] {
     align-items: center;
     text-align: center; /* テキストを中央揃え */
     margin-bottom: 20px; /* 下部の余白を追加 */
-    font-size: 24px;
+    font-size: 40px;
 }
 
 /* データボックスのスタイル */
