@@ -38,72 +38,76 @@
         
             $params = [':loggedInUserId' => $loggedInUserId];
 
-        if ($user_name) {
-            $sql .= " AND user.user_name LIKE :user_name";
-            $params[':user_name'] = '%' . $user_name . '%';
-        }
-        if ($age) {
-            $ageConditions = [];
-            foreach ($age as $ageGroup) {
-                switch ($ageGroup) {
-                    case '18':
-                    case '19':
-                    case '20':
-                    case '21':
-                    case '22':
-                        $ageConditions[] = "age = " . intval($ageGroup);
-                        break;
-                    case '22_plus':
-                        $ageConditions[] = "age BETWEEN 23 AND 29";
-                        break;
-                    case '30s':
-                        $ageConditions[] = "age BETWEEN 30 AND 39";
-                        break;
-                    case '40s':
-                        $ageConditions[] = "age BETWEEN 40 AND 49";
-                        break;
-                    case '50s':
-                        $ageConditions[] = "age BETWEEN 50 AND 59";
-                        break;
-                    case '60s':
-                        $ageConditions[] = "age BETWEEN 60 AND 69";
-                        break;
-                    case '70s':
-                        $ageConditions[] = "age BETWEEN 70 AND 79";
-                        break;
+            if ($user_name) {
+                $sql .= " AND user.user_name LIKE :user_name";
+                $params[':user_name'] = '%' . $user_name . '%';
+            }
+            if ($age) {
+                $ageConditions = [];
+                foreach ($age as $ageGroup) {
+                    switch ($ageGroup) {
+                        case '18':
+                        case '19':
+                        case '20':
+                        case '21':
+                        case '22':
+                            $ageConditions[] = "age = " . intval($ageGroup);
+                            break;
+                        case '22_plus':
+                            $ageConditions[] = "age BETWEEN 23 AND 29";
+                            break;
+                        case '30s':
+                            $ageConditions[] = "age BETWEEN 30 AND 39";
+                            break;
+                        case '40s':
+                            $ageConditions[] = "age BETWEEN 40 AND 49";
+                            break;
+                        case '50s':
+                            $ageConditions[] = "age BETWEEN 50 AND 59";
+                            break;
+                        case '60s':
+                            $ageConditions[] = "age BETWEEN 60 AND 69";
+                            break;
+                        case '70s':
+                            $ageConditions[] = "age BETWEEN 70 AND 79";
+                            break;
+                    }
+                }
+                if (!empty($ageConditions)) {
+                    $sql .= " AND (" . implode(' OR ', $ageConditions) . ")";
                 }
             }
-            if (!empty($ageConditions)) {
-                $sql .= " AND (" . implode(' OR ', $ageConditions) . ")";
+            if ($gender) {
+                $sql .= " AND profile.gender_id IN (" . implode(',', array_map('intval', $gender)) . ")";
             }
-        }
-        if ($gender) {
-            $sql .= " AND profile.gender_id IN (" . implode(',', array_map('intval', $gender)) . ")";
-        }
-        if ($residence) {
-            $sql .= " AND profile.residence_id IN (" . implode(',', array_map('intval', $residence)) . ")";
-        }
-        if ($school) {
-            $sql .= " AND profile.school_id IN (" . implode(',', array_map('intval', $school)) . ")";
-        }
-        if ($hobby) {
-            $sql .= " AND profile.hobby_id IN (" . implode(',', array_map('intval', $hobby)) . ")";
-        }
+            if ($residence) {
+                $sql .= " AND profile.residence_id IN (" . implode(',', array_map('intval', $residence)) . ")";
+            }
+            if ($school) {
+                $sql .= " AND profile.school_id IN (" . implode(',', array_map('intval', $school)) . ")";
+            }
+            if ($hobby) {
+                $sql .= " AND profile.hobby_id IN (" . implode(',', array_map('intval', $hobby)) . ")";
+            }
 
-        $sql .= " ORDER BY profile.age ASC";
+            $sql .= " ORDER BY profile.age ASC";
 
-        // SQLを実行
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute($params);
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            // SQLを実行
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute($params);
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
-}
     ?>
 
     <?php if (!empty($results)): ?>
         <ul class="recommendation2">
             <?php foreach ($results as $profile): ?>
                 <li class="user-set2">
+                    <?php
+                    $default_icon = '../user_image/main/1.png';
+                    $icon_path = empty($profile['icon_image']) ? $default_icon : "../user_image/main/{$profile['icon_image']}";
+                    ?>
                     <?php if((int)$profile['gender_id'] === 1): // 男性 ?>
                         <div class="frame-blue2">
                     <?php elseif((int)$profile['gender_id'] === 2): // 女性 ?>
@@ -112,7 +116,7 @@
                         <div class="frame-gray2">
                     <?php endif; ?>
                     <a href="../profile/profile-user.php?user_id=<?php echo htmlspecialchars($profile['user_id']); ?>">
-                        <img src="../user_image/main/<?php echo htmlspecialchars($profile['icon_image']); ?>" alt="icon" class="standard-icon">
+                        <img src="<?php echo htmlspecialchars($icon_path); ?>" alt="icon" class="standard-icon">
                     </a>
                     </div>
                     <div class="nick_name2">
