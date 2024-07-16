@@ -32,7 +32,7 @@ thead {
 }
 tbody {
     display: block;
-    max-height: 200px; /* スクロール領域の高さを指定 */
+    max-height: 500px; /* スクロール領域の高さを指定 */
     overflow-y: auto;
     width: 100%;
 }
