@@ -41,7 +41,16 @@ tbody tr:nth-child(even) {
 tbody tr:nth-child(odd) {
     background-color: #ffffff; /* 奇数行の背景色を白色に設定 */
 }
-.tuika,
+.tuika{
+    width: 150px;
+    border: 2px solid #000; /* ここで枠線を追加 */
+    padding: 5px 10px; /* パディングを縮小 */
+    background-color: #f0f0f0;
+    cursor: pointer;
+    display: inline-block; /* インラインブロックに変更 */
+    margin: 5px; /* ボタン間の余白を追加 */
+}
+
 .sakujyo{
     border: 2px solid #000; /* ここで枠線を追加 */
     padding: 5px 10px; /* パディングを縮小 */
