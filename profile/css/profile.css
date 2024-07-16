@@ -18,22 +18,18 @@ body {
     overflow-x: hidden;      /* 横スクロールを無効化 */
     font-family: mameron;
 }
-
-.containerI {
-    width: calc(100% - 200px); /* コンテナの幅を計算して設定 */
-    margin: 0 auto;           /* 自動で中央寄せ */
-    /* margin-left: 21%;         左に20%の余白を作る */
-    overflow-x: hidden;      /* 横スクロールを無効化 */
-    font-family: mameron;
-}
 /* タイトルの設定 */
 .title {
-    position: relative;
-    font-size: 50px;
-    text-align: center;
     width: 100%;
-    font-family: mameron;
     margin: 5px;
+}
+
+.title p {
+    font-size: 50px;
+    font-family: mameron;
+    margin: 0;
+    margin-left: 30%;
+
 }
 
 /* 水平線のスタイル */

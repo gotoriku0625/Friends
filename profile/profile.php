@@ -98,10 +98,7 @@ if ($sub_c_image) {
         <div class="bg_sub_window" onclick="closeSubWindow()">
             <div class="sub_window" onclick="event.stopPropagation()">
                 <div class="sub_window_content">
-                    <form action="../logout/logout.php" method="post">
-                        <button type="submit" class="btn-logout">はい</button>
-                    </form>
-                    <button class="btn-cancel" onclick="closeSubWindow()">いいえ</button>
+                    
                 </div>
             </div>
         </div>
@@ -257,7 +254,7 @@ EOF;
 EOF;
                 echo '<div class="checkbox-group">';
                 echo '<label>';
-                if ($user['alcohol'] == 1) {
+                if ($user['alcohol'] == 0) {
                     echo '<input type="hidden" name="drinking" value="0">';
                     echo '<input type="checkbox" name="drinking" value="1" checked>飲酒';
                 } else {
@@ -266,7 +263,7 @@ EOF;
                 }
                 echo '</label>';
                 echo '<label>';
-                if ($user['smoke'] == 1) {
+                if ($user['smoke'] == 0) {
                     echo '<input type="hidden" name="smoking" value="0">';
                     echo '<input type="checkbox" name="smoking" value="1" checked> 喫煙';
                 } else {
