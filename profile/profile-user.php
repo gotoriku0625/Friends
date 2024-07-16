@@ -46,32 +46,32 @@
                 echo'</div>';
 
                 // 趣味名の表示
-                echo '<p><span class="label">趣味:</span><br></p>';
+                echo '<p><span class="label">趣味</span><br></p>';
                 echo '<p><span class="data-box">' . htmlspecialchars($profile['hobby_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
                 
                 // その他のプロフィール情報の表示
-                echo '<p><span class="label">自己紹介:</span></p>';
+                echo '<p><span class="label">自己紹介</span></p>';
                 echo '<p><span class="data-box">' . htmlspecialchars($profile['introduction'] ?? '') . '</span></p>';
                 
-                echo '<p><span class="label">性別:</span></p>';
+                echo '<p><span class="label">性別</span></p>';
                 echo '<p><span class="data-box">' . htmlspecialchars($profile['gender_name'] ?? '') . '</span></p>';
                 
-                echo '<p><span class="label">年齢:</span></p>';
+                echo '<p><span class="label">年齢</span></p>';
                 echo '<p><span class="data-box">' . htmlspecialchars($profile['age'] ?? '') . '</span></p>';
                 
-                echo '<p><span class="label">血液型:</span></p>';
+                echo '<p><span class="label">血液型</span></p>';
                 echo '<p><span class="data-box">' . htmlspecialchars($profile['blood_type_name'] ?? '') . '</span></p>';
                 
-                echo '<p><span class="label">学校:</span></p>';
+                echo '<p><span class="label">学校</span></p>';
                 echo '<p><span class="data-box">' . htmlspecialchars($profile['school_name'] ?? '') . '</span></p>';
                 
-                echo '<p><span class="label">出生地:</span></p>';
+                echo '<p><span class="label">出生地</span></p>';
                 echo '<p><span class="data-box">' . htmlspecialchars($profile['birthplace_name'] ?? '') . '</span></p>';
                 
-                echo '<p><span class="label">居住地:</span></p>';
+                echo '<p><span class="label">居住地</span></p>';
                 echo '<p><span class="data-box">' . htmlspecialchars($profile['residence_name'] ?? '') . '</span></p>';
                 
-                echo '<p><span class="label">休日の過ごし方:</span></p>';
+                echo '<p><span class="label">休日の過ごし方</span></p>';
                 echo '<p><span class="data-box">' . htmlspecialchars($profile['holiday_spend'] ?? '') . '</span></p>';
                 
 
