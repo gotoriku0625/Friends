@@ -32,18 +32,20 @@
             $profile = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($profile) {
+                // デフォルトアイコンの設定
+                $default_icon = '../user_image/main/1.png';
+                $icon_path = empty($profile['icon_image']) ? $default_icon : "../user_image/main/{$profile['icon_image']}";
+
                 // ユーザー名の表示
                 echo '<div class="username">';
                 echo '<h2><span class="name-box">' . htmlspecialchars($profile['user_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></h2>';
                 echo '</div>';
-                echo'<button onclick="goBack()">戻る</button>';
-                echo'<hr>';
+                echo '<button onclick="goBack()">戻る</button>';
+                echo '<hr>';
                 // アイコン画像の表示
                 echo '<div class="profile-icon-container">';
-                if (!empty($profile['icon_image'])) {
-                    echo '<img src="../user_image/main/' . htmlspecialchars($profile['icon_image'], ENT_QUOTES, 'UTF-8') . '" alt="アイコン" class="profile-icon">';
-                }
-                echo'</div>';
+                echo '<img src="' . htmlspecialchars($icon_path, ENT_QUOTES, 'UTF-8') . '" alt="アイコン" class="profile-icon">';
+                echo '</div>';
 
                 // 趣味名の表示
                 echo '<p><span class="label">趣味</span><br></p>';
@@ -84,7 +86,6 @@
                     <img src="../menu-image/like-free-icon.png" alt="いいね"></button>';
                 echo '</form>';
                 echo '</div>'; // .like-section
-
 
             } else {
                 echo '<p>プロフィールが見つかりません。</p>';
