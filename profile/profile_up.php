@@ -50,7 +50,7 @@ require '../menu/menu.php'; // menuはbodyタグの中に絶対に入れるよ�
                     $icon_path = empty($user['icon_image']) ? $default_icon : "../user_image/main/{$user['icon_image']}";
             ?>
                     <div class="icon-section">
-                        <span>アイコンの変更</span>
+                        <span>アイコン</span>
                         <div class="icon-container">
                             <img id="profileIcon" src="<?php echo $icon_path; ?>" alt="プロフィールアイコン">
                             <label for="iconInput" class="plus" onclick="uploadIcon()">+</label>
