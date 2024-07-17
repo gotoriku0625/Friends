@@ -4,7 +4,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ユーザー検索</title>
+    <title>さがす</title>
     <link rel="stylesheet" href="../menu/menu.css">
     <link rel="stylesheet" href="search.css">
 </head>
@@ -35,7 +35,7 @@
     ?>
 
     <div class="main">
-        <h1 class="h1-search">ユーザー検索</h1>
+        <h1 class="h1-search">さがす</h1>
             <hr>
         
         <form action="result.php" method="GET">
