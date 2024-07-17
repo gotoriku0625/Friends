@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'mameron';
+    src: url("../font/mamelon_hireg/Mamelon-3.5-Hi-Regular.otf") format("opentype");
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+}
+
+#center {
+    width: 400px;
+    padding: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 auto;
+}
+
+#center .message {
+    margin-top: 40px;
+    font-size: 24px;
+    margin-bottom: 40px;
+    font-family: 'mameron', Arial, sans-serif;
+    position: relative; /* 相対位置指定 */
+    display: inline-block; /* インラインブロック要素に */
+    padding: 20px; /* パディング追加 */
+    cursor: pointer; /* カーソルをポインターに */
+    transition: background-color 0.3s ease; /* 背景色の変化を滑らかに */
+}
+
+#center .message:hover {
+    background-color: #f0f0f0; /* ホバー時の背景色 */
+}
+
+#center .btn {
+    display: block;
+    width: 70%;
+    padding: 15px;
+    margin: 20px auto 0; /* ボタンのマージン調整 */
+    border: none;
+    border-radius: 5px;
+    background-color: aquamarine;
+    color: #040404;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* 背景色の変化を滑らかに */
+}
+
+#center .btn:hover {
+    background-color: #31b0d5; /* ホバー時の背景色 */
+}

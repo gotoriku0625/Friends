@@ -1,3 +1,16 @@
+.count{
+    position:absolute;
+    top: 12%;
+    left: 7%;
+}
+h1{
+    color: rgb(151, 255, 220);
+    font-size: 50px;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    font-weight: bold;
+    margin: 50px 50px 50px 50px;
+}
 .main {
     position: relative;
     left: 21%;
@@ -5,6 +18,7 @@
     padding-left: 50px;
 }
 table {
+    padding-top: 20px;
     width: 78%;
     border-collapse: collapse;
 }
@@ -40,7 +54,7 @@ tbody tr:nth-child(even) {
 
 tbody tr:nth-child(odd) {
     background-color: #ffffff; /* 奇数行の背景色を白色に設定 */
-}
+} 
 .tuika,
 .sakujyo{
     border: 2px solid #000; /* ここで枠線を追加 */
@@ -62,32 +76,52 @@ tbody tr:nth-child(odd) {
     background-color: #ddd; /* ボタンのホバー時の背景色変更 */
 }
 
+.tuika{
+    position: absolute;
+       top: 45%; /* 親要素の高さの50% */
+       left: 55%; /* 親要素の幅の50% */
+}
+.sakujyo{
+    position: absolute;
+    top: 16%; /* 親要素の高さの50% */
+    left: 60%; /* 親要素の幅の50% */
+}
 
 .custom_table {
-    width: 100%;
-    border-collapse: collapse;
+    width:58%;
+    border-collapse: separate; /* テーブルの線を完全に消すためには separate を使用 */
+    border-spacing: 0; /* セル間のスペースをゼロにする */
     margin-top: 20px; /* 上部の余白 */
+    border-spacing: 10px; /* 隙間のサイズをピクセルで指定 */
 }
 
 .custom_table th, .custom_table td {
     padding: 10px; /* セルの内側の余白 */
-    text-align: left;
-    border: 1px solid #ddd;
 }
 
 .custom_table th {
     background-color: #ffffff;
+    border: none; /* th要素の線を消す */
+    text-align: center;
 }
+
 .custom_table td {
     background-color: #ffffff;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd; /* td要素の線を追加 */
+    border-radius: 50px; /* 角を丸くする半径を設定 */
+}
+
+.custom_table input[type="text"] {
+    width: calc(100% - 18px); /* テキストボックスの幅をテーブルの幅に合わせる */
+    padding: 6px;
+    box-sizing: border-box;
+    border: none;
     border-radius: 4px;
 }
 
-
-.custom_input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    
+.custom_table  thead{
+    background-color: #ffffff;
+}
+form{
+margin-top:60px
 }
