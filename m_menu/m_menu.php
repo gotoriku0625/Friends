@@ -1,6 +1,6 @@
 <div class="menu">
         <div class="logo-space">
-            <a href="../top/top.php"><img src="../image/logo.png" class="logo"></a>
+            <a href="../management/Dashboard.php"><img src="../image/logo.png" class="logo"></a>
         </div>
             <?php
             $username = $_SESSION['m_user_name'];
