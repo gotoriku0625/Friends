@@ -1,3 +1,16 @@
+.count{
+    position:absolute;
+    top: 12%;
+    left: 7%;
+}
+h1{
+    color: rgb(151, 255, 220);
+    font-size: 50px;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    font-weight: bold;
+    margin: 50px 50px 50px 50px;
+}
 .main {
     position: relative;
     left: 21%;
@@ -5,6 +18,7 @@
     padding-left: 50px;
 }
 table {
+    padding-top: 20px;
     width: 78%;
     border-collapse: collapse;
 }
@@ -40,7 +54,7 @@ tbody tr:nth-child(even) {
 
 tbody tr:nth-child(odd) {
     background-color: #ffffff; /* 奇数行の背景色を白色に設定 */
-}
+} 
 .tuika,
 .sakujyo{
     border: 2px solid #000; /* ここで枠線を追加 */
@@ -60,4 +74,19 @@ tbody tr:nth-child(odd) {
 .tuika:hover,
 .sakujyo:hover {
     background-color: #ddd; /* ボタンのホバー時の背景色変更 */
+}
+
+.tuika{
+    position: absolute;
+       top: 15%; /* 親要素の高さの50% */
+       left: 55%; /* 親要素の幅の50% */
+}
+.sakujyo{
+    position: absolute;
+    top: 15%; /* 親要素の高さの50% */
+    left: 65%; /* 親要素の幅の50% */
+}
+
+form{
+margin-top:100px
 }

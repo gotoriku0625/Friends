@@ -22,7 +22,7 @@
         
         // 管理者数の取得
         $adminCount = $stmt->rowCount();
-        echo "管理者数：" . $adminCount,"人";
+        echo "<p class='count'>管理者数：$adminCount 人</p>";
     ?>
     <form action="kanrisutaffu_tuika.php">
         <button type="submit" class="tuika">スタッフ追加</button>
