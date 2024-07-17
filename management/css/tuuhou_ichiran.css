@@ -32,7 +32,7 @@ thead {
 }
 tbody {
     display: block;
-    max-height: 200px; /* スクロール領域の高さを指定 */
+    max-height: 500px; /* スクロール領域の高さを指定 */
     overflow-y: auto;
     width: 100%;
 }
@@ -49,4 +49,8 @@ tbody tr:nth-child(even) {
 
 tbody tr:nth-child(odd) {
     background-color: #ffffff; /* 奇数行の背景色を白色に設定 */
+}
+.tuhou-num{
+    position: relative;
+    left: 20px;
 }
