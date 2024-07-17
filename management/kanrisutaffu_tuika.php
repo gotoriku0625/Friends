@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // 管理者数の取得
         $adminCount = $stmt->rowCount();
-        echo "管理者数：" . $adminCount,"人";
+        echo "<p class='count'>管理者数：$adminCount 人</p>";
     ?>
 
     <form action="" method="post" onsubmit="return confirmSubmission();">
@@ -82,15 +82,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
         <table class="custom_table">
         <tr>
+            <thead>
                 <th><label for="kanri_name" class="kname">管理者名</label></th><th><label for="kanri_number" class="knumber" >管理者番号</label></th><th><label for="email" class="mail">email</label></th>
             </tr>
+        </thead>
             <tr>
+                <tbody>
             <td><input type="text" id="kanri_name" name="kanri_name" class="k_name"></td>
     
             <td><input type="text" id="kanri_number" name="kanri_number" class="k_number"></td>
             
             <td><input type="text" id="email" name="email" class="email"></td>
         </tr>
+    </tbody>
         </table>
     
             <button type="submit" class="tuika">追加</button>
