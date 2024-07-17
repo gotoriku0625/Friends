@@ -2,8 +2,17 @@
     position: relative;
     left: 21%;
 }
+h1{
+    color: rgb(151, 255, 220);
+    font-size: 50px;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    font-weight: bold;
+    margin: 50px 50px 50px 50px;
+}
 table {
     width: 78%;
+    height: 40%;
     border-collapse: collapse;
     table-layout: fixed; /* セルの幅を固定 */
 }
@@ -23,7 +32,7 @@ thead {
 }
 tbody {
     display: block;
-    max-height: 200px; /* スクロール領域の高さを指定 */
+    max-height: 500px; /* スクロール領域の高さを指定 */
     overflow-y: auto;
     width: 100%;
 }
@@ -40,4 +49,8 @@ tbody tr:nth-child(even) {
 
 tbody tr:nth-child(odd) {
     background-color: #ffffff; /* 奇数行の背景色を白色に設定 */
+}
+.tuhou-num{
+    position: relative;
+    left: 20px;
 }

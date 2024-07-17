@@ -105,12 +105,13 @@ function new_message_count2($user_id,$reciver_id){
     require '../talk/db-connect.php';
     try{
         $pdo=new PDO($connect,$user,$pass);
-        $count='select talk_count
+        $count='select talk_count,reciver_id
                 from talk_member
                 where ((sender_id = :sender_id and reciver_id = :reciver_id) or (sender_id = :reciver_id and reciver_id = :sender_id)) and sender_id = :reciver_id';
         $sql=$pdo->prepare($count);
-        return $sql->execute(array(':sender_id' => $user_id,
+        $sql->execute(array(':sender_id' => $user_id,
                             ':reciver_id' => $reciver_id));
+        return $sql->fetch();
     }catch (\Exception $e) {
         echo 'エラー発生:' . $e->getMessage();
     }

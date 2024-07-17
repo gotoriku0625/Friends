@@ -5,7 +5,8 @@ $pdo=new PDO($connect,USER,PASS);
 // update用
 try{
     if(isset($_POST['btn'])&&$_POST['btn']==='submit'){
-        
+        // ユーザIDを保存
+        $id=$_SESSION['user']['id'];
          //保存するフォルダの名前
         $main = 'user_image/main/';
         $sub = 'user_image/sub/';
@@ -27,11 +28,16 @@ try{
                     }
                 }
             }
+            $update='update profile set icon_image=? where user_id=?';
+            $sql=$pdo->prepare($update);
+            $sql->execute([
+                $_POST['icon'],$id
+            ]);
         }
 
-        if(!empty($_POST[$subImg[0]])){
+        if(!empty($_FILES[$subImg[0]]['name'])){
             //登録したいファイルの名前
-            $fileName_sub1 = basename($_FILES[$subImg[0]]['name']);
+            $fileName_subA = basename($_FILES[$subImg[0]]['name']);
             //二つをドッキング
             $subpath1 = $sub . $fileName_sub1;
             $fileType_sub1 = pathinfo($subpath1,PATHINFO_EXTENSION);
@@ -47,9 +53,9 @@ try{
                 }
             }
         }
-        if(!empty($_POST[$subImg[1]])){
+        if(!empty($_FILES[$subImg[1]]['name'])){
             //登録したいファイルの名前
-            $fileName_sub1 = basename($_FILES[$subImg[1]]['name']);
+            $fileName_subB = basename($_FILES[$subImg[1]]['name']);
             //二つをドッキング
             $subpath2 = $sub . $fileName_sub2;
             // 画像パスの拡張子を変数に入れる
@@ -67,9 +73,9 @@ try{
                 }
             }
         }
-        if(!empty($_POST[$subImg[2]])){
+        if(!empty($_FILES[$subImg[2]]['name'])){
             //登録したいファイルの名前
-            $fileName_sub1 = basename($_FILES[$subImg[2]]['name']);
+            $fileName_subC = basename($_FILES[$subImg[2]]['name']);
             //二つをドッキング
             $subpath3 = $sub . $fileName_sub3;
             // 画像パスの拡張子を変数に入れる
@@ -88,110 +94,112 @@ try{
             }
         }
     
-        $id=$_SESSION['user']['id'];
-
+        echo var_dump($_POST);
         // 全てのサブ写真が設定されている場合
-        if(!empty($_POST['subImage1']&&$_POST['subImage2']&&$_POST['subImage3'])){
-            $update='update profile set introduction=?,hobby_id=?,gender_id=?,
+        if(!empty($fileName_subA&&$fileName_subB&&$fileName_subC)){
+            $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
-                    icon_image=?,sub_a_image=?,sub_b_image=?,sub_c_image=?,alcohol=?,smoke=?
+                    sub_a_image=?,sub_b_image=?,sub_c_image=?,alcohol=?,smoke=?
                     where user_id=?';
             $sql=$pdo->prepare($update);
             $sql->execute([
-                $id,$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
-                $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['message'],$_POST['icon'],
-                $_POST['subImage1'],$_POST['subImage2'],$_POST['subImage3'],$_POST['drinking'],$_POST['smoking'],
+                $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
+                $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['spendHoliday'],
+                $fileName_subA,$fileName_subB,$fileName_subC,$_POST['drinking'],$_POST['smoking'],
                 $id
             ]);
         // 1つ目のサブ写真が設定されている場合
-        }else if(!empty($_POST['subImage1'])){
+        }else if(!empty($fileName_subA)){
             // 2つ目のサブ写真が設定されている場合
-            if($_POST['subImage2']){
-                $update='update profile set introduction=?,hobby_id=?,gender_id=?,
+            if(!empty($fileName_subB)){
+                $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
-                    icon_image=?,sub_a_image=?,sub_b_image=?,alcohol=?,smoke=?
+                    sub_a_image=?,sub_b_image=?,alcohol=?,smoke=?
                     where user_id=?';
                 $sql=$pdo->prepare($update);
                 $sql->execute([
-                    $id,$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
-                    $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['message'],$_POST['icon'],
-                    $_POST['subImage1'],$_POST['subImage2'],$_POST['drinking'],$_POST['smoking'],$id,
+                    $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
+                    $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['spendHoliday'],
+                    $fileName_subA,$fileName_subB,$_POST['drinking'],$_POST['smoking'],$id,
                 ]);
             // 3つ目のサブ写真が設定されている場合
-            }else if(!empty($_POST['subImage3'])){
-                $update='update profile set introduction=?,hobby_id=?,gender_id=?,
+            }else if(!empty($fileName_subC)){
+                $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
-                    icon_image=?,sub_a_image=?,sub_c_image=?,alcohol=?,smoke=?
+                    sub_a_image=?,sub_c_image=?,alcohol=?,smoke=?
                     where user_id=?';
                 $sql=$pdo->prepare($update);
                 $sql->execute([
-                    $id,$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
-                    $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['message'],$_POST['icon'],
-                    $_POST['subImage1'],$_POST['subImage3'],$_POST['drinking'],$_POST['smoking'],$id
+                    $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
+                    $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['spendHoliday'],
+                    $fileName_subA,$fileName_subC,$_POST['drinking'],$_POST['smoking'],$id
                 ]);
             }
             // 1つ目のサブ写真のみが設定されている場合
-            $update='update profile set introduction=?,hobby_id=?,gender_id=?,
+            $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
-                    icon_image=?,sub_a_image=?,alcohol=?,smoke=?
+                    sub_a_image=?,alcohol=?,smoke=?
                     where user_id=?';
             $sql=$pdo->prepare($update);
             $sql->execute([
-                $id,$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
-                $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['message'],$_POST['icon'],
-                $_POST['subImage1'],$_POST['drinking'],$_POST['smoking'],$id
+                $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
+                $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['spendHoliday'],
+                $fileName_subA,$_POST['drinking'],$_POST['smoking'],$id
             ]);
         // 2つ目のサブ写真が設定されている場合
-        }else if(!empty($_POST['subImage2'])){
+        }else if(!empty($fileName_subB)){
             // 3つ目のサブ写真が設定されている場合
-            if($_POST['subImage3']){
-                $update='update profile set introduction=?,hobby_id=?,gender_id=?,
+            if($fileName_subC){
+                $update='update userm,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
-                    icon_image=?,sub_b_image=?,sub_c_image=?,alcohol=?,smoke=?
+                    sub_b_image=?,sub_c_image=?,alcohol=?,smoke=?
                     where user_id=?';
                 $sql=$pdo->prepare($update);
                 $sql->execute([
-                    $id,$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
-                    $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['message'],$_POST['icon'],
-                    $_POST['subImage2'],$_POST['subImage3'],$_POST['drinking'],$_POST['smoking'],$id
+                    $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
+                    $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['spendHoliday'],
+                    $fileName_subB,$fileName_subC,$_POST['drinking'],$_POST['smoking'],$id
                 ]);
             }
             // 2つ目のサブ写真のみが設定されている場合
-            $update='update profile set introduction=?,hobby_id=?,gender_id=?,
+            $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
-                    icon_image=?,sub_b_image=?,alcohol=?,smoke=?
+                    sub_b_image=?,alcohol=?,smoke=?
                     where user_id=?';
             $sql=$pdo->prepare($update);
             $sql->execute([
-                $id,$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
-                $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['message'],$_POST['icon'],
-                $_POST['subImage2'],$_POST['drinking'],$_POST['smoking'],$id
+                $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
+                $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['spendHoliday'],
+                $fileName_subB,$_POST['drinking'],$_POST['smoking'],$id
             ]);
         // 3つ目のみに画像が設定されている場合
-        }elseif(!empty($_POST['subImage3'])){
-            $update='update profile set introduction=?,hobby_id=?,gender_id=?,
+        }elseif(!empty($fileName_subC)){
+            $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
-                    icon_image=?,sub_c_image=?,alcohol=?,smoke=?
+                    sub_c_image=?,alcohol=?,smoke=?
                     where user_id=?';
             $sql=$pdo->prepare($update);
             $sql->execute([
-                $_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
-                $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['message'],$_POST['icon'],
-                $_POST['subImage3'],$_POST['drinking'],$_POST['smoking'],$id
+                $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
+                $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['spendHoliday'],
+                $fileName_subC,$_POST['drinking'],$_POST['smoking'],$id
             ]);
         }else{
-            $update='update profile set introduction=?,hobby_id=?,gender_id=?,
+            $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
-                    icon_image=?,alcohol=?,smoke=?
+                    alcohol=?,smoke=?
                     where user_id=?';
             $sql=$pdo->prepare($update);
             $sql->execute([
-                $_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
-                $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['message'],$_POST['icon'],
+                $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
+                $_POST['school'],$_POST['hometown'],$_POST['residence'],$_POST['spendHoliday'],
                 $_POST['drinking'],$_POST['smoking'],$id
             ]);
         }
         // ｾｯｼｮﾝに性別、年齢、アイコン画像を設定
+        $session='select gender_id,age,icon_image from profile where user_id=?';
+        $sql=$pdo->prepare($session);
+        $sql->execute([$id]);
         foreach($sql as $row){
             $_SESSION['user']=[
                 'gender'=>$row['gender_id'],'age'=>$row['age'],'icon'=>$row['icon_image']

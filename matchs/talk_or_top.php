@@ -35,7 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // 遷移先を設定
         if ($action == 'talk') {
-            header("Location: ../talk/talk2.php?reciver_id=$matched_user_id");
+            echo '<form name="add" action="../talk/talk2.php" method="post">';
+                echo '<input type="hidden" name="reciver_id" value="'.$matched_user_id.'">';
+                echo '<SCRIPT language="JavaScript">document.add.submit();</SCRIPT>';
+            echo '</form>';
         } else {
             header("Location: ../top/top.php");
         }

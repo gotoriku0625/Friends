@@ -46,6 +46,10 @@ $stmt_liked_by->closeCursor();
             <div class="recommendation2">
                 <?php foreach ($liked_users as $user): ?>
                     <div class="user-set2">
+                        <?php
+                        $default_icon = '../user_image/main/1.png';
+                        $icon_path = empty($user['icon_image']) ? $default_icon : "../user_image/main/{$user['icon_image']}";
+                        ?>
                         <?php if($user['gender_name'] === '男性'): ?>
                             <div class="frame-blue2">
                         <?php elseif($user['gender_name'] === '女性'): ?>
@@ -54,7 +58,7 @@ $stmt_liked_by->closeCursor();
                             <div class="frame-gray2">
                         <?php endif; ?>
                                 <a href="../profile/profile-like.php?user_id=<?php echo $user['user_id']; ?>">
-                                    <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon" class="standard-icon">
+                                    <img src="<?php echo htmlspecialchars($icon_path, ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon" class="standard-icon">
                                 </a>
                             </div>
                         <div class="nick_name2">
@@ -78,6 +82,10 @@ $stmt_liked_by->closeCursor();
             <div class="recommendation2">
                 <?php foreach ($liked_by_users as $user): ?>
                     <div class="user-set2">
+                        <?php
+                        $default_icon = '../user_image/main/1.png';
+                        $icon_path = empty($user['icon_image']) ? $default_icon : "../user_image/main/{$user['icon_image']}";
+                        ?>
                         <?php if($user['gender_name'] === '男性'): ?>
                             <div class="frame-blue2">
                         <?php elseif($user['gender_name'] === '女性'): ?>
@@ -86,7 +94,7 @@ $stmt_liked_by->closeCursor();
                             <div class="frame-gray2">
                         <?php endif; ?>
                                 <a href="../profile/profile-match.php?user_id=<?php echo $user['user_id']; ?>">
-                                    <img src="../user_image/main/<?php echo htmlspecialchars($user['icon_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon" class="standard-icon">
+                                    <img src="<?php echo htmlspecialchars($icon_path, ENT_QUOTES, 'UTF-8'); ?>" alt="User Icon" class="standard-icon">
                                 </a>
                             </div>
                         <div class="nick_name2">
