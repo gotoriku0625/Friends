@@ -15,16 +15,22 @@
 
 .nick_name1{
     font-size: 18px;
-    width: fit-content;
-    text-align: center;
+    /* width: fit-content;
+    text-align: center; */
     font-family: mameron;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
 }
 
 .nick_name2{
     font-size: 22px;
-    width: fit-content;
-    text-align: center;
+    /* width: fit-content;
+    text-align: center; */
     font-family: mameron;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
 }
 
 h2{
