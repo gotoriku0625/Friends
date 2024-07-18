@@ -62,8 +62,8 @@ require '../menu/menu.php'; // menuはbodyタグの中に絶対に入れるよ�
                     <?php
                     $default_subImg = 'no_image.png';
                     $subImg_pathA = empty($user['sub_a_image']) ? $default_subImg : $user['sub_a_image'];
-                    $subImg_pathB = empty($user['sub_b_image']) ? $default_icon : $user['sub_b_image'];
-                    $subImg_pathB = empty($user['sub_c_image']) ? $default_icon : $user['sub_c_image'];
+                    $subImg_pathB = empty($user['sub_b_image']) ? $default_subImg : $user['sub_b_image'];
+                    $subImg_pathC = empty($user['sub_c_image']) ? $default_subImg: $user['sub_c_image'];
                     ?>
                     <div class="sub-images">
                         <div class="sub-image-wrapper">
@@ -75,14 +75,14 @@ require '../menu/menu.php'; // menuはbodyタグの中に絶対に入れるよ�
                         </div>
                         <div class="sub-image-wrapper">
                             <div class="sub-square" id="subImageContainer2">
-                                <img id="subImage2" src="../user_image/sub/<?php echo $subImg_pathA; ?>">
+                                <img id="subImage2" src="../user_image/sub/<?php echo $subImg_pathB; ?>">
                             </div>
                             <label for="subImageInput2" class="subImagePut" onclick="uploadSubImage('subImageInput2', 'subImage2')">+</label>
                             <input type="file" id="subImageInput2" name="subImage2" accept="image/*" style="display: none;">
                         </div>
                         <div class="sub-image-wrapper">
                             <div class="sub-square" id="subImageContainer3">
-                                <img id="subImage3" src="../user_image/sub/<?php echo $subImg_pathA; ?>">
+                                <img id="subImage3" src="../user_image/sub/<?php echo $subImg_pathC; ?>">
                             </div>
                             <label for="subImageInput3" class="subImagePut" onclick="uploadSubImage('subImageInput3', 'subImage3')">+</label>
                             <input type="file" id="subImageInput3" name="subImage3" accept="image/*" style="display: none;">
@@ -207,16 +207,17 @@ require '../menu/menu.php'; // menuはbodyタグの中に絶対に入れるよ�
 
                     <div class="checkbox-group">
                         <label>
+                            <input type='hidden' value='0' name='drinking'>
                             <input type="checkbox" name="drinking" value="1" <?php if ($user['alcohol'] == 1) echo 'checked'; ?>> 飲酒
                         </label>
                         <label>
+                            <input type='hidden' value='0' name='smoking'>
                             <input type="checkbox" name="smoking" value="1" <?php if ($user['smoke'] == 1) echo 'checked'; ?>> 喫煙
                         </label>
                     </div>
 
                     <div class="form-group" id="submit_button">
                         <div class="btn-container">
-                            <a href="../login/login.html" class="btn">キャンセル</a>
                             <button type="submit" class="btn" name="btn" value="submit">保存</button>
                         </div>
                     </div>
