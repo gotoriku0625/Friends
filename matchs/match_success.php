@@ -38,7 +38,6 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':reciver_id', $reciver_id, PDO::PARAM_INT);
 $stmt->execute();
 $receiver_profile = $stmt->fetch(PDO::FETCH_ASSOC);
-var_dump($receiver_profile);
 
 if ($receiver_profile) {
     $receiver_user_name = htmlspecialchars($receiver_profile['user_name'], ENT_QUOTES, 'UTF-8');
