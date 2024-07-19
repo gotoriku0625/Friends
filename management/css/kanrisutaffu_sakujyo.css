@@ -18,43 +18,50 @@ h1{
     padding-left: 50px;
 }
 table {
-    padding-top: 20px;
     width: 78%;
     border-collapse: collapse;
+    table-layout: fixed; /* 固定レイアウトにする */
 }
+
 th, td {
     padding: 8px;
     text-align: left;
     border: 1px solid #ddd;
+    word-wrap: break-word; /* 長い単語を折り返す */
 }
-thead {
+
+thead th {
     background-color: #f2f2f2;
     position: sticky;
     top: 0;
     z-index: 1;
 }
+
 tbody {
     display: block;
     max-height: 200px; /* スクロール領域の高さを指定 */
     overflow-y: auto;
 }
+
 tbody tr {
     display: table;
     table-layout: fixed; /* セルの幅を固定 */
     width: 100%;
 }
+
 thead, tbody tr {
     display: table;
     width: 100%;
     table-layout: fixed; /* セルの幅を固定 */
 }
+
 tbody tr:nth-child(even) {
     background-color: #cccccc; /* 偶数行の背景色を灰色に設定 */
 }
 
 tbody tr:nth-child(odd) {
     background-color: #ffffff; /* 奇数行の背景色を白色に設定 */
-} 
+}
 .tuika,
 .sakujyo{
     border: 2px solid #000; /* ここで枠線を追加 */
@@ -78,50 +85,15 @@ tbody tr:nth-child(odd) {
 
 .tuika{
     position: absolute;
-       top: 55%; /* 親要素の高さの50% */
-       left: 60%; /* 親要素の幅の50% */
+       top: 23%; /* 親要素の高さの50% */
+       left: 62%; /* 親要素の幅の50% */
 }
 .sakujyo{
     position: absolute;
-    top: 22%; /* 親要素の高さの50% */
-    left: 60%; /* 親要素の幅の50% */
+    top: 75%; /* 親要素の高さの50% */
+    left: 63%; /* 親要素の幅の50% */
 }
 
-.custom_table {
-    width:58%;
-    border-collapse: separate; /* テーブルの線を完全に消すためには separate を使用 */
-    border-spacing: 0; /* セル間のスペースをゼロにする */
-    margin-top: 20px; /* 上部の余白 */
-    border-spacing: 10px; /* 隙間のサイズをピクセルで指定 */
-}
-
-.custom_table th, .custom_table td {
-    padding: 10px; /* セルの内側の余白 */
-}
-
-.custom_table th {
-    background-color: #ffffff;
-    border: none; /* th要素の線を消す */
-    text-align: center;
-}
-
-.custom_table td {
-    background-color: #ffffff;
-    border: 1px solid #ddd; /* td要素の線を追加 */
-    border-radius: 50px; /* 角を丸くする半径を設定 */
-}
-
-.custom_table input[type="text"] {
-    width: calc(100% - 18px); /* テキストボックスの幅をテーブルの幅に合わせる */
-    padding: 6px;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 4px;
-}
-
-.custom_table  thead{
-    background-color: #ffffff;
-}
 form{
-margin-top:60px
+margin-top:100px
 }
