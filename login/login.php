@@ -44,7 +44,7 @@
                 if(password_verify($_POST['password'],$row['password']) == true){//ハッシュ化したパスワードと一致しているか
                     $_SESSION['user']=[
                         'id'=>$row['user_id'],'name'=>$row['user_name'],'icon'=>$row['icon_image'],'gender'=>$row['gender_id'],
-                        'hobby'=>$row['hobby_id']
+                        'hobby'=>$row['hobby_id'],'age'=>$row['user_name']
                     ];
                 }
             }
