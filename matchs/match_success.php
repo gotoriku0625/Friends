@@ -31,7 +31,7 @@ if ($user_profile) {
 
 // 相手ユーザーの情報を取得
 $sql = 'SELECT u.user_name, p.icon_image ,p.gender_id ,p.age
-        FROM user u,
+        FROM user u
         LEFT JOIN profile p ON u.user_id = p.user_id
         WHERE u.user_id = :reciver_id';
 $stmt = $pdo->prepare($sql);
