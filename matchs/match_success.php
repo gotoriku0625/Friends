@@ -62,8 +62,6 @@ if ($receiver_profile) {
 
         <img src="../image/mach.png" class="mach-image">
 
-        <p><?php echo htmlspecialchars($receiver_user_name); ?>さんと<?php echo htmlspecialchars($match_message); ?></p>
-
         <div class="icons-container">
             <!-- ログインユーザーのアイコン表示 -->
             <div class="login-user-icon">
@@ -75,6 +73,8 @@ if ($receiver_profile) {
                 <img src="<?php echo htmlspecialchars($receiver_icon_path, ENT_QUOTES, 'UTF-8'); ?>" alt="相手ユーザーアイコン" class="mach-user-icon2">
             </div>
         </div>
+
+        <p><?php echo htmlspecialchars($receiver_user_name); ?>さんと<?php echo htmlspecialchars($match_message); ?></p>
 
         <form method="POST" action="talk_or_top.php">
             <input type="hidden" name="reciver_id" value="<?php echo htmlspecialchars($reciver_id); ?>">
