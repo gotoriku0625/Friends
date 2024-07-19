@@ -36,7 +36,7 @@
                     echo '<div class="username">';
                     echo '<h2><span class="name-box">' . htmlspecialchars($profile['user_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></h2>';
                     echo '</div>';
-                    echo'<button onclick="goBack()">戻る</button>';
+                    echo'<button onclick="goBack()"class="modo">戻る</button>';
                     echo'<hr>';
                     // アイコン画像の表示
                     echo '<div class="profile-icon-container">';
