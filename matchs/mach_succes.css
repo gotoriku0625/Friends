@@ -52,3 +52,7 @@ button:hover {
     width: 100px;
     height: 100px;
 }
+
+.icons-container{
+    display: flex;
+}
