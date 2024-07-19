@@ -33,17 +33,47 @@
                 $profile = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 if ($profile) {
+                    // デフォルトアイコンの設定
+                    $default_icon = '../user_image/main/1.png';
+                    $default_image = '../user_image/sub/no_image.png'; // デフォルト画像のパス
+    
+                    $icon_path = empty($profile['icon_image']) ? $default_icon : "../user_image/main/{$profile['icon_image']}";
+    
+                    $sub_a_image_path = empty($profile['sub_a_image']) ? $default_image : "../user_image/sub/{$profile['sub_a_image']}";
+                    $sub_b_image_path = empty($profile['sub_b_image']) ? $default_image : "../user_image/sub/{$profile['sub_b_image']}";
+                    $sub_c_image_path = empty($profile['sub_c_image']) ? $default_image : "../user_image/sub/{$profile['sub_c_image']}";
+    
+                    // ユーザー名の表示
                     echo '<div class="username">';
                     echo '<h2><span class="name-box">' . htmlspecialchars($profile['user_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></h2>';
                     echo '</div>';
-                    echo'<button onclick="goBack()"class="modo">戻る</button>';
-                    echo'<hr>';
+                    echo '<button onclick="goBack()" class="modo">戻る</button>';
+                    echo '<hr>';
                     // アイコン画像の表示
                     echo '<div class="profile-icon-container">';
-                    if (!empty($profile['icon_image'])) {
-                        echo '<img src="../user_image/main/' . htmlspecialchars($profile['icon_image'], ENT_QUOTES, 'UTF-8') . '" alt="アイコン" class="profile-icon">';
-                    }
-                    echo'</div>';
+                    echo '<img src="' . htmlspecialchars($icon_path, ENT_QUOTES, 'UTF-8') . '" alt="アイコン" class="profile-icon">';
+                    echo '</div>';
+    
+                    // 追加画像の表示
+                    echo '<div class="sub-images">';
+                    echo '<div class="sub-image-wrapper">';
+                    echo '<div class="sub-square" id="subImageContainer1">';
+                    echo '<img id="subImage1" src="' . htmlspecialchars($sub_a_image_path, ENT_QUOTES, 'UTF-8') . '" alt="画像A">';
+                    echo '</div>';
+                    echo '</div>';
+                    
+                    echo '<div class="sub-image-wrapper">';
+                    echo '<div class="sub-square" id="subImageContainer2">';
+                    echo '<img id="subImage2" src="' . htmlspecialchars($sub_b_image_path, ENT_QUOTES, 'UTF-8') . '" alt="画像B">';
+                    echo '</div>';
+                    echo '</div>';
+    
+                    echo '<div class="sub-image-wrapper">';
+                    echo '<div class="sub-square" id="subImageContainer3">';
+                    echo '<img id="subImage3" src="' . htmlspecialchars($sub_c_image_path, ENT_QUOTES, 'UTF-8') . '" alt="画像C">';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>'; 
                 // 趣味名の表示
                     echo '<p><span class="label">趣味</span><br></p>';
                     echo '<p><span class="data-box">' . htmlspecialchars($profile['hobby_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
