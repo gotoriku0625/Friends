@@ -62,17 +62,17 @@ if ($receiver_profile) {
 
         <img src="../image/mach.png" class="mach-image">
 
-        <p><?php echo htmlspecialchars($receiver_user_name); ?>さんと<?php echo htmlspecialchars($match_message); ?>しました。</p>
+        <p><?php echo htmlspecialchars($receiver_user_name); ?>さんと<?php echo htmlspecialchars($match_message); ?></p>
 
         <div class="icons-container">
             <!-- ログインユーザーのアイコン表示 -->
             <div class="login-user-icon">
-                <img src="<?php echo htmlspecialchars($user_icon_path, ENT_QUOTES, 'UTF-8'); ?>" alt="ログインユーザーアイコン" class="user-icon">
+                <img src="<?php echo htmlspecialchars($user_icon_path, ENT_QUOTES, 'UTF-8'); ?>" alt="ログインユーザーアイコン" class="mach-user-icon1">
             </div>
 
             <!-- 相手ユーザーのアイコン表示 -->
             <div class="receiver-user-icon">
-                <img src="<?php echo htmlspecialchars($receiver_icon_path, ENT_QUOTES, 'UTF-8'); ?>" alt="相手ユーザーアイコン" class="user-icon">
+                <img src="<?php echo htmlspecialchars($receiver_icon_path, ENT_QUOTES, 'UTF-8'); ?>" alt="相手ユーザーアイコン" class="mach-user-icon2">
             </div>
         </div>
 
