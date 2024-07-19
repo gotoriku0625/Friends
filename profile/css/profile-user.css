@@ -265,3 +265,15 @@ input[type="checkbox"] {
     position: revert;
     bottom: revert;
 }
+.sub-images{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+.sub-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
