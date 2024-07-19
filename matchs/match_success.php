@@ -31,13 +31,14 @@ if ($user_profile) {
 
 // 相手ユーザーの情報を取得
 $sql = 'SELECT u.user_name, p.icon_image ,p.gender_id ,p.age
-        FROM user u,
+        FROM user u
         LEFT JOIN profile p ON u.user_id = p.user_id
         WHERE u.user_id = :reciver_id';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':reciver_id', $reciver_id, PDO::PARAM_INT);
 $stmt->execute();
 $receiver_profile = $stmt->fetch(PDO::FETCH_ASSOC);
+var_dump($receiver_profile);
 
 if ($receiver_profile) {
     $receiver_user_name = htmlspecialchars($receiver_profile['user_name'], ENT_QUOTES, 'UTF-8');
@@ -104,7 +105,7 @@ if ($receiver_profile) {
                 echo '</div>';
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<div class="nick_name1">',$receiver_profile['u.user_name'],'(',$receiver_profile['p.age'],')</div>';
+            echo '<div class="nick_name1">',$receiver_profile['user_name'],'(',$receiver_profile['age'],')</div>';
             echo '</div>';
         
         echo '</div>';
