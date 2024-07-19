@@ -86,6 +86,8 @@ if ($receiver_profile) {
             echo '<div class="nick_name1">',$_SESSION['user']['name'],'(',$_SESSION['user']['age'],')</div>';
             echo '</div>';
 
+            echo '<img src="../image/mach.png" class="mach-image">';
+
             echo '<div class="user-set">';
             if($receiver_profile['gender_id']==='1'){
                 // アイコンの枠の色を青色に
