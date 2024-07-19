@@ -23,7 +23,7 @@ body{
 
 .mach-image{
     position: relative;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 25%;
 }
 
@@ -57,4 +57,5 @@ button:hover {
 
 .icons-container{
     display: flex;
+    justify-content: center;
 }
