@@ -19,7 +19,7 @@ $user_icon_path = $default_icon;
 $receiver_icon_path = $default_icon;
 
 // ログインユーザーの情報を取得
-$sql = 'SELECT icon_image FROM profile WHERE user_id = :user_id';
+$sql = 'SELECT icon_image ,gender_id FROM profile WHERE user_id = :user_id';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $_SESSION['user']['id'], PDO::PARAM_INT);
 $stmt->execute();
@@ -30,7 +30,7 @@ if ($user_profile) {
 }
 
 // 相手ユーザーの情報を取得
-$sql = 'SELECT u.user_name, p.icon_image 
+$sql = 'SELECT u.user_name, p.icon_image ,p.gender_id 
         FROM user u
         LEFT JOIN profile p ON u.user_id = p.user_id
         WHERE u.user_id = :reciver_id';
@@ -73,6 +73,67 @@ if ($receiver_profile) {
                 <img src="<?php echo htmlspecialchars($receiver_icon_path, ENT_QUOTES, 'UTF-8'); ?>" alt="相手ユーザーアイコン" class="mach-user-icon2">
             </div>
         </div>
+<?php
+        echo '<div class="icons-container">';
+        $default_icon = '../user_image/main/1.png';
+            $icon_path = empty($row['icon_image']) ? $default_icon : "../user_image/main/{$row['icon_image']}";
+            
+            echo '<div class="user-set">';
+            if($user_profile['gender_name']==='男性'){
+                // アイコンの枠の色を青色に
+                echo '<div class="frame-blue">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
+                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '</a>';
+                echo '</div>';
+            }else if($user_profile['gender_name']==='女性'){
+                // アイコンの枠の色を赤色に
+                echo '<div class="frame-pink">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
+                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '</a>';
+                echo '</div>';
+            }else{
+                // アイコンの枠の色を灰色に
+                echo '<div class="frame-gray">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
+                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '</a>';
+                echo '</div>';
+            }
+            // アイコンとユーザー名、年齢を表示
+            echo '<div class="nick_name1">',$row['user_name'],'(',$row['age'],')</div>';
+            echo '</div>';
+
+            echo '<div class="user-set">';
+            if($receiver_profile['gender_name']==='男性'){
+                // アイコンの枠の色を青色に
+                echo '<div class="frame-blue">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
+                echo '<img src="htmlspecialchars('.$receiver_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '</a>';
+                echo '</div>';
+            }else if($receiver_profile['gender_name']==='女性'){
+                // アイコンの枠の色を赤色に
+                echo '<div class="frame-pink">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
+                echo '<img src="htmlspecialchars('.$receiver_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '</a>';
+                echo '</div>';
+            }else{
+                // アイコンの枠の色を灰色に
+                echo '<div class="frame-gray">';
+                echo '<a href="../profile/profile-user.php?user_id='.$row['user_id'].'">';
+                echo '<img src="htmlspecialchars('.$receiver_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '</a>';
+                echo '</div>';
+            }
+            // アイコンとユーザー名、年齢を表示
+            echo '<div class="nick_name1">',$row['user_name'],'(',$row['age'],')</div>';
+            echo '</div>';
+        
+        echo '</div>';
+        ?>
 
         <p><?php echo htmlspecialchars($receiver_user_name); ?>さんと<?php echo htmlspecialchars($match_message); ?></p>
 
