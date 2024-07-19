@@ -37,6 +37,7 @@ $sql = 'SELECT u.user_name, p.icon_image ,p.gender_id ,p.age
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':reciver_id', $reciver_id, PDO::PARAM_INT);
 $stmt->execute();
+var_dump($stmt);
 $receiver_profile = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($receiver_profile) {
