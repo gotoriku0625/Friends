@@ -19,7 +19,7 @@ $user_icon_path = $default_icon;
 $receiver_icon_path = $default_icon;
 
 // ログインユーザーの情報を取得
-$sql = 'SELECT icon_image ,gender_id FROM profile WHERE user_id = :user_id';
+$sql = 'SELECT icon_image ,gender_id,user_name FROM profile, user WHERE user_id = :user_id';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $_SESSION['user']['id'], PDO::PARAM_INT);
 $stmt->execute();
@@ -30,8 +30,8 @@ if ($user_profile) {
 }
 
 // 相手ユーザーの情報を取得
-$sql = 'SELECT u.user_name, p.icon_image ,p.gender_id 
-        FROM user u
+$sql = 'SELECT u.user_name, p.icon_image ,p.gender_id ,p.age
+        FROM user u,
         LEFT JOIN profile p ON u.user_id = p.user_id
         WHERE u.user_id = :reciver_id';
 $stmt = $pdo->prepare($sql);
@@ -104,7 +104,7 @@ if ($receiver_profile) {
                 echo '</div>';
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<div class="nick_name1">',$receiver_profile['user_name'],'(',$receiver_profile['age'],')</div>';
+            echo '<div class="nick_name1">',$receiver_profile['u.user_name'],'(',$receiver_profile['p.age'],')</div>';
             echo '</div>';
         
         echo '</div>';
