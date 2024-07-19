@@ -388,10 +388,6 @@ hr{
     display: flex;
     justify-content: center; /* メニューアイテムを中央揃えに */
   }
-  /* .menu-item {
-    border-left: 1px solid #fff; メニューアイテムの左ボーダ 
-    position: relative;
-  } */
   /* .menu-item:last-child {
     border-right: 1px solid #fff; 最後のメニューアイテムの右ボーダー 
   } */
@@ -450,6 +446,10 @@ hr{
   width: 25px;
   height: 25px;
   margin-right: 10px;
+}
+.drop-menu-list{
+  position: relative;
+  z-index: 999;
 }
 .report{
   width: 25px;
