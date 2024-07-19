@@ -1,7 +1,7 @@
 .count{
     position:absolute;
-    top: 12%;
-    left: 7%;
+    top: 17%;
+    left: 10%;
 }
 h1{
     color: rgb(151, 255, 220);
@@ -79,7 +79,7 @@ tbody tr:nth-child(odd) {
 .tuika{
     position: absolute;
        top: 15%; /* 親要素の高さの50% */
-       left: 55%; /* 親要素の幅の50% */
+       left: 53%; /* 親要素の幅の50% */
 }
 .sakujyo{
     position: absolute;
