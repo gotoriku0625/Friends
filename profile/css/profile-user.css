@@ -265,7 +265,7 @@ input[type="checkbox"] {
     position: revert;
     bottom: revert;
 }
-.sub-images{
+.sub-images {
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -276,4 +276,20 @@ input[type="checkbox"] {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+}
+.sub-square {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border: 5px solid #a8a8a8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.sub-square img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
