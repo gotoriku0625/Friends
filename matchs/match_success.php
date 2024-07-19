@@ -19,7 +19,7 @@ $user_icon_path = $default_icon;
 $receiver_icon_path = $default_icon;
 
 // ログインユーザーの情報を取得
-$sql = 'SELECT icon_image ,gender_id,user_name FROM profile, user WHERE user_id = :user_id';
+$sql = 'SELECT icon_image ,gender_id FROM profile WHERE user_id = :user_id';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $_SESSION['user']['id'], PDO::PARAM_INT);
 $stmt->execute();
@@ -83,7 +83,7 @@ if ($receiver_profile) {
                 echo '</div>';
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<div class="nick_name1">',$user_profile['user_name'],'(',$user_profile['age'],')</div>';
+            echo '<div class="nick_name1">',$_SESSION['user']['name'],'(',$_SESSION['user']['age'],')</div>';
             echo '</div>';
 
             echo '<div class="user-set">';
