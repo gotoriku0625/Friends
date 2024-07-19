@@ -42,3 +42,17 @@ button {
 button:hover {
     background-color: rgb(168, 255, 226);  /* ホバー時の背景色を濃い緑に */
 }
+
+.mach-user-icon1{
+    width: 100px;
+    height: 100px;
+}
+
+.mach-user-icon2{
+    width: 100px;
+    height: 100px;
+}
+
+.icons-container{
+    display: flex;
+}
