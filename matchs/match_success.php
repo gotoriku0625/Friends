@@ -60,19 +60,6 @@ if ($receiver_profile) {
             <img src="../image/logo.png" class="logo">
         </div>
 
-        <div class="icons-container">
-            <!-- ログインユーザーのアイコン表示 -->
-            <div class="login-user-icon">
-                <img src="<?php echo htmlspecialchars($user_icon_path, ENT_QUOTES, 'UTF-8'); ?>" alt="ログインユーザーアイコン" class="mach-user-icon1">
-            </div>
-
-            <img src="../image/mach.png" class="mach-image">
-
-            <!-- 相手ユーザーのアイコン表示 -->
-            <div class="receiver-user-icon">
-                <img src="<?php echo htmlspecialchars($receiver_icon_path, ENT_QUOTES, 'UTF-8'); ?>" alt="相手ユーザーアイコン" class="mach-user-icon2">
-            </div>
-        </div>
 <?php
         echo '<div class="icons-container">';
         $default_icon = '../user_image/main/1.png';
