@@ -63,7 +63,7 @@
                             echo '</div>';
                             echo '<div class="talk_count">';
                             $count = new_message_count2($current_user['user_id'], $reciver['user_id']);
-                            if ($count['talk_count'] != 0 && $count['reciver_id'] == $reciver['user_id']) {
+                            if ($count['talk_count'] != 0 && $count['reciver_id'] === $reciver['user_id']) {
                                 echo $count['talk_count'];
                             }
                             echo '</div>';
