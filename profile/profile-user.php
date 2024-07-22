@@ -54,6 +54,7 @@
                 echo '</div>';
 
                 // 追加画像の表示
+                echo '<p><span class="label">サブ写真</span><br></p>';
                 echo '<div class="sub-images">';
                 echo '<div class="sub-image-wrapper">';
                 echo '<div class="sub-square" id="subImageContainer1">';
