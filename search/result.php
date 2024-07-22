@@ -138,10 +138,11 @@
     <?php else: ?>
         <p>検索結果がありません。</p>
     <?php endif; ?>
-
-    <!-- 検索画面へ戻るボタン -->
-    <a href="search.php" class="back-button">検索画面へ戻る</a>
-
+    <script>
+    <p id="back-button">
+   <a href="#search.php" onclick="$('html,body').animate({ scrollTop: 0 }); return false;">▲さがすへ戻る</a>
+</p>
+</script>
 </div>
 
 </body>
