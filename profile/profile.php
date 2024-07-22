@@ -127,9 +127,9 @@ if ($sub_c_image) {
 
                 echo <<<EOF
                 <div class="icon-section">
-                    <span>アイコンの登録</span>
+                    <span>アイコン</span>
                     <div class="icon-container">
-                        <img id="profileIcon" src="../user_image/main/{$user['icon_image']}" alt="プロフィールアイコン">
+                        <img id="profileIcon" src="../user_image/main/{$user['icon_image']}">
                         <label for="iconInput" class="plus" onclick="uploadIcon()">+</label>
                         <input type="file" id="iconInput" name="icon" accept="image/*" style="display: none;">
                     </div>
