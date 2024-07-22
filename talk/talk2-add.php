@@ -28,6 +28,8 @@ try{
     //     $sql=$pdo->prepare($member_add);
     //     $sql->execute([$user_id,$reciver_id]);
     // }
+    
+    // 相手に送ったメッセージの件数を追加する
     insert_message_count($user_id,$reciver_id);
     // ブロックしたかどうかの判定
     if(isset($_POST['check'])&&$_POST['check']==="block"){
@@ -45,7 +47,7 @@ try{
     // 通報したかどうかの判定
     if(isset($_POST['check'])&&$_POST['check']==="report"){
         $report='insert into report values (null,?,?,?,?)';
-        $sql=$pdo->prepare($block);
+        $sql=$pdo->prepare($report);
         $sql->execute(array($_SESSION['user']['id'],$_POST['reciver_id'],$_POST['report'],$_POST['re_text']));
         $block='insert into block values(null,?,?)';
         $sql=$pdo->prepare($block);

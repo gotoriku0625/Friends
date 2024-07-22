@@ -69,17 +69,17 @@ if ($receiver_profile) {
             if($user_profile['gender_id']==='1'){
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue">';
-                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" class="mach-user-icon1">';
                 echo '</div>';
             }else if($user_profile['gender_id']==='2'){
                 // アイコンの枠の色を赤色に
                 echo '<div class="frame-pink">';
-                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" class="mach-user-icon1">';
                 echo '</div>';
             }else{
                 // アイコンの枠の色を灰色に
                 echo '<div class="frame-gray">';
-                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" class="mach-user-icon1">';
                 echo '</div>';
             }
             // アイコンとユーザー名、年齢を表示
@@ -92,17 +92,17 @@ if ($receiver_profile) {
             if($receiver_profile['gender_id']==='1'){
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue">';
-                echo '<img src="htmlspecialchars('.$receiver_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '<img src="htmlspecialchars('.$receiver_icon_path.', ENT_QUOTES, "UTF-8")" class="mach-user-icon1">';
                 echo '</div>';
             }else if($receiver_profile['gender_id']==='2'){
                 // アイコンの枠の色を赤色に
                 echo '<div class="frame-pink">';
-                echo '<img src="htmlspecialchars('.$receiver_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '<img src="htmlspecialchars('.$receiver_icon_path.', ENT_QUOTES, "UTF-8")" class="mach-user-icon1">';
                 echo '</div>';
             }else{
                 // アイコンの枠の色を灰色に
                 echo '<div class="frame-gray">';
-                echo '<img src="htmlspecialchars('.$receiver_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '<img src="htmlspecialchars('.$receiver_icon_path.', ENT_QUOTES, "UTF-8")" class="mach-user-icon1">';
                 echo '</div>';
             }
             // アイコンとユーザー名、年齢を表示
