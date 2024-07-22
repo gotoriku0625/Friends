@@ -75,7 +75,7 @@ if ($sub_c_image) {
         $stmt->execute();
 
         // ｾｯｼｮﾝに性別、年齢、アイコン画像を設定
-        $session='select user_id,gender_id,age,icon_image from user,profile where user.user_id=?';
+        $session='select user.user_id,gender_id,age,icon_image,user_name,hobby_id from user,profile where user.user_id=?';
         $sql=$pdo->prepare($session);
         $sql->execute([$_SESSION['user']['id']]);
         foreach($sql as $row){
@@ -127,9 +127,9 @@ if ($sub_c_image) {
 
                 echo <<<EOF
                 <div class="icon-section">
-                    <span>アイコンの変更</span>
+                    <span>アイコン</span>
                     <div class="icon-container">
-                        <img id="profileIcon" src="../user_image/main/{$user['icon_image']}" alt="プロフィールアイコン">
+                        <img id="profileIcon" src="../user_image/main/{$user['icon_image']}">
                         <label for="iconInput" class="plus" onclick="uploadIcon()">+</label>
                         <input type="file" id="iconInput" name="icon" accept="image/*" style="display: none;">
                     </div>
