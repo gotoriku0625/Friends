@@ -42,62 +42,61 @@
                 $params[':user_name'] = '%' . $user_name . '%';
             }
 
-            $allConditions = [
-                isset($_GET['age']) && in_array('all', $_GET['age']),
-                isset($_GET['selected_gender_id']) && in_array('all', $_GET['selected_gender_id']),
-                isset($_GET['selected_residence_id']) && in_array('all', $_GET['selected_residence_id']),
-                isset($_GET['selected_school_id']) && in_array('all', $_GET['selected_school_id']),
-                isset($_GET['selected_hobby_id']) && in_array('all', $_GET['selected_hobby_id'])
-            ];
+            // 年齢条件
+            if ($age && !in_array('all', $age)) {
+                $ageConditions = [];
+                foreach ($age as $ageGroup) {
+                    switch ($ageGroup) {
+                        case '18':
+                        case '19':
+                        case '20':
+                        case '21':
+                        case '22':
+                            $ageConditions[] = "age = " . intval($ageGroup);
+                            break;
+                        case '22_plus':
+                            $ageConditions[] = "age BETWEEN 23 AND 29";
+                            break;
+                        case '30s':
+                            $ageConditions[] = "age BETWEEN 30 AND 39";
+                            break;
+                        case '40s':
+                            $ageConditions[] = "age BETWEEN 40 AND 49";
+                            break;
+                        case '50s':
+                            $ageConditions[] = "age BETWEEN 50 AND 59";
+                            break;
+                        case '60s':
+                            $ageConditions[] = "age BETWEEN 60 AND 69";
+                            break;
+                        case '70s':
+                            $ageConditions[] = "age BETWEEN 70 AND 79";
+                            break;
+                    }
+                }
+                if (!empty($ageConditions)) {
+                    $sql .= " AND (" . implode(' OR ', $ageConditions) . ")";
+                }
+            }
 
-            if (!in_array(true, $allConditions)) {
-                if ($age && !in_array('all', $age)) {
-                    $ageConditions = [];
-                    foreach ($age as $ageGroup) {
-                        switch ($ageGroup) {
-                            case '18':
-                            case '19':
-                            case '20':
-                            case '21':
-                            case '22':
-                                $ageConditions[] = "age = " . intval($ageGroup);
-                                break;
-                            case '22_plus':
-                                $ageConditions[] = "age BETWEEN 23 AND 29";
-                                break;
-                            case '30s':
-                                $ageConditions[] = "age BETWEEN 30 AND 39";
-                                break;
-                            case '40s':
-                                $ageConditions[] = "age BETWEEN 40 AND 49";
-                                break;
-                            case '50s':
-                                $ageConditions[] = "age BETWEEN 50 AND 59";
-                                break;
-                            case '60s':
-                                $ageConditions[] = "age BETWEEN 60 AND 69";
-                                break;
-                            case '70s':
-                                $ageConditions[] = "age BETWEEN 70 AND 79";
-                                break;
-                        }
-                    }
-                    if (!empty($ageConditions)) {
-                        $sql .= " AND (" . implode(' OR ', $ageConditions) . ")";
-                    }
-                }
-                if ($gender && !in_array('all', $gender)) {
-                    $sql .= " AND profile.gender_id IN (" . implode(',', array_map('intval', $gender)) . ")";
-                }
-                if ($residence && !in_array('all', $residence)) {
-                    $sql .= " AND profile.residence_id IN (" . implode(',', array_map('intval', $residence)) . ")";
-                }
-                if ($school && !in_array('all', $school)) {
-                    $sql .= " AND profile.school_id IN (" . implode(',', array_map('intval', $school)) . ")";
-                }
-                if ($hobby && !in_array('all', $hobby)) {
-                    $sql .= " AND profile.hobby_id IN (" . implode(',', array_map('intval', $hobby)) . ")";
-                }
+            // 性別条件
+            if ($gender && !in_array('all', $gender)) {
+                $sql .= " AND profile.gender_id IN (" . implode(',', array_map('intval', $gender)) . ")";
+            }
+
+            // 現住居条件
+            if ($residence && !in_array('all', $residence)) {
+                $sql .= " AND profile.residence_id IN (" . implode(',', array_map('intval', $residence)) . ")";
+            }
+
+            // 学校名条件
+            if ($school && !in_array('all', $school)) {
+                $sql .= " AND profile.school_id IN (" . implode(',', array_map('intval', $school)) . ")";
+            }
+
+            // 趣味条件
+            if ($hobby && !in_array('all', $hobby)) {
+                $sql .= " AND profile.hobby_id IN (" . implode(',', array_map('intval', $hobby)) . ")";
             }
 
             $sql .= " ORDER BY profile.age ASC";
@@ -139,11 +138,10 @@
     <?php else: ?>
         <p>検索結果がありません。</p>
     <?php endif; ?>
-    
+
     <!-- 検索画面へ戻るボタン -->
-    <div class="back-button-container">
-        <a href="search.php" class="back-button">検索画面へ戻る</a>
-    </div>
+    <a href="search.php" class="back-button">検索画面へ戻る</a>
+
 </div>
 
 </body>
