@@ -74,6 +74,17 @@ if ($sub_c_image) {
         $stmt->bindValue(':smoke', $smoking, PDO::PARAM_INT);
         $stmt->execute();
 
+        // ｾｯｼｮﾝに性別、年齢、アイコン画像を設定
+        $session='select user_id,gender_id,age,icon_image from user,profile where user.user_id=?';
+        $sql=$pdo->prepare($session);
+        $sql->execute([$_SESSION['user']['id']]);
+        foreach($sql as $row){
+            $_SESSION['user']=[
+                'id'=>$row['user_id'],'name'=>$row['user_name'],'gender'=>$row['gender_id'],'age'=>$row['age'],
+                'icon'=>$row['icon_image'],'hobby'=>$row['hobby_id']
+            ];
+        }
+
         // 成功したらtop.phpにリダイレクト
         header("Location: ../top/top.php");
         exit();

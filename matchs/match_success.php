@@ -31,7 +31,7 @@ if ($user_profile) {
 
 // 相手ユーザーの情報を取得
 $sql = 'SELECT u.user_name, p.icon_image ,p.gender_id ,p.age
-        FROM user u,
+        FROM user u
         LEFT JOIN profile p ON u.user_id = p.user_id
         WHERE u.user_id = :reciver_id';
 $stmt = $pdo->prepare($sql);
@@ -69,22 +69,24 @@ if ($receiver_profile) {
             if($user_profile['gender_id']==='1'){
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue">';
-                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '<img src="htmlspecialchars('.$icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
                 echo '</div>';
             }else if($user_profile['gender_id']==='2'){
                 // アイコンの枠の色を赤色に
                 echo '<div class="frame-pink">';
-                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '<img src="htmlspecialchars('.$icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
                 echo '</div>';
             }else{
                 // アイコンの枠の色を灰色に
                 echo '<div class="frame-gray">';
-                echo '<img src="htmlspecialchars('.$user_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
+                echo '<img src="htmlspecialchars('.$icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
                 echo '</div>';
             }
             // アイコンとユーザー名、年齢を表示
             echo '<div class="nick_name1">',$_SESSION['user']['name'],'(',$_SESSION['user']['age'],')</div>';
             echo '</div>';
+
+            echo '<img src="../image/mach.png" class="mach-image">';
 
             echo '<div class="user-set">';
             if($receiver_profile['gender_id']==='1'){
@@ -104,7 +106,7 @@ if ($receiver_profile) {
                 echo '</div>';
             }
             // アイコンとユーザー名、年齢を表示
-            echo '<div class="nick_name1">',$receiver_profile['u.user_name'],'(',$receiver_profile['p.age'],')</div>';
+            echo '<div class="nick_name1">',$receiver_profile['user_name'],'(',$receiver_profile['age'],')</div>';
             echo '</div>';
         
         echo '</div>';
