@@ -278,6 +278,8 @@ input[type="checkbox"] {
     margin-top: 10px;
 }
 .sub-square {
+    margin-right: 70;
+    margin-left: 70;
     width: 150px;
     height: 150px;
     overflow: hidden;
