@@ -38,7 +38,7 @@ try{
         $sql=$pdo->prepare($img);
         $sql->execute([$id]);
         $result = $sql->fetch();
-        echo var_dump($result);
+        // echo var_dump($result);
         if(!empty($_FILES[$subImg[0]]['name'])&&$_FILES[$subImg[0]]['name']<>$result[0]){
             //登録したいファイルの名前
             $fileName_subA = basename($_FILES[$subImg[0]]['name']);
@@ -202,7 +202,7 @@ try{
             ]);
         }
         // ｾｯｼｮﾝに性別、年齢、アイコン画像を設定
-        $session='select user_id,gender_id,age,icon_image from user,profile where user.user_id=?';
+        $session='select user.user_id,gender_id,age,icon_image from user,profile where user.user_id=?';
         $sql=$pdo->prepare($session);
         $sql->execute([$id]);
         foreach($sql as $row){
@@ -210,7 +210,7 @@ try{
                 'id'=>$row['user_id'],'name'=>$row['user_name'],'gender'=>$row['gender_id'],'age'=>$row['age'],'icon'=>$row['icon_image']
             ];
         }
-        トップへ飛ぶ
+        //トップへ飛ぶ
         echo <<<EOS
             <script>
                 location.href='https://aso2201147.tonkotsu.jp/Friends/profile/profile_up.php';

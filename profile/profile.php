@@ -127,9 +127,9 @@ if ($sub_c_image) {
 
                 echo <<<EOF
                 <div class="icon-section">
-                    <span>アイコン</span>
+                    <span>アイコンの登録</span>
                     <div class="icon-container">
-                        <img id="profileIcon" src="../user_image/main/{$user['icon_image']}">
+                        <img id="profileIcon" src="../user_image/main/{$user['icon_image']}" alt="プロフィールアイコン">
                         <label for="iconInput" class="plus" onclick="uploadIcon()">+</label>
                         <input type="file" id="iconInput" name="icon" accept="image/*" style="display: none;">
                     </div>
@@ -166,7 +166,7 @@ if ($sub_c_image) {
                 </div>
                 <div class="form-group">
                     <label for="selfIntro">自己紹介</label>
-                    <textarea id="selfIntro" name="selfIntro" rows="5" maxlength="500" required>{$user['introduction']}</textarea>
+                    <textarea id="selfIntro" name="selfIntro" rows="5" maxlength="500" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="hobbies">趣味/特技</label>
@@ -174,31 +174,22 @@ if ($sub_c_image) {
 EOF;
                 $hobby = $user['hobby_id'];
                 foreach ($pdo->query('SELECT * FROM hobby ORDER BY hobby_id') as $row) {
-                    if ($hobby == $row['hobby_id']) {
-                        echo '<option value=', $hobby, ' selected>', $row['hobby_name'], '</option>';
-                    } else {
-                        echo '<option value=', $row['hobby_id'], '>', $row['hobby_name'], '</option>';
-                    }
+                    echo '<option value=', $row['hobby_id'], '>', $row['hobby_name'], '</option>';
                 }
                 echo '</select>';
                 echo '</div>';
-                $gender = $user['gender_id'];
                 echo '<div class="select-group">';
                 echo '<label for="gender">性別</label>';
                 echo '<select id="gender" name="gender" required>';
                 foreach ($pdo->query('SELECT * FROM gender ORDER BY gender_id') as $row) {
-                    if ($gender == $row['gender_id']) {
-                        echo '<option value=', $gender, ' selected>', $row['gender_name'], '</option>';
-                    } else {
-                        echo '<option value=', $row['gender_id'], '>', $row['gender_name'], '</option>';
-                    }
+                    echo '<option value=', $row['gender_id'], '>', $row['gender_name'], '</option>';
                 }
                 echo '</select>';
                 echo '</div>';
                 echo <<<EOF
                 <div class="select-group">
                     <label for="age">年齢</label>
-                    <input type="number" id="age" name="age" value="{$user['age']}" min="0" required>
+                    <input type="number" id="age" name="age" min="0" required>
                 </div>
                 <div class="select-group">
                     <label for="bloodType">血液型</label>
@@ -206,11 +197,7 @@ EOF;
 EOF;
                 $bloodType = $user['blood_type_id'];
                 foreach ($pdo->query('SELECT * FROM blood_type ORDER BY blood_type_id') as $row) {
-                    if ($bloodType == $row['blood_type_id']) {
-                        echo '<option value=', $bloodType, ' selected>', $row['blood_type_name'], '</option>';
-                    } else {
-                        echo '<option value=', $row['blood_type_id'], '>', $row['blood_type_name'], '</option>';
-                    }
+                    echo '<option value=', $row['blood_type_id'], '>', $row['blood_type_name'], '</option>';
                 }
                 echo <<<EOF
                    </select>
@@ -221,11 +208,7 @@ EOF;
                 echo '<select id="school" name="school">';
                 $school = $user['school_id'];
                 foreach ($pdo->query('SELECT * FROM school ORDER BY school_id') as $row) {
-                    if ($school == $row['school_id']) {
-                        echo '<option value=', $school, ' selected>', $row['school_name'], '</option>';
-                    } else {
-                        echo '<option value=', $row['school_id'], '>', $row['school_name'], '</option>';
-                    }
+                    echo '<option value=', $row['school_id'], '>', $row['school_name'], '</option>';
                 }
                 echo '</select>
                 </div>
@@ -234,11 +217,7 @@ EOF;
                     echo '<select id="hometown" name="hometown">';
                     $birthPlace = $user['birthplace_id'];
                     foreach ($pdo->query('SELECT * FROM birthplace ORDER BY birthplace_id') as $row) {
-                        if ($birthPlace == $row['birthplace_id']) {
-                            echo '<option value=', $birthPlace, ' selected>', $row['birthplace_name'], '</option>';
-                        } else {
-                            echo '<option value=', $row['birthplace_id'], '>', $row['birthplace_name'], '</option>';
-                        }
+                        echo '<option value=', $row['birthplace_id'], '>', $row['birthplace_name'], '</option>';
                     }
                     echo <<<EOF
                     </select>
@@ -249,38 +228,24 @@ EOF;
                     echo '<select id="residence" name="residence">';
                     $residence = $user['residence_id'];
                     foreach ($pdo->query('SELECT * FROM residence ORDER BY residence_id') as $row) {
-                        if ($residence == $row['residence_id']) {
-                            echo '<option value=', $residence, ' selected>', $row['residence_name'], '</option>';
-                        } else {
-                            echo '<option value=', $row['residence_id'], '>', $row['residence_name'], '</option>';
-                        }
+                        echo '<option value=', $row['residence_id'], '>', $row['residence_name'], '</option>';
                     }
                     echo <<<EOF
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="spendHoliday">休日の過ごし方</label>
-                    <textarea id="message" name="message" rows="4" cols="500" required>{$user['holiday_spend']}</textarea>
+                    <textarea id="message" name="message" rows="4" cols="500" required></textarea>
                 </div>
 EOF;
                 echo '<div class="checkbox-group">';
                 echo '<label>';
-                if ($user['alcohol'] == 0) {
-                    echo '<input type="hidden" name="drinking" value="0">';
-                    echo '<input type="checkbox" name="drinking" value="1" checked>飲酒';
-                } else {
                     echo '<input type="hidden" name="drinking" value="0">';
                     echo '<input type="checkbox" name="drinking" value="1">飲酒';
-                }
                 echo '</label>';
                 echo '<label>';
-                if ($user['smoke'] == 0) {
-                    echo '<input type="hidden" name="smoking" value="0">';
-                    echo '<input type="checkbox" name="smoking" value="1" checked> 喫煙';
-                } else {
                     echo '<input type="hidden" name="smoking" value="0">';
                     echo '<input type="checkbox" name="smoking" value="1">喫煙';
-                }
                 echo '</label>';
                 echo '</div>';
             }
