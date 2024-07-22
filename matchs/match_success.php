@@ -66,12 +66,12 @@ if ($receiver_profile) {
         //     $icon_path = empty($row['icon_image']) ? $default_icon : "../user_image/main/{$row['icon_image']}";
             
             echo '<div class="user-set">';
-            if($user_profile['gender_id']==='1'){
+            if($user_profile['gender_id']=== 1 ){
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue">';
                 echo '<img src="'.$user_icon_path.'" class="mach-user-icon1">';
                 echo '</div>';
-            }else if($user_profile['gender_id']==='2'){
+            }else if($user_profile['gender_id']=== 2 ){
                 // アイコンの枠の色を赤色に
                 echo '<div class="frame-pink">';
                 echo '<img src="'.$user_icon_path.'" class="mach-user-icon1">';
@@ -89,12 +89,12 @@ if ($receiver_profile) {
             echo '<img src="../image/mach.png" class="mach-image">';
 
             echo '<div class="user-set">';
-            if($receiver_profile['gender_id']==='1'){
+            if($receiver_profile['gender_id']=== 1 ){
                 // アイコンの枠の色を青色に
                 echo '<div class="frame-blue">';
                 echo '<img src="'.$receiver_icon_path.'" class="mach-user-icon1">';
                 echo '</div>';
-            }else if($receiver_profile['gender_id']==='2'){
+            }else if($receiver_profile['gender_id']=== 2 ){
                 // アイコンの枠の色を赤色に
                 echo '<div class="frame-pink">';
                 echo '<img src="'.$receiver_icon_path.'" class="mach-user-icon1">';
