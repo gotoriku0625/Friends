@@ -75,7 +75,7 @@ if ($sub_c_image) {
         $stmt->execute();
 
         // ｾｯｼｮﾝに性別、年齢、アイコン画像を設定
-        $session='select user_id,gender_id,age,icon_image from user,profile where user.user_id=?';
+        $session='select user.user_id,gender_id,age,icon_image,user_name,hobby_id from user,profile where user.user_id=?';
         $sql=$pdo->prepare($session);
         $sql->execute([$_SESSION['user']['id']]);
         foreach($sql as $row){
