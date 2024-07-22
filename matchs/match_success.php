@@ -62,8 +62,8 @@ if ($receiver_profile) {
 
 <?php
         echo '<div class="icons-container">';
-        $default_icon = '../user_image/main/1.png';
-            $icon_path = empty($row['icon_image']) ? $default_icon : "../user_image/main/{$row['icon_image']}";
+        // $default_icon = '../user_image/main/1.png';
+        //     $icon_path = empty($row['icon_image']) ? $default_icon : "../user_image/main/{$row['icon_image']}";
             
             echo '<div class="user-set">';
             if($user_profile['gender_id']==='1'){
@@ -102,7 +102,7 @@ if ($receiver_profile) {
             }else{
                 // アイコンの枠の色を灰色に
                 echo '<div class="frame-gray">';
-                echo '<img src="htmlspecialchars('.$receiver_icon_path.', ENT_QUOTES, "UTF-8")" class="mach-user-icon1">';
+                echo '<img src="htmlspecialchars('.$receiver_icon_path.', ENT_QUOTES, "UTF-8")" alt="ログインユーザーアイコン" class="mach-user-icon1">';
                 echo '</div>';
             }
             // アイコンとユーザー名、年齢を表示
