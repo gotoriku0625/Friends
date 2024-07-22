@@ -30,11 +30,10 @@
         if (isset($_SESSION['user']['id'])) {
             $loggedInUserId = $_SESSION['user']['id'];
         
-            // SQLクエリを修正して、自分自身を除外する条件を追加する
             $sql = "SELECT profile.*, user.user_name, gender.gender_name FROM profile
                     JOIN user ON profile.user_id = user.user_id
                     JOIN gender ON profile.gender_id = gender.gender_id
-                    WHERE profile.user_id != :loggedInUserId"; // 自分自身を除外する条件を追加
+                    WHERE profile.user_id != :loggedInUserId";
         
             $params = [':loggedInUserId' => $loggedInUserId];
 
@@ -42,7 +41,9 @@
                 $sql .= " AND user.user_name LIKE :user_name";
                 $params[':user_name'] = '%' . $user_name . '%';
             }
-            if ($age) {
+
+            // 年齢条件
+            if ($age && !in_array('all', $age)) {
                 $ageConditions = [];
                 foreach ($age as $ageGroup) {
                     switch ($ageGroup) {
@@ -77,16 +78,24 @@
                     $sql .= " AND (" . implode(' OR ', $ageConditions) . ")";
                 }
             }
-            if ($gender) {
+
+            // 性別条件
+            if ($gender && !in_array('all', $gender)) {
                 $sql .= " AND profile.gender_id IN (" . implode(',', array_map('intval', $gender)) . ")";
             }
-            if ($residence) {
+
+            // 現住居条件
+            if ($residence && !in_array('all', $residence)) {
                 $sql .= " AND profile.residence_id IN (" . implode(',', array_map('intval', $residence)) . ")";
             }
-            if ($school) {
+
+            // 学校名条件
+            if ($school && !in_array('all', $school)) {
                 $sql .= " AND profile.school_id IN (" . implode(',', array_map('intval', $school)) . ")";
             }
-            if ($hobby) {
+
+            // 趣味条件
+            if ($hobby && !in_array('all', $hobby)) {
                 $sql .= " AND profile.hobby_id IN (" . implode(',', array_map('intval', $hobby)) . ")";
             }
 
@@ -129,6 +138,10 @@
     <?php else: ?>
         <p>検索結果がありません。</p>
     <?php endif; ?>
+
+    <!-- 検索画面へ戻るボタン -->
+    <a href="search.php" class="back-button">検索画面へ戻る</a>
+
 </div>
 
 </body>

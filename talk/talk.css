@@ -48,7 +48,11 @@ ul{
     float: left;/* bms_chat_headerに対して左寄せ */
 }
 .btn{
-    margin: 12px;
+    margin: 7px;
+    border: 1px solid #333;
+    border-radius: 10%;
+    padding: 5px;
+    float: left;
 }
     /* ステータスマーク */
 #bms_status_icon {
@@ -363,7 +367,7 @@ ul{
     visibility: visible; /* 下層メニューを表示 */
   }
   
-  .drop-menu-item a {
+  .drop-menu-item button {
     align-items: center;
     color: #fff;  /*メニューアイテム内のリンクテキストの色*/ 
     display: flex;
