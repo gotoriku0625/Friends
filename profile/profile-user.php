@@ -66,13 +66,13 @@
                 echo '<img id="subImage2" src="' . htmlspecialchars($sub_b_image_path, ENT_QUOTES, 'UTF-8') . '" alt="画像B">';
                 echo '</div>';
                 echo '</div>';
-
+                
                 echo '<div class="sub-image-wrapper">';
                 echo '<div class="sub-square" id="subImageContainer3">';
                 echo '<img id="subImage3" src="' . htmlspecialchars($sub_c_image_path, ENT_QUOTES, 'UTF-8') . '" alt="画像C">';
                 echo '</div>';
                 echo '</div>';
-                echo '</div>'; 
+                echo '</div>';
 
                 // 趣味名の表示
                 echo '<p><span class="label">趣味</span><br></p>';
