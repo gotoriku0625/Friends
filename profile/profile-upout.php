@@ -210,7 +210,7 @@ try{
                 'id'=>$row['user_id'],'name'=>$row['user_name'],'gender'=>$row['gender_id'],'age'=>$row['age'],'icon'=>$row['icon_image']
             ];
         }
-        トップへ飛ぶ
+        //トップへ飛ぶ
         echo <<<EOS
             <script>
                 location.href='https://aso2201147.tonkotsu.jp/Friends/profile/profile_up.php';
