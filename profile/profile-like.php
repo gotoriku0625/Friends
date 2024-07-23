@@ -74,10 +74,9 @@
                     echo '</div>';
                     echo '</div>';
                     echo '</div>'; 
-                // 趣味名の表示
+                    // 趣味名の表示
                     echo '<p><span class="label">趣味</span><br></p>';
                     echo '<p><span class="data-box">' . htmlspecialchars($profile['hobby_name'] ?? '', ENT_QUOTES, 'UTF-8') . '</span></p>';
-                    
                     
                     // その他のプロフィール情報の表示
                     echo '<p><span class="label">自己紹介</span></p>';
@@ -104,7 +103,10 @@
                     echo '<p><span class="label">休日の過ごし方</span></p>';
                     echo '<p><span class="data-box">' . htmlspecialchars($profile['holiday_spend'] ?? '') . '</span></p>';
                     
-                    
+                    echo '<input type="hidden" value="0" name="drinking">';
+                    echo '<input type="checkbox" name="drinking" value="1"' . ($profile['alcohol'] == 1 ? ' checked' : '') . '> 飲酒';
+                    echo '<input type="hidden" value="0" name="smoking">';
+                    echo '<input type="checkbox" name="smoking" value="1"' . ($profile['smoke'] == 1 ? ' checked' : '') . '> 喫煙';
                 } else {
                     echo '<p>プロフィールが見つかりません。</p>';
                 }
