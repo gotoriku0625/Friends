@@ -1,7 +1,7 @@
 .count{
     position:absolute;
-    top: 17%;
-    left: 10%;
+    top: 12%;
+    left: 7%;
 }
 h1{
     color: rgb(151, 255, 220);
@@ -18,50 +18,43 @@ h1{
     padding-left: 50px;
 }
 table {
+    padding-top: 20px;
     width: 78%;
     border-collapse: collapse;
-    table-layout: fixed; /* 固定レイアウトにする */
 }
-
 th, td {
     padding: 8px;
     text-align: left;
     border: 1px solid #ddd;
-    word-wrap: break-word; /* 長い単語を折り返す */
 }
-
-thead th {
+thead {
     background-color: #f2f2f2;
     position: sticky;
     top: 0;
     z-index: 1;
 }
-
 tbody {
     display: block;
     max-height: 200px; /* スクロール領域の高さを指定 */
     overflow-y: auto;
 }
-
 tbody tr {
     display: table;
     table-layout: fixed; /* セルの幅を固定 */
     width: 100%;
 }
-
 thead, tbody tr {
     display: table;
     width: 100%;
     table-layout: fixed; /* セルの幅を固定 */
 }
-
 tbody tr:nth-child(even) {
     background-color: #cccccc; /* 偶数行の背景色を灰色に設定 */
 }
 
 tbody tr:nth-child(odd) {
     background-color: #ffffff; /* 奇数行の背景色を白色に設定 */
-}
+} 
 .tuika,
 .sakujyo{
     border: 2px solid #000; /* ここで枠線を追加 */
@@ -85,13 +78,13 @@ tbody tr:nth-child(odd) {
 
 .tuika{
     position: absolute;
-       top: 23%; /* 親要素の高さの50% */
+       top: 15%; /* 親要素の高さの50% */
        left: 62%; /* 親要素の幅の50% */
 }
 .sakujyo{
     position: absolute;
-    top: 75%; /* 親要素の高さの50% */
-    left: 63%; /* 親要素の幅の50% */
+    top: 80%; /* 親要素の高さの50% */
+    left: 62%; /* 親要素の幅の50% */
 }
 
 form{
