@@ -38,7 +38,7 @@ try{
         $sql=$pdo->prepare($img);
         $sql->execute([$id]);
         $result = $sql->fetch();
-        echo var_dump($result);
+        // echo var_dump($result);
         if(!empty($_FILES[$subImg[0]]['name'])&&$_FILES[$subImg[0]]['name']<>$result[0]){
             //登録したいファイルの名前
             $fileName_subA = basename($_FILES[$subImg[0]]['name']);
@@ -105,7 +105,8 @@ try{
             $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     sub_a_image=?,sub_b_image=?,sub_c_image=?,alcohol=?,smoke=?
-                    where user.user_id=?';
+                    where user.user_id=profile.user_id
+                    and profile.user_id=?';
             $sql=$pdo->prepare($update);
             $sql->execute([
                 $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
@@ -120,7 +121,8 @@ try{
                 $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     sub_a_image=?,sub_b_image=?,alcohol=?,smoke=?
-                    where user.user_id=?';
+                    where user.user_id=profile.user_id
+                    and profile.user_id=?';
                 $sql=$pdo->prepare($update);
                 $sql->execute([
                     $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
@@ -132,7 +134,8 @@ try{
                 $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     sub_a_image=?,sub_c_image=?,alcohol=?,smoke=?
-                    where user.user_id=?';
+                    where user.user_id=profile.user_id
+                    and profile.user_id=?';
                 $sql=$pdo->prepare($update);
                 $sql->execute([
                     $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
@@ -144,7 +147,8 @@ try{
             $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     sub_a_image=?,alcohol=?,smoke=?
-                    where user.user_id=?';
+                    where user.user_id=profile.user_id
+                    and profile.user_id=?';
             $sql=$pdo->prepare($update);
             $sql->execute([
                 $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
@@ -158,7 +162,8 @@ try{
                 $update='update userm,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     sub_b_image=?,sub_c_image=?,alcohol=?,smoke=?
-                    where user.user_id=?';
+                    where user.user_id=profile.user_id
+                    and profile.user_id=?';
                 $sql=$pdo->prepare($update);
                 $sql->execute([
                     $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
@@ -170,7 +175,8 @@ try{
             $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     sub_b_image=?,alcohol=?,smoke=?
-                    where user.user_id=?';
+                    where user.user_id=profile.user_id
+                    and profile.user_id=?';
             $sql=$pdo->prepare($update);
             $sql->execute([
                 $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
@@ -182,7 +188,8 @@ try{
             $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     sub_c_image=?,alcohol=?,smoke=?
-                    where user.user_id=?';
+                    where user.user_id=profile.user_id
+                    and profile.user_id=?';
             $sql=$pdo->prepare($update);
             $sql->execute([
                 $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
@@ -193,7 +200,8 @@ try{
             $update='update user,profile set user_name=?,introduction=?,hobby_id=?,gender_id=?,
                     age=?,blood_type_id=?,school_id=?,birthplace_id=?,residence_id=?,holiday_spend=?,
                     alcohol=?,smoke=?
-                    where user.user_id=?';
+                    where user.user_id=profile.user_id
+                    and profile.user_id=?';
             $sql=$pdo->prepare($update);
             $sql->execute([
                 $_POST['username'],$_POST['selfIntro'],$_POST['category'],$_POST['gender'],$_POST['age'],$_POST['bloodType'],
@@ -202,15 +210,16 @@ try{
             ]);
         }
         // ｾｯｼｮﾝに性別、年齢、アイコン画像を設定
-        $session='select user_id,gender_id,age,icon_image from user,profile where user.user_id=?';
+        $session='select user.user_id,user_name,gender_id,age,icon_image,hobby_id from user,profile where user.user_id = profile.user_id and profile.user_id=?';
         $sql=$pdo->prepare($session);
         $sql->execute([$id]);
         foreach($sql as $row){
             $_SESSION['user']=[
-                'id'=>$row['user_id'],'name'=>$row['user_name'],'gender'=>$row['gender_id'],'age'=>$row['age'],'icon'=>$row['icon_image']
+                'id'=>$row['user_id'],'name'=>$row['user_name'],'gender'=>$row['gender_id'],'age'=>$row['age'],
+                'icon'=>$row['icon_image'],'hobby'=>$row['hobby_id']
             ];
         }
-        トップへ飛ぶ
+        //トップへ飛ぶ
         echo <<<EOS
             <script>
                 location.href='https://aso2201147.tonkotsu.jp/Friends/profile/profile_up.php';

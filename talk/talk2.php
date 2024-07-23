@@ -5,6 +5,7 @@
 </head>
 <?php require './function.php';?>
 <?php
+require '../menu/menu.php';
 // $_SESSION['user1_id']=3;
 // $_SESSION['user2_id']=2;
 $current_user = get_user($_SESSION['user']['id']);// 現在ログインしているユーザー情報
@@ -12,30 +13,31 @@ $reciver = get_user($_POST['reciver_id']);// トーク相手のユーザー情�
 // $reciver = get_user();
 $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取りされるメッセージ情報
 reset_message_count($current_user['user_id'],$reciver['user_id']); 
+$default_icon = '../user_image/main/1.png'; // デフォルトのアイコン画像
+$icon_path = empty($reciver['icon_image']) ? $default_icon : "../user_image/main/{$reciver['icon_image']}";
 ?>
 <body>
-<?php require '../menu/menu.php';?>
     <div id="main" class="main">
         <div id="bms_messages_container">
             <div id="bms_chat_header">
                 <div id="bms_chat_user_status">
                     <button type=”button” onclick="location.href='./talk_top.php'" class="btn">戻る</button>
                     <?php 
-                        if($reciver['gender_id']==='1'){
+                        if($reciver['gender_id']=== 1){
                             // アイコンの枠の色を青色に
                             echo '<div id="bms_status_icon">';
-                                echo '<img src="../user_image/main/'.$reciver['icon_image'].'" class="talk_user_img">';
+                                echo '<img src="'.$icon_path.'" class="talk_user_img">';
                             echo '</div>';
 
-                        }else if($reciver['gender_id']==='2'){
+                        }else if($reciver['gender_id']=== 2){
                             // アイコンの枠の色を赤色に
                             echo '<div id="bms_status_icon">';
-                                echo '<img src="../user_image/main/'.$reciver['icon_image'].'" class="talk_user_img">';
+                                echo '<img src="'.$icon_path.'" class="talk_user_img">';
                             echo '</div>';
                         }else{
                             // アイコンの枠の色を灰色に
                             echo '<div id="bms_status_icon">';
-                                echo '<img src="../user_image/main/'.$reciver['icon_image'].'" class="talk_user_img">';
+                                echo '<img src="'.$icon_path.'" class="talk_user_img">';
                             echo '</div>';
                         }
                     ?>

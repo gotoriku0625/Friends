@@ -37,18 +37,20 @@ require '../menu/menu.php'; // menuはbodyタグの中に絶対に入れるよ�
 
         <!-- プロフィール情報の編集フォーム -->
         <form action="./profile-upout.php" method="post" enctype="multipart/form-data">
+            
             <?php
             $pdo = new PDO($connect, USER, PASS);
             $select = 'SELECT * FROM user, profile WHERE user.user_id = profile.user_id AND profile.user_id = ?';
             $sql = $pdo->prepare($select);
             $user_id = $_SESSION['user']['id'];
-
+            
             if (isset($_SESSION['user']['id'])) {
                 $sql->execute([$user_id]);
                 foreach ($sql as $user) {
                     $default_icon = '../user_image/main/1.png';
                     $icon_path = empty($user['icon_image']) ? $default_icon : "../user_image/main/{$user['icon_image']}";
             ?>
+                
                     <div class="icon-section">
                         <span>アイコン</span>
                         <div class="icon-container">
