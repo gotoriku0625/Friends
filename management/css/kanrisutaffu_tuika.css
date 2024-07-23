@@ -26,6 +26,7 @@ th, td {
     padding: 8px;
     text-align: left;
     border: 1px solid #ddd;
+    word-wrap: break-word; /* 長い単語を折り返す */
 }
 thead {
     background-color: #f2f2f2;
