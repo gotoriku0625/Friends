@@ -15,7 +15,9 @@ $messages = get_talks($current_user['user_id'],$reciver['user_id']);// やり取
 reset_message_count($current_user['user_id'],$reciver['user_id']); 
 $default_icon = '../user_image/main/1.png'; // デフォルトのアイコン画像
 $icon_path = empty($reciver['icon_image']) ? $default_icon : "../user_image/main/{$reciver['icon_image']}";
+$_SESSION['reciver'] = $reciver['user_id'];
 ?>
+
 <body>
     <div id="main" class="main">
         <div id="bms_messages_container">
@@ -69,8 +71,10 @@ $icon_path = empty($reciver['icon_image']) ? $default_icon : "../user_image/main
                                             <div class="sub_window_content">
                                                 <h2 class="title">ブロックしますか？</h2>
                                                 <div class="contents">
-                                                    <form action="../block/block.php" method="post">
-                                                        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>">
+                                                    
+                                                    <form action="../report/report.php" method="post">
+                                                        <!-- <input type="hidden" name="user_id" value="<?$current_user['user_id']?>">
+                                                        <input type="hidden" name="reciver_id" value="<?$reciver['user_id']?>"> -->
                                                         <button type="submit" class="btn-logout" name="check" value="block">はい</button>
                                                     </form>
                                                     <button type="submit" class="btn-logout" onclick="closeSubWindow1()">いいえ</button>
@@ -100,25 +104,12 @@ $icon_path = empty($reciver['icon_image']) ? $default_icon : "../user_image/main
                                                         <label id="report"><input type="radio" class="radio" name="report" value="その他">
                                                         <div class="moji">その他</div></label>
                                                         <div class="area"><textarea class="re_text" type="text" name="re_text" required placeholder="例)裸の写真を要求された"></textarea></div>
-                                                        <!-- <div class="submit"> -->
-                                                        <button type="submit" class="btn-logout">送信</button>
+                                                        <div class="submit">
+                                                        <button type="submit" class="btn-logout" name="check" value="report">送信</button>
                                                     </form>
                                                         <button type="submit" class="btn-logout" onclick="closeSubWindow2()">キャンセル</button>
-                                                        <!-- </div> -->
+                                                        </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
-                                    <div class="bg_sub_window">
-                                    <!-- サブウィンドウの内容 -->
-                                        <div class="sub_window" onclick="event.stopPropagation()">
-                                            <div class="sub_window_content">
-                                                <h2 class="title">通報を受け付けました</h2>
-                                                <div class="content">
-                                                    <span>引き続き、サービスをお楽しみください</span>
-                                                </div>
-                                                <button type="submit" class="btn-logout" onclick="closeSubWindow()">いいえ</butto>
                                             </div>
                                         </div>
                                     </div>

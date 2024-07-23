@@ -36,7 +36,7 @@
                 $default_icon = '../user_image/main/1.png'; // デフォルトのアイコン画像
                 $icon_path = empty($reciver['icon_image']) ? $default_icon : "../user_image/main/{$reciver['icon_image']}";
                 echo '<div class="row">';
-                    echo '<div class="col-5 offset-2">';
+                    echo '<div class="col-5 offset-2 list">';
                     echo '<form method="post" action="talk2.php">';
                     echo '<button class="range" type=submit name="submit">';
                         echo '<div class="reciver_list">';
@@ -78,84 +78,13 @@
                         </div>
                         </button>
                     </form>
-                    <!-- ケバブメニュー(縦に並んでいる黒丸３つのメニュー) -->
-                    <div id="menu">
-                        <nav class="nav-menu">
-                            <div class="menu-item drop-menu">
-                                <a href="#" class="a-all"><span class="dli-more-v"></span></a>
-                                <div class="drop-menu-list">
-                                    <div class="drop-menu-item open_sub_window_wrapper">
-                                        <button class="a-b open_sub_window" onclick="openSubWindow1()">
-                                            <img src="../image/block.png" class="block">ブロック</button>
-                                    </div>
-                                    <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
-                                    <div class="bg_sub_window" onclick="closeSubWindow1()">
-                                    <!-- サブウィンドウの内容 -->
-                                        <div class="sub_window" onclick="event.stopPropagation()">
-                                            <div class="sub_window_content">
-                                                <h2 class="title">ブロックしますか？</h2>
-                                                <div class="contents">
-                                                    <form action="./talk2-add.php" method="post">
-                                                        <input type="hidden" name="reciver_id" value="{$reciver['user_id']}">
-                                                        <button type="submit" class="btn-logout" name="check" value="block">はい</button>
-                                                    </form>
-                                                    <button type="submit" class="btn-logout" onclick="closeSubWindow1()">いいえ</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="drop-menu-item">
-                                        <button class="a-t open_sub_window" onclick="openSubWindow2()">
-                                        <img src="../image/report.png" class="report">通報</button>
-                                    </div>
-                                    <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
-                                    <div class="bg_sub1_window" onclick="closeSubWindow2()">
-                                    <!-- サブウィンドウの内容 -->
-                                        <div class="sub_window1" onclick="event.stopPropagation()">
-                                            <div class="sub_window_content1">
-                                                <h2 class="title">通報</h2>
-                                                <div class="contents1">
-                                                    <div class="title">通報内容を選択し、内容を入力してください</div>
-                                                    <form action="./talk2-add.php" method="post">
-                                                        <input type="hidden" name="reciver_id" value="{$reciver['user_id']}">
-                                                        <input type="hidden" name="user_id" value="{$current_user['user_id']}">
-                                                        <label id="report"><input type="radio" class="radio" name="report" value="性的嫌がらせ">
-                                                        <div class="moji">性的嫌がらせ</div></label>
-                                                        <label id="report"><input type="radio" class="radio" name="report" value="迷惑行為">
-                                                        <div class="moji">迷惑行為</div></label>
-                                                        <label id="report"><input type="radio" class="radio" name="report" value="その他">
-                                                        <div class="moji">その他</div></label>
-                                                        <div class="area"><textarea class="re_text" type="text" name="re_text" required placeholder="例)裸の写真を要求された"></textarea></div>
-                                                        <button type="submit" class="btn-logout">送信</button>
-                                                    </form>
-                                                        <button type="submit" class="btn-logout" onclick="closeSubWindow2()">キャンセル</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- サブウィンドウの背景（クリックでサブウィンドウを閉じる） -->
-                                    <div class="bg_sub_window">
-                                    <!-- サブウィンドウの内容 -->
-                                        <div class="sub_window" onclick="event.stopPropagation()">
-                                            <div class="sub_window_content">
-                                                <h2 class="title">通報を受け付けました</h2>
-                                                <div class="content">
-                                                    <span>引き続き、サービスをお楽しみください</span>
-                                                </div>
-                                                <button type="submit" class="btn-logout" onclick="closeSubWindow()">いいえ</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
                 </div>
             </div>
             EOF;
             }
         }
     }?>
+    <div class="blank"></div>
 </div>
 </body>
 <!-- 表示するメッセージを制限する -->
