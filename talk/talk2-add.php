@@ -4,8 +4,11 @@
 <!-- <script type="module" src="./script.js"></script> -->
 <?php
 try{
+    // トーク内容の取得
     $talk_text=$_POST['text'];
+    // ログインしているユーザーのidの取得
     $user_id=$_SESSION['user']['id'];
+    // やり取りしている相手のidの取得
     $reciver_id=$_POST['reciver_id'];
 
     $talk_text=htmlspecialchars($talk_text,ENT_QUOTES,'UTF-8');
@@ -31,28 +34,8 @@ try{
     
     // 相手に送ったメッセージの件数を追加する
     insert_message_count($user_id,$reciver_id);
-    // ブロックしたかどうかの判定
-    if(isset($_POST['check'])&&$_POST['check']==="block"){
-        $check='select * from block where blocker_id=? and blocked_id=?';
-        $sql=$pdo->prepare($block);
-        $sql->execute([$user_id,$reciver_id]);
-        $result=$sql->fetch();
-        // 既にブロックしているかどうかを確認する
-        if(!empty($result)){
-            $block='insert into block values(null,?,?)';
-            $sql=$pdo->prepare($block);
-            $sql->execute([$user_id,$reciver_id]);
-        }
-    }
-    // 通報したかどうかの判定
-    if(isset($_POST['check'])&&$_POST['check']==="report"){
-        $report='insert into report values (null,?,?,?,?)';
-        $sql=$pdo->prepare($report);
-        $sql->execute(array($_SESSION['user']['id'],$_POST['reciver_id'],$_POST['report'],$_POST['re_text']));
-        $block='insert into block values(null,?,?)';
-        $sql=$pdo->prepare($block);
-        $sql->execute([$user_id,$reciver_id]);
-    }
+    
+    // 自動でフォームを送信する
     echo '<form name="add" action="./talk2.php" method="post">';
         echo '<input type="hidden" name="reciver_id" value="'.$reciver_id.'">';
         echo '<SCRIPT language="JavaScript">document.add.submit();</SCRIPT>';

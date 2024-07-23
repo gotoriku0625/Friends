@@ -12,9 +12,11 @@ try{
         $sub = 'user_image/sub/';
 
         $subImg = array("subImage1", "subImage2", "subImage3");
-
+        // echo var_dump($_FILES);
+        // echo var_dump($_SESSION);
+        
         // アイコンをサーバーのフォルダに送信
-        if(!empty($_FILES['icon']['name'])&&$_SESSION['user']['icon']<>$_FILES['icon']['name']){
+        if(!empty($_FILES['icon']['name'])&&($_SESSION['user']['icon']<>$_FILES['icon']['name'])){
             $fileName_main = basename($_FILES['icon']['name']);//登録したいファイルの名前
             $path = $main . $fileName_main;//二つをドッキング
             $fileType_main = pathinfo($path,PATHINFO_EXTENSION);
@@ -28,10 +30,11 @@ try{
                     }
                 }
             }
+            echo var_dump($fileName_main);
             $update='update profile set icon_image=? where user_id=?';
             $sql=$pdo->prepare($update);
             $sql->execute([
-                $_POST['icon'],$id
+                $_FILES['icon']['name'],$id
             ]);
         }
         $img='select sub_a_image,sub_b_image,sub_c_image from profile where user_id=?';
