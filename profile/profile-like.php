@@ -103,10 +103,13 @@
                     echo '<p><span class="label">休日の過ごし方</span></p>';
                     echo '<p><span class="data-box">' . htmlspecialchars($profile['holiday_spend'] ?? '') . '</span></p>';
                     
-                    echo '<input type="hidden" value="0" name="drinking">';
-                    echo '<input type="checkbox" name="drinking" value="1"' . ($profile['alcohol'] == 1 ? ' checked' : '') . '> 飲酒';
-                    echo '<input type="hidden" value="0" name="smoking">';
-                    echo '<input type="checkbox" name="smoking" value="1"' . ($profile['smoke'] == 1 ? ' checked' : '') . '> 喫煙';
+                    // 飲酒と喫煙の表示
+                    echo '<p><span class="label">飲酒</span></p>';
+                    echo '<p><span class="data-box">' . ($profile['alcohol'] == 1 ? 'する' : 'しない') . '</span></p>';
+
+                    echo '<p><span class="label">喫煙</span></p>';
+                    echo '<p><span class="data-box">' . ($profile['smoke'] == 1 ? 'する' : 'しない') . '</span></p>';
+                                            
                 } else {
                     echo '<p>プロフィールが見つかりません。</p>';
                 }
