@@ -103,6 +103,13 @@
                 echo '<p><span class="label">休日の過ごし方</span></p>';
                 echo '<p><span class="data-box">' . htmlspecialchars($profile['holiday_spend'] ?? '') . '</span></p>';
 
+                 // 飲酒と喫煙の表示
+                 echo '<p><span class="label">飲酒</span></p>';
+                 echo '<p><span class="data-box">' . ($profile['alcohol'] == 1 ? 'する' : 'しない') . '</span></p>';
+
+                 echo '<p><span class="label">喫煙</span></p>';
+                 echo '<p><span class="data-box">' . ($profile['smoke'] == 1 ? 'する' : 'しない') . '</span></p>';
+
                 // いいねボタンの表示（フォーム形式）
                 echo '<div class="like-section">';
                 echo '<form action="../likes/Like.php" method="post">';
