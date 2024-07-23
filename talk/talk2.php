@@ -105,7 +105,7 @@ $_SESSION['reciver'] = $reciver['user_id'];
                                                         <div class="moji">その他</div></label>
                                                         <div class="area"><textarea class="re_text" type="text" name="re_text" required placeholder="例)裸の写真を要求された"></textarea></div>
                                                         <div class="submit">
-                                                        <button type="submit" class="btn-logout" name="check" value="">送信</button>
+                                                        <button type="submit" class="btn-logout" name="check" value="report">送信</button>
                                                     </form>
                                                         <button type="submit" class="btn-logout" onclick="closeSubWindow2()">キャンセル</button>
                                                         </div>

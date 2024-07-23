@@ -20,15 +20,15 @@ hr{
 }
 .row{
     position: relative;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
     /* z-index: 1; */
 }
 .reciver_list{
     position: relative;
     display: flex;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px;
     margin-left: 50px;
-    margin-top: 100px;
+    margin-top: 100px; */
 }
 .reciver_namea_age{
     font-size: 25px;
@@ -45,7 +45,10 @@ hr{
     font-family: mameron;
 }
 .range{
-  height:50px;
+  height: 80px;
+  width: 100%;
+  margin-left: 50px;
+  margin-top: 80px;
 }
 .reciver_text{
     font-size: 20px;
@@ -92,9 +95,7 @@ hr{
     border-radius: 50%;
     z-index: 1;
 }
-.blank{
-  margin-bottom: 10px;
-}
+
 /* サブウィンドウcss */
 /* サブウィンドウを開くボタンの親要素のスタイル */
 .open_sub_window_wrapper {
