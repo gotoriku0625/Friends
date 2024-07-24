@@ -48,7 +48,7 @@ body{
 
 
 .circle_width_man {
-    width: 106.3px;
+    width: 106.px;
     border: 4px solid #613dffbb;
     border-radius: 50%;
     z-index: 1;
@@ -61,7 +61,7 @@ body{
     }
 
 .circle_width_woman {
-    width: 106.3px;
+    width: 106.px;
     border: 4px solid #ff5691be;
     border-radius: 50%;
     }
@@ -74,7 +74,7 @@ body{
     }
 
 .circle_width_others {
-    width: 106.3px;
+    width: 106.px;
     border: 4px solid #626262bf;
     border-radius: 50%;
     }
