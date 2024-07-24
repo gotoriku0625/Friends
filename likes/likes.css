@@ -50,6 +50,10 @@
     margin-left: -20px;
     margin-right: 70px;
 }
+.actions_bat button {
+    margin-right: 20px;
+    
+}
 
 .div.likename{
     font-size: 20px;

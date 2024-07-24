@@ -64,7 +64,7 @@ $stmt_liked_by->closeCursor();
                         <div class="nick_name2">
                             <?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?> (<?php echo htmlspecialchars($user['age'], ENT_QUOTES, 'UTF-8'); ?>)
                         </div>
-                        <div class="actions">
+                        <div class="actions_bat">
                             <form action="../likes/unlike.php" method="post">
                                 <input type="hidden" name="liked_user_id" value="<?php echo $user['user_id']; ?>">
                                 <button type="submit" class="unlike"><img src="../image/bat.png" class="bat"></button>

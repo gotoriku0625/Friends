@@ -36,7 +36,7 @@
                 $default_icon = '../user_image/main/1.png'; // デフォルトのアイコン画像
                 $icon_path = empty($reciver['icon_image']) ? $default_icon : "../user_image/main/{$reciver['icon_image']}";
                 echo '<div class="row">';
-                    echo '<div class="col-5 offset-2">';
+                    echo '<div class="col-5 offset-2 list">';
                     echo '<form method="post" action="talk2.php">';
                     echo '<button class="range" type=submit name="submit">';
                         echo '<div class="reciver_list">';
@@ -84,6 +84,7 @@
             }
         }
     }?>
+    <div class="blank"></div>
 </div>
 </body>
 <!-- 表示するメッセージを制限する -->
